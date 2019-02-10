@@ -13,6 +13,7 @@ export default class App extends React.Component {
         <View style={styles.RectangleShapeViewThree} />
         <Text style = {styles.subheader}>sign up now!</Text>
         <View style={styles.RectangleShapeViewBottom} />
+        <Text style = {styles.minitext}>Have an account? Login</Text>
       </View>
     );
   }
@@ -53,6 +54,20 @@ const styles = StyleSheet.create({
     left: 130, 
     position: 'absolute',
   },
+  minitext: {
+    fontSize: 24,
+    color:  '#fff',
+    marginTop: 80,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Arial',
+    fontWeight: '200',
+    width: 226,
+    height: 52,
+    top: 620,
+    left: 126, 
+    position: 'absolute',
+  },
   RectangleShapeViewOne: {
     marginTop: 5,
     width: 259,
@@ -90,7 +105,7 @@ const styles = StyleSheet.create({
     top: 675,
     left: 0,
     borderRadius: 2,
-    backgroundColor: '#c4c4c4',
+    backgroundColor: 'rgba(196, 196, 196, 0.46)',
     position: 'absolute',
     },
 });

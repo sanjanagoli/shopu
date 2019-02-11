@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
     },
     viewToolbarBackground: {
-    height: 70,
+    height: 65,
     backgroundColor: '#ffffff',
     position: 'absolute',
     bottom: 0,
@@ -30,21 +30,21 @@ const styles = StyleSheet.create({
     },
     viewToolbarCart: {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
+    bottom: 12.5,
+    right: 42.5,
+    left: 82.5,
     },
     viewToolbarHome: {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
+    bottom: 12.5,
+    right: 207.5,
+    left: 167.5,
     },
     viewToolbarPerson: {
     position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
+    bottom: 12.5,
+    right: 332.5,
+    left: 292.5,
     }
 });
     

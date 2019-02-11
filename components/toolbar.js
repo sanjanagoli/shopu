@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, ScrollView, Image } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default class App extends React.Component {
   render() {
@@ -17,34 +17,34 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#000',
+      flex: 1,
+      backgroundColor: '#000',
     },
     viewToolbarBackground: {
-    height: 65,
-    backgroundColor: '#ffffff',
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    left: 0,
+      height: 65,
+      backgroundColor: '#ffffff',
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      left: 0,
     },
     viewToolbarCart: {
-    position: 'absolute',
-    bottom: 12.5,
-    right: 42.5,
-    left: 82.5,
+      position: 'absolute',
+      bottom: 12.5,
+      right: 42.5,
+      left: 82.5,
     },
     viewToolbarHome: {
-    position: 'absolute',
-    bottom: 12.5,
-    right: 207.5,
-    left: 167.5,
+      position: 'absolute',
+      bottom: 12.5,
+      right: 207.5,
+      left: 167.5,
     },
     viewToolbarPerson: {
-    position: 'absolute',
-    bottom: 12.5,
-    right: 332.5,
-    left: 292.5,
+      position: 'absolute',
+      bottom: 12.5,
+      right: 332.5,
+      left: 292.5,
     }
 });
     

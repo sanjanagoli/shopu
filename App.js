@@ -5,7 +5,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.bigShopUHeader}> Let's shopU! </Text>
+        <Text style={styles.bigShopUHeader}> Let{ `'` }s shopU! </Text>
         <Text style={styles.searchForProducts}> Search for a Product </Text>
         <View style={styles.searchBox}></View>
         <Image source={require('./images/search_icon.png')} style={styles.searchIconStyle} />
@@ -15,7 +15,6 @@ export default class App extends React.Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -66,12 +65,4 @@ const styles = StyleSheet.create({
     bottom: 120,
     left: 110,
   },
-  
-
-  
-
-
-
-
-
 });

@@ -8,7 +8,6 @@ export default class App extends React.Component {
         <Text style={styles.bigShopUHeader}> Let's shopU! </Text>
         <Text style={styles.searchForProducts}> Search for a Product </Text>
         <View style={styles.searchBox}></View>
-
       </View>
     );
   }

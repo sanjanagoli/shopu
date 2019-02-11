@@ -5,8 +5,8 @@ export default class App extends React.Component {
   render() {
     return (
         <View> 
-            <View style={styles.viewNavigation} >
-                <Text style={styles.navigation}>Now playing...</Text>
+            <View style={styles.viewToolbar} >
+                
             </View>
         </View> 
           );
@@ -18,9 +18,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#000',
     },
-    viewNavigation: {
+    viewToolbar: {
     height: 70,
-    backgroundColor: '#a9a9a9',
+    backgroundColor: '#ffffff',
     position: 'absolute',
     bottom: 0,
     right: 0,

@@ -8,6 +8,7 @@ export default class App extends React.Component {
         <Text style={styles.bigShopUHeader}> Let's shopU! </Text>
         <Text style={styles.searchForProducts}> Search for a Product </Text>
         <View style={styles.searchBox}></View>
+
       </View>
     );
   }
@@ -44,9 +45,11 @@ const styles = StyleSheet.create({
     width: 300,
     height: 55,
     bottom: 75,
+  },
+  
 
 
-  }
+
 
 
 });

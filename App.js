@@ -23,10 +23,10 @@ export default class App extends React.Component {
             <View style={styles.topBanner} />
             <Text style={styles.loginText}>Login</Text>
             <View style={styles.loginBox} />
-            <Text style={styles.subText1}>Username</Text>
-            <View style={styles.typingLine1} />
-            <Text style={styles.subText2}>Password</Text>
-            <View style={styles.typingLine2} />
+            <Text style={styles.usernameText}>Username</Text>
+            <View style={styles.usernameLine} />
+            <Text style={styles.passwordText}>Password</Text>
+            <View style={styles.passwordLine} />
             <View style={styles.submitButton} />
             <Text style={styles.submitText}>Submit!</Text>
             <Text style={styles.forgotText}>Forgot Password?</Text>
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
   },
-  subText1: {
+  usernameText: {
     fontSize: 40,
     fontWeight: '200',
     color: '#605DF1',
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     top: 267,
     textAlign: 'center'
   },
-  typingLine1: {
+  usernameLine: {
     flexDirection: 'row',
     position: 'absolute',
     backgroundColor: '#6DC4E0',
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     left: 50,
     top: 361
   },
-  subText2: {
+  passwordText: {
     fontSize: 40,
     fontWeight: '200',
     color: '#605DF1',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     top: 428,
     textAlign: 'center'
   },
-  typingLine2: {
+  passwordLine: {
     flexDirection: 'row',
     position: 'absolute',
     backgroundColor: '#6DC4E0',

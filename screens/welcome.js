@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 export default class App extends React.Component {
@@ -14,12 +13,12 @@ export default class App extends React.Component {
         <Text style = {styles.subheader}>sign up now!</Text>
         <View style={styles.RectangleShapeViewBottom} />
         <Text style = {styles.minitext}>Have an account? Login</Text>
+        <Image source ={require('./images/shopcart.png')} style={styles.ShoppingCart} />
+        <Image source ={require('./images/right-arrow.png')} style={styles.Arrow} />
       </View>
     );
   }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -41,17 +40,17 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   subheader: {
-    fontSize: 65,
+    fontSize: 70,
     color:  '#fff',
     marginTop: 80,
     marginBottom: 5, 
     textAlign: 'left',
     fontFamily: 'Arial',
-    fontWeight: '200',
+    fontWeight: '100',
     width: 235,
     height: 136,
     top: 270,
-    left: 130, 
+    left: 115, 
     position: 'absolute',
   },
   minitext: {
@@ -106,6 +105,22 @@ const styles = StyleSheet.create({
     left: 0,
     borderRadius: 2,
     backgroundColor: 'rgba(196, 196, 196, 0.46)',
+    position: 'absolute',
+    },
+  ShoppingCart: {
+    marginTop: 5,
+    height: 60,
+    width: 60,
+    top: 412,
+    left: 240,
+    position: 'absolute',
+    },
+  Arrow: {
+    marginTop: 5,
+    height: 30,
+    width: 30,
+    top: 693,
+    left: 350,
     position: 'absolute',
     },
 });

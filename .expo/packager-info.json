@@ -2,15 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-<<<<<<< HEAD
-  "packagerPid": 41045,
-  "expoServerNgrokUrl": "https://87-vmk.anonymous.shopu.exp.direct",
-  "packagerNgrokUrl": "https://packager.87-vmk.anonymous.shopu.exp.direct",
-  "ngrokPid": 41065
-=======
   "packagerPid": 26008,
   "expoServerNgrokUrl": "https://7t-z4x.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.7t-z4x.anonymous.shopu.exp.direct",
   "ngrokPid": 26025
->>>>>>> beginning work on shapes and text for welcome screen
 }

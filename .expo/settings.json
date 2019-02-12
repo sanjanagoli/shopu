@@ -3,9 +3,5 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-<<<<<<< HEAD
-  "urlRandomness": "87-vmk"
-=======
   "urlRandomness": "7t-z4x"
->>>>>>> beginning work on shapes and text for welcome screen
 }

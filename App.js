@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default class App extends React.Component {
 <<<<<<< HEAD
+<<<<<<< HEAD
   render() {
     return (
       <View style={styles.container}>
@@ -13,6 +14,8 @@ export default class App extends React.Component {
     );
   }
 =======
+=======
+>>>>>>> Reverting the App.js back to what it was originally
   render() {
     return (
       <View style={styles.container}>
@@ -128,4 +131,27 @@ const styles = StyleSheet.create({
     position: 'absolute',
     },
 });
+<<<<<<< HEAD
 >>>>>>> beginning work on shapes and text for welcome screen
+=======
+
+=======
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>Open up App.js to start working on your app!</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
+>>>>>>> Reverting the App.js back to what it was originally
+>>>>>>> Reverting the App.js back to what it was originally

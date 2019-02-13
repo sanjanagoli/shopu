@@ -3,7 +3,7 @@ import { StyleSheet, Text, View} from 'react-native';
 import { Font } from 'expo';
 
 
-export default class App extends React.Component {
+export default class Login extends React.Component {
   state = {
     fontLoaded: false,
   };

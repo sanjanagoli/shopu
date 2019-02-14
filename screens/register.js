@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions} from 'react-native';
 
-export default class App extends React.Component {
+export default class Register extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -23,16 +23,11 @@ export default class App extends React.Component {
             <View style={styles.lineStyle}/>
           </View>
         </View>
-        
-         
          <View style={styles.purpleBox}/>
          <View style={styles.blueBox}/>
          <Text style={styles.header}>Register Now</Text>
-
          <View style={styles.submitButton}/>
          <Text style={styles.submitText}>Submit!</Text>
-
-
       </View>
     );
   }
@@ -90,7 +85,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     left: 40,
   },
-
   submitButton: {
       position:'absolute',
       width: 240,
@@ -100,7 +94,6 @@ const styles = StyleSheet.create({
       marginLeft:30,
       marginRight:30,
       backgroundColor:'#FF715B',
-      
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,
@@ -108,11 +101,7 @@ const styles = StyleSheet.create({
       },
       shadowRadius: 5,
       shadowOpacity: 1.0
-      
-     
-
   },
-
   submitText: {
     position: 'absolute',
     alignItems: 'center',
@@ -125,5 +114,4 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: 'bold',
   }
-
 });

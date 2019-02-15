@@ -13,12 +13,12 @@ export default class App extends React.Component {
         <Text style = {styles.Q_one}>Where are you going?</Text>
         <Text style = {styles.Q_two}>Drop-Off Locations?</Text>
         <Text style = {styles.Lets_go}>Let's Go!</Text>
-        <Image source ={require('./images/shopping-cart.png')} style={styles.ShoppingCart} />
-        <Image source ={require('./images/person.png')} style={styles.person} />
+        <Image source ={require('./assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
+        <Image source ={require('./assets/images/person.png')} style={styles.person} />
         <View style = {styles.lineStyle_one} />
         <View style = {styles.lineStyle_two} />
-        <Image source ={require('./images/Vector.png')} style={styles.vector_one} />
-        <Image source ={require('./images/Vector.png')} style={styles.vector_two} />
+        <Image source ={require('./assets/images/Vector.png')} style={styles.vector_one} />
+        <Image source ={require('./assets/images/Vector.png')} style={styles.vector_two} />
       </View>
     );
   }

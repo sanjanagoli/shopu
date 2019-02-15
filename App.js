@@ -18,6 +18,7 @@ export default class App extends React.Component {
         <View style = {styles.lineStyle_one} />
         <View style = {styles.lineStyle_two} />
         <Image source ={require('./images/Vector.png')} style={styles.vector_one} />
+        <Image source ={require('./images/Vector.png')} style={styles.vector_two} />
       </View>
     );
   }
@@ -180,10 +181,17 @@ vector_one: {
   marginTop: 0,
   height: 20,
   width: 20,
-  top: '46%',
+  top: '49%',
   left: '80%',
-  bottom: '51.9%',
   position: 'absolute',
 },
-
+vector_two: {
+  marginTop: 0,
+  height: 20,
+  width: 20,
+  top: '64%',
+  left: '80%',
+  position: 'absolute',
+ 
+},
 });

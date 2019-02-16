@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 20716,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "packagerPid": 23555,
+  "expoServerNgrokUrl": "https://pr-kwm.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.pr-kwm.anonymous.shopu.exp.direct",
+  "ngrokPid": 23583
 }

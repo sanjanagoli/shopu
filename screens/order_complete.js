@@ -1,37 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
-import { Font } from 'expo';
 
 export default class Completed extends React.Component {
-    state = {
-      fontLoaded: false,
-    };
-    async componentDidMount() {
-      await Font.loadAsync({
-        'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.otf'),
-        'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.otf'),
-      });
-      this.setState({ fontLoaded: true });
-    }
-
+  
     render() {
       return (
-        <View>
-        {
-          this.state.fontLoaded ? (
-            <View style={styles.container}>
-              <Image source ={require('./images/scart.png')} style={styles.cart} />
-              <Image source ={require('./images/personicon.png')} style={styles.person} />
-              <View style={styles.peachBox}/>
-              <Text style={styles.header}>Your order has been placed!</Text>
-              <View style={styles.purpleBox}/>
-              <Text style={styles.subHeader}>Next Steps:</Text>
-              <Text style={styles.paragraph1}>Look for Notifications about your delivery on the Home Page</Text>
-              <Text style={styles.paragraph2}>Check your texts and calls for updates</Text>
-              <Text style={styles.paragraph3}>Venmo your deliverer your total once your order is completed!</Text>
-            </View>
-          ) : null
-        }
+         <View style={styles.container}>
+            <Image source ={require('./../assets/images/scart.png')} style={styles.cart} />
+            <Image source ={require('./../assets/images/personicon.png')} style={styles.person} />
+            <View style={styles.peachBox}/>
+            <Text style={styles.header}>Your order has been placed!</Text>
+            <View style={styles.purpleBox}/>
+            <Text style={styles.subHeader}>Next Steps:</Text>
+            <Text style={[styles.paragraphStyle, {top: 288}]}>Look for Notifications about your delivery on the Home Page</Text>
+            <Text style={[styles.paragraphStyle, {top: 380}]}>Check your texts and calls for updates</Text>
+            <Text style={[styles.paragraphStyle, {top: 470}]}>Venmo your deliverer your total once your order is completed!</Text>
         </View>
       );
     }
@@ -47,7 +30,7 @@ const styles = StyleSheet.create({
   peachBox: {
     flex: 1,
     width: Dimensions.get("screen").width,
-    height: 300,
+    height: Dimensions.get("screen").height*.50,
     backgroundColor: '#FF715B',
     position: 'absolute',
     top: 0,
@@ -55,8 +38,8 @@ const styles = StyleSheet.create({
   purpleBox: {
     flex: 1,
     zIndex: 1000,
-    width: 340,
-    height: 370,
+    width: Dimensions.get("screen").width*.91,
+    height: Dimensions.get("screen").height*.55,
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center',
@@ -76,7 +59,8 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   subHeader:{
-    left: 25,
+    width: 340,
+    height: 370,
     zIndex: 10000,
     position: 'absolute',
     fontFamily: 'Montserrat-SemiBold',
@@ -84,20 +68,10 @@ const styles = StyleSheet.create({
     top: 225,
     color: '#FFFFFF',
   },
-  paragraphStyle:{
-    left: 25,
-    position: 'absolute',
-    width: 330,
-    fontFamily: 'Montserrat-Regular',
-    fontSize: 22,
-    top: 280,
-    color: '#FFFFFF',
-    marginBottom: 20,
-  },
   cart:{
+    right: 125,
     position: 'absolute',
     top: 24,
-    left: 10,
     width: 50,
     height: 45,
     zIndex: 10000,
@@ -105,39 +79,17 @@ const styles = StyleSheet.create({
   person:{
     position: 'absolute',
     top: 24,
-    right: 10,
+    left: 120,
     width: 50,
     height: 45,
     zIndex: 10000,
   },
-  paragraph1: {
-    left: 25, 
+  paragraphStyle: {
     zIndex: 100000, 
     position: 'absolute', 
     width: 330, 
     fontFamily: 'Montserrat-Regular', 
     fontSize: 22, 
     color: '#FFFFFF', 
-    top: 280,
   },
-  paragraph2: {
-    left: 25, 
-    zIndex: 100000, 
-    position: 'absolute', 
-    width: 330, 
-    fontFamily: 'Montserrat-Regular', 
-    fontSize: 22, 
-    color: '#FFFFFF', 
-    top: 388,
-  },
-  paragraph3: {
-    left: 25, 
-    zIndex: 100000, 
-    position: 'absolute', 
-    width: 330, 
-    fontFamily: 'Montserrat-Regular', 
-    fontSize: 22, 
-    color: '#FFFFFF', 
-    top: 470,
-  }
 });

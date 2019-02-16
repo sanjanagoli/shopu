@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 
 
-export default class Shopsearchscreen extends React.Component {
+export default class ShopSearchScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>

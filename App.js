@@ -1,7 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import FontLoad from './components/FontLoad';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    this.state = {
+      fontLoaded: false,
+    }
+  }
+
+  componentWillMount = () => {
+    FontLoad.then((res) => {
+      this.setState({ fontLoaded: true });
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>

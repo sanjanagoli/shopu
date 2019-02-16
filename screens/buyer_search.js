@@ -9,10 +9,10 @@ export default class BuyerSearch extends React.Component {
         <View style={styles.rectangleWhite} />
         <View style={styles.rectangleLBlue} />
         <View style={styles.rectangleDBlue} />
-        <Text style = {styles.header}>Let{ `'` }s</Text>
-        <Text style = {styles.headerBottom}>shopU!</Text>
-        <Text style = {styles.QWhere}>Where are you going?</Text>
-        <Text style = {styles.QDropOff}>Drop-Off Locations?</Text>
+          <Text style = {styles.header}>Let{ `'` }s</Text>
+          <Text style = {styles.headerBottom}>shopU!</Text>
+          <Text style = {styles.QWhere}>Where are you going?</Text>
+          <Text style = {styles.QDropOff}>Drop-Off Locations?</Text>
         <Text style = {styles.LetsGo}>Let{ `'` }s Go!</Text>
         <Image source ={require('./../assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
         <Image source ={require('./../assets/images/person.png')} style={styles.person} />

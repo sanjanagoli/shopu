@@ -26,9 +26,9 @@ export default class Completed extends React.Component {
               <Text style={styles.header}>Your order has been placed!</Text>
               <View style={styles.purpleBox}/>
               <Text style={styles.subHeader}>Next Steps:</Text>
-              <Text style={{left: 25, zIndex: 100000, position: 'absolute', width: 330, fontFamily: 'Montserrat-Regular', fontSize: 22, color: '#FFFFFF', top: 280}}>Look for Notifications about your delivery on the Home Page</Text>
-              <Text style={{left: 25, zIndex: 100000, position: 'absolute', width: 330, fontFamily: 'Montserrat-Regular', fontSize: 22, color: '#FFFFFF', top: 388}}>Check your texts and calls for updates</Text>
-              <Text style={{left: 25, zIndex: 100000, position: 'absolute', width: 330, fontFamily: 'Montserrat-Regular', fontSize: 22, color: '#FFFFFF', top: 470}}>Venmo your deliverer your total once your order is completed!</Text>
+              <Text style={styles.paragraph1}>Look for Notifications about your delivery on the Home Page</Text>
+              <Text style={styles.paragraph2}>Check your texts and calls for updates</Text>
+              <Text style={styles.paragraph3}>Venmo your deliverer your total once your order is completed!</Text>
             </View>
           ) : null
         }
@@ -109,5 +109,35 @@ const styles = StyleSheet.create({
     width: 50,
     height: 45,
     zIndex: 10000,
+  },
+  paragraph1: {
+    left: 25, 
+    zIndex: 100000, 
+    position: 'absolute', 
+    width: 330, 
+    fontFamily: 'Montserrat-Regular', 
+    fontSize: 22, 
+    color: '#FFFFFF', 
+    top: 280,
+  },
+  paragraph2: {
+    left: 25, 
+    zIndex: 100000, 
+    position: 'absolute', 
+    width: 330, 
+    fontFamily: 'Montserrat-Regular', 
+    fontSize: 22, 
+    color: '#FFFFFF', 
+    top: 388,
+  },
+  paragraph3: {
+    left: 25, 
+    zIndex: 100000, 
+    position: 'absolute', 
+    width: 330, 
+    fontFamily: 'Montserrat-Regular', 
+    fontSize: 22, 
+    color: '#FFFFFF', 
+    top: 470,
   }
 });

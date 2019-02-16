@@ -4,18 +4,48 @@ import { Font } from 'expo';
 
 const window = Dimensions.get("window")
 
-export default class Login extends React.Component {
+export default class Rating extends React.Component {
   state = {
     fontLoaded: false,
   };
   async componentDidMount() {
     await Font.loadAsync({
-      'Montserrat-Regular': require('/Users/nona/shopu/assets/fonts/Montserrat-Regular.otf'),
-      'Montserrat-Medium': require('/Users/nona/shopu/assets/fonts/Montserrat-Medium.otf'),
-      'Montserrat-SemiBold': require('/Users/nona/shopu/assets/fonts/Montserrat-SemiBold.otf'),
+      'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.otf'),
+      'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.otf'),
+      'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.otf'),
     });
     this.setState({ fontLoaded: true });
   }
+
+  stars = () => {
+    let stars = [
+      {
+        number: 1,
+      },
+      {
+        number: 2,
+      },
+      {
+        number: 3,
+      },
+      {
+        number: 4,
+      },
+      {
+        number: 5,
+      }
+    ]
+    let starMap = stars.map((item) => {
+      return (
+        <View key = {item.number}>
+          <Image style={styles.starIcon}
+              source={require('./images/star.png')} />
+        </View>
+      )
+    })
+    return starMap;
+  }
+
   render() {
     return (
       <View>
@@ -24,15 +54,29 @@ export default class Login extends React.Component {
           <View style={styles.container}>
             <View style={styles.topBanner} />
             <Image style={styles.shoppingCarticon}
-                source={require('/Users/nona/shopu/images/shopping-cart.png')} />
+                source={require('./images/shopping-cart.png')} />
             <Image style={styles.personIcon}
-                source={require('/Users/nona/shopu/images/profile_person.png')} />
+                source={require('./images/profile_person.png')} />
             <Text style={styles.thankYouforText}>Thank U for</Text>
             <Text style={styles.usingText}>using</Text>
             <Text style={styles.shopuText}>shopU!</Text>
             <View style={styles.ratingBox} />
-            <Image style={styles.ratingIcons}
-                source={require('/Users/nona/shopu/images/rating_group.png')} />
+            <Text style={styles.delivererText}>Deliverer:</Text>
+            <View style={{width: 300, flexDirection: 'row', marginTop: 800, marginLeft: 185}}>
+              {this.stars()}
+              </View>
+            <Text style={styles.timingText}>Timing:</Text>
+            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
+              {this.stars()}
+              </View>
+            <Text style={styles.productText}>Product Accuracy:</Text>
+            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
+              {this.stars()}
+              </View>
+            <Text style={styles.easeText}>Ease:</Text>
+            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
+              {this.stars()}
+              </View>
             <View style={styles.rotatedBox} />
             <View style={styles.deliveryBox} />
             <Text style={styles.deliveryText}>Rate Your Delivery!</Text>
@@ -117,12 +161,50 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 5,
   },
-  ratingIcons: {
-    width: 331,
-    height: 202,
+  delivererText: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+    color: '#605DF1',
     position: 'absolute',
-    top: 325,
-    left: 20
+    width: 102,
+    height: 25,
+    left: 23,
+    top: 305,
+  },
+  timingText: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+    color: '#605DF1',
+    position: 'absolute',
+    width: 102,
+    height: 28,
+    left: 23,
+    top: 375,
+  },
+  productText: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+    color: '#605DF1',
+    position: 'absolute',
+    width: 105,
+    height: 60,
+    left: 23,
+    top: 425,
+  },
+  easeText: {
+    fontSize: 20,
+    fontFamily: 'Montserrat-Regular',
+    color: '#605DF1',
+    position: 'absolute',
+    width: 105,
+    height: 30,
+    left: 23,
+    top: 510,
+  },
+  starIcon: {
+    width: 35,
+    height: 35,
+    marginHorizontal: 4
   },
   rotatedBox: {
     flexDirection: 'row',

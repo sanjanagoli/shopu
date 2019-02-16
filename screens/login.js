@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Dimensions} from 'react-native';
 import { Font } from 'expo';
 
+const window = Dimensions.get("window")
 
 export default class Login extends React.Component {
 
@@ -29,27 +30,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    fontFamily: 'Montserrat-Regular',
   },
   topBanner: {
     flexDirection: 'row',
-    width: 400,
+    width: window.width,
     height: 300,
     backgroundColor: '#FF715B',
     position: 'absolute',
-    left: 0,
-    top: -2
+    top: 0
   },
   loginText: {
     fontSize: 80,
-    fontFamily: 'Montserrat-Medium',
-    fontWeight: '300',
+    fontFamily: 'Montserrat-SemiBold',
     color: '#fff',
     position: 'absolute',
     width: 347,
     height: 170,
     left: 13,
-    top: 115,
+    top: 100,
     textAlign: 'center'
   },
   loginBox: {
@@ -60,7 +58,6 @@ const styles = StyleSheet.create({
     height: 370,
     left: 14,
     top: 250,
-    borderRadius: 25,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
@@ -68,7 +65,7 @@ const styles = StyleSheet.create({
   },
   usernameText: {
     fontSize: 40,
-    fontWeight: '200',
+    fontFamily: 'Montserrat-Regular',
     color: '#605DF1',
     position: 'absolute',
     width: 310,
@@ -88,7 +85,7 @@ const styles = StyleSheet.create({
   },
   passwordText: {
     fontSize: 40,
-    fontWeight: '200',
+    fontFamily: 'Montserrat-Regular',
     color: '#605DF1',
     position: 'absolute',
     width: 310,
@@ -113,17 +110,25 @@ const styles = StyleSheet.create({
     width: 261,
     height: 77,
     left: 57,
-    top: 580,
-    borderRadius: 50,
+    top: 580
+  },
+  rotatedBox: {
+    flexDirection: 'row',
+    backgroundColor: '#6DC4E0',
+    position: 'absolute',
+    width: 250,
+    height: 91,
+    left: 65,
+    top: 570,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    transform: ([{rotate: '3.94deg'}]),
   },
   submitText: {
     fontSize: 36,
-    fontFamily: 'Montserrat-Medium',
-    fontWeight: '200',
+    fontFamily: 'Montserrat-SemiBold',
     color: '#fff',
     position: 'absolute',
     width: 189,
@@ -134,7 +139,7 @@ const styles = StyleSheet.create({
   },
   forgotText: {
     fontSize: 22,
-    fontWeight: '200',
+    fontFamily: 'Montserrat-Medium',
     color: '#6DC4E0',
     position: 'absolute',
     width: 310,

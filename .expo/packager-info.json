@@ -3,14 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-<<<<<<< HEAD
-  "expoServerNgrokUrl": "https://y5-fey.anonymous.shopu.exp.direct",
-  "packagerNgrokUrl": "https://packager.y5-fey.anonymous.shopu.exp.direct",
-  "ngrokPid": 55179
-}
-=======
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
   "ngrokPid": null
 }
->>>>>>> 8992b16bbc3ba59bf498f43d20593fe7ae4ca934

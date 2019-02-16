@@ -10,9 +10,9 @@ export default class Login extends React.Component {
   };
   async componentDidMount() {
     await Font.loadAsync({
-      'Montserrat-Regular': require('./../assets/fonts/Montserrat-Regular.otf'),
-      'Montserrat-Medium': require('./../assets/fonts/Montserrat-Medium.otf'),
-      'Montserrat-SemiBold': require('./../assets/fonts/Montserrat-SemiBold.otf'),
+      'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.otf'),
+      'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.otf'),
+      'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.otf'),
     });
     this.setState({ fontLoaded: true });
   }

@@ -9,7 +9,8 @@ export default class BuyerSearch extends React.Component {
         <View style={styles.rectangleWhite} />
         <View style={styles.rectangleLBlue} />
         <View style={styles.rectangleDBlue} />
-        <Text style = {styles.header}>Let's{"\n"}shopU!</Text>
+        <Text style = {styles.header}>Let{ `'` }s</Text>
+        <Text style = {styles.headerBottom}>shopU!</Text>
         <Text style = {styles.QWhere}>Where are you going?</Text>
         <Text style = {styles.QDropOff}>Drop-Off Locations?</Text>
         <Text style = {styles.LetsGo}>Let{ `'` }s Go!</Text>
@@ -96,6 +97,19 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 30,
+    position: 'absolute',
+  },
+  headerBottom: {
+    fontSize: 70,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'center',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 120,
     position: 'absolute',
   },
   QWhere: {

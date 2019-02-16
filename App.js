@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import BuyerSearch from './screens/buyer_search';
 import FontLoad from './components/FontLoad';
 
 export default class App extends React.Component {
@@ -22,7 +21,7 @@ export default class App extends React.Component {
     return (
       this.state.fontLoaded ? (
         <View style={styles.container}>
-          <BuyerSearch/>
+          <Text>Open up App.js to start working on your app!</Text>
         </View>
     ) : null
     )

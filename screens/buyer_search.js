@@ -1,24 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 
-export default class App extends React.Component {
+export default class buyer_search extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.rectangle_orange} />
-        <View style={styles.rectangle_white} />
-        <View style={styles.rectangle_LBlue} />
-        <View style={styles.rectangle_DBlue} />
+        <View style={styles.rectangleOrange} />
+        <View style={styles.rectangleWhite} />
+        <View style={styles.rectangleLBlue} />
+        <View style={styles.rectangleDBlue} />
         <Text style = {styles.header}>Let's{"\n"}shopU!</Text>
-        <Text style = {styles.Q_one}>Where are you going?</Text>
-        <Text style = {styles.Q_two}>Drop-Off Locations?</Text>
-        <Text style = {styles.Lets_go}>Let's Go!</Text>
+        <Text style = {styles.QWhere}>Where are you going?</Text>
+        <Text style = {styles.QDropOff}>Drop-Off Locations?</Text>
+        <Text style = {styles.LetsGo}>Let{ `'` }s Go!</Text>
         <Image source ={require('./assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
         <Image source ={require('./assets/images/person.png')} style={styles.person} />
-        <View style = {styles.lineStyle_one} />
-        <View style = {styles.lineStyle_two} />
-        <Image source ={require('./assets/images/Vector.png')} style={styles.vector_one} />
-        <Image source ={require('./assets/images/Vector.png')} style={styles.vector_two} />
+        <View style = {styles.lineStyleTop} />
+        <View style = {styles.lineStyleBottom} />
+        <Image source ={require('./assets/images/Vector.png')} style={styles.vectorTop} />
+        <Image source ={require('./assets/images/Vector.png')} style={styles.vectorBottom} />
       </View>
     );
   }
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  rectangle_orange: {
+  rectangleOrange: {
     flex: 1,
     backgroundColor: '#FF715B',
     alignItems: 'center',
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     top: 0,
     borderRadius: 2,
   },
-  rectangle_white: {
+  rectangleWhite: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     shadowOffset: {width: 0, height: 5},
     shadowColor: 'rgba(0, 0, 0, 0.25)',
   },
-  rectangle_LBlue: {
+  rectangleLBlue: {
     flex: 1,
     backgroundColor: '#6DC4E0',
     alignItems: 'center',
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     shadowColor: 'rgba(0, 0, 0, 0.25)',
     transform:([{ rotateZ:'5deg'}]),
   },
-  rectangle_DBlue: {
+  rectangleDBlue: {
     flex: 1,
     backgroundColor: '#605DF1',
     alignItems: 'center',
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     top: 30,
     position: 'absolute',
   },
-  Q_one: {
+  QWhere: {
     fontSize: 30,
     color:  '#605DF1',
     marginTop: 50,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     top: 270,
     position: 'absolute',
   },
-  Q_two: {
+  QDropOff: {
     fontSize: 30,
     color:  '#605DF1',
     marginTop: 50,
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
     top: 380,
     position: 'absolute',
   },
-  Lets_go: {
+  LetsGo: {
     fontSize: 38,
     color:  '#fff',
     marginTop: 50,
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     bottom: '91.9%',
     position: 'absolute',
   },
-  lineStyle_one:{
+  lineStyleTop:{
     borderWidth: 1,
     borderColor:'#6DC4E0',
     margin:10,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     left: 0,
     top: 30,    
 },
-lineStyle_two:{
+lineStyleBottom:{
   borderWidth: 1,
   borderColor:'#6DC4E0',
   margin:10,
@@ -177,7 +177,7 @@ lineStyle_two:{
   left: 0,
   top: 120,    
 },
-vector_one: {
+vectorTop: {
   marginTop: 0,
   height: 20,
   width: 20,
@@ -185,7 +185,7 @@ vector_one: {
   left: '80%',
   position: 'absolute',
 },
-vector_two: {
+vectorBottom: {
   marginTop: 0,
   height: 20,
   width: 20,

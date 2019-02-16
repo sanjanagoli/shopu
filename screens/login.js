@@ -5,37 +5,20 @@ import { Font } from 'expo';
 const window = Dimensions.get("window")
 
 export default class Login extends React.Component {
-  state = {
-    fontLoaded: false,
-  };
-  async componentDidMount() {
-    await Font.loadAsync({
-      'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.otf'),
-      'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.otf'),
-      'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.otf'),
-    });
-    this.setState({ fontLoaded: true });
-  }
+
   render() {
     return (
-      <View>
-      {
-        this.state.fontLoaded ? (
-          <View style={styles.container}>
-            <View style={styles.topBanner} />
-            <Text style={styles.loginText}>Login</Text>
-            <View style={styles.loginBox} />
-            <Text style={styles.usernameText}>Username</Text>
-            <View style={styles.usernameLine} />
-            <Text style={styles.passwordText}>Password</Text>
-            <View style={styles.passwordLine} />
-            <View style={styles.rotatedBox} />
-            <View style={styles.submitButton} />
-            <Text style={styles.submitText}>Submit!</Text>
-            <Text style={styles.forgotText}>Forgot Password?</Text>
-          </View>
-        ) : null
-      }
+      <View style={styles.container}>
+        <View style={styles.topBanner} />
+        <Text style={styles.loginText}>Login</Text>
+        <View style={styles.loginBox} />
+        <Text style={styles.usernameText}>Username</Text>
+        <View style={styles.usernameLine} />
+        <Text style={styles.passwordText}>Password</Text>
+        <View style={styles.passwordLine} />
+        <View style={styles.submitButton} />
+        <Text style={styles.submitText}>Submit!</Text>
+        <Text style={styles.forgotText}>Forgot Password?</Text>
       </View>
     );
   }

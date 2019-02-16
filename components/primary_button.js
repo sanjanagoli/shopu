@@ -1,25 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+let backgroundColor;
 
-
-export default class primary_button extends React.Component {
-  _onPressButton() {
+export default class PrimaryButton extends React.Component {
+  onPressButton() {
     Alert.alert('You tapped the button!')
   }
 
+  componentWillMount = () => {
+    backgroundColor = this.props.backgroundColor;
+    console.log(backgroundColor);
+  }
   render() {
     return (
       <View style={styles.container}>
-         <View style={styles.RectangleShapeViewOne}></View>
-         <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-            color = '#fff'
-          
-          />
-            </View>
+         <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
+            <Text style = {styles.title}>{this.props.title}</Text>
+         </View>
       </View>
     );
   }
@@ -32,18 +30,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  RectangleShapeViewOne: {
-    marginTop: 5,
-    width: 221,
-    height: 56,
-    top: 600,
-    borderRadius: 2,
-    backgroundColor: '#FF715B',
-    position: 'absolute',
-    },
-    buttonContainer: {
-      margin: 20,
-      top: 225,
-    },
+  buttonContainer: {
+    margin: 20,
+    top: 225,
+    justifyContent: 'center',
+  },
+  title:{
+    color: '#fff',
+    textAlign: 'center',
   
+    
+  }
 });

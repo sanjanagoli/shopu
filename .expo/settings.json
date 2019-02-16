@@ -1,7 +1,11 @@
 {
-  "hostType": "tunnel",
+  "hostType": "lan",
   "lanType": "ip",
   "dev": true,
   "minify": false,
+<<<<<<< HEAD
   "urlRandomness": "8a-zmd"
+=======
+  "urlRandomness": "zh-4ig"
+>>>>>>> 99900117bb4224b9a0bef10a2d0492843747a9db
 }

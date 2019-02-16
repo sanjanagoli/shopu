@@ -1,13 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import BuyerSearch from './screens/buyer_search';
+import FontLoad from './components/FontLoad';
 
 export default class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      fontLoaded: false,
+    }
+  }
+
+  componentWillMount = () => {
+    FontLoad.then((res) => {
+      this.setState({ fontLoaded: true });
+    })
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+      this.state.fontLoaded ? (
+        <View style={styles.container}>
+          <BuyerSearch/>
+        </View>
+    ) : null
+    )
   }
 }
 

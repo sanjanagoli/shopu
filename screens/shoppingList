@@ -4,18 +4,6 @@ import FontLoad from './components/FontLoad';
 
 export default class ShoppingList extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      fontLoaded: false,
-    }
-  }
-
-  componentWillMount = () => {
-    FontLoad.then((res) => {
-      this.setState({ fontLoaded: true });
-    })
-  }
 
   render() {
     return (
@@ -28,6 +16,18 @@ export default class ShoppingList extends React.Component {
            <Text style = {styles.header}>Shopping List</Text>
            <Image source ={require('./assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
 	         <Image source ={require('./assets/images/person.png')} style={styles.person} />
+           <Text style = {styles.TopBoxHeader}>Name</Text>
+           <Text style = {styles.TopBoxSubHeader}>Time, Location</Text>
+           <Text style = {styles.TopBoxSummary}>Shopping Cart Summary</Text>
+           <Text style = {styles.TopBoxETA}>ETA: 2 hours</Text>
+           <Text style = {styles.MidBoxHeader}>Name</Text>
+           <Text style = {styles.MidBoxSubHeader}>Time, Location</Text>
+           <Text style = {styles.MidBoxSummary}>Shopping Cart Summary</Text>
+           <Text style = {styles.MidBoxETA}>ETA: 2 hours</Text>
+           <Text style = {styles.BottomBoxHeader}>Name</Text>
+           <Text style = {styles.BottomBoxSubHeader}>Time, Location</Text>
+           <Text style = {styles.BottomBoxSummary}>Shopping Cart Summary</Text>
+           <Text style = {styles.BottomBoxETA}>ETA: 2 hours</Text>
         </View>
     ) : null
     )
@@ -112,6 +112,174 @@ const styles = StyleSheet.create({
     top: '5%',
     left: '83%',
     bottom: '91.9%',
+    position: 'absolute',
+  },
+  TopBoxHeader: {
+    fontSize: 30,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 150,
+    left: 50,
+    position: 'absolute',
+  },
+  TopBoxSubHeader: {
+    fontSize: 30,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 180,
+    left: 50,
+    position: 'absolute',
+  },
+  TopBoxSummary: {
+    fontSize: 20,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Regular',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 220,
+    left: 50,
+    position: 'absolute',
+  },
+  TopBoxETA: {
+    fontSize: 20,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Regular',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 240,
+    left: 50,
+    position: 'absolute',
+  },
+  MidBoxHeader: {
+    fontSize: 30,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 300,
+    left: 50,
+    position: 'absolute',
+  },
+  MidBoxSubHeader: {
+    fontSize: 30,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 330,
+    left: 50,
+    position: 'absolute',
+  },
+  MidBoxSummary: {
+    fontSize: 20,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Regular',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 370,
+    left: 50,
+    position: 'absolute',
+  },
+  MidBoxETA: {
+    fontSize: 20,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Regular',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 390,
+    left: 50,
+    position: 'absolute',
+  },
+  BottomBoxHeader: {
+    fontSize: 30,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 450,
+    left: 50,
+    position: 'absolute',
+  },
+  BottomBoxSubHeader: {
+    fontSize: 30,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 480,
+    left: 50,
+    position: 'absolute',
+  },
+  BottomBoxSummary: {
+    fontSize: 20,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Regular',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 520,
+    left: 50,
+    position: 'absolute',
+  },
+  BottomBoxETA: {
+    fontSize: 20,
+    color:  '#fff',
+    marginTop: 50,
+    marginBottom: 5, 
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Regular',
+    fontWeight:'600',
+    width: 419,
+    height: 174,
+    top: 540,
+    left: 50,
     position: 'absolute',
   },
 });

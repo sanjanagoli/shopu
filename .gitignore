@@ -61,4 +61,6 @@ typings/
 .next
 
 # Expo
-./expo
+.expo
+.expo/settings.json
+.expo/packager-info.json

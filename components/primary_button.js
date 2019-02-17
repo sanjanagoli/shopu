@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, font } from 'react-native';
 
 let backgroundColor;
 
@@ -8,15 +8,11 @@ export default class PrimaryButton extends React.Component {
     Alert.alert('You tapped the button!')
   }
 
-  componentWillMount = () => {
-    backgroundColor = this.props.backgroundColor;
-    console.log(backgroundColor);
-  }
   render() {
     return (
       <View style={styles.container}>
          <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
-            <Text style = {styles.title}>{this.props.title}</Text>
+            <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>
          </View>
       </View>
     );
@@ -38,7 +34,9 @@ const styles = StyleSheet.create({
   title:{
     color: '#fff',
     textAlign: 'center',
-  
+    fontFamily: 'Montserrat-SemiBold',
+    marginLeft:20,
+    marginRight:20,
     
   }
 });

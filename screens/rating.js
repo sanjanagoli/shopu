@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import { Font } from 'expo';
+import FontLoad from './components/FontLoad';
 
 const window = Dimensions.get("window")
 
@@ -8,13 +9,10 @@ export default class Rating extends React.Component {
   state = {
     fontLoaded: false,
   };
-  async componentDidMount() {
-    await Font.loadAsync({
-      'Montserrat-Regular': require('./assets/fonts/Montserrat-Regular.otf'),
-      'Montserrat-Medium': require('./assets/fonts/Montserrat-Medium.otf'),
-      'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.otf'),
-    });
-    this.setState({ fontLoaded: true });
+  componentWillMount = () => {
+    FontLoad.then((res) => {
+      this.setState({ fontLoaded: true });
+    })
   }
 
   stars = () => {
@@ -104,11 +102,11 @@ const styles = StyleSheet.create({
     top: 0
   },
   shoppingCarticon: {
-    width: 70,
-    height: 67,
+    width: 45,
+    height: 45,
     position: 'absolute',
     top: 40,
-    left: 10
+    left: 12
   },
   personIcon: {
     width: 42,

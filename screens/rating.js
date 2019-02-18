@@ -16,26 +16,10 @@ export default class Rating extends React.Component {
   }
 
   stars = () => {
-    let stars = [
-      {
-        number: 1,
-      },
-      {
-        number: 2,
-      },
-      {
-        number: 3,
-      },
-      {
-        number: 4,
-      },
-      {
-        number: 5,
-      }
-    ]
+    let stars = [1, 2, 3, 4, 5]
     let starMap = stars.map((item) => {
       return (
-        <View key = {item.number}>
+        <View key={item}>
           <Image style={styles.starIcon}
               source={require('./images/star.png')} />
         </View>

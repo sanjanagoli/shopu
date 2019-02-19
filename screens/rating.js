@@ -1,20 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
-import { Font } from 'expo';
-import FontLoad from './components/FontLoad';
 
 const window = Dimensions.get("window")
 
 export default class Rating extends React.Component {
-  state = {
-    fontLoaded: false,
-  };
-  componentWillMount = () => {
-    FontLoad.then((res) => {
-      this.setState({ fontLoaded: true });
-    })
-  }
-
   stars = () => {
     let stars = [
       {
@@ -46,9 +35,6 @@ export default class Rating extends React.Component {
 
   render() {
     return (
-      <View>
-      {
-        this.state.fontLoaded ? (
           <View style={styles.container}>
             <View style={styles.topBanner} />
             <Image style={styles.shoppingCarticon}
@@ -60,28 +46,25 @@ export default class Rating extends React.Component {
             <Text style={styles.shopuText}>shopU!</Text>
             <View style={styles.ratingBox} />
             <Text style={styles.delivererText}>Deliverer:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 800, marginLeft: 185}}>
+            <View style={styles.firstStarrow}>
               {this.stars()}
               </View>
             <Text style={styles.timingText}>Timing:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
+            <View style={styles.starRows}>
               {this.stars()}
               </View>
             <Text style={styles.productText}>Product Accuracy:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
+            <View style={styles.starRows}>
               {this.stars()}
               </View>
             <Text style={styles.easeText}>Ease:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
+            <View style={styles.starRows}>
               {this.stars()}
               </View>
             <View style={styles.rotatedBox} />
             <View style={styles.deliveryBox} />
             <Text style={styles.deliveryText}>Rate Your Delivery!</Text>
           </View>
-        ) : null
-      }
-      </View>
     );
   }
 }
@@ -203,6 +186,19 @@ const styles = StyleSheet.create({
     width: 35,
     height: 35,
     marginHorizontal: 4
+  },
+  firstStarrow: {
+    width: 300,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 200,
+    marginLeft: 185
+  },
+  starRows: {
+    width: 300, 
+    flexDirection: 'row', 
+    marginTop: 65, 
+    marginLeft: 185
   },
   rotatedBox: {
     flexDirection: 'row',

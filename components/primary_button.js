@@ -10,26 +10,16 @@ export default class PrimaryButton extends React.Component {
 
   render() {
     return (
-      <View>
          <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
             <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>
          </View>
-      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   buttonContainer: {
     margin: 20,
-    top: 225,
-    justifyContent: 'center',
   },
   title:{
     color: '#fff',

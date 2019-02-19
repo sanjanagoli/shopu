@@ -3,5 +3,9 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
+<<<<<<< HEAD
   "urlRandomness": "pr-kwm"
+=======
+  "urlRandomness": "h9-ysn"
+>>>>>>> 68dd613e64ef450e63e142ce3537eff6ee65ae72
 }

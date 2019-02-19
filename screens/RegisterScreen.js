@@ -28,7 +28,7 @@ export default class RegisterScreen extends React.Component {
           </View>
         <View/>
         <View>
-        <PrimaryButton style={styles.primaryButton}/>
+        <PrimaryButton title={'Register Now!'} backgroundColor={'#6DC4E0'} height={30} fontSize={30}/>
         </View>
         </View>
         </View>

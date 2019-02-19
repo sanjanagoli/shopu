@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, TextInput} from 'react-native';
+import PrimaryButton from './../components/primary_button.js';
 
 textLayout = () => {
   let data=[{key: "Username"}, {key: "Password"}, {key: "Phone Number"}, {key: "Email"}];
@@ -26,8 +27,9 @@ export default class RegisterScreen extends React.Component {
             {textLayout()}
           </View>
         <View/>
-        <View style={styles.submitButton}/>
-        <Text style={styles.submitText}>Submit!</Text>
+        <View>
+        <PrimaryButton style={styles.primaryButton}/>
+        </View>
         </View>
         </View>
       </View>
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#605DF1', 
     marginBottom: 20,
   },
-  submitButton: {
+  primaryButton: {
     //marginTop:100,
     backgroundColor:'#6DC4E0',
     shadowColor: '#000000',

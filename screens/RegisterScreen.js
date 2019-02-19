@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 50,
+    marginTop: 40,
   },
   header: {
     color: '#fff',

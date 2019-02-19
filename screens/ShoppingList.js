@@ -1,38 +1,41 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import FontLoad from './components/FontLoad';
 
 export default class ShoppingList extends React.Component {
-
-
   render() {
     return (
-      this.state.fontLoaded ? (
-        <View style={styles.container}>
-           <View style={styles.rectangleOrange} />
-           <View style={styles.rectangleTopLightBlue} />
-           <View style={styles.rectangleMid} />
-           <View style={styles.rectangleBottomLightBlue} />
-           <Text style = {styles.header}>Shopping List</Text>
-           <Image source ={require('./assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
-	         <Image source ={require('./assets/images/person.png')} style={styles.person} />
-           <Text style = {styles.TopBoxHeader}>Name</Text>
-           <Text style = {styles.TopBoxSubHeader}>Time, Location</Text>
-           <Text style = {styles.TopBoxSummary}>Shopping Cart Summary</Text>
-           <Text style = {styles.TopBoxETA}>ETA: 2 hours</Text>
-           <Text style = {styles.MidBoxHeader}>Name</Text>
-           <Text style = {styles.MidBoxSubHeader}>Time, Location</Text>
-           <Text style = {styles.MidBoxSummary}>Shopping Cart Summary</Text>
-           <Text style = {styles.MidBoxETA}>ETA: 2 hours</Text>
-           <Text style = {styles.BottomBoxHeader}>Name</Text>
-           <Text style = {styles.BottomBoxSubHeader}>Time, Location</Text>
-           <Text style = {styles.BottomBoxSummary}>Shopping Cart Summary</Text>
-           <Text style = {styles.BottomBoxETA}>ETA: 2 hours</Text>
+      <View style={styles.container}>
+        <View style={styles.rectangleOrange}>
+          <Text style = {styles.header}>Shopping List</Text>
+          <View>
+            <Image source ={require('./../assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
+            <Image source ={require('./../assets/images/person.png')} style={styles.person} />
+          </View>
+          <View style={styles.rectangleTop}>
+            <Text style = {styles.TopBoxHeader}>Name</Text>
+            <Text style = {styles.TopBoxSubHeader}>Time, Location</Text>
+            <Text style = {styles.TopBoxSummary}>Shopping Cart Summary</Text>
+            <Text style = {styles.TopBoxETA}>ETA: 2 hours</Text>
+          </View>
+          <View style={styles.rectangleMid}>
+            <Text style = {styles.MidBoxHeader}>Name</Text>
+            <Text style = {styles.MidBoxSubHeader}>Time, Location</Text>
+            <Text style = {styles.MidBoxSummary}>Shopping Cart Summary</Text>
+            <Text style = {styles.MidBoxETA}>ETA: 2 hours</Text>
+          </View>
+          <View style={styles.rectangleBottom}>
+            <Text style = {styles.BottomBoxHeader}>Name</Text>
+            <Text style = {styles.BottomBoxSubHeader}>Time, Location</Text>
+            <Text style = {styles.BottomBoxSummary}>Shopping Cart Summary</Text>
+            <Text style = {styles.BottomBoxETA}>ETA: 2 hours</Text>
+          </View>
+         
         </View>
-    ) : null
-    )
-  }
-}
+      </View>
+    );
+  } 
+} 
+  
 
 const styles = StyleSheet.create({
   container: {
@@ -46,14 +49,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF715B',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute',
     width: Dimensions.get("screen").width,
     height: 320,
-    left: 0,
+    position: 'relative',
     top: 0,
     borderRadius: 2,
   },
-  rectangleTopLightBlue: {
+  rectangleTop: {
     flex: 1,
     backgroundColor: '#6DC4E0',
     alignItems: 'center',
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     height: 134,
     top: 340,
   },
-  rectangleBottomLightBlue: {
+  rectangleBottom: {
     flex: 1,
     backgroundColor: '#6DC4E0',
     alignItems: 'center',
@@ -100,8 +102,6 @@ const styles = StyleSheet.create({
     marginTop: 5,
     height: 50,
     width: 50,
-    top: '5%',
-    left: '3.73%',
     bottom: '91.9%',
     position: 'absolute',
   },
@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     top: '5%',
-    left: '83%',
     bottom: '91.9%',
     position: 'absolute',
   },
@@ -125,7 +124,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 150,
-    left: 50,
+    
     position: 'absolute',
   },
   TopBoxSubHeader: {
@@ -139,7 +138,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 180,
-    left: 50,
+   
     position: 'absolute',
   },
   TopBoxSummary: {
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 220,
-    left: 50,
+  
     position: 'absolute',
   },
   TopBoxETA: {
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 240,
-    left: 50,
+   
     position: 'absolute',
   },
   MidBoxHeader: {
@@ -181,7 +180,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 300,
-    left: 50,
+  
     position: 'absolute',
   },
   MidBoxSubHeader: {
@@ -195,7 +194,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 330,
-    left: 50,
+    
     position: 'absolute',
   },
   MidBoxSummary: {
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 370,
-    left: 50,
+    
     position: 'absolute',
   },
   MidBoxETA: {
@@ -223,7 +222,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 390,
-    left: 50,
+  
     position: 'absolute',
   },
   BottomBoxHeader: {
@@ -237,7 +236,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 450,
-    left: 50,
+ 
     position: 'absolute',
   },
   BottomBoxSubHeader: {
@@ -251,7 +250,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 480,
-    left: 50,
+
     position: 'absolute',
   },
   BottomBoxSummary: {
@@ -265,7 +264,7 @@ const styles = StyleSheet.create({
     width: 419,
     height: 174,
     top: 520,
-    left: 50,
+   
     position: 'absolute',
   },
   BottomBoxETA: {
@@ -278,8 +277,7 @@ const styles = StyleSheet.create({
     fontWeight:'600',
     width: 419,
     height: 174,
-    top: 540,
-    left: 50,
+    top:540,
     position: 'absolute',
   },
 });

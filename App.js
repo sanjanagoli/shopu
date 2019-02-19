@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import PrimaryButton from './components/primary_button';
 import FontLoad from './components/FontLoad';
+import Rating from './screens/rating';
 
 export default class App extends React.Component {
 
@@ -22,12 +22,13 @@ export default class App extends React.Component {
     return (
       this.state.fontLoaded ? (
         <View style={styles.container}>
-          <PrimaryButton backgroundColor={'#FF715B'} title={'Submit!'} height={40} fontSize={30}/>
+          <Text>Open up App.js to start working on your app!</Text>
         </View>
-      ) : null
-    );
+    ) : null
+    )
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -36,4 +37,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     orangeRectangle: {
       backgroundColor: '#FF715B',
       width: Dimensions.get("screen").width,
-      height: Dimensions.get("screen").height/2.5,
+      height: Dimensions.get("screen").height / 2.5,
       top: 0, 
       bottom: 0,
       position: 'absolute',
@@ -48,14 +48,14 @@ const styles = StyleSheet.create({
       transform:([{ rotateZ:'-5deg'}]),
       width: Dimensions.get("screen").width - 120,
       height: 80,
-      top: Dimensions.get("screen").height*1/3 - 25,
+      top: Dimensions.get("screen").height * 1 / 3 - 25,
     },
     slantedPurpleRectangle: {
       position: 'absolute',
       backgroundColor: '#605DF1',
       width: Dimensions.get("screen").width -100,
       height: 70,
-      top: Dimensions.get("screen").height*1/3 - 20,
+      top: Dimensions.get("screen").height * 1 / 3 - 20,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
       position: 'absolute',
       backgroundColor: '#ffffff',
       width: Dimensions.get("screen").width - 30,
-      height: Dimensions.get("screen").height/2 + 15,
-      top: Dimensions.get("screen").height*1/3 + 10,
+      height: Dimensions.get("screen").height / 2 + 15,
+      top: Dimensions.get("screen").height * 1 / 3 + 10,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
       fontSize: 30,
       position: 'absolute',
       color: '#ffffff',
-      top: Dimensions.get("screen").height*1/3 - 5,
+      top: Dimensions.get("screen").height* 1 / 3 - 5,
       textAlign: 'center',
       fontFamily: 'Arial',
 

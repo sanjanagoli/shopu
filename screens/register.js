@@ -1,33 +1,31 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions} from 'react-native';
 
+textLayout = () => {
+  let data=["Username", "Password", "Phone Number", "Email"];
+  let dataMap = data.map((item) => {
+    return(
+      <View>
+        <Text style={styles.subHeader}>{item}</Text>
+        <View style={styles.lineStyle}/>
+      </View>
+    )
+  })
+  return dataMap;
+}
+
 export default class Register extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
-          <View>
-            <Text style={styles.subHeader}>Username</Text>
-            <View style={styles.lineStyle}/>
-          </View>
-          <View>
-            <Text style={styles.subHeader}>Password</Text>
-            <View style={styles.lineStyle}/>
-          </View>
-          <View>
-            <Text style={styles.subHeader}>Phone Number</Text>
-            <View style={styles.lineStyle}/>
-          </View>
-          <View>
-            <Text style={styles.subHeader}>Email</Text>
-            <View style={styles.lineStyle}/>
+        <View style={styles.peachBox}>
+          <Text style={styles.header}>Register Now!</Text>
+          <View style={styles.whiteBox}>
+            <View>
+              {textLayout()}
+            </View>
           </View>
         </View>
-         <View style={styles.purpleBox}/>
-         <View style={styles.blueBox}/>
-         <Text style={styles.header}>Register Now</Text>
-         <View style={styles.submitButton}/>
-         <Text style={styles.submitText}>Submit!</Text>
       </View>
     );
   }
@@ -37,6 +35,29 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  peachBox: {
+    width: Dimensions.get("screen").width,
+    height: Dimensions.get("screen").height*.60,
+    backgroundColor: '#FF715B',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  whiteBox: {
+    flexDirection: 'column',
+    width: Dimensions.get("screen").width*.91,
+    height: Dimensions.get("screen").height*.65,
+    shadowColor: '#000000',
+    shadowOffset: {
+        width: 0,
+        height: 3
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
   },
   purpleBox: {
     flex: 1,
@@ -59,31 +80,24 @@ const styles = StyleSheet.create({
     transform: [{rotateZ: '-6.5deg'}],
   },
   header: {
-    position: 'absolute',
-    top: 16.5,
-    fontSize: 62.5,
-    fontFamily: 'Arial',
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
-    width: Dimensions.get("screen").width,
-    height: 186,
     color: '#fff',
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 60,
+    marginTop: 230,
+    textAlign: 'center',
+    //width: Dimensions.get('screen').width,
   },
   subHeader:{
-    left: 30,
     fontFamily: 'Arial',
     fontSize: 27,
-    marginBottom: 55,
-    top: 190,
+    marginBottom: 40,
     color: '#605DF1',
   },
   lineStyle: {
     width: 280,
-    height: 3, backgroundColor: '#6DC4E0', 
-    top: 180, 
-    marginBottom: 10,
-    left: 40,
+    height: 3, 
+    backgroundColor: '#605DF1', 
+    marginBottom: 20,
   },
   submitButton: {
       position:'absolute',

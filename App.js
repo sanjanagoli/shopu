@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FontLoad from './components/FontLoad';
-import Rating from './screens/rating';
+import Request from './screens/request_profile';
 
 export default class App extends React.Component {
 
@@ -21,8 +21,9 @@ export default class App extends React.Component {
   render() {
     return (
       this.state.fontLoaded ? (
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+        <View>
+          <Request/>
+          {/* <Text>Open up App.js to start working on your app!</Text> */}
         </View>
     ) : null
     )

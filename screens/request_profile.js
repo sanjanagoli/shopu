@@ -1,57 +1,45 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
-import FontLoad from './components/FontLoad';
+import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
 
 const window = Dimensions.get("window")
 
-export default class Request extends React.Component {
-  state = {
-    fontLoaded: false,
-  };
-  componentWillMount = () => {
-    FontLoad.then((res) => {
-      this.setState({ fontLoaded: true });
-    })
-  }
+let colors = ['#6DC4E0', '#605DF1']
 
+export default class Request extends React.Component { 
   render() {
     return (
-      <View>
-      {
-        this.state.fontLoaded ? (
           <View style={styles.container}>
             <View style={styles.topBanner} />
             <Image style={styles.shoppingBagicon}
-                source={require('./images/shopping_bag.png')} />
+                source={require('./../assets/images/shopping_bag.png')} />
             <Image style={styles.personIcon}
-                source={require('./images/profile_person.png')} />
-            {/* <Text style={styles.thankYouforText}>Thank U for</Text>
-            <Text style={styles.usingText}>using</Text>
-            <Text style={styles.shopuText}>shopU!</Text>
-            <View style={styles.ratingBox} />
-            <Text style={styles.delivererText}>Deliverer:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 800, marginLeft: 185}}>
-              {this.stars()}
-              </View>
-            <Text style={styles.timingText}>Timing:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
-              {this.stars()}
-              </View>
-            <Text style={styles.productText}>Product Accuracy:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
-              {this.stars()}
-              </View>
-            <Text style={styles.easeText}>Ease:</Text>
-            <View style={{width: 300, flexDirection: 'row', marginTop: 65, marginLeft: 185}}>
-              {this.stars()}
-              </View>
-            <View style={styles.rotatedBox} />
-            <View style={styles.deliveryBox} />
-            <Text style={styles.deliveryText}>Rate Your Delivery!</Text> */}
+                source={require('./../assets/images/person.png')} />
+            <Image style={styles.arrowIcon}
+                source={require('./../assets/images/back_arrow.png')} />
+            <Text style={styles.browseText}>Browse Other Options</Text>
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+              <View style={styles.whiteCard} />
+              <View style={styles.nameBox} />
+              <FlatList
+                data={[{name: 1},{name: 2},{name: 3}]}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={
+                  ({item, index}) => {
+                  return (
+                      <View style={{backgroundColor: colors[index % colors.length]}}>
+                        <View style={styles.tableRows} />
+                      </View>
+                )
+                }
+              }
+              />
+              <Text style={styles.dropText}>Approximate Total: $25.00 Drop-Off Location: Baker</Text>
+              <View style={styles.acceptBox} />
+              <Text style={styles.acceptText}>Accept</Text>
+              <Image style={styles.checkIcon}
+                source={require('./../assets/images/check.png')} />
+            </View>
           </View>
-        ) : null
-      }
-      </View>
     );
   }
 }
@@ -60,151 +48,108 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   topBanner: {
     flexDirection: 'row',
     width: window.width,
     height: 350,
     backgroundColor: '#FF715B',
-    position: 'absolute',
-    top: 0
   },
   shoppingBagicon: {
-    width: 45,
-    height: 45,
-    position: 'absolute',
-    top: 40,
-    left: 12
+    width: 35,
+    height: 40,
+    top: -300,
+    marginLeft: 25 
   },
   personIcon: {
     width: 42,
     height: 40,
-    position: 'absolute',
-    top: 45,
-    left: 310
+    top: -335,
+    marginLeft: 335
   },
-  thankYouforText: {
-    fontSize: 45,
+  arrowIcon: {
+    width: 22,
+    height: 18,
+    top: -320,
+    marginLeft: 25
+  },
+  browseText: {
+    fontSize: 18,
     fontFamily: 'Montserrat-Regular',
     color: '#fff',
-    position: 'absolute',
-    width: 370,
-    height: 130,
-    left: 5,
-    top: 115,
-    textAlign: 'center'
+    width: 200,
+    height: 25,
+    marginLeft: 60, 
+    top: - 340,
   },
-  usingText: {
-    fontSize: 45,
+  whiteCard: {
+    flexDirection: 'row',
+    width: 0.9*window.width,
+    height: 0.65*window.height,
+    backgroundColor: '#fff',
+    top: 110,
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+  },
+  nameBox: {
+    flexDirection: 'row',
+    width: 0.8*window.width,
+    height: 100,
+    backgroundColor: '#605DF1',
+    top: -450,
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+  },
+  tableRows: {
+    flexDirection: 'row',
+    width: 0.9*window.width,
+    height: 50,
+    opacity: 0.9,
+    top: -450,
+    backgroundColor: colors[0]
+  },
+  mainColumn: {
+    justifyContent: 'space-between',
+  },
+  dropText: {
+    fontSize: 20,
     fontFamily: 'Montserrat-Regular',
-    color: '#fff',
-    position: 'absolute',
-    width: 370,
-    height: 130,
-    left: 20,
-    top: 175,
+    color: '#605DF1',
+    width: 300,
+    height: 80,
+    top: -150,
+    textAlign: 'center',
+    lineHeight: 40
   },
-  shopuText: {
-    fontSize: 45,
+  acceptBox: {
+    flexDirection: 'row',
+    width: 0.5*window.width,
+    height: 65,
+    backgroundColor: '#FF715B',
+    top: -100,
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+  },
+  acceptText: {
+    fontSize: 28,
     fontFamily: 'Montserrat-SemiBold',
     color: '#fff',
-    position: 'absolute',
-    width: 370,
-    height: 130,
-    left: 175,
-    top: 175,
-  },
-  ratingBox: {
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    position: 'absolute',
-    width: 347,
-    height: 389,
-    left: 15,
-    top: 280,
-    shadowOffset: {width: 0, height: 5},
-    shadowColor: '#000000',
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-  },
-  delivererText: {
-    fontSize: 20,
-    fontFamily: 'Montserrat-Regular',
-    color: '#605DF1',
-    position: 'absolute',
-    width: 102,
-    height: 25,
-    left: 23,
-    top: 305,
-  },
-  timingText: {
-    fontSize: 20,
-    fontFamily: 'Montserrat-Regular',
-    color: '#605DF1',
-    position: 'absolute',
-    width: 102,
-    height: 28,
-    left: 23,
-    top: 375,
-  },
-  productText: {
-    fontSize: 20,
-    fontFamily: 'Montserrat-Regular',
-    color: '#605DF1',
-    position: 'absolute',
-    width: 105,
-    height: 60,
-    left: 23,
-    top: 425,
-  },
-  easeText: {
-    fontSize: 20,
-    fontFamily: 'Montserrat-Regular',
-    color: '#605DF1',
-    position: 'absolute',
-    width: 105,
-    height: 30,
-    left: 23,
-    top: 510,
-  },
-  starIcon: {
-    width: 35,
+    width: 100,
     height: 35,
-    marginHorizontal: 4
+    top: -150,
+    textAlign: 'center',
+    marginRight: 40
   },
-  rotatedBox: {
-    flexDirection: 'row',
-    backgroundColor: '#6DC4E0',
-    position: 'absolute',
-    width: 330,
-    height: 85,
-    left: 20,
-    top: 600,
-    shadowOffset: {width: 0, height: 5},
-    shadowColor: '#000000',
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    transform: ([{rotate: '-6.23deg'}])
+  checkIcon: {
+    width: 26,
+    height: 26,
+    top: -180,
+    marginLeft: 110
   },
-  deliveryBox: {
-    flexDirection: 'row',
-    backgroundColor: '#605DF1',
-    position: 'absolute',
-    width: 355,
-    height: 75,
-    left: 10,
-    top: 605
-  },
-  deliveryText: {
-    fontSize: 30,
-    fontFamily: 'Montserrat-Regular',
-    color: '#fff',
-    position: 'absolute',
-    width: 378,
-    height: 51,
-    top: 620,
-    textAlign: 'center'
-  }
 });

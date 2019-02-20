@@ -1,0 +1,22 @@
+{
+    "peachBox": {
+        "width": "Dimensions.get('screen').width",
+        "height": "Dimensions.get('screen').height*.60",
+        "backgroundColor": "#FF715B",
+        "alignItems": "center",
+        "justifyContent": "center"
+    },
+    "person" :{
+        "width": 45,
+        "height": 40,
+        "marginRight": 15,
+        "marginTop": "Dimensions.get('screen').height*.30"
+    },
+    "bag":{
+        "width": 42,
+        "height": 38,
+        "marginLeft": 15,
+        "marginTop": "Dimensions.get('screen').height*.30"
+    }
+}
+

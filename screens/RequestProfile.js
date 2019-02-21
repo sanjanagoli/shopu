@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, ImageBackground} from 'react-native';
-import PrimaryButton from './../components/primary_button';
+import PrimaryButton from './../components/PrimaryButton';
 
 const window = Dimensions.get("window")
 

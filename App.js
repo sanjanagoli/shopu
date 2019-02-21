@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import FontLoad from './components/FontLoad';
 import ShoppingList from './screens/ShoppingList';
 
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -23,7 +24,7 @@ export default class App extends React.Component {
       this.state.fontLoaded ? (
         <View style={styles.container}>
           <ShoppingList/>
-        </View>
+        </View> 
     ) : null
     )
   }
@@ -37,5 +38,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-

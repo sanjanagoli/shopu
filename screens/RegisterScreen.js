@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   subHeader:{
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Regular',
     fontSize: 27,
     marginTop: 20,
     marginBottom: 10,
     color: '#605DF1',
   },
   textInput: {
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Regular',
     fontSize: 25,
     color: '#000000',
   },

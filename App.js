@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FontLoad from './components/FontLoad';
-import Rating from './screens/rating';
 
 export default class App extends React.Component {
 
@@ -37,3 +36,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

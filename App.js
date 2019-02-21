@@ -1,12 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import FontLoad from './components/FontLoad';
-import Request from './screens/request_profile';
-
 
 export default class App extends React.Component {
 
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -23,9 +20,8 @@ export default class App extends React.Component {
   render() {
     return (
       this.state.fontLoaded ? (
-        <View>
-          <Request/>
-          {/* <Text>Open up App.js to start working on your app!</Text> */}
+        <View style={styles.container}>
+          <Text>Open up App.js to start working on your app!</Text>
         </View>
     ) : null
     )
@@ -40,4 +36,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-

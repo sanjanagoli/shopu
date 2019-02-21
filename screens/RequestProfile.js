@@ -27,7 +27,7 @@ let items = [
   }
 ]
 
-export default class Request extends React.Component { 
+export default class RequestProfile extends React.Component { 
   render() {
     return (
         <ImageBackground style={styles.background}

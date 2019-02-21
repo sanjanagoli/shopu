@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
@@ -24,21 +24,17 @@ const TabNavigator = createBottomTabNavigator({
 },
 {
 defaultNavigationOptions: ({ navigation }) => ({
-  tabBarIcon: ({ focused, horizontal, tintColor }) => {
+  tabBarIcon: ({ tintColor }) => {
     const { routeName } = navigation.state;
-    let IconComponent = Ionicons;
-    let iconName;
-    if (routeName === 'Home') {
-      iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-      // Sometimes we want to add badges to some icons. 
-      // You can check the implementation below.
-      IconComponent = HomeIconWithBadge; 
-    } else if (routeName === 'Settings') {
-      iconName = `ios-options${focused ? '' : '-outline'}`;
+    let imageName;
+    if (routeName === 'ShopSearch') {
+      imageName = require('./assets/images/nav-cart.png');
+    } else if (routeName === 'Notifications') {
+      imageName = require('./assets/images/home_icon.png');
+    } else if (routeName === 'Thirds') {
+      imageName = require('./assets/images/person_w_bag.png');
     }
-
-    // You can return any component that you like here!
-    return <IconComponent name={iconName} size={25} color={tintColor} />;
+    return <Image source={imageName} style={{width: 40, height: 40}} />;
   },
 }),
 tabBarOptions: {

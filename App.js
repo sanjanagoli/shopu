@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native';
 import FontLoad from './components/FontLoad';
 import Request from './screens/request_profile';
 
-let colors = ['#6DC4E0', '#605DF1']
+
 export default class App extends React.Component {
 
   
@@ -52,3 +52,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

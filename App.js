@@ -25,9 +25,7 @@ export default class App extends React.Component {
       this.state.fontLoaded ? (
         <View style={styles.container}>
           <ShoppingList/>
-         
-          
-        </View> 
+        </View>
     ) : null
     )
   }
@@ -42,4 +40,3 @@ const styles = StyleSheet.create({
   },
   
 });
-

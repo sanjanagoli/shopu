@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator} from 'react-native';
 import Toolbar from './../components/Toolbar';
 
-export default class SearchingRequest extends React.Component {
+export default class Test extends React.Component {
   render() {
     return (
         <View style={styles.container}>

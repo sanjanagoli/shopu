@@ -1,9 +1,51 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FontLoad from './components/FontLoad';
-import Rating from './screens/rating';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import Notifications from './screens/Notifications';
+import ShopSearch from './screens/ShopSearch';
 
-export default class App extends React.Component {
+
+
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Home!</Text>
+      </View>
+    );
+  }
+}
+
+class SettingsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+
+class ThirdsScreen extends React.Component {
+  render() {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Settings!</Text>
+      </View>
+    );
+  }
+}
+
+const TabNavigator = createBottomTabNavigator({
+  ShopSearch: ShopSearch,
+  Notifications: Notifications,
+  Thirds: ThirdsScreen,
+});
+
+export default createAppContainer(TabNavigator);
+
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,3 +79,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

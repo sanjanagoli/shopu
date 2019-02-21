@@ -13,9 +13,9 @@ export default class ShopSearch extends React.Component {
         <View style={styles.whiteCard}></View>
         <View style={styles.searchLine}></View>
         <Text style={styles.searchText}>Search for a Product</Text>
-        <Image source={require('./images/search_icon.png')}style={styles.searchIcon} />
-        <Image source={require('./images/top_shopping_cart.png')}style={styles.topShopCart} />
-        <Image source={require('./images/profile_head.png')}style={styles.profileHead} />
+        <Image source={require('./../assets/images/search_icon.png')}style={styles.searchIcon} />
+        <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.topShopCart} />
+        <Image source={require('./../assets/images/profile_head.png')}style={styles.profileHead} />
       </View>
     );
   }

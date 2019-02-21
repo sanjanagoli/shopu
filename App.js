@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 import FontLoad from './components/FontLoad';
 import ShoppingList from './screens/ShoppingList';
+
 
 
 export default class App extends React.Component {
@@ -24,6 +25,8 @@ export default class App extends React.Component {
       this.state.fontLoaded ? (
         <View style={styles.container}>
           <ShoppingList/>
+         
+          
         </View> 
     ) : null
     )
@@ -37,4 +40,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
 });

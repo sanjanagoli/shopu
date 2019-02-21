@@ -2,6 +2,31 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, AppRegistry, FlatList } from 'react-native';
 
+let colors = ['#6DC4E0', '#605DF1']
+
+let items = [
+  {
+    name: 'Name',
+    TimeLocation: 'Time, Location',
+    Summary: 'Shopping Cart Summary',
+    ETA: 'ETA: 2 Hours',
+  },
+  {
+    name: 'Name',
+    TimeLocation: 'Time, Location',
+    Summary: 'Shopping Cart Summary',
+    ETA: 'ETA: 2 Hours',
+  },
+  {
+    name: 'Name',
+    TimeLocation: 'Time, Location',
+    Summary: 'Shopping Cart Summary',
+    ETA: 'ETA: 2 Hours',
+  }
+]
+
+
+
 export default class ShoppingList extends Component {
   render() {
     return (
@@ -14,37 +39,28 @@ export default class ShoppingList extends Component {
           <View style={styles.formatInOrangeBox}>
             <Text style = {styles.header}>Shopping List</Text>
           </View>
-        </View>
-        <FlatList>
-          horizontal = {false}
-          renderItem = {
-            ({item}) => {
-            return ( 
-              <View style={{flex: 1, justifyContent: 'flex-end',  alignItems: 'center'}}>
-                <View style={{width: Dimensions.get("screen").width*.90, height: Dimensions.get("screen").height*.17, backgroundColor: '#6DC4E0', marginBottom: 30}}>
-                  <Text style = {styles.name}>Name</Text>
-                  <Text style = {styles.locationTime}>Time, Location</Text>
-                  <Text style = {styles.summary}>Shopping Cart Summary</Text>
-                  <Text style = {styles.eta}>ETA: 2 hours</Text>
-                </View>
-                <View style={{width: Dimensions.get("screen").width*.90, height: Dimensions.get("screen").height*.17, backgroundColor: '#605DF1', marginBottom: 30}} >
-                  <Text style = {styles.name}>Name</Text>
-                  <Text style = {styles.locationTime}>Time, Location</Text>
-                  <Text style = {styles.summary}>Shopping Cart Summary</Text>
-                  <Text style = {styles.eta}>ETA: 2 hours</Text>
-                </View>
-                <View style={{width: Dimensions.get("screen").width*.90, height: Dimensions.get("screen").height*.17, backgroundColor: '#6DC4E0', marginBottom:120}} >
-                  <Text style = {styles.name}>Name</Text>
-                  <Text style = {styles.locationTime}>Time, Location</Text>
-                  <Text style = {styles.summary}>Shopping Cart Summary</Text>
-                  <Text style = {styles.eta}>ETA: 2 hours</Text>
-                </View>
-              </View> 
+          </View>
+          
+        <View style={{flex: 1, justifyContent: 'center',  alignItems: 'center', top: -150}}>
+            <FlatList
+              horizontal = {false}
+              data= {items}
+              keyExtractor = {(item, index) => index.toString()}
+              renderItem = {
+                ({item, index}) => {
+                return ( 
+                  <View style={{width: Dimensions.get("screen").width*.90, height: Dimensions.get("screen").height*.17, backgroundColor: colors[index % colors.length], marginBottom: 10}}>
+                    <Text style = {styles.name}>{item.name}</Text>
+                    <Text style = {styles.locationTime}>{item.TimeLocation}</Text>
+                    <Text style = {styles.summary}>{item.Summary}</Text>
+                    <Text style = {styles.eta}>{item.ETA}</Text>
+                  </View>    
               )
               }
                }
-              </FlatList>
-              </View> 
+              />
+          </View>      
+          </View>   
     );
   }
 };

@@ -1,32 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, FlatList, ImageBackground} from 'react-native';
+import PrimaryButton from './../components/primary_button';
 
 const window = Dimensions.get("window")
 
-let colors = ['#6DC4E0', '#605DF1']
+let colors = ['#605DF1', '#6DC4E0']
 
 let items = [
   {
-    name: 'Item',
-    q: 'Q',
-    comment: 'Comments',
-    check: require('./../assets/images/check.png'),
-  },
-  {
     name: 'Apple',
-    q: 3,
+    quantity: 3,
     comment: 'Granny Smith',
     check: require('./../assets/images/checkbox.png'),
   },
   {
     name: 'Apple',
-    q: 3,
+    quantity: 3,
     comment: 'Granny Smith',
     check: require('./../assets/images/checkbox.png'),
   },
   {
     name: 'Apple',
-    q: 3,
+    quantity: 3,
     comment: 'Granny Smith',
     check: require('./../assets/images/checkbox.png'),
   }
@@ -35,84 +30,87 @@ let items = [
 export default class Request extends React.Component { 
   render() {
     return (
-    <View>
-          <View style={styles.container}>
-            <View style={styles.topBanner} />
-            <Image style={styles.shoppingBagicon}
-                source={require('./../assets/images/shopping_bag.png')} />
-            <Image style={styles.personIcon}
-                source={require('./../assets/images/person.png')} />
-            <Image style={styles.arrowIcon}
-                source={require('./../assets/images/back_arrow.png')} />
-            <Text style={styles.browseText}>Browse Other Options</Text>
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-              <View style={styles.whiteCard} />
-              <View style={styles.nameBox} />
-              <Text style={styles.nameText}>Bob - CVS</Text>
-           </View>
-           </View>
-                <View style={{top: 315, justifyContent: 'center', alignItems: 'center'}}>
-                  <FlatList
-                  data={items}
-                  keyExtractor={(item, index) => index.toString()}
-                  renderItem={
-                    ({item, index}) => {
-                    return (
-                        <View>
-                        <View style={{opacity: 0.8, height: 50, width: 0.8*window.width, backgroundColor: colors[index % colors.length]}}>
-                        <View style={{padding: 12, flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <Text style={styles.itemText}>{item.name}</Text>
-                        <Text style={styles.itemText}>{item.q}</Text>
-                        <Text style={styles.itemText}>{item.comment}</Text>
-                        <Image style={{width: 22, height: 22}}
-                              source={item.check} />
-                        </View>
-                        </View>
-                        </View>
-                  )
-                  }
-                }
-                />
-              </View>
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-              <Text style={styles.dropText}>Approximate Total: $25.00 Drop-Off Location: Baker</Text>
-              <View style={styles.acceptBox} />
-              <Text style={styles.acceptText}>Accept</Text>
-              <Image style={styles.checkIcon}
-                source={require('./../assets/images/check.png')} />
-              </View>
-    </View>
+        <ImageBackground style={styles.background}
+              source={require('./../assets/images/background.png')}>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 45, paddingHorizontal: 20}}>
+              <Image style={styles.shoppingBagicon}
+                  source={require('./../assets/images/shopping_bag.png')} />
+              <Image style={styles.personIcon}
+                  source={require('./../assets/images/person.png')} />
+            </View>
+            <View style={styles.subView}>
+              <Image style={styles.arrowIcon}
+                  source={require('./../assets/images/back_arrow.png')} />
+              <Text style={styles.browseText}>Browse Other Options</Text>
+            </View>
+            <View style={styles.mainView}>
+              <View style={styles.whiteCard}>
+                  <View style={styles.nameBox}>
+                    <Text style={styles.nameText}>Bob - CVS</Text>
+                  </View>
+                  <View style={[styles.tableRows, {marginTop: 30, backgroundColor: '#6DC4E0'}]}>
+                    <Text style={styles.itemInfo}>Item</Text>
+                    <Text style={styles.itemInfo}>Q</Text>
+                    <Text style={styles.itemInfo}>Comments</Text>
+                    <Image style={styles.checkIcon}
+                        source={require('./../assets/images/check.png')} />
+                  </View>
+                  <View style={styles.table}>
+                      <FlatList
+                      data={items}
+                      keyExtractor={(item, index) => index.toString()}
+                      renderItem={
+                        ({item, index}) => {
+                        return (
+                            <View style={[styles.tableRows, {backgroundColor: colors[index % colors.length]}]}>
+                                <Text style={styles.itemsText}>{item.name}</Text>
+                                <Text style={styles.itemsText}>{item.quantity}</Text>
+                                <Text style={styles.itemsText}>{item.comment}</Text>
+                                <Image style={styles.checkIcon}
+                                    source={item.check} />
+                            </View>
+                      )
+                      }
+                    }
+                    />
+                  </View>
+                  <Text style={styles.dropText}>Approximate Total: $25.00 Drop-Off Location: Baker</Text>
+                  <View style={styles.acceptButton}>
+                      <PrimaryButton title={'Accept'} backgroundColor={ '#FF715B'} height={65} fontSize={28}/>
+                  </View>
+                </View>
+            </View>
+        </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  background: {
+    width: '100%',
+    height: '100%',
   },
-  topBanner: {
-    flexDirection: 'row',
-    width: window.width,
-    height: 350,
-    backgroundColor: '#FF715B',
+  mainView: {
+    justifyContent: 'center',
+    alignItems: 'center', 
+    marginTop: 15
+  },
+  subView: {
+    flexDirection: 'row', 
+    paddingHorizontal: 20,
+    marginTop: 20
   },
   shoppingBagicon: {
     width: 35,
     height: 40,
-    top: -300,
-    marginLeft: 25 
   },
   personIcon: {
     width: 42,
     height: 40,
-    top: -335,
-    marginLeft: 335
   },
   arrowIcon: {
-    width: 22,
-    height: 18,
-    top: -320,
-    marginLeft: 25
+    width: 30,
+    height: 25,
   },
   browseText: {
     fontSize: 18,
@@ -120,30 +118,29 @@ const styles = StyleSheet.create({
     color: '#fff',
     width: 200,
     height: 25,
-    marginLeft: 60, 
-    top: - 340,
+    marginLeft: 10
   },
   whiteCard: {
-    flexDirection: 'row',
     width: 0.9*window.width,
     height: 0.65*window.height,
     backgroundColor: '#fff',
-    top: 40,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    alignItems: 'center',
   },
   nameBox: {
-    flexDirection: 'row',
     width: 0.8*window.width,
     height: 100,
     backgroundColor: '#605DF1',
-    top: -520,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    marginTop: 20,
+    justifyContent: 'center', 
+    alignItems: 'center'
   },
   nameText: {
     fontSize: 40,
@@ -151,21 +148,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     width: 215,
     height: 55,
-    top: -595,
   },
-  tableRows: {
-    flexDirection: 'row',
-    width: 0.9*window.width,
-    height: 50,
-    opacity: 0.9,
-    top: -150,
-    backgroundColor: '#605DF1',
+  itemInfo: {
+    fontSize: 18,
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#fff',
   },
-  itemText: {
+  itemsText: {
     fontSize: 18,
     fontFamily: 'Montserrat-Medium',
     color: '#fff',
-
   },
   dropText: {
     fontSize: 20,
@@ -173,35 +165,30 @@ const styles = StyleSheet.create({
     color: '#605DF1',
     width: 300,
     height: 80,
-    top: 350,
     textAlign: 'center',
-    lineHeight: 40
-  },
-  acceptBox: {
-    flexDirection: 'row',
-    width: 0.5*window.width,
-    height: 65,
-    backgroundColor: '#FF715B',
-    top: 400,
-    shadowOffset: {width: 0, height: 5},
-    shadowColor: '#000000',
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-  },
-  acceptText: {
-    fontSize: 28,
-    fontFamily: 'Montserrat-SemiBold',
-    color: '#fff',
-    width: 100,
-    height: 35,
-    top: 350,
-    textAlign: 'center',
-    marginRight: 40
+    lineHeight: 40,
+    marginBottom: 50
   },
   checkIcon: {
-    width: 26,
-    height: 26,
-    top: 320,
-    marginLeft: 110
+    width: 22, 
+    height: 22
+  },
+  table : {
+    height: 200, 
+    width: 0.8*window.width
+  },
+  tableRows: {
+    padding: 14, 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    opacity: 0.9, 
+    height: 50, 
+    width: 0.8*window.width
+  },
+  acceptButton : {
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.25, 
+    shadowRadius: 5,
   },
 });

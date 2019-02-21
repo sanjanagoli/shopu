@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import FontLoad from './components/FontLoad';
 import Request from './screens/request_profile';
 
@@ -24,18 +24,6 @@ export default class App extends React.Component {
     return (
       this.state.fontLoaded ? (
         <View>
-            {/* <FlatList
-                data={[{name: 1},{name: 2},{name: 3}]}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={
-                  ({item, index}) => {
-                  return (
-                      <View style={{height: 50, width: 0.9*window.width, backgroundColor: colors[index % colors.length]}}>
-                      </View>
-                )
-                }
-              }
-              /> */}
           <Request/>
           {/* <Text>Open up App.js to start working on your app!</Text> */}
         </View>

@@ -10,7 +10,7 @@ export default class Rating extends React.Component {
       return (
         <View key={item}>
           <Image style={styles.starIcon}
-              source={require('./../assets/images/star.png')} />
+              source={require('./assets/images/star.png')} />
         </View>
       )
     })

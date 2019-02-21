@@ -5,9 +5,37 @@ const window = Dimensions.get("window")
 
 let colors = ['#6DC4E0', '#605DF1']
 
+let items = [
+  {
+    name: 'Item',
+    q: 'Q',
+    comment: 'Comments',
+    check: require('./../assets/images/check.png'),
+  },
+  {
+    name: 'Apple',
+    q: 3,
+    comment: 'Granny Smith',
+    check: require('./../assets/images/checkbox.png'),
+  },
+  {
+    name: 'Apple',
+    q: 3,
+    comment: 'Granny Smith',
+    check: require('./../assets/images/checkbox.png'),
+  },
+  {
+    name: 'Apple',
+    q: 3,
+    comment: 'Granny Smith',
+    check: require('./../assets/images/checkbox.png'),
+  }
+]
+
 export default class Request extends React.Component { 
   render() {
     return (
+    <View>
           <View style={styles.container}>
             <View style={styles.topBanner} />
             <Image style={styles.shoppingBagicon}
@@ -20,26 +48,40 @@ export default class Request extends React.Component {
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <View style={styles.whiteCard} />
               <View style={styles.nameBox} />
-              <FlatList
-                data={[{name: 1},{name: 2},{name: 3}]}
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={
-                  ({item, index}) => {
-                  return (
-                      <View style={{backgroundColor: colors[index % colors.length]}}>
-                        <View style={styles.tableRows} />
-                      </View>
-                )
+              <Text style={styles.nameText}>Bob - CVS</Text>
+           </View>
+           </View>
+                <View style={{top: 315, justifyContent: 'center', alignItems: 'center'}}>
+                  <FlatList
+                  data={items}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={
+                    ({item, index}) => {
+                    return (
+                        <View>
+                        <View style={{opacity: 0.8, height: 50, width: 0.8*window.width, backgroundColor: colors[index % colors.length]}}>
+                        <View style={{padding: 12, flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <Text style={styles.itemText}>{item.name}</Text>
+                        <Text style={styles.itemText}>{item.q}</Text>
+                        <Text style={styles.itemText}>{item.comment}</Text>
+                        <Image style={{width: 22, height: 22}}
+                              source={item.check} />
+                        </View>
+                        </View>
+                        </View>
+                  )
+                  }
                 }
-              }
-              />
+                />
+              </View>
+              <View style={{justifyContent: 'center', alignItems: 'center'}}>
               <Text style={styles.dropText}>Approximate Total: $25.00 Drop-Off Location: Baker</Text>
               <View style={styles.acceptBox} />
               <Text style={styles.acceptText}>Accept</Text>
               <Image style={styles.checkIcon}
                 source={require('./../assets/images/check.png')} />
-            </View>
-          </View>
+              </View>
+    </View>
     );
   }
 }
@@ -47,7 +89,6 @@ export default class Request extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
   topBanner: {
     flexDirection: 'row',
@@ -87,7 +128,7 @@ const styles = StyleSheet.create({
     width: 0.9*window.width,
     height: 0.65*window.height,
     backgroundColor: '#fff',
-    top: 110,
+    top: 40,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
@@ -98,22 +139,33 @@ const styles = StyleSheet.create({
     width: 0.8*window.width,
     height: 100,
     backgroundColor: '#605DF1',
-    top: -450,
+    top: -520,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
+  },
+  nameText: {
+    fontSize: 40,
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#fff',
+    width: 215,
+    height: 55,
+    top: -595,
   },
   tableRows: {
     flexDirection: 'row',
     width: 0.9*window.width,
     height: 50,
     opacity: 0.9,
-    top: -450,
-    backgroundColor: colors[0]
+    top: -150,
+    backgroundColor: '#605DF1',
   },
-  mainColumn: {
-    justifyContent: 'space-between',
+  itemText: {
+    fontSize: 18,
+    fontFamily: 'Montserrat-Medium',
+    color: '#fff',
+
   },
   dropText: {
     fontSize: 20,
@@ -121,7 +173,7 @@ const styles = StyleSheet.create({
     color: '#605DF1',
     width: 300,
     height: 80,
-    top: -150,
+    top: 350,
     textAlign: 'center',
     lineHeight: 40
   },
@@ -130,7 +182,7 @@ const styles = StyleSheet.create({
     width: 0.5*window.width,
     height: 65,
     backgroundColor: '#FF715B',
-    top: -100,
+    top: 400,
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
@@ -142,14 +194,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     width: 100,
     height: 35,
-    top: -150,
+    top: 350,
     textAlign: 'center',
     marginRight: 40
   },
   checkIcon: {
     width: 26,
     height: 26,
-    top: -180,
+    top: 320,
     marginLeft: 110
   },
 });

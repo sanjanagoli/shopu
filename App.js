@@ -34,6 +34,7 @@ defaultNavigationOptions: ({ navigation }) => ({
     } else if (routeName === 'DriverSearch') {
       imageName = require('./assets/images/person_w_bag.png');
     } 
+
     return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
   },
 }),

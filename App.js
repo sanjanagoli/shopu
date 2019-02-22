@@ -1,14 +1,10 @@
 import React from 'react';
-<<<<<<< HEAD
 import { StyleSheet, Text, View, Image} from 'react-native';
-=======
-import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
->>>>>>> 208976f3093d1caa55068a22dd4d11d62e5713c7
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import DriverSearch from './screens/DriverSearch';
 
 
 class ThirdsScreen extends React.Component {
@@ -22,30 +18,27 @@ class ThirdsScreen extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-  "ShopSearch": ShopSearch,
+  ShopSearch: ShopSearch,
   Notifications: Notifications,
-  Thirds: ThirdsScreen,
+  DriverSearch: DriverSearch,
 },
 {
 defaultNavigationOptions: ({ navigation }) => ({
-  tabBarIcon: ({ tintColor }) => {
+  tabBarIcon: ({ }) => {
     const { routeName } = navigation.state;
     let imageName;
     if (routeName === 'ShopSearch') {
       imageName = require('./assets/images/nav-cart.png');
     } else if (routeName === 'Notifications') {
       imageName = require('./assets/images/home_icon.png');
-    } else if (routeName === 'Thirds') {
+    } else if (routeName === 'DriverSearch') {
       imageName = require('./assets/images/person_w_bag.png');
-    }
+    } 
     return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
   },
 }),
 tabBarOptions: {
-  activeTintColor: 'tomato',
-  inactiveTintColor: 'gray',
   showLabel: false,
-  justifyContent: 'center',
   
 },
 

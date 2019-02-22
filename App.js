@@ -42,6 +42,7 @@ tabBarOptions: {
   inactiveTintColor: 'gray',
   showLabel: false,
   justifyContent: 'center',
+  
 },
 
 }

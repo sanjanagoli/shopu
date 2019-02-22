@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
 import FontLoad from './components/FontLoad';
 
 export default class App extends React.Component {
@@ -35,4 +35,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
 });

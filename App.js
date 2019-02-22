@@ -41,6 +41,7 @@ tabBarOptions: {
   activeTintColor: 'tomato',
   inactiveTintColor: 'gray',
 },
+
 }
 );
 

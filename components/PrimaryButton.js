@@ -20,13 +20,14 @@ export default class PrimaryButton extends React.Component {
 const styles = StyleSheet.create({
   buttonContainer: {
     margin: 20,
+    justifyContent: 'center', 
+    alignItems: 'center'
   },
   title:{
     color: '#fff',
-    textAlign: 'center',
     fontFamily: 'Montserrat-SemiBold',
-    marginLeft:20,
-    marginRight:20,
+    marginLeft: 35,
+    marginRight: 35,
     
   }
 });

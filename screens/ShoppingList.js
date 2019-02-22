@@ -7,21 +7,21 @@ let colors = ['#6DC4E0', '#605DF1']
 let items = [
   {
     name: 'Name',
-    TimeLocation: 'Time, Location',
-    Summary: 'Shopping Cart Summary',
-    ETA: 'ETA: 2 Hours',
+    timeLocation: 'Time, Location',
+    summary: 'Shopping Cart Summary',
+    eta: 'ETA: 2 Hours',
   },
   {
     name: 'Name',
-    TimeLocation: 'Time, Location',
-    Summary: 'Shopping Cart Summary',
-    ETA: 'ETA: 2 Hours',
+    timeLocation: 'Time, Location',
+    summary: 'Shopping Cart Summary',
+    eta: 'ETA: 2 Hours',
   },
   {
     name: 'Name',
-    TimeLocation: 'Time, Location',
-    Summary: 'Shopping Cart Summary',
-    ETA: 'ETA: 2 Hours',
+    timeLocation: 'Time, Location',
+    summary: 'Shopping Cart Summary',
+    eta: 'ETA: 2 Hours',
   }
 ]
 
@@ -41,7 +41,7 @@ export default class ShoppingList extends Component {
           </View>
           </View>
           
-        <View style={{flex: 1, justifyContent: 'center',  alignItems: 'center', top: -150}}>
+        <View style={styles.flatlistStyle}>
             <FlatList
               horizontal = {false}
               data= {items}
@@ -49,12 +49,15 @@ export default class ShoppingList extends Component {
               renderItem = {
                 ({item, index}) => {
                 return ( 
-                  <View style={{width: Dimensions.get("screen").width*.90, height: Dimensions.get("screen").height*.17, backgroundColor: colors[index % colors.length], marginBottom: 10}}>
+                  <View style = {styles.rectangles}>
+                  <View style={{backgroundColor: colors[index % colors.length]}}>
+                  
                     <Text style = {styles.name}>{item.name}</Text>
-                    <Text style = {styles.locationTime}>{item.TimeLocation}</Text>
-                    <Text style = {styles.summary}>{item.Summary}</Text>
-                    <Text style = {styles.eta}>{item.ETA}</Text>
+                    <Text style = {styles.locationTime}>{item.timeLocation}</Text>
+                    <Text style = {styles.summary}>{item.summary}</Text>
+                    <Text style = {styles.eta}>{item.eta}</Text>
                   </View>    
+                  </View>
               )
               }
                }
@@ -134,6 +137,17 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'Montserrat-Regular',
     marginLeft: Dimensions.get("screen").width*.02,
+  },
+  rectangles: {
+    marginTop: 5,
+    width: Dimensions.get("screen").width*.90,
+    height: Dimensions.get("screen").height*.17,
+  },
+  flatlistStyle:{
+    flex: 1, 
+    justifyContent: 'flex-end',  
+    alignItems: 'center', 
+    top: -150,
   },
 });
 

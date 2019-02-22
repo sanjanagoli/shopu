@@ -18,7 +18,7 @@ class ThirdsScreen extends React.Component {
 }
 
 const TabNavigator = createBottomTabNavigator({
-  ShopSearch: ShopSearch,
+  "ShopSearch": ShopSearch,
   Notifications: Notifications,
   Thirds: ThirdsScreen,
 },
@@ -34,12 +34,14 @@ defaultNavigationOptions: ({ navigation }) => ({
     } else if (routeName === 'Thirds') {
       imageName = require('./assets/images/person_w_bag.png');
     }
-    return <Image source={imageName} style={{width: 40, height: 40}} />;
+    return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
   },
 }),
 tabBarOptions: {
   activeTintColor: 'tomato',
   inactiveTintColor: 'gray',
+  showLabel: false,
+  justifyContent: 'center',
 },
 
 }

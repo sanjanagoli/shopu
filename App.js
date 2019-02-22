@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import { StyleSheet, Text, View, Image} from 'react-native';
+=======
+import { StyleSheet, Text, View, FlatList, Dimensions } from 'react-native';
+>>>>>>> 208976f3093d1caa55068a22dd4d11d62e5713c7
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
@@ -83,5 +87,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  
 });
 

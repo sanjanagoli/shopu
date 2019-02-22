@@ -24,25 +24,31 @@ const TabNavigator = createBottomTabNavigator({
 },
 {
 defaultNavigationOptions: ({ navigation }) => ({
-  tabBarIcon: ({ }) => {
+  tabBarIcon: ({ focused }) => {
     const { routeName } = navigation.state;
     let imageName;
     if (routeName === 'ShopSearch') {
       imageName = require('./assets/images/nav-cart.png');
+      if (focused) {
+        imageName = require('./assets/images/filled_cart.png');
+      }
     } else if (routeName === 'Notifications') {
       imageName = require('./assets/images/home_icon.png');
+      if (focused) {
+        imageName = require('./assets/images/filled_house.png');
+      }
     } else if (routeName === 'DriverSearch') {
       imageName = require('./assets/images/person_w_bag.png');
+      if (focused) {
+        imageName = require('./assets/images/filled_person.png');
+      }
     } 
-
     return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
   },
 }),
 tabBarOptions: {
   showLabel: false,
-  
 },
-
 }
 );
 

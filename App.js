@@ -5,56 +5,57 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
 import DriverSearch from './screens/DriverSearch';
+import YourCart from './screens/YourCart';
 
 
-class ThirdsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
+// class ThirdsScreen extends React.Component {
+//   render() {
+//     return (
+//       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//         <Text>Settings!</Text>
+//       </View>
+//     );
+//   }
+// }
 
-const TabNavigator = createBottomTabNavigator({
-  ShopSearch: ShopSearch,
-  Notifications: Notifications,
-  DriverSearch: DriverSearch,
-},
-{
-defaultNavigationOptions: ({ navigation }) => ({
-  tabBarIcon: ({ focused }) => {
-    const { routeName } = navigation.state;
-    let imageName;
-    if (routeName === 'ShopSearch') {
-      imageName = require('./assets/images/nav-cart.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_cart.png');
-      }
-    } else if (routeName === 'Notifications') {
-      imageName = require('./assets/images/home_icon.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_house.png');
-      }
-    } else if (routeName === 'DriverSearch') {
-      imageName = require('./assets/images/person_w_bag.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_person.png');
-      }
-    } 
-    return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
-  },
-}),
-tabBarOptions: {
-  showLabel: false,
-},
-}
-);
+// const TabNavigator = createBottomTabNavigator({
+//   ShopSearch: ShopSearch,
+//   Notifications: Notifications,
+//   DriverSearch: DriverSearch,
+// },
+// {
+// defaultNavigationOptions: ({ navigation }) => ({
+//   tabBarIcon: ({ focused }) => {
+//     const { routeName } = navigation.state;
+//     let imageName;
+//     if (routeName === 'ShopSearch') {
+//       imageName = require('./assets/images/nav-cart.png');
+//       if (focused) {
+//         imageName = require('./assets/images/filled_cart.png');
+//       }
+//     } else if (routeName === 'Notifications') {
+//       imageName = require('./assets/images/home_icon.png');
+//       if (focused) {
+//         imageName = require('./assets/images/filled_house.png');
+//       }
+//     } else if (routeName === 'DriverSearch') {
+//       imageName = require('./assets/images/person_w_bag.png');
+//       if (focused) {
+//         imageName = require('./assets/images/filled_person.png');
+//       }
+//     } 
+//     return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
+//   },
+// }),
+// tabBarOptions: {
+//   showLabel: false,
+// },
+// }
+// );
 
-export default createAppContainer(TabNavigator);
+// export default createAppContainer(TabNavigator);
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -72,8 +73,9 @@ class App extends React.Component {
   render() {
     return (
       this.state.fontLoaded ? (
-        <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+        <View>
+          <YourCart/>
+          {/* <Text>Open up App.js to start working on your app!</Text> */}
         </View>
     ) : null
     )

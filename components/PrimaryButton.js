@@ -10,7 +10,7 @@ export default class PrimaryButton extends React.Component {
 
   render() {
     return (
-         <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
+         <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}, {width: this.props.width}]}>
             <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>
          </View>
     );

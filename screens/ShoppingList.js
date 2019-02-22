@@ -31,18 +31,14 @@ export default class ShoppingList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.orangeBox}>
-          <View style={styles.formatInOrangeBox}>
+        <View style={styles.orangeBox}/>
+          <View style={styles.toolbar}>
             <Image source ={require('./../assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
             <Image source ={require('./../assets/images/person.png')} style={styles.person} />  
           </View>
-          <View style={styles.formatInOrangeBox}>
             <Text style = {styles.header}>Shopping List</Text>
-          </View>
-          </View>
-          
-        <View style={styles.flatlistStyle}>
             <FlatList
+              style={styles.shoppingList}
               horizontal = {false}
               data= {items}
               keyExtractor = {(item, index) => index.toString()}
@@ -61,8 +57,7 @@ export default class ShoppingList extends Component {
               )
               }
                }
-              />
-          </View>      
+              />    
           </View>   
     );
   }
@@ -77,12 +72,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
-  formatInOrangeBox: {
+  toolbar: {
+    height: 'auto',
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     width: Dimensions.get('screen').width,
   },
   orangeBox: {
+    position: 'absolute',
+    zIndex: 0,
     width: Dimensions.get("screen").width,
     height: Dimensions.get("screen").height*.50,
     backgroundColor: '#FF715B',
@@ -94,7 +92,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: Dimensions.get("screen").width,
     fontFamily: 'Montserrat-SemiBold',
-    marginTop: Dimensions.get("screen").height*.05,
+    margin: '5% 5%',
   },
   person:{
     width: 43,
@@ -144,10 +142,10 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.17,
   },
   flatlistStyle:{
-    flex: 1, 
-    justifyContent: 'flex-end',  
-    alignItems: 'center', 
-    top: -150,
+    justifyContent: 'flex-end', 
   },
+  shoppingList: {
+
+  }
 });
 

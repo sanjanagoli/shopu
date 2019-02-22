@@ -6,14 +6,15 @@ export default class Notifications extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.orangeRectangle}></View>
-        <Text style={styles.header}>Notifications!</Text>
-        <View style={styles.whiteCard}></View>
-        <View style={styles.slantedBlueRectangle}></View>
-        <View style={styles.slantedPurpleRectangle}></View>
+        <View style={styles.peachBox}></View>
+          <Text style={styles.header}>Notifications!</Text>
+        <View style={styles.iconsBox}></View>
+          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />
+          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />
+        <View style={styles.whiteBox}></View>
+        <View style={styles.blueBox}></View>
+        <View style={styles.purpleBox}></View>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
-        <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.topShopCart} />
-        <Image source={require('./../assets/images/profile_head.png')}style={styles.profileHead} />
       </View>
         );
     }
@@ -24,38 +25,57 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#ffffff',
       alignItems: 'center',
-      justifyContent: 'center',
-    },
-    orangeRectangle: {
-      backgroundColor: '#FF715B',
-      width: Dimensions.get("screen").width,
-      height: Dimensions.get("screen").height / 2.5,
-      top: 0, 
-      bottom: 0,
-      position: 'absolute',
     },
     header: {
-      fontSize: 65,
-      color: '#fff',
-      position: 'absolute',
-      top: 135,
+      color: '#ffffff',
+      fontFamily: 'Montserrat-Medium',
+      fontSize: 58,
       textAlign: 'center',
-      fontFamily: 'Arial',
+      marginBottom: 20,
+      marginTop: -220,
     },
-    slantedBlueRectangle: {
-      position: 'absolute',
+    recentOrdersText: {
+      fontSize: 25,
+      color: '#ffffff',
+      textAlign: 'center',
+      fontFamily: 'Montserrat-Medium',
+      marginTop: -50,
+    },
+    whiteBox: {
+      flexDirection: 'column',
+      width: Dimensions.get("screen").width*.91,
+      height: Dimensions.get("screen").height*.48,
+      shadowColor: '#000000',
+      shadowOffset: {
+          width: 0,
+          height: 3
+      },
+      shadowRadius: 5,
+      shadowOpacity: 1.0,
+      backgroundColor: '#FFFFFF',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 150,
+    },
+    peachBox: {
+      width: Dimensions.get("screen").width,
+      height: Dimensions.get("screen").height*.40,
+      backgroundColor: '#FF715B',
+    },
+    blueBox: {
       backgroundColor: '#6DC4E0',
-      transform:([{ rotateZ:'-5deg'}]),
-      width: Dimensions.get("screen").width - 120,
+      alignItems: 'center',
+      width: Dimensions.get("screen").width - 125,
       height: 80,
-      top: Dimensions.get("screen").height * 1 / 3 - 25,
+      transform:([{ rotateZ:'-5deg'}]),
+      marginTop: -Dimensions.get('screen').height*0.52,
     },
-    slantedPurpleRectangle: {
-      position: 'absolute',
+    purpleBox: {
       backgroundColor: '#605DF1',
-      width: Dimensions.get("screen").width -100,
+      alignItems: 'center',
+      width: Dimensions.get("screen").width - 120,
       height: 70,
-      top: Dimensions.get("screen").height * 1 / 3 - 20,
+      marginTop: -77,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,
@@ -64,41 +84,20 @@ const styles = StyleSheet.create({
       shadowRadius: 2,
       shadowOpacity: 0.9,
     },
-    whiteCard: {
-      position: 'absolute',
-      backgroundColor: '#ffffff',
-      width: Dimensions.get("screen").width - 30,
-      height: Dimensions.get("screen").height / 2 + 15,
-      top: Dimensions.get("screen").height * 1 / 3 + 10,
-      shadowColor: '#000000',
-      shadowOffset: {
-        width: 0,
-        height: 3,
-      },
-      shadowRadius: 3,
-      shadowOpacity: 0.9,
+    iconsBox: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: -Dimensions.get('screen').height*0.2,
     },
-    topShopCart: {
-      position: 'absolute',
-      top: 50,
-      left: 20,
-      height: 40,
+    shopCart: {
       width: 40,
-    },
-    profileHead: {
-      position: 'absolute',
-      top: 50,
-      right: 20,
       height: 40,
-      width: 40,
+      marginLeft: 15,
     },
-    recentOrdersText: {
-      fontSize: 30,
-      position: 'absolute',
-      color: '#ffffff',
-      top: Dimensions.get("screen").height* 1 / 3 - 5,
-      textAlign: 'center',
-      fontFamily: 'Arial',
-
-    }
+    personIcon: {
+      width: 40,
+      height: 40,
+      marginRight: 15,
+    },
+    
 });

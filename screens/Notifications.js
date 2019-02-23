@@ -9,15 +9,12 @@ export default class Notifications extends React.Component {
         <View style={styles.peachBox}/>
         <Text style={styles.header}>Notifications!</Text>
         <View style={styles.iconsBox}> 
-          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />   //implement toolbar
-          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />  //implement toolbar
+          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} /> 
+          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />  
         </View>
-        <View style={styles.blueBox} />
-        <View style={styles.purpleBox}/>
-        <Text style={styles.recentOrdersText}>Your recent orders...</Text>
         <View style={styles.whiteBox}/>
-          <FlatList style={{marginTop: -Dimensions.get("screen").height*.46}} vertical={true}
-            data={[{key: 'Notifcation # 1'}, {key: 'Notification #2' }, 
+          <FlatList style={{marginTop: -Dimensions.get("screen").height*.45}} vertical={true}
+            data={[{key: 'Notification # 1'}, {key: 'Notification #2' }, 
             {key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]}
             renderItem={(
               {item}) => {
@@ -29,7 +26,10 @@ export default class Notifications extends React.Component {
               }
             }
           />
-          <View style={{marginTop: Dimensions.get("screen").height*.06}}></View>
+        <View style={styles.blueBox} />
+        <View style={styles.purpleBox}/>
+        <Text style={styles.recentOrdersText}>Your recent orders...</Text>
+        <View style={{marginTop: Dimensions.get("screen").height*.084}} />
       </View>
         );
     }
@@ -54,12 +54,13 @@ const styles = StyleSheet.create({
       color: '#ffffff',
       textAlign: 'center',
       fontFamily: 'Montserrat-Medium',
-      marginTop: -50,
+      marginTop: Dimensions.get("screen").height*.28,
+      position: 'absolute',
     },
     whiteBox: {
       flexDirection: 'column',
       width: Dimensions.get("screen").width*.91,
-      height: Dimensions.get("screen").height*.48,
+      height: Dimensions.get("screen").height*.5,
       shadowColor: '#000000',
       shadowOffset: {
           width: 0,
@@ -70,7 +71,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF',
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: 50,
+      marginTop: Dimensions.get("screen").height*.18,
     },
     notificationList: {
       fontSize: 25,
@@ -87,18 +88,18 @@ const styles = StyleSheet.create({
     },
     blueBox: {
       backgroundColor: '#6DC4E0',
-      alignItems: 'center',
-      width: Dimensions.get("screen").width - 125,
+      width: Dimensions.get("screen").width - 100,
       height: 80,
       transform:([{ rotateZ:'-5deg'}]),
-      marginTop: Dimensions.get("screen").height*.12,
+      position: 'absolute',
+      marginTop: Dimensions.get("screen").height*.26,
     },
     purpleBox: {
       backgroundColor: '#605DF1',
-      alignItems: 'center',
-      width: Dimensions.get("screen").width - 120,
+      width: Dimensions.get("screen").width - 100,
       height: 70,
-      marginTop: -Dimensions.get("screen").height*.087,
+      position: 'absolute',
+      marginTop: Dimensions.get("screen").height*.26,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,

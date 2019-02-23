@@ -1,11 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, Image } from 'react-native';
 
-export default class PrimaryButton extends React.Component {
-  
+export default class Toolbar extends React.Component {
     render() {
       return (
-           <View style={[styles.formatInBox, {marginBottom: this.props.marginBottom}, {marginTop: this.props.marginTop}]}>
+           <View style={[styles.formatInBox, {marginBottom: this.props.marginBottom}]}>
               <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/>
               <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/>
            </View>
@@ -21,6 +20,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 43,
         backgroundColor: '#FF715B',
+        marginTop: Dimensions.get('screen').height*.03,
     },
     person:{
         width: 43,

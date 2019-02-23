@@ -7,7 +7,7 @@ export default class SearchingRequest extends React.Component {
     return (
         <View style={styles.container}>
           <View style={styles.peachBox}>
-            <Toolbar marginBottom={0} marginTop={Dimensions.get('screen').height*.03}/>
+            <Toolbar marginBottom={0}/>
             <View style={styles.format2}> 
               <View style={styles.whiteBox}>
                 <Text style={styles.header}>Searching for Request</Text>

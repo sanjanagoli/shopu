@@ -8,8 +8,8 @@ export default class YourCart extends React.Component {
     <View style={styles.whiteBackground}> 
         <View style={styles.orangeCard}>
             <View style={styles.iconsBox}>
-                <Image source ={require('./../assets/images/scart.png')} style={styles.shopCart}/>
-                <Image source ={require('./../assets/images/personicon.png')} style={styles.personIcon}/>
+                <Image source ={require('./../assets/images/shopping_bag.png')} style={styles.shopCart}/>
+                <Image source ={require('./../assets/images/person.png')} style={styles.personIcon}/>
             </View>
             <View style={styles.searchTextBox}>
                 <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
@@ -75,15 +75,12 @@ export default class YourCart extends React.Component {
                     />
                     </View>
                 </View>  
-            </View>
-            
-                
-           
-            
+            </View>   
         </View>
-        <View styles={styles.checkoutButton}>
-            <PrimaryButton backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20} width={250}/> 
+        <View style={{marginTop: -Dimensions.get("screen").height*.065}}>
+          <PrimaryButton backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20}/> 
         </View>
+        
     </View>
     )
     }
@@ -101,55 +98,56 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       width: Dimensions.get("screen").width,
       height: Dimensions.get('screen').height * 7 / 16,
-      marginBottom: 290,
+      marginBottom: Dimensions.get('screen').height * .4,
     },
     iconsBox: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       width: Dimensions.get('screen').width,
-      marginTop: 350,
+      marginTop: Dimensions.get('screen').height * .4,
     },
     shopCart: {
-      width: 40,
+      width: 35,
       height: 40,
-      marginLeft: 15,
-      marginTop: 15
+      marginLeft: Dimensions.get("screen").width*.04,
+      marginTop: Dimensions.get("screen").height*.04,
     },
     personIcon: {
-      width: 45,
-      height: 42,  
-      marginRight: 15,
-      marginTop: 13
+      width: 42,
+      height: 40,  
+      marginRight: Dimensions.get("screen").width*.04,
+      marginTop: Dimensions.get("screen").height*.04,
     },
     checkoutContentBox: {
       flexDirection: 'column',
       alignItems: 'center',
       width: Dimensions.get('screen').width,
-      marginTop: 40,  
+      marginTop: Dimensions.get("screen").height*.15,  
     },
     header: {
       color: '#ffffff',
       fontFamily: 'Montserrat-Medium',
       fontSize: 60,
       textAlign: 'center',
-      marginBottom: 20,
+      marginBottom: Dimensions.get("screen").height*.03,
+      marginTop: -Dimensions.get("screen").height*.15,
     },
     searchTextBox: {
       flexDirection: 'row',
       width: Dimensions.get('screen').width,
-      marginTop: 10,
+      marginTop: Dimensions.get("screen").height*.015,
     },
     searchText: {
       color: '#ffffff',
       fontFamily: 'Montserrat-Medium',
       fontSize: 20,
       textAlign: 'left',
-      marginLeft: 10,
+      marginLeft: Dimensions.get('screen').width*0.01,
     },
     leftArrow: {
       width: 20,
       height: 22,
-      marginLeft: 15,
+      marginLeft: Dimensions.get('screen').width*0.015,
       marginTop: Dimensions.get('screen').height*0.005,
     },
     cvsTotal: {
@@ -158,8 +156,10 @@ const styles = StyleSheet.create({
       backgroundColor: '#6DC4E0',    
       justifyContent: 'center',
       flexDirection: 'column',
-      marginTop: 10,
-      marginBottom: 10,
+      marginTop: Dimensions.get("screen").height * .01,
+      marginBottom: Dimensions.get("screen").height*.015,
+      paddingTop: Dimensions.get('screen').height*0.06,
+      paddingBottom: Dimensions.get('screen').height*0.065,
     },
     walTotal: {
       width: Dimensions.get("screen").width * .90,
@@ -167,32 +167,28 @@ const styles = StyleSheet.create({
       backgroundColor: '#605DF1',    
       justifyContent: 'center',
       flexDirection: 'column',
-      marginTop: 2,
+      
+      paddingTop: Dimensions.get('screen').height*0.06,
+      paddingBottom: Dimensions.get('screen').height*0.065,
     },
     totalHeader: {
       color: '#ffffff',
       fontFamily: 'Montserrat-SemiBold',
       fontSize: 25,
       marginLeft: Dimensions.get('screen').width*0.05,
-      marginBottom: 5
+      marginBottom: Dimensions.get('screen').height*0.0075,
     },
     totalsText: {
       color: '#ffffff',
       fontFamily: 'Montserrat-Medium',
       fontSize: 19,
       marginLeft: Dimensions.get('screen').width*0.05,
-      marginTop: 5
-    },
-    checkoutButton: {
-        shadowOffset: {width: 0, height: 15},
-        shadowColor: '#000000', 
-        shadowOpacity: 0.25, 
-        shadowRadius: 50,
+      marginTop: Dimensions.get('screen').height*0.0075,
     },
     editPencil: {
         width: 27,
         height: 27,
-        marginLeft: 160
+        marginLeft: Dimensions.get('screen').width*0.4,
     }
 });
 

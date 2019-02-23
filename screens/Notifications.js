@@ -8,9 +8,9 @@ export default class Notifications extends React.Component {
       <View style={styles.container}>
         <View style={styles.peachBox}/>
         <Text style={styles.header}>Notifications!</Text>
-        <View style={styles.iconsBox}>
-          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />
-          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />
+        <View style={styles.iconsBox}> 
+          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />   //implement toolbar
+          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />  //implement toolbar
         </View>
         <View style={styles.blueBox} />
         <View style={styles.purpleBox}/>
@@ -113,14 +113,14 @@ const styles = StyleSheet.create({
       marginTop: -Dimensions.get('screen').height*0.1,
       width: Dimensions.get('screen').width,
     },
-    shopCart: {
+    shopCart: {  //implement toolbar
       width: 40,
       height: 40,
       marginTop: -Dimensions.get('screen').height*0.1,
       justifyContent: 'flex-start',
       marginLeft: 15,
     },
-    personIcon: {
+    personIcon: { //implement toolbar
       width: 40,
       height: 40,
       marginRight: 15,

@@ -6,16 +6,16 @@ export default class Notifications extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.peachBox}></View>
+        <View style={styles.peachBox}/>
         <Text style={styles.header}>Notifications!</Text>
         <View style={styles.iconsBox}>
           <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />
           <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />
         </View>
-        <View style={styles.blueBox}></View>
-        <View style={styles.purpleBox}></View>
+        <View style={styles.blueBox} />
+        <View style={styles.purpleBox}/>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
-        <View style={styles.whiteBox}></View>
+        <View style={styles.whiteBox}/>
           <FlatList style={{marginTop: -Dimensions.get("screen").height*.46}} vertical={true}
             data={[{key: 'Notifcation # 1'}, {key: 'Notification #2' }, 
             {key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]}

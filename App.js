@@ -1,21 +1,62 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, Text, View, Image, YellowBox} from 'react-native';
 import FontLoad from './components/FontLoad';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import Notifications from './screens/Notifications';
-import ShopSearch from './screens/ShopSearch';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
+import Login from './screens/Login';
+import Notifications from './screens/Notifications';
+import Completed from './screens/OrderComplete';
+import Rating from './screens/Rating';
+import Register from './screens/Register';
+import RequestProfile from './screens/RequestProfile';
+import SearchingRequest from './screens/SearchingRequest';
+import ShoppingList from './screens/ShoppingList';
+import ShopSearch from './screens/ShopSearch';
+import Welcome from './screens/Welcome';
 
+YellowBox.ignoreWarnings([
+  'Require cycle:',
+]);
 
-class ThirdsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
+const AppNavigator = createStackNavigator({
+  Checkout: {
+    screen: Checkout
+  },
+  DriverSearch: {
+    screen: DriverSearch
+  },
+  Login: {
+    screen: Login
+  },
+  Notifications: {
+    screen: Notifications
+  },
+  OrderComplete: {
+    screen: Completed
+  },
+  Rating: {
+    screen: Rating
+  },
+  Register: {
+    screen: Register
+  },
+  RequestProfile: {
+    screen: RequestProfile
+  },
+  SearchingRequest: {
+    screen: SearchingRequest
+  },
+  ShoppingList: {
+    screen: ShoppingList
+  },
+  ShopSearch: {
+    screen: ShopSearch
+  },
+  Welcome: {
+    screen: Welcome
+  },
+});
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,
@@ -52,7 +93,7 @@ tabBarOptions: {
 }
 );
 
-export default createAppContainer(TabNavigator);
+export default createAppContainer(TabNavigator, AppNavigator);
 
 class App extends React.Component {
 

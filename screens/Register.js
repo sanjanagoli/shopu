@@ -1,33 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TextInput} from 'react-native';
+import PrimaryButton from './../components/PrimaryButton.js';
 
 export default class Register extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View>
-          <View>
+        <View style={styles.peachBox}>
+        <Text style={styles.header}>Register Now!</Text>
+        <View style={styles.whiteBox}>
+          <View marginTop={70}>
             <Text style={styles.subHeader}>Username</Text>
+            <TextInput style={styles.textInput}></TextInput>
             <View style={styles.lineStyle}/>
           </View>
           <View>
             <Text style={styles.subHeader}>Password</Text>
+            <TextInput style={styles.textInput}></TextInput>
             <View style={styles.lineStyle}/>
           </View>
           <View>
             <Text style={styles.subHeader}>Phone Number</Text>
+            <TextInput style={styles.textInput}></TextInput>
             <View style={styles.lineStyle}/>
           </View>
           <View>
             <Text style={styles.subHeader}>Email</Text>
+            <TextInput style={styles.textInput}></TextInput>
             <View style={styles.lineStyle}/>
           </View>
+        <View/>
+        <View>
+          <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={60} fontSize={40}/>
         </View>
-         <View style={styles.purpleBox}/>
-         <View style={styles.blueBox}/>
-         <Text style={styles.header}>Register Now</Text>
-         <View style={styles.submitButton}/>
-         <Text style={styles.submitText}>Submit!</Text>
+        </View>
+        </View>
       </View>
     );
   }
@@ -38,80 +45,52 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  purpleBox: {
-    flex: 1,
+  peachBox: {
     width: Dimensions.get("screen").width,
-    height: 172,
-    backgroundColor: '#605DF1',
+    height: Dimensions.get("screen").height*.40,
+    backgroundColor: '#FF715B',
     alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
   },
-  blueBox: {
-    flex: 1,
-    width: 490,
-    height: 136,
-    position: 'absolute',
-    left: -20,
-    top: 10,
-    backgroundColor: '#64B6F2',
-    transform: [{rotateZ: '-6.5deg'}],
+  whiteBox: {
+    flexDirection: 'column',
+    width: Dimensions.get("screen").width*.91,
+    height: Dimensions.get("screen").height*.58,
+    shadowColor: '#000000',
+    shadowOffset: {
+        width: 0,
+        height: 3
+    },
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+    backgroundColor: '#FFFFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 40,
   },
   header: {
-    position: 'absolute',
-    top: 16.5,
-    fontSize: 62.5,
-    fontFamily: 'Arial',
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
-    width: Dimensions.get("screen").width,
-    height: 186,
     color: '#fff',
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 60,
+    textAlign: 'center',
+    marginTop: 70,
+    justifyContent: 'center',
   },
   subHeader:{
-    left: 30,
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Regular',
     fontSize: 27,
-    marginBottom: 55,
-    top: 190,
+    marginTop: 20,
+    marginBottom: 10,
     color: '#605DF1',
+  },
+  textInput: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 25,
+    color: '#000000',
   },
   lineStyle: {
     width: 280,
-    height: 3, backgroundColor: '#6DC4E0', 
-    top: 180, 
-    marginBottom: 10,
-    left: 40,
-  },
-  submitButton: {
-      position:'absolute',
-      width: 240,
-      height: 65,
-      left: 40,
-      top: 590,
-      marginLeft:30,
-      marginRight:30,
-      backgroundColor:'#FF715B',
-      shadowColor: '#000000',
-      shadowOffset: {
-        width: 0,
-        height: 3
-      },
-      shadowRadius: 5,
-      shadowOpacity: 1.0
-  },
-  submitText: {
-    position: 'absolute',
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
-    top: 605,
-    left: 137,
-    fontSize: 30,
-    fontFamily: 'Arial',
-    color: '#FFFFFF',
-    fontWeight: 'bold',
+    height: 3, 
+    backgroundColor: '#605DF1', 
+    marginBottom: 20,
   }
 });

@@ -13,8 +13,8 @@ export default class Welcome extends React.Component {
         <Text style = {styles.subheader}>sign up now!</Text>
         <View style={styles.RectangleShapeViewBottom} />
         <Text style = {styles.minitext}>Have an account? Login</Text>
-        <Image source ={require('./images/shopcart.png')} style={styles.ShoppingCart} />
-        <Image source ={require('./images/right-arrow.png')} style={styles.Arrow} />
+        <Image source ={require('./../assets/images/shopcart.png')} style={styles.ShoppingCart} />
+        <Image source ={require('./../assets/images/right-arrow.png')} style={styles.Arrow} />
       </View>
     );
   }

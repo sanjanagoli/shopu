@@ -5,6 +5,12 @@ let notifs = [{key: 'Notification # 1'}, {key: 'Notification #2' },
 {key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]
 
 export default class Notifications extends React.Component {
+
+  notificationTouch=() => {
+  }
+
+
+
   render() {
     return (
       <View style={styles.container}>
@@ -20,7 +26,7 @@ export default class Notifications extends React.Component {
             renderItem={(
               {item}) => {
                 return(
-                  <TouchableOpacity>
+                  <TouchableOpacity onPress={this.notificationTouch}>
                    <View>
                      <Text style={styles.notificationList}>{item.key}</Text>
                     </View>

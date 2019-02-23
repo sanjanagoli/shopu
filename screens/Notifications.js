@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, FlatList } from 'react-native';
 
+let notifs = [{key: 'Notification # 1'}, {key: 'Notification #2' }, 
+{key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]
 
 export default class Notifications extends React.Component {
   render() {
@@ -14,8 +16,7 @@ export default class Notifications extends React.Component {
         </View>
         <View style={styles.whiteBox}/>
           <FlatList style={{marginTop: -Dimensions.get("screen").height*.45}} vertical={true}
-            data={[{key: 'Notification # 1'}, {key: 'Notification #2' }, 
-            {key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]}
+            data={notifs}
             renderItem={(
               {item}) => {
                 return(

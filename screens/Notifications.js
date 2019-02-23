@@ -7,10 +7,11 @@ export default class Notifications extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.peachBox}></View>
-          <Text style={styles.header}>Notifications!</Text>
-        <View style={styles.iconsBox}></View>
+        <Text style={styles.header}>Notifications!</Text>
+        <View style={styles.iconsBox}>
           <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />
           <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />
+        </View>
         <View style={styles.whiteBox}></View>
         <View style={styles.blueBox}></View>
         <View style={styles.purpleBox}></View>
@@ -87,17 +88,21 @@ const styles = StyleSheet.create({
     iconsBox: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginTop: -Dimensions.get('screen').height*0.2,
+      marginTop: -Dimensions.get('screen').height*0.1,
+      width: Dimensions.get('screen').width,
     },
     shopCart: {
       width: 40,
       height: 40,
+      marginTop: -Dimensions.get('screen').height*0.1,
+      justifyContent: 'flex-start',
       marginLeft: 15,
     },
     personIcon: {
       width: 40,
       height: 40,
       marginRight: 15,
+      marginTop: -Dimensions.get('screen').height*0.1,
     },
     
 });

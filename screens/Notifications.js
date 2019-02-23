@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 
 let notifs = [{key: 'Notification # 1'}, {key: 'Notification #2' }, 
 {key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]
@@ -20,9 +20,11 @@ export default class Notifications extends React.Component {
             renderItem={(
               {item}) => {
                 return(
-              <View>
-                <Text style={styles.notificationList}>{item.key}</Text>
-              </View>
+                  <TouchableOpacity>
+                   <View>
+                     <Text style={styles.notificationList}>{item.key}</Text>
+                    </View>
+                  </TouchableOpacity>
                )
               }
             }

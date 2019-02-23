@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, FlatList } from 'react-native';
 
 
 export default class Notifications extends React.Component {
@@ -12,10 +12,24 @@ export default class Notifications extends React.Component {
           <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} />
           <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />
         </View>
-        <View style={styles.whiteBox}></View>
         <View style={styles.blueBox}></View>
         <View style={styles.purpleBox}></View>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
+        <View style={styles.whiteBox}></View>
+          <FlatList style={{marginTop: -Dimensions.get("screen").height*.46}} vertical={true}
+            data={[{key: 'Notifcation # 1'}, {key: 'Notification #2' }, 
+            {key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]}
+            renderItem={(
+              {item}) => {
+                return(
+              <View>
+                <Text style={styles.notificationList}>{item.key}</Text>
+              </View>
+               )
+              }
+            }
+          />
+          <View style={{marginTop: Dimensions.get("screen").height*.06}}></View>
       </View>
         );
     }
@@ -56,7 +70,15 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF',
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: 150,
+      marginTop: 50,
+    },
+    notificationList: {
+      fontSize: 25,
+      color: '#000',
+      textAlign: 'left',
+      fontFamily: 'Montserrat-Regular',
+      marginRight: 120,
+      marginBottom: 20,
     },
     peachBox: {
       width: Dimensions.get("screen").width,
@@ -69,14 +91,14 @@ const styles = StyleSheet.create({
       width: Dimensions.get("screen").width - 125,
       height: 80,
       transform:([{ rotateZ:'-5deg'}]),
-      marginTop: -Dimensions.get('screen').height*0.52,
+      marginTop: Dimensions.get("screen").height*.12,
     },
     purpleBox: {
       backgroundColor: '#605DF1',
       alignItems: 'center',
       width: Dimensions.get("screen").width - 120,
       height: 70,
-      marginTop: -77,
+      marginTop: -Dimensions.get("screen").height*.087,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,

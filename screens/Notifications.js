@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity} from 'react-native';
-
+import OrangeBackground from './../components/OrangeBackground';
 
 let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Order #1'}, {key: 'Bobby is en route!', time: '9:00 pm', order: 'Order #5'}, 
 {key: 'Robert has delivered!', time: '8:19 pm', order: 'Order #3'}, {key: 'Robert is en route!', time: '6:00 pm', order: 'Order #3'}, {key: 'Bobby is going to the store!', time: '1:23 pm', order: 'Order #5'}, {key: 'Robert has checked out!', time: '12:00 pm', order: 'Order #3'}, 
@@ -16,14 +16,14 @@ export default class Notifications extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.peachBox}/>
-        <Text style={styles.header}>Notifications!</Text>
+        <OrangeBackground/>
         <View style={styles.iconsBox}> 
           <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} /> 
           <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />  
         </View>
+        <Text style={styles.header}>Notifications!</Text>
         <View style={styles.whiteBox}/>
-          <FlatList style={{marginTop: -Dimensions.get("screen").height*.45}} vertical={true}
+          <FlatList style={{marginTop: -Dimensions.get("screen").height*.46}} vertical={true}
             data={notifs}
             renderItem={(
               {item}) => {
@@ -44,7 +44,7 @@ export default class Notifications extends React.Component {
         <View style={styles.blueBox} />
         <View style={styles.purpleBox}/>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
-        <View style={{marginTop: Dimensions.get("screen").height*.084}} />
+        <View style={{marginTop: Dimensions.get("screen").height*.09}} />
       </View>
         );
     }
@@ -55,10 +55,6 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#ffffff',
       alignItems: 'center',
-<<<<<<< HEAD
-      justifyContent: 'center',
-=======
->>>>>>> c38b6c2973d885100e51c262ef13b9729e7b6826
     },
     header: {
       color: '#ffffff',
@@ -66,7 +62,7 @@ const styles = StyleSheet.create({
       fontSize: 58,
       textAlign: 'center',
       marginBottom: 20,
-      marginTop: -220,
+      marginTop: Dimensions.get("screen").height*.06,
     },
     recentOrdersText: {
       fontSize: 25,
@@ -79,7 +75,7 @@ const styles = StyleSheet.create({
     whiteBox: {
       flexDirection: 'column',
       width: Dimensions.get("screen").width*.91,
-      height: Dimensions.get("screen").height*.5,
+      height: Dimensions.get("screen").height*.53,
       shadowColor: '#000000',
       shadowOffset: {
           width: 0,
@@ -90,7 +86,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#FFFFFF',
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: Dimensions.get("screen").height*.18,
+      marginTop: Dimensions.get("screen").height*.05,
     },
     notificationHeader: {
       fontSize: 25,
@@ -111,11 +107,6 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       width: Dimensions.get("screen").width*0.85,
     },
-    peachBox: {
-      width: Dimensions.get("screen").width,
-      height: Dimensions.get("screen").height*.40,
-      backgroundColor: '#FF715B',
-    },
     blueBox: {
       backgroundColor: '#6DC4E0',
       width: Dimensions.get("screen").width - 100,
@@ -126,7 +117,7 @@ const styles = StyleSheet.create({
     },
     purpleBox: {
       backgroundColor: '#605DF1',
-      width: Dimensions.get("screen").width - 100,
+      width: Dimensions.get("screen").width*0.77,
       height: 70,
       position: 'absolute',
       marginTop: Dimensions.get("screen").height*.26,
@@ -141,13 +132,12 @@ const styles = StyleSheet.create({
     iconsBox: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginTop: -Dimensions.get('screen').height*0.1,
+      marginTop: Dimensions.get('screen').height*.05,
       width: Dimensions.get('screen').width,
     },
     shopCart: {  //implement toolbar
       width: 40,
       height: 40,
-      marginTop: -Dimensions.get('screen').height*0.1,
       justifyContent: 'flex-start',
       marginLeft: 15,
     },
@@ -155,7 +145,6 @@ const styles = StyleSheet.create({
       width: 40,
       height: 40,
       marginRight: 15,
-      marginTop: -Dimensions.get('screen').height*0.1,
     },
     
 });

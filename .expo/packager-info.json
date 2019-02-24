@@ -1,19 +1,9 @@
 {
-<<<<<<< HEAD
-  "devToolsPort": 19003,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 40506,
-  "expoServerNgrokUrl": "https://fj-k5j.anonymous.shopu.exp.direct",
-  "packagerNgrokUrl": "https://packager.fj-k5j.anonymous.shopu.exp.direct",
-  "ngrokPid": 40526
-=======
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 35550,
+  "packagerPid": 41261,
   "expoServerNgrokUrl": "https://53-28n.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.53-28n.anonymous.shopu.exp.direct",
-  "ngrokPid": 35570
->>>>>>> c38b6c2973d885100e51c262ef13b9729e7b6826
+  "ngrokPid": 41282
 }

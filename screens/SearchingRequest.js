@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator} from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class SearchingRequest extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          <View style={styles.peachBox}>
+          <OrangeBackground/>
             <View style={styles.formatInPeachBox}>
               <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/>
               <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/> 
@@ -14,7 +15,6 @@ export default class SearchingRequest extends React.Component {
               <Text style={styles.header}>Searching for Request</Text>
               <ActivityIndicator size='large' color="#605DF1" style={styles.loading}/>
             </View>
-          </View>
         </View>
     );
   }
@@ -31,13 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between', 
     width: Dimensions.get('screen').width,
   },
-  peachBox: {
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.60,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
@@ -52,19 +45,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 45,
+    marginTop: Dimensions.get("screen").height*.05,
   },
   person:{
     width: 43,
     height: 40,
     marginRight: 15,
-    marginTop: Dimensions.get("screen").height*.30,
+    marginTop: Dimensions.get("screen").height*.05,
   },
   bag:{
     width: 42,
     height: 38,
     marginLeft: 15,
-    marginTop: Dimensions.get("screen").height*.30,
+    marginTop: Dimensions.get("screen").height*.05,
   },
   loading:{
     marginTop: 50,

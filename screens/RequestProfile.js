@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, ImageBackground} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+import OrangeBackground from './../components/OrangeBackground';
 
 const window = Dimensions.get("window")
 
@@ -30,8 +31,8 @@ let items = [
 export default class RequestProfile extends React.Component { 
   render() {
     return (
-        <ImageBackground style={styles.background}
-              source={require('./../assets/images/background.png')}>
+        <View style={styles.container}>
+          <OrangeBackground/>
             <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 45, paddingHorizontal: 20}}>
               <Image style={styles.shoppingBagicon}
                   source={require('./../assets/images/shopping_bag.png')} />
@@ -80,15 +81,15 @@ export default class RequestProfile extends React.Component {
                   </View>
                 </View>
             </View>
-        </ImageBackground>
+        </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  background: {
-    width: '100%',
-    height: '100%',
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
   mainView: {
     justifyContent: 'center',

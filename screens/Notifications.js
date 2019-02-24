@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 
-let notifs = [{key: 'Notification # 1'}, {key: 'Notification #2' }, 
-{key: 'Notification #3'}, {key: 'Notification #4'}, {key: 'Notification #5'}, {key: 'Notification #6'}, {key: 'Notification #7'}, {key: 'Notification #8'}, {key: 'Notification #9'}, {key: 'Notification #10'}]
+let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Order #1'}, {key: 'Bobby is en route!', time: '9:00 pm', order: 'Order #5'}, 
+{key: 'Robert has delivered!', time: '8:19 pm', order: 'Order #3'}, {key: 'Robert is en route!', time: '6:00 pm', order: 'Order #3'}, {key: 'Bobby is going to the store!', time: '1:23 pm', order: 'Order #5'}, {key: 'Robert has checked out!', time: '12:00 pm', order: 'Order #3'}, 
+{key: 'Billy has delivered!', time: '8:19 am', order: 'Order #2'}, {key: 'Billy has checked out!', time: '6:45 am', order: 'Order #2'}]
 
 export default class Notifications extends React.Component {
 
@@ -28,8 +29,12 @@ export default class Notifications extends React.Component {
                 return(
                   <TouchableOpacity onPress={this.notificationTouch}>
                    <View>
-                     <Text style={styles.notificationList}>{item.key}</Text>
-                    </View>
+                     <Text style={styles.notificationHeader}>{item.key}</Text>
+                     <View style={styles.notificationRow}>
+                       <Text style={styles.notificationInfo}>{item.order}</Text>
+                       <Text style={styles.notificationInfo}>{item.time}</Text>
+                     </View>
+                   </View>
                   </TouchableOpacity>
                )
               }
@@ -82,13 +87,24 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginTop: Dimensions.get("screen").height*.18,
     },
-    notificationList: {
+    notificationHeader: {
       fontSize: 25,
-      color: '#000',
+      color: '#484848',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',
-      marginRight: 120,
+      marginBottom: 10,
+    },
+    notificationInfo: {
+      fontSize: 20,
+      color: '#9B9A9A',
+      textAlign: 'left',
+      fontFamily: 'Montserrat-Regular',
       marginBottom: 20,
+    },
+    notificationRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: Dimensions.get("screen").width*0.85,
     },
     peachBox: {
       width: Dimensions.get("screen").width,

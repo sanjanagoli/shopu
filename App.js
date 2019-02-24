@@ -62,6 +62,7 @@ const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,
   Notifications: Notifications,
   DriverSearch: DriverSearch,
+  Pages: AppNavigator
 },
 {
 defaultNavigationOptions: ({ navigation }) => ({

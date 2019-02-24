@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       width: Dimensions.get('screen').width,
       marginTop: Dimensions.get("screen").height*.015,
+      marginLeft: Dimensions.get('screen').width*0.06,
     },
     searchText: {
       color: '#ffffff',

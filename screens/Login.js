@@ -32,14 +32,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  topBanner: {
-    flexDirection: 'row',
-    width: window.width,
-    height: 300,
-    backgroundColor: '#FF715B',
-    position: 'absolute',
-    top: 0
-  },
   loginText: {
     fontSize: 80,
     fontFamily: 'Montserrat-SemiBold',

@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 
 export default class Notifications extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.orangeRectangle}></View>
+        <OrangeBackground/>
         <Text style={styles.header}>Notifications!</Text>
         <View style={styles.whiteCard}></View>
         <View style={styles.slantedBlueRectangle}></View>
@@ -25,14 +26,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#ffffff',
       alignItems: 'center',
       justifyContent: 'center',
-    },
-    orangeRectangle: {
-      backgroundColor: '#FF715B',
-      width: Dimensions.get("screen").width,
-      height: Dimensions.get("screen").height / 2.5,
-      top: 0, 
-      bottom: 0,
-      position: 'absolute',
     },
     header: {
       fontSize: 65,

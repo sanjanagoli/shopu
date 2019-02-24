@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, font } from 'react-native';
-
-let backgroundColor;
+import { StyleSheet, View } from 'react-native';
 
 export default class OrangeBackground extends React.Component {
 

@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get("screen").width,
     height: Dimensions.get("screen").height*.40,
     backgroundColor: '#FF715B',
-    alignItems: 'center',
+    position: 'absolute',
+    top: 0,
   }
 });

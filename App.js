@@ -6,7 +6,6 @@ import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
 import DriverSearch from './screens/DriverSearch';
 
-
 class ThirdsScreen extends React.Component {
   render() {
     return (

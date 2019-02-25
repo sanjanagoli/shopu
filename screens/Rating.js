@@ -10,7 +10,7 @@ export default class Rating extends React.Component {
       return (
         <View key={item}>
           <Image style={styles.starIcon}
-              source={require('./images/star.png')} />
+              source={require('./assets/images/star.png')} />
         </View>
       )
     })
@@ -22,9 +22,9 @@ export default class Rating extends React.Component {
           <View style={styles.container}>
             <View style={styles.topBanner} />
             <Image style={styles.shoppingCarticon}
-                source={require('./images/shopping-cart.png')} />
+                source={require('./../assets/images/shopping-cart.png')} />
             <Image style={styles.personIcon}
-                source={require('./images/profile_person.png')} />
+                source={require('./../assets/images/profile_person.png')} />
             <Text style={styles.thankYouforText}>Thank U for</Text>
             <Text style={styles.usingText}>using</Text>
             <Text style={styles.shopuText}>shopU!</Text>

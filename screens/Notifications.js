@@ -12,8 +12,8 @@ export default class Notifications extends React.Component {
         <View style={styles.slantedBlueRectangle}></View>
         <View style={styles.slantedPurpleRectangle}></View>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
-        <Image source={require('./images/top_shopping_cart.png')}style={styles.topShopCart} />
-        <Image source={require('./images/profile_head.png')}style={styles.profileHead} />
+        <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.topShopCart} />
+        <Image source={require('./../assets/images/profile_head.png')}style={styles.profileHead} />
       </View>
         );
     }
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
       color: '#ffffff',
       top: Dimensions.get("screen").height* 1 / 3 - 5,
       textAlign: 'center',
-      fontFamily: 'Arial',
+      fontFamily: 'Montserrat-SemiBold',
 
     }
 });

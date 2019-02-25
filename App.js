@@ -6,6 +6,7 @@ import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
 import DriverSearch from './screens/DriverSearch';
 
+
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,
   Notifications: Notifications,

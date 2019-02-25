@@ -5,17 +5,8 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
 import DriverSearch from './screens/DriverSearch';
-
-
-class ThirdsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
+import AccountProfile from './screens/AccountProfile';
+import Checkout from './screens/Checkout';
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,
@@ -52,9 +43,9 @@ tabBarOptions: {
 }
 );
 
-export default createAppContainer(TabNavigator);
+//export default createAppContainer(TabNavigator);
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -73,7 +64,7 @@ class App extends React.Component {
     return (
       this.state.fontLoaded ? (
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+          <AccountProfile/>
         </View>
     ) : null
     )

@@ -1,20 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
-import Toolbar from './../components/Toolbar';
+import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator} from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class SearchingRequest extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          <View style={styles.peachBox}>
-            <Toolbar marginBottom={0}/>
-            <View style={styles.format2}> 
-              <View style={styles.whiteBox}>
-                <Text style={styles.header}>Searching for Request</Text>
-                <ActivityIndicator size='large' color="#605DF1" style={styles.loading}/>
-              </View>
+          <OrangeBackground/>
+            <View style={styles.formatInPeachBox}>
+              <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/>
+              <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/> 
             </View>
-          </View>
+            <View style={styles.whiteBox}>
+              <Text style={styles.header}>Searching for Request</Text>
+              <ActivityIndicator size='large' color="#605DF1" style={styles.loading}/>
+            </View>
         </View>
     );
   }
@@ -31,14 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: Dimensions.get('screen').height*.15,
   },
-  peachBox: {
-    flexDirection: 'column',
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.60,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
@@ -53,6 +45,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: Dimensions.get("screen").height*.05,
+  },
+  person:{
+    width: 43,
+    height: 40,
+    marginRight: 15,
+    marginTop: Dimensions.get("screen").height*.05,
+  },
+  bag:{
+    width: 42,
+    height: 38,
+    marginLeft: 15,
+    marginTop: Dimensions.get("screen").height*.05,
   },
   loading:{
     marginTop: 50,

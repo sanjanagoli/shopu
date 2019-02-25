@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import Toolbar from './../components/Toolbar.js';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class Checkout extends React.Component {
   render() {
@@ -87,6 +89,7 @@ const styles = StyleSheet.create({
     searchTextBox: {
       flexDirection: 'row',
       width: Dimensions.get('screen').width,
+      marginTop: 50,
     },
     searchText: {
       color: '#ffffff',
@@ -146,4 +149,5 @@ const styles = StyleSheet.create({
       marginLeft: Dimensions.get('screen').width*0.05,
     }
 });
+
 

@@ -5,7 +5,7 @@ export default class OrangeBackground extends React.Component {
 
   render() {
     return (
-         <View style={[styles.peachBox]}></View>
+         <View style={[styles.peachBox]} />
     );
   }
 }

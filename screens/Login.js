@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { Font } from 'expo';
+import OrangeBackground from './../components/OrangeBackground';
 
 const window = Dimensions.get("window")
 
@@ -9,7 +10,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.topBanner} />
+        <OrangeBackground/>
         <Text style={styles.loginText}>Login</Text>
         <View style={styles.loginBox} />
         <Text style={styles.usernameText}>Username</Text>
@@ -30,14 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  topBanner: {
-    flexDirection: 'row',
-    width: window.width,
-    height: 300,
-    backgroundColor: '#FF715B',
-    position: 'absolute',
-    top: 0
   },
   loginText: {
     fontSize: 80,

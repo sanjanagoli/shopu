@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 const window = Dimensions.get("window")
 
@@ -10,7 +11,7 @@ export default class Rating extends React.Component {
       return (
         <View key={item}>
           <Image style={styles.starIcon}
-              source={require('./assets/images/star.png')} />
+              source={require('./../assets/images/star.png')} />
         </View>
       )
     })
@@ -20,7 +21,7 @@ export default class Rating extends React.Component {
   render() {
     return (
           <View style={styles.container}>
-            <View style={styles.topBanner} />
+            <OrangeBackground/>
             <Image style={styles.shoppingCarticon}
                 source={require('./../assets/images/shopping-cart.png')} />
             <Image style={styles.personIcon}
@@ -59,14 +60,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  topBanner: {
-    flexDirection: 'row',
-    width: window.width,
-    height: 350,
-    backgroundColor: '#FF715B',
-    position: 'absolute',
-    top: 0
   },
   shoppingCarticon: {
     width: 45,

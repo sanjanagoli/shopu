@@ -1,39 +1,41 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, TextInput} from 'react-native';
-import PrimaryButton from './../components/primary_button.js';
+import PrimaryButton from './../components/PrimaryButton';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class RegisterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.peachBox}>
-        <Text style={styles.header}>Register Now!</Text>
-        <View style={styles.whiteBox}>
-          <View marginTop={70}>
-            <Text style={styles.subHeader}>Username</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
-          </View>
+        <OrangeBackground/>
+        <View style={{alignItems:'center'}}>
+          <Text style={styles.header}>Register Now!</Text>
+          <View style={styles.whiteBox}>
+            <View marginTop={70}>
+              <Text style={styles.subHeader}>Username</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Password</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Phone Number</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Email</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+          <View/>
           <View>
-            <Text style={styles.subHeader}>Password</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
+            <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={60} fontSize={40}/>
           </View>
-          <View>
-            <Text style={styles.subHeader}>Phone Number</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
           </View>
-          <View>
-            <Text style={styles.subHeader}>Email</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
-          </View>
-        <View/>
-        <View>
-          <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={60} fontSize={40}/>
-        </View>
-        </View>
         </View>
       </View>
     );
@@ -44,12 +46,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  peachBox: {
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.40,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
   },
   whiteBox: {
     flexDirection: 'column',

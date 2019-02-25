@@ -1,5 +1,11 @@
 import React from 'react';
+<<<<<<< HEAD
 import { StyleSheet, Text, View, Dimensions, ImageBackground, TextInput} from 'react-native';
+=======
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Font } from 'expo';
+import OrangeBackground from './../components/OrangeBackground';
+>>>>>>> 3dc7b07f53dc7f5efbfa2e5239470b68aa54bdd5
 
 const window = Dimensions.get("window")
 
@@ -12,6 +18,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
       <ImageBackground style={styles.container}
           source={require('./../assets/images/background.png')}>
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -41,14 +48,35 @@ export default class Login extends React.Component {
               <Text style={styles.forgotText}>Forgot Password?</Text>
             </View>
       </ImageBackground>
+=======
+      <View style={styles.container}>
+        <OrangeBackground/>
+        <Text style={styles.loginText}>Login</Text>
+        <View style={styles.loginBox} />
+        <Text style={styles.usernameText}>Username</Text>
+        <View style={styles.usernameLine} />
+        <Text style={styles.passwordText}>Password</Text>
+        <View style={styles.passwordLine} />
+        <View style={styles.submitButton} />
+        <Text style={styles.submitText}>Submit!</Text>
+        <Text style={styles.forgotText}>Forgot Password?</Text>
+      </View>
+>>>>>>> 3dc7b07f53dc7f5efbfa2e5239470b68aa54bdd5
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+<<<<<<< HEAD
     width: '100%',
     height: '100%',
+=======
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+>>>>>>> 3dc7b07f53dc7f5efbfa2e5239470b68aa54bdd5
   },
   loginText: {
     fontSize: 80,
@@ -120,6 +148,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontFamily: 'Montserrat-Medium',
     color: '#6DC4E0',
+<<<<<<< HEAD
     textAlign: 'center',
     marginTop: window.height*.13
   },
@@ -129,4 +158,13 @@ const styles = StyleSheet.create({
     color: '#605DF1', 
     textAlign: 'center',
   },
+=======
+    position: 'absolute',
+    width: 310,
+    height: 70,
+    left: 34,
+    top: 740,
+    textAlign: 'center'
+  }
+>>>>>>> 3dc7b07f53dc7f5efbfa2e5239470b68aa54bdd5
 });

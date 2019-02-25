@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class DriverSearch extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.rectangleOrange} />
+        <OrangeBackground/>
         <View style={styles.rectangleWhite} />
         <View style={styles.rectangleLBlue} />
         <View style={styles.rectangleDBlue} />
@@ -31,17 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  rectangleOrange: {
-    flex: 1,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    width: Dimensions.get("screen").width,
-    height: 320,
-    top: 0,
-    borderRadius: 2,
   },
   rectangleWhite: {
     flex: 1,

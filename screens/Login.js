@@ -1,9 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, ImageBackground, TextInput} from 'react-native';
 
 const window = Dimensions.get("window")
 
 export default class Login extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { username: 'Type Here', password: 'Type Here'};
+  }
 
   render() {
     return (
@@ -13,9 +18,21 @@ export default class Login extends React.Component {
               <Text style={styles.loginText}>Login</Text>
               <View style={styles.loginBox}>
                   <Text style={styles.usernameText}>Username</Text>
-                  <View style={styles.answerLine} />
+                  <View style={styles.answerLine}>
+                    <TextInput
+                      style={styles.responseText}
+                      onChangeText={(username) => this.setState({username})}
+                      value={this.state.username}
+                    />
+                  </View>
                   <Text style={styles.passwordText}>Password</Text>
-                  <View style={styles.answerLine} />
+                  <View style={styles.answerLine}>
+                    <TextInput
+                      style={styles.responseText}
+                      onChangeText={(password) => this.setState({password})}
+                      value={this.state.password}
+                    />
+                  </View>
                   <View style={styles.rotatedBox}/>
                   <View style={styles.submitButton}>
                     <Text style={styles.submitText}>Submit!</Text>
@@ -59,10 +76,10 @@ const styles = StyleSheet.create({
     marginTop: window.height*.05,
   },
   answerLine: {
-    backgroundColor: '#6DC4E0',
-    width: window.width*.7,
-    height: window.height*.002,
-    marginTop: window.height*.07,
+    borderBottomColor: '#6DC4E0',
+    borderBottomWidth: 2, 
+    width: window.width*.7, 
+    marginTop: window.height*.03,
   },
   passwordText: {
     fontSize: 40,
@@ -105,5 +122,11 @@ const styles = StyleSheet.create({
     color: '#6DC4E0',
     textAlign: 'center',
     marginTop: window.height*.13
-  }
+  },
+  responseText: {
+    fontSize: 18, 
+    fontFamily: 'Montserrat-Regular', 
+    color: '#605DF1', 
+    textAlign: 'center',
+  },
 });

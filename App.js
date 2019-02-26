@@ -42,9 +42,6 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  Register: {
-    screen: Register
-  },
   DriverSearch: {
     screen: DriverSearch
   },

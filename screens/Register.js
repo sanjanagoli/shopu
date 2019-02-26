@@ -40,7 +40,6 @@ export default class Register extends React.Component {
               <TextInput style={styles.textInput}></TextInput>
               <View style={styles.lineStyle}/>
             </View>
-          <View/>
           <View>
             <PrimaryButton onPress={this.submit} title={'Submit!'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.08} fontSize={40}/>
           </View>

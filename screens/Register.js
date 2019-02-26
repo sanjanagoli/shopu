@@ -1,117 +1,89 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TextInput} from 'react-native';
+import PrimaryButton from './../components/PrimaryButton.js';
+import OrangeBackground from './../components/OrangeBackground';
+
 
 export default class Register extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+
   render() {
     return (
-      <View style={styles.container}>
-        <View>
+      <View>
+        <OrangeBackground/>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={styles.header}>Register Now!</Text>
+          <View style={styles.whiteBox}>
+            <View marginTop={Dimensions.get("screen").height*.1}>
+              <Text style={styles.subHeader}>Username</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Password</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Phone Number</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Email</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+          <View/>
           <View>
-            <Text style={styles.subHeader}>Username</Text>
-            <View style={styles.lineStyle}/>
+            <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.08} fontSize={40}/>
           </View>
-          <View>
-            <Text style={styles.subHeader}>Password</Text>
-            <View style={styles.lineStyle}/>
-          </View>
-          <View>
-            <Text style={styles.subHeader}>Phone Number</Text>
-            <View style={styles.lineStyle}/>
-          </View>
-          <View>
-            <Text style={styles.subHeader}>Email</Text>
-            <View style={styles.lineStyle}/>
           </View>
         </View>
-         <View style={styles.purpleBox}/>
-         <View style={styles.blueBox}/>
-         <Text style={styles.header}>Register Now</Text>
-         <View style={styles.submitButton}/>
-         <Text style={styles.submitText}>Submit!</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  purpleBox: {
-    flex: 1,
-    width: Dimensions.get("screen").width,
-    height: 172,
-    backgroundColor: '#605DF1',
-    alignItems: 'center',
+  whiteBox: {
+    flexDirection: 'column',
+    width: Dimensions.get("screen").width*.91,
+    height: Dimensions.get("screen").height*.52,
+    shadowOffset: { width: 0, height: window.height*.005 },
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
-    position: 'absolute',
-    top: 0,
-  },
-  blueBox: {
-    flex: 1,
-    width: 490,
-    height: 136,
-    position: 'absolute',
-    left: -20,
-    top: 10,
-    backgroundColor: '#64B6F2',
-    transform: [{rotateZ: '-6.5deg'}],
+    alignItems: 'center',
+    marginTop: Dimensions.get("screen").height*.01,
   },
   header: {
-    position: 'absolute',
-    top: 16.5,
-    fontSize: 62.5,
-    fontFamily: 'Arial',
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
-    width: Dimensions.get("screen").width,
-    height: 186,
     color: '#fff',
+    fontFamily: 'Montserrat-SemiBold',
+    fontSize: 60,
+    textAlign: 'center',
+    marginTop: Dimensions.get("screen").height*.1,
+    justifyContent: 'center',
   },
   subHeader:{
-    left: 30,
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Regular',
     fontSize: 27,
-    marginBottom: 55,
-    top: 190,
+    marginBottom: Dimensions.get("screen").height*.01,
+    color: '#605DF1',
+  },
+  textInput: {
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 20,
     color: '#605DF1',
   },
   lineStyle: {
-    width: 280,
-    height: 3, backgroundColor: '#6DC4E0', 
-    top: 180, 
-    marginBottom: 10,
-    left: 40,
-  },
-  submitButton: {
-      position:'absolute',
-      width: 240,
-      height: 65,
-      left: 40,
-      top: 590,
-      marginLeft:30,
-      marginRight:30,
-      backgroundColor:'#FF715B',
-      shadowColor: '#000000',
-      shadowOffset: {
-        width: 0,
-        height: 3
-      },
-      shadowRadius: 5,
-      shadowOpacity: 1.0
-  },
-  submitText: {
-    position: 'absolute',
-    alignItems: 'center',
-    textAlign: 'center',
-    justifyContent: 'center',
-    top: 605,
-    left: 137,
-    fontSize: 30,
-    fontFamily: 'Arial',
-    color: '#FFFFFF',
-    fontWeight: 'bold',
+    width: Dimensions.get("screen").width*.8,
+    height: Dimensions.get("screen").height*.002, 
+    backgroundColor: '#605DF1', 
+    marginBottom: Dimensions.get("screen").height*.02,
   }
 });

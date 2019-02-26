@@ -6,15 +6,16 @@ let backgroundColor;
 export default class CTAbutton extends React.Component {
 
     buttonPress=() => {
+      console.log('here')
     }
   
  
   render() {
     return (
         <View>
-            <View styles = {styles.blueBox}/>
                 <TouchableOpacity onPress={this.buttonPress}>
-                    <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
+                    <View style= {styles.blueBox}/>
+                    <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}, {position: 'absolute'}]}>
                         <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>   
                     </View>
                 </TouchableOpacity>

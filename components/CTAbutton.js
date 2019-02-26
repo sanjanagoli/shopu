@@ -13,12 +13,12 @@ export default class CTAbutton extends React.Component {
   render() {
     return (
         <View>
-                <TouchableOpacity onPress={this.buttonPress}>
-                    <View style= {styles.blueBox}/>
-                    <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}, {position: 'absolute'}]}>
-                        <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>   
-                    </View>
-                </TouchableOpacity>
+          <TouchableOpacity onPress={this.buttonPress}>
+            <View style= {[styles.blueBox, {height: this.props.height}]}/>
+            <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
+                <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>   
+            </View>
+          </TouchableOpacity>
         </View>
     );
     
@@ -26,6 +26,10 @@ export default class CTAbutton extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   buttonContainer: {
     margin: 20,
     justifyContent: 'center', 
@@ -39,10 +43,10 @@ const styles = StyleSheet.create({
   },
   blueBox: {
     backgroundColor: '#6DC4E0',
-    width: Dimensions.get("screen").width*.9,
-    height: 80,
-    transform:([{ rotateZ:'-5deg'}]),
+    width: Dimensions.get("screen").width*.33,
+    transform:([{ rotateZ:'5deg'}]),
     position: 'absolute',
-    marginTop: Dimensions.get("screen").height*.26,
+    marginTop: Dimensions.get("screen").height*.025,
+    marginLeft: Dimensions.get("screen").width*.06,
   },
 });

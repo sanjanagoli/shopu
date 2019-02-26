@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator} from 'rea
 import OrangeBackground from './../components/OrangeBackground';
 
 export default class SearchingRequest extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
         <View style={styles.container}>

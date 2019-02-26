@@ -5,6 +5,9 @@ import OrangeBackground from './../components/OrangeBackground';
 const window = Dimensions.get("window")
 
 export default class Login extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
 
   constructor(props) {
     super(props);

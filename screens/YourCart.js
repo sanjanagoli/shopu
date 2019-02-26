@@ -3,6 +3,14 @@ import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native
 import PrimaryButton from './../components/PrimaryButton';
 
 export default class YourCart extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
+  checkoutNow = () => {
+    this.props.navigation.navigate('Checkout')
+  }
+
   render() {
     return (
     <View style={styles.whiteBackground}> 
@@ -78,7 +86,7 @@ export default class YourCart extends React.Component {
             </View>   
         </View>
         <View style={{marginTop: -Dimensions.get("screen").height*.065}}>
-          <PrimaryButton backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20}/> 
+          <PrimaryButton onPress={this.checkoutNow} backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20}/> 
         </View>
         
     </View>

@@ -1,43 +1,46 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton.js';
+import OrangeBackground from './../components/OrangeBackground';
+
 
 export default class Register extends React.Component {
   static navigationOptions = {
     header: null,
     };
-    
+
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.peachBox}>
-        <Text style={styles.header}>Register Now!</Text>
-        <View style={styles.whiteBox}>
-          <View marginTop={70}>
-            <Text style={styles.subHeader}>Username</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
-          </View>
+      <View>
+        <OrangeBackground/>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Text style={styles.header}>Register Now!</Text>
+          <View style={styles.whiteBox}>
+            <View marginTop={Dimensions.get("screen").height*.1}>
+              <Text style={styles.subHeader}>Username</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Password</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Phone Number</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <Text style={styles.subHeader}>Email</Text>
+              <TextInput style={styles.textInput}></TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+          <View/>
           <View>
-            <Text style={styles.subHeader}>Password</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
+            <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.08} fontSize={40}/>
           </View>
-          <View>
-            <Text style={styles.subHeader}>Phone Number</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
           </View>
-          <View>
-            <Text style={styles.subHeader}>Email</Text>
-            <TextInput style={styles.textInput}></TextInput>
-            <View style={styles.lineStyle}/>
-          </View>
-        <View/>
-        <View>
-          <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={60} fontSize={40}/>
-        </View>
-        </View>
         </View>
       </View>
     );
@@ -45,56 +48,42 @@ export default class Register extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  peachBox: {
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.40,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
-  },
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
-    height: Dimensions.get("screen").height*.58,
+    height: Dimensions.get("screen").height*.52,
+    shadowOffset: { width: 0, height: window.height*.005 },
     shadowColor: '#000000',
-    shadowOffset: {
-        width: 0,
-        height: 3
-    },
+    shadowOpacity: 0.25,
     shadowRadius: 5,
-    shadowOpacity: 1.0,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: Dimensions.get("screen").height*.01,
   },
   header: {
     color: '#fff',
     fontFamily: 'Montserrat-SemiBold',
     fontSize: 60,
     textAlign: 'center',
-    marginTop: 70,
+    marginTop: Dimensions.get("screen").height*.1,
     justifyContent: 'center',
   },
   subHeader:{
     fontFamily: 'Montserrat-Regular',
     fontSize: 27,
-    marginTop: 20,
-    marginBottom: 10,
+    marginBottom: Dimensions.get("screen").height*.01,
     color: '#605DF1',
   },
   textInput: {
     fontFamily: 'Montserrat-Regular',
-    fontSize: 25,
-    color: '#000000',
+    fontSize: 20,
+    color: '#605DF1',
   },
   lineStyle: {
-    width: 280,
-    height: 3, 
+    width: Dimensions.get("screen").width*.8,
+    height: Dimensions.get("screen").height*.002, 
     backgroundColor: '#605DF1', 
-    marginBottom: 20,
+    marginBottom: Dimensions.get("screen").height*.02,
   }
 });

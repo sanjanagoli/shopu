@@ -3,5 +3,10 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
+<<<<<<< HEAD
   "urlRandomness": "hm-wih"
 }
+=======
+  "urlRandomness": "ig-c4u"
+}
+>>>>>>> 2691dd45cb7afa6c3044ebbeccd33af23018d561

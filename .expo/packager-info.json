@@ -2,8 +2,15 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
+<<<<<<< HEAD
   "packagerPid": 29888,
   "expoServerNgrokUrl": "https://hm-wih.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.hm-wih.anonymous.shopu.exp.direct",
   "ngrokPid": 29905
+=======
+  "packagerPid": 5930,
+  "expoServerNgrokUrl": "https://8u-r7m.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.8u-r7m.anonymous.shopu.exp.direct",
+  "ngrokPid": 5944
+>>>>>>> 2691dd45cb7afa6c3044ebbeccd33af23018d561
 }

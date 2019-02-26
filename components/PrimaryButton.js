@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, font } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 let backgroundColor;
 
@@ -10,9 +10,11 @@ export default class PrimaryButton extends React.Component {
 
   render() {
     return (
-         <View style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}>
+         <TouchableOpacity 
+            style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}
+            onPress={this.props.onPress}>
             <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>
-         </View>
+         </TouchableOpacity>
     );
   }
 }
@@ -21,7 +23,11 @@ const styles = StyleSheet.create({
   buttonContainer: {
     margin: 20,
     justifyContent: 'center', 
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.25, 
+    shadowRadius: 5,
   },
   title:{
     color: '#fff',

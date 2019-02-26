@@ -7,11 +7,12 @@ let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Orde
 {key: 'Billy has delivered!', time: '8:19 am', order: 'Order #2'}, {key: 'Billy has checked out!', time: '6:45 am', order: 'Order #2'}]
 
 export default class Notifications extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
 
   notificationTouch=() => {
   }
-
-
 
   render() {
     return (

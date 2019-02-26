@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Picker} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
+import PrimaryButton from './../components/PrimaryButton';
 import { TextInput } from 'react-native-gesture-handler';
 
 export default class AccountProfile extends React.Component {
@@ -78,14 +79,15 @@ export default class AccountProfile extends React.Component {
                         <View style={styles.lineStyle}/>
                     </View>  
                 </View>
-                
+            </View>
+            <View style={{marginTop: -30, width: 200}}>
+                <PrimaryButton backgroundColor={'#6DC4E0'} height={40} title={'Save'} fontSize={20}/>
             </View>
             
         </View>
     );
   }
 }
-
 
 
 const styles = StyleSheet.create({

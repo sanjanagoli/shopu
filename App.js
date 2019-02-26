@@ -8,6 +8,7 @@ import DriverSearch from './screens/DriverSearch';
 import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 
+
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,
   Notifications: Notifications,

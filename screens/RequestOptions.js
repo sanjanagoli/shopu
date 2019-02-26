@@ -37,7 +37,7 @@ export default class RequestOptions extends Component {
       }
 
     searchAgain = () => {
-        this.props.navigation.navigate('SearchingRequest')
+        this.props.navigation.goBack('SearchingRequest')
     }
 
     render() {

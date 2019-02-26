@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 
 export default class App extends React.Component {
+
+    insertCheck=() => {
+        <Image source ={require('./../assets/images/check.png')} style={styles.check} />
+    }
 
   render() {
     return ( 
@@ -11,19 +15,27 @@ export default class App extends React.Component {
                 <Image source ={require('./../assets/images/x.png')} style={styles.x} />
                 <Text style={styles.header}>Select Your Status</Text>
                 <View style = {styles.rectangles}>
-                    <View style = {styles.checkBox}/>
+                    <TouchableOpacity onPress={this.insertCheck}>
+                        <Image source ={require('./../assets/images/checkBox.png')} style={styles.checkBox} />
+                    </TouchableOpacity>
                     <Text style={styles.rectangleText}>Going to Store</Text>
                 </View>
                 <View style = {styles.rectangles}>
-                    <View style = {styles.checkBox}/>
+                    <TouchableOpacity onPress={this.insertCheck}>
+                        <Image source ={require('./../assets/images/checkBox.png')} style={styles.checkBox} />
+                    </TouchableOpacity>
                     <Text style={styles.rectangleText}>Checking Out</Text>
                 </View>
                 <View style = {styles.rectangles}>
-                    <View style = {styles.checkBox}/>
+                    <TouchableOpacity onPress={this.insertCheck}>
+                        <Image source ={require('./../assets/images/checkBox.png')} style={styles.checkBox} />
+                    </TouchableOpacity>
                     <Text style={styles.rectangleText}>En Route</Text>
                 </View>
                 <View style = {styles.rectangles}>
-                    <View style = {styles.checkBox}/>
+                    <TouchableOpacity onPress={this.insertCheck}>
+                        <Image source ={require('./../assets/images/checkBox.png')} style={styles.checkBox} />
+                    </TouchableOpacity>
                     <Text style={styles.rectangleText}>Delivered</Text>
                 </View>
             </View>
@@ -67,14 +79,16 @@ const styles = StyleSheet.create({
     marginLeft: Dimensions.get("screen").width*.1,
   },
   checkBox: {
-    backgroundColor: '#fff',
-    marginTop: 10,
+    left:  -140,
+    position: 'absolute',
     width: Dimensions.get("screen").width*.09,
     height: Dimensions.get("screen").height*.04,
-    borderRadius: 2,
-    // borderColor: '#fff',
+  },
+  check: {
+    left:  -140,
     position: 'absolute',
-    left: Dimensions.get("screen").width*.05,
+    width: Dimensions.get("screen").width*.09,
+    height: Dimensions.get("screen").height*.04,
   },
   header: {
     fontSize: 35,

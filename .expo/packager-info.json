@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19004,
+  "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 23366,
+  "packagerPort": 19001,
+  "packagerPid": 1226,
   "expoServerNgrokUrl": "https://jy-b2d.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.jy-b2d.anonymous.shopu.exp.direct",
-  "ngrokPid": 23387
+  "ngrokPid": 1244
 }

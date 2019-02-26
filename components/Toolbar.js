@@ -5,7 +5,7 @@ export default class Toolbar extends React.Component {
     render() {
       return (
            <View style={[styles.formatInBox, {marginBottom: this.props.marginBottom}]}>
-            {this.props.pageType ? <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
+            {this.props.pageType == 'Driver' ? <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
             :<Image source ={require('./../assets/images/scart.png')} style={styles.cart}/>}
             <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/>
            </View>

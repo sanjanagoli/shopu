@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import Toolbar from './../components/Toolbar';
-import variables from './../assets/data/variables'
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class DriverSearch extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.rectangleOrange} />
+        <OrangeBackground/>
         <View style={styles.rectangleWhite} />
         <View style={styles.rectangleLBlue} />
         <View style={styles.rectangleDBlue} />
@@ -33,17 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  rectangleOrange: {
-    flex: 1,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'absolute',
-    width: Dimensions.get("screen").width,
-    height: 320,
-    top: 0,
-    borderRadius: 2,
   },
   rectangleWhite: {
     flex: 1,
@@ -162,7 +150,15 @@ const styles = StyleSheet.create({
     bottom: '91.9%',
     position: 'absolute',
   },
-  person: variables.person,
+  person: {
+    marginTop: 5,
+    height: 50,
+    width: 50,
+    top: '5%',
+    left: '73%',
+    bottom: '91.9%',
+    position: 'absolute',
+  },
   lineStyleTop: {
     borderWidth: 1,
     borderColor: '#6DC4E0',

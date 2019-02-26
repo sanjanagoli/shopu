@@ -5,6 +5,10 @@ import OrangeBackground from './../components/OrangeBackground';
 const window = Dimensions.get("window")
 
 export default class Rating extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   stars = () => {
     let stars = [1, 2, 3, 4, 5]
     let starMap = stars.map((item) => {

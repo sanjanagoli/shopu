@@ -14,6 +14,7 @@ import SearchingRequest from './screens/SearchingRequest';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
+import YourCart from './screens/YourCart';
 
 YellowBox.ignoreWarnings([
   'Require cycle:',
@@ -28,6 +29,9 @@ const shopStackNavigator = createStackNavigator({
   },
   Checkout: {
     screen: Checkout
+  },
+  YourCart: {
+    screen: YourCart
   },
   OrderComplete: {
     screen: Completed

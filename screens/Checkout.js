@@ -7,6 +7,10 @@ export default class Checkout extends React.Component {
     header: null,
     };
   
+  buyNow = () => {
+    this.props.navigation.navigate('OrderComplete')
+  }
+  
   render() {
     return (
     <View style={styles.whiteBackground}> 

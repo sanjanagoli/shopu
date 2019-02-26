@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
 
@@ -34,7 +34,7 @@ export default class RequestProfile extends React.Component {
     };
     
   accept = () => {
-    this.props.navigation.navigate('DriverSearch')
+    this.props.navigation.navigate('RequestOptions')
   }
   
   render() {

@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, AppRegistry, FlatList } from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -31,7 +32,7 @@ export default class ShoppingList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.orangeBox}/>
+        <OrangeBackground/>
           <View style={styles.toolbar}>
             <Image source ={require('./../assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
             <Image source ={require('./../assets/images/person.png')} style={styles.person} />  
@@ -77,14 +78,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     width: Dimensions.get('screen').width,
-  },
-  orangeBox: {
-    position: 'absolute',
-    zIndex: 0,
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.50,
-    backgroundColor: '#FF715B',
-    alignItems: 'center',
   },
   header: {
     fontSize: 50,

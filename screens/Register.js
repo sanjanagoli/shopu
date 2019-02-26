@@ -9,6 +9,10 @@ export default class Register extends React.Component {
     header: null,
   };
 
+    submit = () => {
+      this.props.navigation.navigate('Notifications')
+    }
+
   render() {
     return (
       <View>
@@ -40,6 +44,9 @@ export default class Register extends React.Component {
             <View>
               <PrimaryButton title={'Submit!'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height * .08} fontSize={40} />
             </View>
+          <View>
+            <PrimaryButton onPress={this.submit} title={'Submit!'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.08} fontSize={40}/>
+          </View>
           </View>
         </View>
       </View>

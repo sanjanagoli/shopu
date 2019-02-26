@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import variables from './../assets/data/variables'
 import OrangeBackground from './../components/OrangeBackground';
-import UserToolbar from './../components/UserToolbar';
 import PrimaryButton from '../components/PrimaryButton';
 
 export default class DriverSearch extends React.Component {
@@ -10,7 +9,6 @@ export default class DriverSearch extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <UserToolbar/>
         <Text style={styles.header}>Let{`'`}s shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>

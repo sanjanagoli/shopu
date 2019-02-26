@@ -28,6 +28,10 @@ let items = [
 
 
 export default class RequestOptions extends Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
     request = () => {
         this.props.navigation.navigate('RequestProfile')
       }

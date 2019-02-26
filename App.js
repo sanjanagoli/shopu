@@ -27,11 +27,11 @@ const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
   },
-  Checkout: {
-    screen: Checkout
-  },
   YourCart: {
     screen: YourCart
+  },
+  Checkout: {
+    screen: Checkout
   },
   OrderComplete: {
     screen: Completed
@@ -42,6 +42,9 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
+  Register: {
+    screen: Register
+  },
   DriverSearch: {
     screen: DriverSearch
   },

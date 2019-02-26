@@ -21,7 +21,11 @@ const styles = StyleSheet.create({
   buttonContainer: {
     margin: 20,
     justifyContent: 'center', 
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowOffset: {width: 0, height: 5},
+    shadowColor: '#000000', 
+    shadowOpacity: 0.5, 
+    shadowRadius: 5,
   },
   title:{
     color: '#fff',

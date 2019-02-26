@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
-    height: Dimensions.get("screen").height*.6,
+    height: Dimensions.get("screen").height*.55,
     shadowColor: '#000000',
     shadowOffset: {
         width: 0,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     shadowOpacity: .8,
     backgroundColor: '#FFFFFF',
     justifyContent: 'space-around',
-    marginTop: Dimensions.get("screen").height*.02,
+    marginTop: Dimensions.get("screen").height*.01,
   },
   rectangleLBlue: {
     backgroundColor: '#6DC4E0',
@@ -60,12 +60,13 @@ const styles = StyleSheet.create({
     marginTop: -Dimensions.get('screen').height*.05,
   },
   header: {
-    fontSize: 60,
+    fontSize: 65,
     color: '#fff',
     marginBottom: 5,
     textAlign: 'center',
     fontFamily: 'Montserrat-SemiBold',
     width: Dimensions.get('screen').width,
+    marginTop: -Dimensions.get('screen').height*.06
   },
   question: {
     fontSize: 25,

@@ -7,16 +7,6 @@ import ShopSearch from './screens/ShopSearch';
 import DriverSearch from './screens/DriverSearch';
 
 
-class ThirdsScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
-    );
-  }
-}
-
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,
   Notifications: Notifications,

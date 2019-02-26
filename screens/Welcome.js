@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 export default class Welcome extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>

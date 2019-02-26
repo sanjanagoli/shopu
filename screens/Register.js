@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Dimensions, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton.js';
 
 export default class Register extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>

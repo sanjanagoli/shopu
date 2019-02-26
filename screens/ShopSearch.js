@@ -1,12 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 
 export default class ShopSearch extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.orangeRectangle}></View>
+        <OrangeBackground/>
         <Text style={styles.header}>Let{`'`}s shopU! </Text>
         <View style={styles.slantedBlueRectangle}></View>
         <View style={styles.slantedPurpleRectangle}></View>
@@ -27,14 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  orangeRectangle: {
-    backgroundColor: '#FF715B',
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height/2.5,
-    top: 0, 
-    bottom: 0,
-    position: 'absolute',
   },
   header: {
     fontSize: 100,

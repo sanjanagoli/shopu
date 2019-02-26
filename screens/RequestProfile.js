@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, ImageBackground} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+import OrangeBackground from './../components/OrangeBackground';
 
 const window = Dimensions.get("window")
 
@@ -28,10 +29,18 @@ let items = [
 ]
 
 export default class RequestProfile extends React.Component { 
+  static navigationOptions = {
+    header: null,
+    };
+    
+  accept = () => {
+    this.props.navigation.navigate('DriverSearch')
+  }
+  
   render() {
     return (
-        <ImageBackground style={styles.background}
-              source={require('./../assets/images/background.png')}>
+        <View style={styles.container}>
+          <OrangeBackground/>
             <View style={{flexDirection: 'row', justifyContent: 'space-between', marginTop: 45, paddingHorizontal: 20}}>
               <Image style={styles.shoppingBagicon}
                   source={require('./../assets/images/shopping_bag.png')} />
@@ -76,19 +85,19 @@ export default class RequestProfile extends React.Component {
                   </View>
                   <Text style={styles.dropText}>Approximate Total: $25.00 Drop-Off Location: Baker</Text>
                   <View style={styles.acceptButton}>
-                      <PrimaryButton title={'Accept'} backgroundColor={ '#FF715B'} height={65} fontSize={28}/>
+                      <PrimaryButton onPress={this.accept} title={'Accept'} backgroundColor={ '#FF715B'} height={65} fontSize={28}/>
                   </View>
                 </View>
             </View>
-        </ImageBackground>
+        </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  background: {
-    width: '100%',
-    height: '100%',
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
   },
   mainView: {
     justifyContent: 'center',

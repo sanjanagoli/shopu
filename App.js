@@ -12,7 +12,6 @@ import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
-import SearchingRequest from './screens/SearchingRequest';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';

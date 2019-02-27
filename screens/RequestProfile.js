@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList, ImageBackground} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
 
@@ -29,6 +29,14 @@ let items = [
 ]
 
 export default class RequestProfile extends React.Component { 
+  static navigationOptions = {
+    header: null,
+    };
+    
+  accept = () => {
+    this.props.navigation.navigate('RequestOptions')
+  }
+  
   render() {
     return (
         <View style={styles.container}>
@@ -77,7 +85,7 @@ export default class RequestProfile extends React.Component {
                   </View>
                   <Text style={styles.dropText}>Approximate Total: $25.00 Drop-Off Location: Baker</Text>
                   <View style={styles.acceptButton}>
-                      <PrimaryButton title={'Accept'} backgroundColor={ '#FF715B'} height={65} fontSize={28}/>
+                      <PrimaryButton onPress={this.accept} title={'Accept'} backgroundColor={ '#FF715B'} height={65} fontSize={28}/>
                   </View>
                 </View>
             </View>

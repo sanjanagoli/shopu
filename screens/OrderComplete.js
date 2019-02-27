@@ -3,7 +3,10 @@ import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 
 export default class Completed extends React.Component {
-  
+  static navigationOptions = {
+    header: null,
+    };
+    
     render() {
       return (
          <View style={styles.container}>

@@ -1,10 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import variables from './../assets/data/variables'
+import variables from './../assets/data/variables
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 
 export default class DriverSearch extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>

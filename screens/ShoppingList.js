@@ -29,6 +29,10 @@ let items = [
 
 
 export default class ShoppingList extends Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>

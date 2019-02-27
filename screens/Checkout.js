@@ -1,7 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class Checkout extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+  
+  buyNow = () => {
+    this.props.navigation.navigate('OrderComplete')
+  }
+  
   render() {
     return (
     <View style={styles.whiteBackground}> 
@@ -146,4 +155,3 @@ const styles = StyleSheet.create({
       marginLeft: Dimensions.get('screen').width*0.05,
     }
 });
-

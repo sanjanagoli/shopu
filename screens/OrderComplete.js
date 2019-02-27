@@ -1,14 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
+import OrangeBackground from './../components/OrangeBackground';
 
 export default class Completed extends React.Component {
-  
+  static navigationOptions = {
+    header: null,
+    };
+    
     render() {
       return (
          <View style={styles.container}>
             <Image source ={require('./../assets/images/scart.png')} style={styles.cart} />
             <Image source ={require('./../assets/images/personicon.png')} style={styles.person} />
-            <View style={styles.peachBox}/>
+            <OrangeBackground/>
             <Text style={styles.header}>Your order has been placed!</Text>
             <View style={styles.purpleBox}/>
             <Text style={styles.subHeader}>Next Steps:</Text>
@@ -26,14 +30,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  peachBox: {
-    flex: 1,
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.50,
-    backgroundColor: '#FF715B',
-    position: 'absolute',
-    top: 0,
   },
   purpleBox: {
     flex: 1,

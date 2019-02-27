@@ -10,6 +10,7 @@ import Notifications from './screens/Notifications';
 import Completed from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
+import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
 import SearchingRequest from './screens/SearchingRequest';
 import ShoppingList from './screens/ShoppingList';
@@ -51,6 +52,9 @@ const driverStackNavigator = createStackNavigator({
   },
   SearchingRequest: {
     screen: SearchingRequest
+  },
+  RequestOptions: {
+    screen: RequestOptions
   },
   RequestProfile: {
     screen: RequestProfile

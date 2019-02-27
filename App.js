@@ -22,7 +22,7 @@ YellowBox.ignoreWarnings([
 ]);
 
 FontLoad.then((res) => {
- })
+})
 
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {

@@ -29,11 +29,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+    
   },
-  formatInPeachBox: {
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    width: Dimensions.get('screen').width,
+  format2: {
+    justifyContent: 'center',
+    marginTop: Dimensions.get('screen').height*.15,
   },
   whiteBox: {
     flexDirection: 'column',

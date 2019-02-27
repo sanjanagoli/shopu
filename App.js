@@ -5,6 +5,7 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
 import DriverSearch from './screens/DriverSearch';
+import AccountProfile from './screens/AccountProfile';
 
 
 const TabNavigator = createBottomTabNavigator({
@@ -42,9 +43,9 @@ tabBarOptions: {
 }
 );
 
-export default createAppContainer(TabNavigator);
+//export default createAppContainer(TabNavigator);
 
-class App extends React.Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -63,7 +64,7 @@ class App extends React.Component {
     return (
       this.state.fontLoaded ? (
         <View style={styles.container}>
-          <Text>Open up App.js to start working on your app!</Text>
+          <AccountProfile/>
         </View>
     ) : null
     )

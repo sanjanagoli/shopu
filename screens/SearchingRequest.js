@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Dimensions, Image, ActivityIndicator} from 'rea
 import OrangeBackground from './../components/OrangeBackground';
 
 export default class SearchingRequest extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
         <View style={styles.container}>
@@ -25,11 +29,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    
   },
-  format2: {
-    justifyContent: 'center',
-    marginTop: Dimensions.get('screen').height*.15,
+  formatInPeachBox: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    width: Dimensions.get('screen').width,
   },
   whiteBox: {
     flexDirection: 'column',

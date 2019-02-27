@@ -5,90 +5,64 @@ import PrimaryButton from './../components/PrimaryButton';
 import { TextInput } from 'react-native-gesture-handler';
 
 export default class AccountProfile extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            editUsername: false,
-            editPassword: false,
-            editPhone: false,
-            editEmail: false,
-            editBirthday: false,
-            language: "dog",
-        }
-    }
+  constructor(props) {
+    super(props)
+    this.state = { editor: false }
+  }
 
+  onPress = () => {
+    this.setState({
+      editor: !this.state.editor
+    })
+  }
   
   render() {
     return (
-        <View style={styles.container}>
-            <OrangeBackground/>
-            <View style={styles.searchTextBox}>
-                <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
-                <Text style={styles.searchText}>Back</Text>
-            </View>
-            <Text style={styles.header}>Account Profile</Text>
-            <View style={styles.whiteBox}>
-                <View style={styles.textIcon}>
-                    <TouchableOpacity onPress={() => this.setState({editUsername: true})}>
-                        <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
-                    </TouchableOpacity> 
-                    <View>
-                        <TextInput style={styles.subHeader} editable={this.state.editUsername}>Username</TextInput>
-                        <View style={styles.lineStyle}/>
-                    </View>  
-                </View>
-                <View style={styles.textIcon}>
-                    <TouchableOpacity onPress={() => this.setState({editPassword: true})}>
-                        <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
-                    </TouchableOpacity> 
-                    <View>
-                        <TextInput style={styles.subHeader} editable={this.state.editPassword}>Password</TextInput>
-                        <View style={styles.lineStyle}/>
-                    </View>  
-                </View>
-                <View style={styles.textIcon}>
-                    <TouchableOpacity onPress={() => this.setState({editPhone: true})}>
-                        <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
-                    </TouchableOpacity> 
-                    <View>
-                        <TextInput style={styles.subHeader} editable={this.state.editPhone}>Phone Number</TextInput>
-                        <View style={styles.lineStyle}/>
-                    </View>  
-                </View>
-                <View style={styles.textIcon}>
-                    <TouchableOpacity onPress={() => this.setState({editEmail: true})}>
-                        <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
-                    </TouchableOpacity> 
-                    <View>
-                        <TextInput style={styles.subHeader} editable={this.state.editEmail}>Email</TextInput>
-                        <View style={styles.lineStyle}/>
-                    </View>  
-                </View>
-                <View style={styles.textIcon}>
-                    <TouchableOpacity onPress={() => this.setState({editBirthday: true})}>
-                        <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
-                    </TouchableOpacity> 
-                    <View>
-                        <TextInput style={styles.subHeader} editable={this.state.editBirthday}>Birthday</TextInput>
-                        <View style={styles.lineStyle}/>
-                    </View>  
-                </View>
-                <View style={styles.textIcon}>
-                    <View>
-                        <TextInput style={styles.subHeader} editable={this.state.editUsername}>Username</TextInput>
-                        <View style={styles.lineStyle}/>
-                    </View>  
-                </View>
-            </View>
-            <View style={{marginTop: -30, width: 200}}>
-                <PrimaryButton backgroundColor={'#6DC4E0'} height={40} title={'Save'} fontSize={20}/>
-            </View>
-            
+      <View style={styles.container}>
+        <OrangeBackground/>
+        <View style={styles.searchTextBox}>
+            <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
+            <Text style={styles.searchText}>Back</Text>
         </View>
-    );
+        <Text style={styles.header}>Account Profile</Text>
+        <View style={styles.whiteBox}>
+            <View style={{marginLeft: Dimensions.get('screen').width*.5, marginBottom: -50}}>
+              <TouchableOpacity onPress={this.onPress}>
+                <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
+              </TouchableOpacity>
+            </View>           
+            <View>
+              <TextInput style={styles.subHeader} editable={this.state.editor}>Username</TextInput>
+              <View style={styles.lineStyle}/>
+            </View>
+            <View>
+              <TextInput style={styles.subHeader} editable={this.state.editor}>Password</TextInput>
+              <View style={styles.lineStyle}/>
+            </View>  
+            <View>
+              <TextInput style={styles.subHeader} editable={this.state.editor}>Phone Number</TextInput>
+              <View style={styles.lineStyle}/>
+            </View>  
+            <View>
+              <TextInput style={styles.subHeader} editable={this.state.editor}>Email</TextInput>
+              <View style={styles.lineStyle}/>
+            </View>  
+            <View>
+              <TextInput style={styles.subHeader} editable={this.state.editor}>Birthday</TextInput>
+              <View style={styles.lineStyle}/>
+            </View>    
+            <View style={{marginBottom: Dimensions.get('screen').height*.08}}>
+              <TextInput style={styles.subHeader} editable={this.state.editor}>Birthday</TextInput>
+              <View style={styles.lineStyle}/>
+            </View>    
+        </View>
+        <View style={{marginTop: -Dimensions.get('screen').height*.06, width: Dimensions.get('screen').width*.5}}>
+            <PrimaryButton backgroundColor={'#6DC4E0'} height={40} title={'Save'} fontSize={20}/>
+        </View>
+      </View>
+    )
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {

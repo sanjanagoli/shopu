@@ -6,7 +6,12 @@ export default class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {isGoingToStore: false, isCheckingOut: false, isEnRoute: false, isDelivered: false};
+        this.state = {
+            isGoingToStore: false, 
+            isCheckingOut: false, 
+            isEnRoute: false, 
+            isDelivered: false
+        };
     }
 
     insertCheckGoingToStore=() => {
@@ -70,7 +75,7 @@ export default class App extends React.Component {
                 <Image source ={require('./../assets/images/x.png')} style={styles.x} />
                 <Text style={styles.header}>Select Your Status</Text>
                 <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginLeft:Dimensions.get("screen").width*.02}}>
+                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginLeft:Dimensions.get("screen").width*.03}}>
                         <TouchableOpacity onPress={this.insertCheckGoingToStore}>
                             {this.renderGoingToStore()}
                         </TouchableOpacity>
@@ -78,7 +83,7 @@ export default class App extends React.Component {
                     </View>
                 </View>
                 <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginLeft:Dimensions.get("screen").width*.02 }}>
+                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginLeft:Dimensions.get("screen").width*.03 }}>
                         <TouchableOpacity onPress={this.insertCheckCheckingOut}>
                             {this.renderCheckingOut()}
                         </TouchableOpacity>
@@ -86,7 +91,7 @@ export default class App extends React.Component {
                     </View>
                 </View>
                 <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginRight: Dimensions.get("screen").width*.18,marginLeft:Dimensions.get("screen").width*.02 }}>
+                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginRight: Dimensions.get("screen").width*.18,marginLeft:Dimensions.get("screen").width*.03 }}>
                         <TouchableOpacity onPress={this.insertCheckEnRoute}>
                             {this.renderEnRoute()}
                         </TouchableOpacity>
@@ -94,7 +99,7 @@ export default class App extends React.Component {
                     </View>
                 </View>
                 <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginRight: Dimensions.get("screen").width*.18, marginLeft:Dimensions.get("screen").width*.02 }}>
+                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginRight: Dimensions.get("screen").width*.18, marginLeft:Dimensions.get("screen").width*.03 }}>
                         <TouchableOpacity onPress={this.insertCheckDelivered}>
                             {this.renderDelivered()}
                         </TouchableOpacity>
@@ -127,7 +132,8 @@ const styles = StyleSheet.create({
   },
   rectangles: {
     backgroundColor: '#605DF1',
-    marginTop: 15,
+    marginTop: Dimensions.get("screen").height*.01,
+    marginBottom: Dimensions.get("screen").height*.02,
     width: Dimensions.get("screen").width*.8,
     height: Dimensions.get("screen").height*.09,
     shadowOffset: { width: 8, height: 4},
@@ -141,7 +147,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color:  '#fff',
     fontFamily: 'Montserrat-Regular',
-    marginLeft: Dimensions.get("screen").width*.1,
+    marginLeft: Dimensions.get("screen").width*.05,
   },
   checkBox: {
     width: Dimensions.get("screen").width*.09,
@@ -152,17 +158,18 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.04,
   },
   header: {
-    fontSize: 35,
+    fontSize: 33,
     color:  '#6DC4E0',
     textAlign: 'center',
     width: Dimensions.get("screen").width,
-    fontFamily: 'Montserrat-Regular',
-    margin: '5% 5%',
+    fontFamily: 'Montserrat-SemiBold',
+    marginBottom: '2%',
+    marginTop: '2%',
   },
   x:{
-    width: 25,
-    height: 25,
-    marginRight: Dimensions.get("screen").width*.8,
+    width: Dimensions.get("screen").width*.06,
+    height: Dimensions.get("screen").width*.06,
+    marginRight: Dimensions.get("screen").width*.73,
     marginTop: Dimensions.get("screen").height*.01,
   },
 });

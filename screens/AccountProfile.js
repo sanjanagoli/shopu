@@ -1,8 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Picker} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from './../components/PrimaryButton';
-import { TextInput } from 'react-native-gesture-handler';
 
 export default class AccountProfile extends React.Component {
   constructor(props) {
@@ -26,37 +25,39 @@ export default class AccountProfile extends React.Component {
         </View>
         <Text style={styles.header}>Account Profile</Text>
         <View style={styles.whiteBox}>
-            <View style={{marginLeft: Dimensions.get('screen').width*.5, marginBottom: -50}}>
+            <View style={{marginLeft: Dimensions.get('screen').width*.8}}>
               <TouchableOpacity onPress={this.onPress}>
                 <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
               </TouchableOpacity>
             </View>           
             <View>
-              <TextInput style={styles.subHeader} editable={this.state.editor}>Username</TextInput>
-              <View style={styles.lineStyle}/>
+              <View style={styles.textIcon}>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Username'}></TextInput>
+                <View style={styles.lineStyle}/>
+              </View>  
+              <View style={styles.textIcon}>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Password'}></TextInput>
+                <View style={styles.lineStyle}/>
+              </View>  
+              <View style={styles.textIcon}>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Phone Number'}></TextInput>
+                <View style={styles.lineStyle}/>
+              </View>
+              <View style={styles.textIcon}>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Email'}></TextInput>
+                <View style={styles.lineStyle}/>
+              </View>  
+              <View style={styles.textIcon}>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Birthday'}></TextInput>
+                <View style={styles.lineStyle}/>
+              </View>    
+              <View style={{marginBottom: Dimensions.get('screen').height*.06}}>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Payment'}></TextInput>
+                <View style={styles.lineStyle}/>
+              </View>    
             </View>
-            <View>
-              <TextInput style={styles.subHeader} editable={this.state.editor}>Password</TextInput>
-              <View style={styles.lineStyle}/>
-            </View>  
-            <View>
-              <TextInput style={styles.subHeader} editable={this.state.editor}>Phone Number</TextInput>
-              <View style={styles.lineStyle}/>
-            </View>  
-            <View>
-              <TextInput style={styles.subHeader} editable={this.state.editor}>Email</TextInput>
-              <View style={styles.lineStyle}/>
-            </View>  
-            <View>
-              <TextInput style={styles.subHeader} editable={this.state.editor}>Birthday</TextInput>
-              <View style={styles.lineStyle}/>
-            </View>    
-            <View style={{marginBottom: Dimensions.get('screen').height*.08}}>
-              <TextInput style={styles.subHeader} editable={this.state.editor}>Birthday</TextInput>
-              <View style={styles.lineStyle}/>
-            </View>    
         </View>
-        <View style={{marginTop: -Dimensions.get('screen').height*.06, width: Dimensions.get('screen').width*.5}}>
+        <View style={styles.buttonStyle}>
             <PrimaryButton backgroundColor={'#6DC4E0'} height={40} title={'Save'} fontSize={20}/>
         </View>
       </View>
@@ -69,11 +70,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    //justifyContent: 'center',
   },
   textIcon: {
-    flexDirection: 'row-reverse',
-    justifyContent: 'space-between',
+    marginBottom: Dimensions.get("screen").height*.04,
+  },
+  buttonStyle: {
+    marginTop: -Dimensions.get('screen').height*.06,
+    width: Dimensions.get('screen').width*.5,
   },
   subHeader: {
     color: '#605DF1',
@@ -81,6 +84,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: Dimensions.get('screen').width*0.05,
     marginTop: Dimensions.get("screen").height*.02,
+    
   },
   whiteBox: {
     flexDirection: 'column',

@@ -4,6 +4,7 @@ import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
+import Item from './screens/Item';
 import Login from './screens/Login';
 import Notifications from './screens/Notifications';
 import Completed from './screens/OrderComplete';
@@ -27,6 +28,9 @@ FontLoad.then((res) => {
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
+  },
+  Item: {
+    screen: Item
   },
   YourCart: {
     screen: YourCart

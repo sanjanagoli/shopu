@@ -4,6 +4,10 @@ import OrangeBackground from './../components/OrangeBackground';
 
 
 export default class ShopSearch extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>

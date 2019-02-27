@@ -3,6 +3,10 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 export default class Welcome extends React.Component {
+  static navigationOptions = {
+    header: null,
+    };
+    
   render() {
     return (
       <View style={styles.container}>
@@ -13,8 +17,8 @@ export default class Welcome extends React.Component {
         <Text style = {styles.subheader}>sign up now!</Text>
         <View style={styles.RectangleShapeViewBottom} />
         <Text style = {styles.minitext}>Have an account? Login</Text>
-        <Image source ={require('./images/shopcart.png')} style={styles.ShoppingCart} />
-        <Image source ={require('./images/right-arrow.png')} style={styles.Arrow} />
+        <Image source ={require('./../assets/images/shopcart.png')} style={styles.ShoppingCart} />
+        <Image source ={require('./../assets/images/right-arrow.png')} style={styles.Arrow} />
       </View>
     );
   }

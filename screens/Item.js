@@ -28,8 +28,8 @@ export default class RequestProfile extends React.Component {
         <View style={styles.container}>
           <OrangeBackground/>
             <View style={styles.toolbar}>
-              <Image style={styles.shoppingBagicon}
-                  source={require('./../assets/images/shopping_bag.png')} />
+              <Image style={styles.cartIcon}
+                  source={require('./../assets/images/top_shopping_cart.png')} />
               <Image style={styles.personIcon}
                   source={require('./../assets/images/person.png')} />
             </View>
@@ -98,9 +98,9 @@ const styles = StyleSheet.create({
     marginTop: window.height*.05, 
     paddingHorizontal: window.width*.05
   },
-  shoppingBagicon: {
-    width: 37,
-    height: 40,
+  cartIcon: {
+    width: 43,
+    height: 44,
   },
   personIcon: {
     width: 42,

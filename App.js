@@ -15,7 +15,7 @@ import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
-import Results from './screens/Results';
+import YourResults from './screens/Results';
 
 YellowBox.ignoreWarnings([
   'Require cycle:',
@@ -28,8 +28,8 @@ const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
   },
-  Results: {
-    screen: Results
+  YourResults: {
+    screen: YourResults
   },
   YourCart: {
     screen: YourCart

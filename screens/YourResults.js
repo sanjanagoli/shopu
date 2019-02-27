@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
+import OrangeBackground from '../components/OrangeBackground';
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -23,7 +23,7 @@ let items = [
 ]
 
 
-export default class Results extends Component {
+export default class YourResults extends Component {
   static navigationOptions = {
     header: null,
     };

@@ -12,8 +12,8 @@ export default class OrangeBackground extends React.Component {
 
 const styles = StyleSheet.create({
   peachBox: {
-    width: Dimensions.get("screen").width,
-    height: Dimensions.get("screen").height*.40,
+    width: Dimensions.get("screen").width+1,
+    height: Dimensions.get("screen").height*.48,
     backgroundColor: '#FF715B',
     position: 'absolute',
     top: 0,

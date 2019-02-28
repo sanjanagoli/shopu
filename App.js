@@ -4,13 +4,14 @@ import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
+import Item from './screens/Item';
 import Login from './screens/Login';
 import Notifications from './screens/Notifications';
 import Completed from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
+import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
-import SearchingRequest from './screens/SearchingRequest';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
@@ -31,6 +32,9 @@ const shopStackNavigator = createStackNavigator({
   YourResults: {
     screen: YourResults
   },
+  Item: {
+    screen: Item
+  },
   YourCart: {
     screen: YourCart
   },
@@ -49,8 +53,8 @@ const driverStackNavigator = createStackNavigator({
   DriverSearch: {
     screen: DriverSearch
   },
-  SearchingRequest: {
-    screen: SearchingRequest
+  RequestOptions: {
+    screen: RequestOptions
   },
   RequestProfile: {
     screen: RequestProfile

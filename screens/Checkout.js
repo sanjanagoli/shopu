@@ -155,5 +155,3 @@ const styles = StyleSheet.create({
       marginLeft: Dimensions.get('screen').width*0.05,
     }
 });
-
-

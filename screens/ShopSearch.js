@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
+import Toolbar from './../components/Toolbar';
 
 const window = Dimensions.get("window")
 
@@ -32,16 +33,13 @@ export default class ShopSearch extends React.Component {
       this.state.fontLoaded ? (
         <View style={styles.container}>
           <OrangeBackground/>
-          <View style={styles.toolbar}>
-              <Image style={styles.cartIcon}
-                  source={require('./../assets/images/top_shopping_cart.png')} />
-              <Image style={styles.personIcon}
-                  source={require('./../assets/images/person.png')} />
+          <View style={{marginTop: window.height*.015}}>
+            <Toolbar/>
           </View>
           <View style={styles.mainView}>
-            <Text style={styles.header}>Let's shopU!</Text>
-            <View style={styles.slantedBlueRectangle}></View>
-            <View style={styles.slantedPurpleRectangle}></View>
+            <Text style={styles.header}>Let{`'`}s shopU!</Text>
+            <View style={styles.slantedBlueRectangle} />
+            <View style={styles.slantedPurpleRectangle} />
             <View style={styles.whiteCard}>
               <View style={{flexDirection: 'row', marginBottom: window.height*.01}}>
                 <TouchableOpacity onPress={this.search}>
@@ -65,20 +63,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  toolbar: {
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    marginTop: window.height*.05, 
-    paddingHorizontal: window.width*.05
-  },
-  cartIcon: {
-    width: 43,
-    height: 44,
-  },
-  personIcon: {
-    width: 42,
-    height: 40,
   },
   mainView: {
     justifyContent: 'center',

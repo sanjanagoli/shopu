@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
-import PrimaryButton from './../components/PrimaryButton'
+import PrimaryButton from './../components/PrimaryButton';
+import Toolbar from '../components/Toolbar';
 
 export default class Checkout extends React.Component {
   static navigationOptions = {
@@ -16,10 +17,7 @@ export default class Checkout extends React.Component {
     return (
     <View style={styles.whiteBackground}> 
         <OrangeBackground/>
-            <View style={styles.iconsBox}>
-                <Image source ={require('./../assets/images/scart.png')} style={styles.shopCart}/>
-                <Image source ={require('./../assets/images/personicon.png')} style={styles.personIcon}/>
-            </View>
+        <Toolbar/>
             <View style={styles.searchTextBox}>
                 <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
                 <Text style={styles.searchText}>Search Again</Text>

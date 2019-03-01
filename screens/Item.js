@@ -55,7 +55,7 @@ export default class RequestProfile extends React.Component {
                   </View>
                   <View style={{textAlign: 'left'}}>
                     <Text style={styles.generalText}>Quantity:</Text>
-                    <View style={{marginLeft: window.width*.7}}>
+                    <View style={{marginTop: window.height*.02, marginLeft: window.width*.7}}>
                       <DropDown/>
                     </View>
                     <View style={styles.answerLine} />
@@ -182,6 +182,6 @@ const styles = StyleSheet.create({
     marginTop: window.height*.04
   },
   addToCartButton: {
-    marginTop: window.height*.05
+    marginTop: window.height*.07
   }
 });

@@ -14,7 +14,7 @@ export default class DriverSearch extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <Toolbar/>
+        <Toolbar pageType={'Driver'}/>
         <Text style={styles.header}>Let{`'`}s shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>

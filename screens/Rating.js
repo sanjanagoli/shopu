@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 const window = Dimensions.get("window")
 
@@ -26,13 +27,8 @@ export default class Rating extends React.Component {
     return (
           <View style={styles.container}>
             <OrangeBackground/>
-            <Image style={styles.shoppingCarticon}
-                source={require('./../assets/images/shopping-cart.png')} />
-            <Image style={styles.personIcon}
-                source={require('./../assets/images/profile_person.png')} />
-            <Text style={styles.thankYouforText}>Thank U for</Text>
-            <Text style={styles.usingText}>using</Text>
-            <Text style={styles.shopuText}>shopU!</Text>
+            <Toolbar/>
+            <Text style={styles.thankYouforText}>Thank U for using shopU!</Text>
             <View style={styles.ratingBox} />
             <Text style={styles.delivererText}>Deliverer:</Text>
             <View style={styles.firstStarrow}>
@@ -63,7 +59,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   shoppingCarticon: {
     width: 45,
@@ -114,8 +109,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fff',
     position: 'absolute',
-    width: 347,
-    height: 389,
+    width: Dimensions.get('screen').width*0.9,
+    height: Dimensions.get('screen').height*0.4,
     left: 15,
     top: 280,
     shadowOffset: {width: 0, height: 5},

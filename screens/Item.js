@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
+import DropDown from './../components/DropDown';
 
 const window = Dimensions.get("window")
 
@@ -54,8 +55,9 @@ export default class RequestProfile extends React.Component {
                   </View>
                   <View style={{textAlign: 'left'}}>
                     <Text style={styles.generalText}>Quantity:</Text>
-                    <Image style={styles.downArrowIcon}
-                        source={require('./../assets/images/Vector.png')} />
+                    <View style={{marginLeft: window.width*.7}}>
+                      <DropDown/>
+                    </View>
                     <View style={styles.answerLine} />
                     <Text style={styles.generalText}>Comments:</Text>
                     <View style={styles.answerLine}>

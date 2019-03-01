@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 56064,
+  "packagerPid": 65978,
   "expoServerNgrokUrl": "https://ji-ic6.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.ji-ic6.anonymous.shopu.exp.direct",
-  "ngrokPid": 56089
+  "ngrokPid": 65999
 }

@@ -2,6 +2,22 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Toolbar from './../components/Toolbar';
 
+let data = [
+  {
+    requester: 'John Smith',
+  },
+  {
+    venmo: 'John_Smith',
+  },
+  {
+    charge: '$9.50',
+  },
+  {
+    moneyToRecieve: '$2.50',
+  }
+]
+  
+
 export default class App extends React.Component {
 
   render() {
@@ -11,10 +27,11 @@ export default class App extends React.Component {
             <Toolbar/>
             <Text style = {styles.header}>Thank U for Shopping!</Text>
           <View style={styles.blueBox}>
-            <Text style = {styles.boxText}>Requester:</Text>
-            <Text style = {styles.boxText}>Requester Venmo:</Text>
-            <Text style = {styles.boxText}>Input total charge from store:</Text>
-            <Text style = {styles.boxText}>Payment amount you will recieve:</Text>
+            <Text style = {styles.boxText}>Requester: John Smith</Text>
+           
+            <Text style = {styles.boxText}>Requester Venmo: John_Smith</Text>
+            <Text style = {styles.boxText}>Input total charge from store: $9.50</Text>
+            <Text style = {styles.boxText}>Payment amount you will recieve: $2.50</Text>
           </View>
       </View>
       
@@ -57,7 +74,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     width: Dimensions.get("screen").width*.9,
     fontFamily: 'Montserrat-Regular',
-    marginTop: Dimensions.get("screen").height*.05,
+    marginTop: Dimensions.get("screen").height*.04,
     marginLeft: Dimensions.get("screen").width*.03,
   }
 

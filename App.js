@@ -49,9 +49,12 @@ const driverStackNavigator = createStackNavigator({
   DriverSearch: {
     screen: DriverSearch
   },
+<<<<<<< HEAD
   // SearchingRequest: {
   //   screen: SearchingRequest
   // },
+=======
+>>>>>>> 8de136014fef3f4c7835615cb14974f4409d846c
   RequestOptions: {
     screen: RequestOptions
   },

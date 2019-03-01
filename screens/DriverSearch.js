@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
-import variables from './../assets/data/variables'
+import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';

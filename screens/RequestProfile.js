@@ -105,14 +105,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 20
   },
-  shoppingBagicon: {
-    width: 35,
-    height: 40,
-  },
-  personIcon: {
-    width: 42,
-    height: 40,
-  },
   arrowIcon: {
     width: 30,
     height: 25,

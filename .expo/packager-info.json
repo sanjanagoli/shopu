@@ -1,14 +1,4 @@
 {
-<<<<<<< HEAD
-  "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
-}
-=======
     "devToolsPort": 19002,
     "expoServerPort": 19000,
     "packagerPort": 19001,
@@ -17,4 +7,3 @@
     "packagerNgrokUrl": "https://packager.ig-c4u.anonymous.shopu.exp.direct",
     "ngrokPid": 17157
   }
->>>>>>> 8de136014fef3f4c7835615cb14974f4409d846c

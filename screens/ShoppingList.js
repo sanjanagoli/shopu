@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, AppRegistry, FlatList } from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -37,10 +38,7 @@ export default class ShoppingList extends Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-          <View style={styles.toolbar}>
-            <Image source ={require('./../assets/images/shopping-cart.png')} style={styles.ShoppingCart} />
-            <Image source ={require('./../assets/images/person.png')} style={styles.person} />  
-          </View>
+          <Toolbar pageType={'Driver'}/>
             <Text style = {styles.header}>Shopping List</Text>
             <FlatList
               style={styles.shoppingList}
@@ -77,12 +75,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
-  toolbar: {
-    height: 'auto',
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    width: Dimensions.get('screen').width,
-  },
   header: {
     fontSize: 50,
     color:  '#fff',
@@ -90,20 +82,6 @@ const styles = StyleSheet.create({
     width: Dimensions.get("screen").width,
     fontFamily: 'Montserrat-SemiBold',
     margin: '5% 5%',
-  },
-  person:{
-    width: 43,
-    height: 40,
-    marginLeft: Dimensions.get("screen").width*.35,
-    marginRight: Dimensions.get("screen").width*.04,
-    marginTop: Dimensions.get("screen").height*.05,
-  },
-  ShoppingCart:{
-    width: 42,
-    height: 38,
-    marginRight: Dimensions.get("screen").width*.35,
-    marginLeft: Dimensions.get("screen").width*.04,
-    marginTop: Dimensions.get("screen").height*.05,
   },
   name: {
     fontSize: 30,
@@ -136,13 +114,9 @@ const styles = StyleSheet.create({
   rectangles: {
     marginTop: 5,
     width: Dimensions.get("screen").width*.90,
-    height: Dimensions.get("screen").height*.17,
+    height: Dimensions.get("screen").height*.2,
   },
   flatlistStyle:{
-    justifyContent: 'flex-end', 
-  },
-  shoppingList: {
-
+    justifyContent: 'center', 
   }
 });
-

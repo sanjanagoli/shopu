@@ -39,13 +39,13 @@ export default class YourCart extends React.Component {
                             <View style={{flexDirection: 'row'}}>
                                 <Text style={styles.totalsText}>Comments</Text>
                                 <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
+                                    source={require('./../assets/images/edit_pencil_purple.png')} />
                             </View>
                             <Text style={styles.totalsText}>2. Pencil - $3.00 per pack</Text>
                             <View style={{flexDirection: 'row'}}>
                                 <Text style={styles.totalsText}>Comments</Text>
                                 <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
+                                    source={require('./../assets/images/edit_pencil_purple.png')} />
                             </View>
                             </View>
                       )
@@ -68,13 +68,13 @@ export default class YourCart extends React.Component {
                             <View style={{flexDirection: 'row'}}>
                                 <Text style={styles.totalsText}>Comments</Text>
                                 <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
+                                    source={require('./../assets/images/edit_pencil_purple.png')} />
                             </View>
                             <Text style={styles.totalsText}>2. Pencil - $3.00 per pack</Text>
                             <View style={{flexDirection: 'row'}}>
                                 <Text style={styles.totalsText}>Comments</Text>
                                 <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
+                                    source={require('./../assets/images/edit_pencil_purple.png')} />
                             </View>
                             </View>
                       )

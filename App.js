@@ -2,12 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, YellowBox} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import Notifications from './screens/Notifications';
-import Completed from './screens/OrderComplete';
+import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
@@ -42,7 +43,7 @@ const shopStackNavigator = createStackNavigator({
     screen: Checkout
   },
   OrderComplete: {
-    screen: Completed
+    screen: OrderComplete
   },
   Rating: {
     screen: Rating

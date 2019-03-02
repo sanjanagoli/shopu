@@ -15,7 +15,7 @@ export default class RequestProfile extends React.Component {
   }
 
   browseOptions = () => {
-    this.props.navigation.goBack('Results')
+    this.props.navigation.goBack('YourResults')
   }
 
   constructor(props) {

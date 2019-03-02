@@ -24,7 +24,7 @@ YellowBox.ignoreWarnings([
 ]);
 
 FontLoad.then((res) => {
- })
+})
 
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {
@@ -108,6 +108,3 @@ tabBarOptions: {
 );
 
 export default createAppContainer(TabNavigator);
-
-
-

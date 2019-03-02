@@ -1,27 +1,58 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
+import FontLoad from './../components/FontLoad';
+import Toolbar from './../components/Toolbar';
 
+const window = Dimensions.get("window")
 
 export default class ShopSearch extends React.Component {
   static navigationOptions = {
     header: null,
     };
     
+    search = () => {
+      this.props.navigation.navigate('YourResults')
+    }
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        fontLoaded: false,
+      }
+    }
+  
+    componentWillMount = () => {
+      FontLoad.then((res) => {
+        this.setState({ fontLoaded: true });
+      })
+    }
+    
   render() {
     return (
-      <View style={styles.container}>
-        <OrangeBackground/>
-        <Text style={styles.header}>Let{`'`}s shopU! </Text>
-        <View style={styles.slantedBlueRectangle}></View>
-        <View style={styles.slantedPurpleRectangle}></View>
-        <View style={styles.whiteCard}></View>
-        <View style={styles.searchLine}></View>
-        <Text style={styles.searchText}>Search for a Product</Text>
-        <Image source={require('./../assets/images/search_icon.png')}style={styles.searchIcon} />
-        <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.topShopCart} />
-        <Image source={require('./../assets/images/profile_head.png')}style={styles.profileHead} />
-      </View>
+      this.state.fontLoaded ? (
+        <View style={styles.container}>
+          <OrangeBackground/>
+          <Toolbar/>
+          <View style={styles.mainView}>
+            <Text style={styles.header}>Let{`'`}s shopU!</Text>
+            <View style={styles.slantedBlueRectangle} />
+            <View style={styles.slantedPurpleRectangle} />
+            <View style={styles.whiteCard}>
+              <View style={{flexDirection: 'row', marginBottom: window.height*.01}}>
+                <TouchableOpacity onPress={this.search}>
+                  <Image style={styles.searchIcon} 
+                      source={require('./../assets/images/search_icon.png')}/>
+                </TouchableOpacity>
+                <View style={{width: window.width*.75}}>
+                  <TextInput style={styles.searchText} placeholder={'Search for a Product'} placeholderTextColor={'#605DF1'}>Search for a Product</TextInput>
+                </View>
+              </View>
+              <View style={styles.searchLine}/>
+            </View>
+          </View>
+        </View>
+      ) : null
     );
   }
 }
@@ -29,82 +60,66 @@ export default class ShopSearch extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  mainView: {
     justifyContent: 'center',
+    alignItems: 'center', 
+    marginTop: window.height*.02
   },
   header: {
-    fontSize: 100,
+    fontSize: 80,
     color: '#fff',
-    position: 'absolute',
-    top: 80,
     textAlign: 'center',
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-SemiBold',
   },
   slantedBlueRectangle: {
-    position: 'absolute',
     backgroundColor: '#6DC4E0',
     transform:([{ rotateZ:'10deg'}]),
-    width: Dimensions.get("screen").width + 100,
-    height: 120,
-    top: Dimensions.get("screen").height/2,
+    width: window.width*1.5,
+    height: window.height*.13,
+    marginTop: window.height*.1,
   },
   slantedPurpleRectangle: {
-    position: 'absolute',
     backgroundColor: '#605DF1',
     transform:([{ rotateZ:'10deg'}]),
-    width: Dimensions.get("screen").width + 100,
-    height: 120,
-    top: Dimensions.get("screen").height/2 + 150,
+    width: window.width*1.5,
+    height: window.height*.13,
+    marginTop: window.height*.03,
   },
   whiteCard: {
-    position: 'absolute',
     backgroundColor: '#ffffff',
-    width: Dimensions.get("screen").width - 30,
-    height: Dimensions.get("screen").height/2 - 20,
-    top: Dimensions.get("screen").height/2 - 120,
+    width: window.width*.9,
+    height: window.height*.45,
+    shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowRadius: 3,
-    shadowOpacity: 0.9,
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: window.height*-.36
   },
   searchLine: {
-    position: 'absolute',
     backgroundColor: '#6DC4E0',
-    width: Dimensions.get("screen").width - 150,
-    height: 3,
-    top: Dimensions.get("screen").height/2 + 120,
+    width: window.width*.8,
+    height: window.height*.003,
+    shadowOffset: {width: 0, height: 2},
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    marginTop: window.height*.005
   },
   searchText: {
-    fontSize: 20,
+    fontSize: 24,
     color: '#605DF1',
-    position: 'absolute',
-    top: Dimensions.get("screen").height/2 + 80,
-    textAlign: 'center',
-    fontFamily: 'Arial',
+    fontFamily: 'Montserrat-Medium',
+    marginTop: window.height*.015,
+    marginLeft: window.width*.04
+
   },
   searchIcon: {
-    position: 'absolute',
-    top: Dimensions.get("screen").height/2 + 75,
-    left: 80,
-    height: 30,
-    width: 30,
+    height: 23,
+    width: 22,
+    marginTop: window.height*.019
   },
-  topShopCart: {
-    position: 'absolute',
-    top: 50,
-    left: 20,
-    height: 30,
-    width: 30,
-  },
-  profileHead: {
-    position: 'absolute',
-    top: 50,
-    right: 20,
-    height: 30,
-    width: 30,
-  }
 });

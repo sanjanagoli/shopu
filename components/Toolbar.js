@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 43,
         backgroundColor: '#FF715B',
-        marginTop: Dimensions.get('screen').height*.03,
+        marginTop: Dimensions.get('screen').height*.06,
     },
     person:{
         width: 43,

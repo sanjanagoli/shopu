@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Order #1'}, {key: 'Bobby is en route!', time: '9:00 pm', order: 'Order #5'}, 
 {key: 'Robert has delivered!', time: '8:19 pm', order: 'Order #3'}, {key: 'Robert is en route!', time: '6:00 pm', order: 'Order #3'}, {key: 'Bobby is going to the store!', time: '1:23 pm', order: 'Order #5'}, {key: 'Robert has checked out!', time: '12:00 pm', order: 'Order #3'}, 
@@ -18,13 +19,10 @@ export default class Notifications extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <View style={styles.iconsBox}> 
-          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} /> 
-          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />  
-        </View>
+        <Toolbar/>
         <Text style={styles.header}>Notifications!</Text>
         <View style={styles.whiteBox}/>
-          <FlatList style={{marginTop: -Dimensions.get("screen").height*.46}} vertical={true}
+          <FlatList style={{marginTop: -Dimensions.get("screen").height*.44}} vertical={true}
             data={notifs}
             renderItem={(
               {item}) => {
@@ -45,7 +43,7 @@ export default class Notifications extends React.Component {
         <View style={styles.blueBox} />
         <View style={styles.purpleBox}/>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
-        <View style={{marginTop: Dimensions.get("screen").height*.09}} />
+        <View style={{marginTop: Dimensions.get("screen").height*.1}} />
       </View>
         );
     }
@@ -63,14 +61,14 @@ const styles = StyleSheet.create({
       fontSize: 58,
       textAlign: 'center',
       marginBottom: 20,
-      marginTop: Dimensions.get("screen").height*.06,
+      marginTop: Dimensions.get("screen").height*.04,
     },
     recentOrdersText: {
       fontSize: 25,
       color: '#ffffff',
       textAlign: 'center',
       fontFamily: 'Montserrat-Medium',
-      marginTop: Dimensions.get("screen").height*.28,
+      marginTop: Dimensions.get("screen").height*.29,
       position: 'absolute',
     },
     whiteBox: {
@@ -94,14 +92,14 @@ const styles = StyleSheet.create({
       color: '#484848',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',
-      marginBottom: 10,
+      marginBottom: Dimensions.get("screen").height*.01,
     },
     notificationInfo: {
       fontSize: 20,
       color: '#9B9A9A',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',
-      marginBottom: 20,
+      marginBottom: Dimensions.get("screen").height*.02,
     },
     notificationRow: {
       flexDirection: 'row',
@@ -114,14 +112,14 @@ const styles = StyleSheet.create({
       height: 80,
       transform:([{ rotateZ:'-5deg'}]),
       position: 'absolute',
-      marginTop: Dimensions.get("screen").height*.26,
+      marginTop: Dimensions.get("screen").height*.265,
     },
     purpleBox: {
       backgroundColor: '#605DF1',
       width: Dimensions.get("screen").width*0.77,
       height: 70,
       position: 'absolute',
-      marginTop: Dimensions.get("screen").height*.26,
+      marginTop: Dimensions.get("screen").height*.265,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,
@@ -130,22 +128,5 @@ const styles = StyleSheet.create({
       shadowRadius: 2,
       shadowOpacity: 0.9,
     },
-    iconsBox: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginTop: Dimensions.get('screen').height*.05,
-      width: Dimensions.get('screen').width,
-    },
-    shopCart: {  //implement toolbar
-      width: 40,
-      height: 40,
-      justifyContent: 'flex-start',
-      marginLeft: 15,
-    },
-    personIcon: { //implement toolbar
-      width: 40,
-      height: 40,
-      marginRight: 15,
-    },
-    
+ 
 });

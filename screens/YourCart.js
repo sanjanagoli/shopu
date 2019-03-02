@@ -98,32 +98,6 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
     },
-    orangeCard: {
-      backgroundColor: '#FF715B',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: Dimensions.get("screen").width,
-      height: Dimensions.get('screen').height * 7 / 16,
-      marginBottom: Dimensions.get('screen').height * .4,
-    },
-    iconsBox: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: Dimensions.get('screen').width,
-      marginTop: Dimensions.get('screen').height * .4,
-    },
-    shopCart: {
-      width: 35,
-      height: 40,
-      marginLeft: Dimensions.get("screen").width*.04,
-      marginTop: Dimensions.get("screen").height*.04,
-    },
-    personIcon: {
-      width: 42,
-      height: 40,  
-      marginRight: Dimensions.get("screen").width*.04,
-      marginTop: Dimensions.get("screen").height*.04,
-    },
     checkoutContentBox: {
       flexDirection: 'column',
       alignItems: 'center',

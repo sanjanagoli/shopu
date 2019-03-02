@@ -12,7 +12,7 @@ export default class ShopSearch extends React.Component {
     };
     
     search = () => {
-      this.props.navigation.navigate('Results')
+      this.props.navigation.navigate('YourResults')
     }
 
     constructor(props) {
@@ -33,9 +33,7 @@ export default class ShopSearch extends React.Component {
       this.state.fontLoaded ? (
         <View style={styles.container}>
           <OrangeBackground/>
-          <View style={{marginTop: window.height*.015}}>
-            <Toolbar/>
-          </View>
+          <Toolbar/>
           <View style={styles.mainView}>
             <Text style={styles.header}>Let{`'`}s shopU!</Text>
             <View style={styles.slantedBlueRectangle} />
@@ -63,6 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingTop: window.height*.015
   },
   mainView: {
     justifyContent: 'center',

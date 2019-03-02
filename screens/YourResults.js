@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
 import OrangeBackground from '../components/OrangeBackground';
+import Toolbar from './../components/Toolbar';
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -40,12 +41,7 @@ export default class YourResults extends Component {
     return (
         <View>
             <OrangeBackground/>
-            <View style={styles.toolbar}>
-              <Image style={styles.shoppingCartIcon}
-                  source={require('./../assets/images/shopping-cart.png')} />
-              <Image style={styles.personIcon}
-                  source={require('./../assets/images/person.png')} />
-            </View>
+            <Toolbar/>
             <TouchableOpacity style={styles.subView} onPress={this.searchAgain}>
               <Image style={styles.arrowIcon}
                   source={require('./../assets/images/back_arrow.png')} />
@@ -100,7 +96,7 @@ const styles = StyleSheet.create({
   subView: {
     flexDirection: 'row', 
     paddingHorizontal: Dimensions.get("screen").width*.05,
-    marginTop: Dimensions.get("screen").height*.01
+    marginTop: Dimensions.get("screen").height*.03
   },
   innerItem: {
     flexDirection: 'row', 
@@ -132,7 +128,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: Dimensions.get("screen").width,
     fontFamily: 'Montserrat-SemiBold',
-    marginTop: Dimensions.get("screen").height*.03,
+    marginTop: Dimensions.get("screen").height*.01,
     marginBottom: Dimensions.get("screen").width*.05,
   },
   name: {

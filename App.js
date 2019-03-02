@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, YellowBox} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
@@ -16,7 +17,7 @@ import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
-import YourResults from './screens/Results';
+import YourResults from './screens/YourResults';
 
 YellowBox.ignoreWarnings([
   'Require cycle:',
@@ -72,7 +73,7 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
+  Notifications: Welcome,
   DriverSearch: driverStackNavigator,
 },
 {

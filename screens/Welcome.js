@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
 
 
 export default class Welcome extends React.Component {
@@ -15,10 +15,11 @@ export default class Welcome extends React.Component {
         <View style={styles.RectangleShapeViewTwo} />
         <View style={styles.RectangleShapeViewThree} />
         <Text style = {styles.subheader}>sign up now!</Text>
-        <View style={styles.RectangleShapeViewBottom} />
-        <Text style = {styles.minitext}>Have an account? Login</Text>
         <Image source ={require('./../assets/images/shopcart.png')} style={styles.ShoppingCart} />
-        <Image source ={require('./../assets/images/right-arrow.png')} style={styles.Arrow} />
+        <View style={styles.RectangleShapeViewBottom}>
+          <Text style = {styles.minitext}>Have an account? Login</Text>
+          <Image source ={require('./../assets/images/right-arrow.png')} style={styles.Arrow} />
+        </View>
       </View>
     );
   }
@@ -30,101 +31,75 @@ const styles = StyleSheet.create({
     backgroundColor: '#FF715B',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column',
   },
   header: {
-    fontSize: 150,
-    color:  '#fff',
-    marginTop: 50,
-    marginBottom: 5, 
+    color: '#ffffff',
+    fontFamily: 'Montserrat-Medium',
+    fontSize: 110,
     textAlign: 'center',
-    fontFamily: 'Arial',
-    width: 348,
-    height: 174,
-    top: -7,
+    marginTop: Dimensions.get("screen").height*0.05,
+  },
+  RectangleShapeViewOne: {
+    width: Dimensions.get("screen").width,
+    height: Dimensions.get("screen").height*0.26,
+    top: Dimensions.get("screen").height*0.4,
+    borderRadius: 2,
+    transform:([{ rotateZ:'-30deg'}]),
+    backgroundColor: '#6DC4E0',
     position: 'absolute',
+  },
+  RectangleShapeViewTwo: {
+    width: Dimensions.get("screen").width*0.74,
+    height: Dimensions.get("screen").height*0.44,
+    top: Dimensions.get("screen").height*0.315,
+    borderRadius: 2,
+    transform:([{ rotateZ:'-30deg'}]),
+    backgroundColor: '#6DC4E0',
+    position: 'absolute',
+  },
+  RectangleShapeViewThree: {
+    width: Dimensions.get("screen").width*0.89,
+    height: Dimensions.get("screen").height*0.365,
+    top: Dimensions.get("screen").height*0.35,
+    borderRadius: 2,
+    transform:([{ rotateZ:'-30deg'}]),
+    backgroundColor: '#605DF1',
+    position: 'absolute',
+  },
+  ShoppingCart: {
+    height: 60,
+    width: 60,
+    marginTop: -Dimensions.get("screen").height*0.08,
+    marginLeft: Dimensions.get("screen").width*0.37,
+  },
+  Arrow: {
+    height: 30,
+    width: 30,
   },
   subheader: {
     fontSize: 70,
     color:  '#fff',
-    marginTop: 80,
-    marginBottom: 5, 
     textAlign: 'left',
-    fontFamily: 'Arial',
-    fontWeight: '100',
-    width: 235,
-    height: 136,
-    top: 270,
-    left: 115, 
-    position: 'absolute',
+    fontFamily: 'Montserrat-Regular',
+    marginTop: Dimensions.get("screen").height*0.25,
   },
   minitext: {
     fontSize: 24,
     color:  '#fff',
-    marginTop: 80,
-    marginBottom: 5, 
     textAlign: 'left',
-    fontFamily: 'Arial',
-    fontWeight: '200',
-    width: 226,
-    height: 52,
-    top: 620,
-    left: 126, 
-    position: 'absolute',
+    fontFamily: 'Montserrat-Regular',
+    marginLeft: Dimensions.get("screen").width*.13,
+    marginRight: Dimensions.get("screen").width*.03,
   },
-  RectangleShapeViewOne: {
-    marginTop: 5,
-    width: 259,
-    height: 312.25,
-    top: 239.65,
-    borderRadius: 2,
-    transform:([{ rotateZ:'-31.32deg'}]),
-    backgroundColor: '#6DC4E0',
-    position: 'absolute',
-    },
-  RectangleShapeViewTwo: {
-    marginTop: 5,
-    width: 349.89,
-    height: 200,
-    top: 299.41,
-    borderRadius: 2,
-    transform:([{ rotateZ:'-30.09deg'}]),
-    backgroundColor: '#6DC4E0',
-    position: 'absolute',
-    },
-  RectangleShapeViewThree: {
-    marginTop: 5,
-    width: 298,
-    height: 251,
-    top: 276.43,
-    borderRadius: 2,
-    transform:([{ rotateZ:'-31.23deg'}]),
-    backgroundColor: '#605DF1',
-    position: 'absolute',
-    },
   RectangleShapeViewBottom: {
-    marginTop: 5,
     width: '100%',
-    height: 60,
-    top: 675,
-    left: 0,
+    height: Dimensions.get("screen").height*0.05,
     borderRadius: 2,
     backgroundColor: 'rgba(196, 196, 196, 0.46)',
-    position: 'absolute',
-    },
-  ShoppingCart: {
-    marginTop: 5,
-    height: 60,
-    width: 60,
-    top: 412,
-    left: 240,
-    position: 'absolute',
-    },
-  Arrow: {
-    marginTop: 5,
-    height: 30,
-    width: 30,
-    top: 693,
-    left: 350,
-    position: 'absolute',
-    },
+    marginTop: Dimensions.get("screen").height*.25,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, YellowBox} from 'react-native';
+import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import AccountProfile from './screens/AccountProfile';
@@ -94,11 +94,15 @@ defaultNavigationOptions: ({ navigation }) => ({
         imageName = require('./assets/images/filled_person.png');
       }
     } 
-    return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
+    return <Image source={imageName} style={{width: Dimensions.get("screen").width*.1, height: Dimensions.get("screen").height*.05, marginTop: Dimensions.get("screen").height*.005, resizeMode: 'contain'}} />;
   },
 }),
 tabBarOptions: {
   showLabel: false,
+  style: {
+  height: Dimensions.get("screen").height*.08
+  
+}
 },
 }
 );

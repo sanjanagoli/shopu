@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 
-export default class App extends React.Component {
+export default class StatusUpdateModal extends React.Component {
 
     constructor(props) {
         super(props);

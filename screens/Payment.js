@@ -2,20 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Toolbar from './../components/Toolbar';
 
-let data = [
-  {
-    requester: 'John Smith',
-  },
-  {
-    venmo: 'John_Smith',
-  },
-  {
-    charge: '$9.50',
-  },
-  {
-    moneyToRecieve: '$2.50',
-  }
-]
+
   
 
 export default class App extends React.Component {
@@ -27,11 +14,30 @@ export default class App extends React.Component {
             <Toolbar/>
             <Text style = {styles.header}>Thank U for Shopping!</Text>
           <View style={styles.blueBox}>
-            <Text style = {styles.boxText}>Requester: John Smith</Text>
-           
-            <Text style = {styles.boxText}>Requester Venmo: John_Smith</Text>
-            <Text style = {styles.boxText}>Input total charge from store: $9.50</Text>
-            <Text style = {styles.boxText}>Payment amount you will recieve: $2.50</Text>
+            <View style={{flex: 1, flexDirection: 'row' }}>
+              <View>
+                <Text style = {styles.boxText}>Requester: </Text>
+                <Text style = {styles.boxText}>John Smith</Text>
+              </View>   
+            </View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <View>
+                <Text style = {styles.boxText}>Requester Venmo: </Text>
+                <Text style = {styles.boxText}>John_Smith</Text>
+              </View>   
+            </View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <View>
+                <Text style = {styles.boxText}>Input total charge from store: </Text>
+                <Text style = {styles.boxText}>$9.50</Text>
+              </View>   
+            </View>
+            <View style={{flex: 1, flexDirection: 'row', marginTop:Dimensions.get("screen").height*.03}}>
+              <View>
+                <Text style = {styles.boxText}>Payment amount you will recieve: </Text>
+                <Text style = {styles.boxText}>$2.50</Text>
+              </View>   
+            </View>
           </View>
       </View>
       
@@ -64,7 +70,7 @@ const styles = StyleSheet.create({
   blueBox: {
     marginTop: Dimensions.get("screen").height*.04,
     width: Dimensions.get("screen").width* .9,
-    height: Dimensions.get("screen").height*.50,
+    height: Dimensions.get("screen").height*.55,
     backgroundColor: '#605DF1',
     alignItems: 'center',
   },
@@ -74,7 +80,6 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     width: Dimensions.get("screen").width*.9,
     fontFamily: 'Montserrat-Regular',
-    marginTop: Dimensions.get("screen").height*.04,
     marginLeft: Dimensions.get("screen").width*.03,
   }
 

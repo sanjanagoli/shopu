@@ -3,9 +3,5 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-<<<<<<< HEAD
   "urlRandomness": "jn-rvs"
-=======
-  "urlRandomness": "32-vbg"
->>>>>>> 986e66d88d28d68acced8f86feb657193612ea77
 }

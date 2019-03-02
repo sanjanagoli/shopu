@@ -15,7 +15,8 @@ export default class DriverSearch extends React.Component {
       <View style={styles.container}>
         <OrangeBackground/>
         <Toolbar pageType={'Driver'}/>
-        <Text style={styles.header}>Let{`'`}s shopU!</Text>
+        <Text style={styles.header}>Let{`'`}s</Text>
+        <Text style={styles.header}>shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>
           <Image style={styles.downArrowIcon}
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     marginTop: -Dimensions.get('screen').height*.05,
   },
   header: {
-    fontSize: 80,
+    fontSize: 70,
     color: '#fff',
     marginBottom: 5,
     textAlign: 'center',

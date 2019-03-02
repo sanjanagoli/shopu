@@ -35,7 +35,8 @@ export default class ShopSearch extends React.Component {
           <OrangeBackground/>
           <Toolbar/>
           <View style={styles.mainView}>
-            <Text style={styles.header}>Let{`'`}s shopU!</Text>
+            <Text style={styles.header}>Let{`'`}s</Text>
+            <Text style={styles.header}>shopU!</Text>
             <View style={styles.slantedBlueRectangle} />
             <View style={styles.slantedPurpleRectangle} />
             <View style={styles.whiteCard}>
@@ -45,7 +46,7 @@ export default class ShopSearch extends React.Component {
                       source={require('./../assets/images/search_icon.png')}/>
                 </TouchableOpacity>
                 <View style={{width: window.width*.75}}>
-                  <TextInput style={styles.searchText} placeholder={'Search for a Product'} placeholderTextColor={'#605DF1'}>Search for a Product</TextInput>
+                  <TextInput style={styles.searchText} placeholder={'Search for a Product'} placeholderTextColor={'#605DF1'}/>
                 </View>
               </View>
               <View style={styles.searchLine}/>
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     marginTop: window.height*.02
   },
   header: {
-    fontSize: 80,
+    fontSize: 70,
     color: '#fff',
     textAlign: 'center',
     fontFamily: 'Montserrat-SemiBold',

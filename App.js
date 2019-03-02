@@ -16,6 +16,7 @@ import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
+import YourResults from './screens/Results';
 
 YellowBox.ignoreWarnings([
   'Require cycle:',
@@ -27,6 +28,9 @@ FontLoad.then((res) => {
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
+  },
+  YourResults: {
+    screen: YourResults
   },
   Item: {
     screen: Item
@@ -102,3 +106,6 @@ tabBarOptions: {
 );
 
 export default createAppContainer(TabNavigator);
+
+
+

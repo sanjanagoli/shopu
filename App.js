@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, YellowBox} from 'react-native';
+import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import AccountProfile from './screens/AccountProfile';
@@ -8,7 +8,7 @@ import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import Notifications from './screens/Notifications';
-import Completed from './screens/OrderComplete';
+import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
@@ -24,7 +24,7 @@ YellowBox.ignoreWarnings([
 ]);
 
 FontLoad.then((res) => {
- })
+})
 
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {
@@ -43,7 +43,7 @@ const shopStackNavigator = createStackNavigator({
     screen: Checkout
   },
   OrderComplete: {
-    screen: Completed
+    screen: OrderComplete
   },
   Rating: {
     screen: Rating
@@ -76,7 +76,7 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
+  Notifications: YourResults,
   DriverSearch: driverStackNavigator,
 },
 {
@@ -100,16 +100,17 @@ defaultNavigationOptions: ({ navigation }) => ({
         imageName = require('./assets/images/filled_person.png');
       }
     } 
-    return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
+    return <Image source={imageName} style={{width: Dimensions.get("screen").width*.1, height: Dimensions.get("screen").height*.05, marginTop: Dimensions.get("screen").height*.005, resizeMode: 'contain'}} />;
   },
 }),
 tabBarOptions: {
   showLabel: false,
+  style: {
+  height: Dimensions.get("screen").height*.08
+  
+}
 },
 }
 );
 
 export default createAppContainer(TabNavigator);
-
-
-

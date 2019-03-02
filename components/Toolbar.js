@@ -25,7 +25,7 @@ export default class Toolbar extends React.Component {
                 <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
             </TouchableOpacity>
             :
-            <TouchableOpacity onPress={this.bag}>
+            <TouchableOpacity onPress={this.cart}>
                 <Image source ={require('./../assets/images/scart.png')} style={styles.cart}/> 
             </TouchableOpacity>}
             <TouchableOpacity onPress={this.person}>

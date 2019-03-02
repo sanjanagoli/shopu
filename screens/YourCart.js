@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+import OrangeBackground from './../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 export default class YourCart extends React.Component {
   static navigationOptions = {
@@ -14,78 +16,75 @@ export default class YourCart extends React.Component {
   render() {
     return (
     <View style={styles.whiteBackground}> 
-        <View style={styles.orangeCard}>
-            <View style={styles.iconsBox}>
-                <Image source ={require('./../assets/images/shopping_bag.png')} style={styles.shopCart}/>
-                <Image source ={require('./../assets/images/person.png')} style={styles.personIcon}/>
-            </View>
-            <View style={styles.searchTextBox}>
-                <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
-                <Text style={styles.searchText}>Search Again</Text>
-            </View>
-            <View style={styles.checkoutContentBox}>
-                <Text style={styles.header}>Your Cart!</Text>
-                <View style= {styles.cvsTotal}>
-                    <View styles={{marginRight: 50}}>
-                        <Text style={styles.totalHeader}>Your CVS Cart:</Text>
-                        <FlatList
-                      data={[1]}
-                      keyExtractor={(item) => item.toString()}
-                      renderItem={
-                        ({item}) => {
-                        return (
-                            <View>
-                            <Text style={styles.totalsText}>1. Apple - $1.99 per pound</Text>
-                            <View style={{flexDirection: 'row'}}>
-                                <Text style={styles.totalsText}>Comments</Text>
-                                <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
-                            </View>
-                            <Text style={styles.totalsText}>2. Pencil - $3.00 per pack</Text>
-                            <View style={{flexDirection: 'row'}}>
-                                <Text style={styles.totalsText}>Comments</Text>
-                                <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
-                            </View>
-                            </View>
-                      )
-                      }
-                    }
-                    />
-                    </View>
-                </View>
-                <View style={styles.walTotal}>
-                    <View styles={{marginLeft: 10}}>
-                        <Text style={styles.totalHeader}>Your Walmart Cart:</Text>
-                        <FlatList
-                      data={[1]}
-                      keyExtractor={(item) => item.toString()}
-                      renderItem={
-                        ({item}) => {
-                        return (
-                            <View>
-                            <Text style={styles.totalsText}>1. Apple - $1.99 per pound</Text>
-                            <View style={{flexDirection: 'row'}}>
-                                <Text style={styles.totalsText}>Comments</Text>
-                                <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
-                            </View>
-                            <Text style={styles.totalsText}>2. Pencil - $3.00 per pack</Text>
-                            <View style={{flexDirection: 'row'}}>
-                                <Text style={styles.totalsText}>Comments</Text>
-                                <Image style={styles.editPencil}
-                                    source={require('./../assets/images/edit_pencil.png')} />
-                            </View>
-                            </View>
-                      )
-                      }
-                    }
-                    />
-                    </View>
-                </View>  
-            </View>   
+        <OrangeBackground/>
+        <Toolbar navigation={this.props.navigation}/>
+        <View style={styles.searchTextBox}>
+            <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
+            <Text style={styles.searchText}>Search Again</Text>
         </View>
-        <View style={{marginTop: -Dimensions.get("screen").height*.065}}>
+        <View style={styles.checkoutContentBox}>
+            <Text style={styles.header}>Your Cart!</Text>
+            <View style= {styles.cvsTotal}>
+                <View styles={{marginRight: 50}}>
+                    <Text style={styles.totalHeader}>Your CVS Cart:</Text>
+                    <FlatList
+                  data={[1]}
+                  keyExtractor={(item) => item.toString()}
+                  renderItem={
+                    ({item}) => {
+                    return (
+                        <View>
+                        <Text style={styles.totalsText}>1. Apple - $1.99 per pound</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={styles.totalsText}>Comments</Text>
+                            <Image style={styles.editPencil}
+                                source={require('./../assets/images/edit_pencil.png')} />
+                        </View>
+                        <Text style={styles.totalsText}>2. Pencil - $3.00 per pack</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={styles.totalsText}>Comments</Text>
+                            <Image style={styles.editPencil}
+                                source={require('./../assets/images/edit_pencil.png')} />
+                        </View>
+                        </View>
+                  )
+                  }
+                }
+                />
+                </View>
+            </View>
+            <View style={styles.walTotal}>
+                <View styles={{marginLeft: 10}}>
+                    <Text style={styles.totalHeader}>Your Walmart Cart:</Text>
+                    <FlatList
+                  data={[1]}
+                  keyExtractor={(item) => item.toString()}
+                  renderItem={
+                    ({item}) => {
+                    return (
+                        <View>
+                        <Text style={styles.totalsText}>1. Apple - $1.99 per pound</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={styles.totalsText}>Comments</Text>
+                            <Image style={styles.editPencil}
+                                source={require('./../assets/images/edit_pencil.png')} />
+                        </View>
+                        <Text style={styles.totalsText}>2. Pencil - $3.00 per pack</Text>
+                        <View style={{flexDirection: 'row'}}>
+                            <Text style={styles.totalsText}>Comments</Text>
+                            <Image style={styles.editPencil}
+                                source={require('./../assets/images/edit_pencil.png')} />
+                        </View>
+                        </View>
+                  )
+                  }
+                }
+                />
+                </View>
+            </View>  
+        </View>   
+        
+        <View style={{marginTop: -Dimensions.get("screen").height*.05}}>
           <PrimaryButton onPress={this.checkoutNow} backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20}/> 
         </View>
         
@@ -161,7 +160,7 @@ const styles = StyleSheet.create({
     },
     cvsTotal: {
       width: Dimensions.get("screen").width * .90,
-      height: Dimensions.get("screen").height* .25,
+      height: Dimensions.get("screen").height* .26,
       backgroundColor: '#6DC4E0',    
       justifyContent: 'center',
       flexDirection: 'column',
@@ -172,7 +171,7 @@ const styles = StyleSheet.create({
     },
     walTotal: {
       width: Dimensions.get("screen").width * .90,
-      height: Dimensions.get("screen").height * .25,
+      height: Dimensions.get("screen").height * .26,
       backgroundColor: '#605DF1',    
       justifyContent: 'center',
       flexDirection: 'column',

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -44,12 +45,7 @@ export default class RequestOptions extends Component {
     return (
         <View>
             <OrangeBackground/>
-            <View style={styles.toolbar}>
-              <Image style={styles.shoppingBagicon}
-                  source={require('./../assets/images/shopping_bag.png')} />
-              <Image style={styles.personIcon}
-                  source={require('./../assets/images/person.png')} />
-            </View>
+            <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <TouchableOpacity style={styles.subView} onPress={this.searchAgain}>
               <Image style={styles.arrowIcon}
                   source={require('./../assets/images/back_arrow.png')} />
@@ -82,34 +78,21 @@ export default class RequestOptions extends Component {
 };
 
 const styles = StyleSheet.create({
-  toolbar: {
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    marginTop: Dimensions.get("screen").height*.05, 
-    paddingHorizontal: Dimensions.get("screen").width*.05
-  },
-  shoppingBagicon: {
-    width: 37,
-    height: 40,
-  },
-  personIcon: {
-    width: 42,
-    height: 40,
-  },
   subView: {
     flexDirection: 'row', 
     paddingHorizontal: Dimensions.get("screen").width*.03,
     marginTop: Dimensions.get("screen").height*.02
   },
   arrowIcon: {
-    width: 30,
-    height: 25,
+    width: 20,
+    height: 15,
   },
   browseText: {
     fontSize: 18,
     fontFamily: 'Montserrat-Regular',
     color: '#fff',
     marginLeft: Dimensions.get("screen").width*.03,
+    marginTop: -Dimensions.get("screen").height*.004,
   },
   header: {
     fontSize: 50,

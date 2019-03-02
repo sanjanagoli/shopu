@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+import OrangeBackground from '../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 export default class YourCart extends React.Component {
   static navigationOptions = {
@@ -14,11 +16,8 @@ export default class YourCart extends React.Component {
   render() {
     return (
     <View style={styles.whiteBackground}> 
-        <View style={styles.orangeCard}>
-            <View style={styles.iconsBox}>
-                <Image source ={require('./../assets/images/shopping_bag.png')} style={styles.shopCart}/>
-                <Image source ={require('./../assets/images/person.png')} style={styles.personIcon}/>
-            </View>
+        <OrangeBackground/>
+            <Toolbar/>
             <View style={styles.searchTextBox}>
                 <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
                 <Text style={styles.searchText}>Search Again</Text>
@@ -84,7 +83,6 @@ export default class YourCart extends React.Component {
                     </View>
                 </View>  
             </View>   
-        </View>
         <View style={{marginTop: -Dimensions.get("screen").height*.065}}>
           <PrimaryButton onPress={this.checkoutNow} backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20}/> 
         </View>

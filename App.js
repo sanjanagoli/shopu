@@ -4,8 +4,58 @@ import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import Notifications from './screens/Notifications';
 import ShopSearch from './screens/ShopSearch';
-import DriverSearch from './screens/DriverSearch';
+import Welcome from './screens/Welcome';
+import YourCart from './screens/YourCart';
+import YourResults from './screens/Results';
 
+YellowBox.ignoreWarnings([
+  'Require cycle:',
+]);
+
+FontLoad.then((res) => {
+ })
+
+const shopStackNavigator = createStackNavigator({
+  ShopSearch: {
+    screen: ShopSearch
+  },
+  YourResults: {
+    screen: YourResults
+  },
+  Item: {
+    screen: Item
+  },
+  YourCart: {
+    screen: YourCart
+  },
+  Checkout: {
+    screen: Checkout
+  },
+  OrderComplete: {
+    screen: Completed
+  },
+  Rating: {
+    screen: Rating
+  },
+});
+
+const driverStackNavigator = createStackNavigator({
+  DriverSearch: {
+    screen: DriverSearch
+  },
+  RequestOptions: {
+    screen: RequestOptions
+  },
+  RequestProfile: {
+    screen: RequestProfile
+  },
+  ShoppingList: {
+    screen: ShoppingList
+  },
+  Rating: {
+    screen: Rating
+  },
+});
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: ShopSearch,

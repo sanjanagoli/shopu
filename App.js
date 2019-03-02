@@ -104,5 +104,3 @@ tabBarOptions: {
 
 export default createAppContainer(TabNavigator);
 
-
-

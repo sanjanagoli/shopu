@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
-import PrimaryButton from '../components/PrimaryButton';
+import PrimaryButton from './../components/PrimaryButton';
+import Toolbar from './../components/Toolbar';
 
 export default class DriverSearch extends React.Component {
   static navigationOptions = {
@@ -13,13 +14,14 @@ export default class DriverSearch extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
+        <Toolbar pageType={'Driver'}/>
         <Text style={styles.header}>Let{`'`}s shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>
           <Text style={styles.question}>Drop-Off Locations?</Text>
         </View>
         <View style={styles.rectangleLBlue}/>
-        <View style={{width: 290, marginTop: -Dimensions.get('screen').height*.12}}>
+        <View style={{width: 290, marginTop: -Dimensions.get('screen').height*.09}}>
           <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={55} fontSize={20}/>
         </View>
       </View>
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Montserrat-SemiBold',
     width: Dimensions.get('screen').width,
-    marginTop: -Dimensions.get('screen').height*.06
+    marginTop: -Dimensions.get('screen').height*.05,
   },
   question: {
     fontSize: 25,
@@ -77,13 +79,5 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Regular',
     fontWeight: '100',
     marginTop: -Dimensions.get('screen').height*.15,
-  },
-  lineStyleBottom: {
-    borderWidth: 1,
-    borderColor: '#6DC4E0',
-    margin: 10,
-    width: 303,
-    height: 0,
-    top: 100,
   },
 });

@@ -16,7 +16,7 @@ import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
-import YourResults from './screens/Results';
+import YourResults from './screens/YourResults';
 
 YellowBox.ignoreWarnings([
   'Require cycle:',

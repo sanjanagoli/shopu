@@ -61,7 +61,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingTop: window.height*.015
   },
   mainView: {
     justifyContent: 'center',

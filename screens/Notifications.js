@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity, PixelRatio} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
 
@@ -7,7 +7,29 @@ let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Orde
 {key: 'Robert has delivered!', time: '8:19 pm', order: 'Order #3'}, {key: 'Robert is en route!', time: '6:00 pm', order: 'Order #3'}, {key: 'Bobby is going to the store!', time: '1:23 pm', order: 'Order #5'}, {key: 'Robert has checked out!', time: '12:00 pm', order: 'Order #3'}, 
 {key: 'Billy has delivered!', time: '8:19 am', order: 'Order #2'}, {key: 'Billy has checked out!', time: '6:45 am', order: 'Order #2'}]
 
+
+
 export default class Notifications extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        isSmallScreen: false, 
+        isBigScreen: false, 
+    };
+}
+
+renderFontSize = () => {
+  if (PixelRatio.get() === 2) {
+    return 400
+  }
+  else if (PixelRatio.get() === 3){
+    return 400
+  }
+}
+
+
+
   static navigationOptions = {
     header: null,
     };
@@ -58,7 +80,7 @@ const styles = StyleSheet.create({
     header: {
       color: '#ffffff',
       fontFamily: 'Montserrat-SemiBold',
-      fontSize: 58,
+      fontSize: this.renderFontSize,
       textAlign: 'center',
       marginBottom: 20,
       marginTop: Dimensions.get("screen").height*.04,
@@ -88,7 +110,7 @@ const styles = StyleSheet.create({
       marginTop: Dimensions.get("screen").height*.05,
     },
     notificationHeader: {
-      fontSize: 25,
+      fontSize: 30,
       color: '#484848',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',

@@ -4,6 +4,29 @@ import { StyleSheet, Text, View, Picker, Button, Modal, TouchableOpacity, Image,
 const window = Dimensions.get("window")
 
 export default class DropDown extends React.Component {
+  items = () => {
+    let items = [
+      {
+        label: '1',
+        value: '1',
+      },
+      {
+        label: '2',
+        value: '2',
+      },
+      {
+        label: '3',
+        value: '3',
+      }
+    ]
+    let itemMap = items.map((item)=> {
+      return (
+        <Picker.Item label={item.label} value={item.value} key={(item, index) => index.toString()}/>
+      )
+    })
+    return itemMap;
+  }
+  
   constructor(props) {
     super(props);
 
@@ -15,7 +38,8 @@ export default class DropDown extends React.Component {
 
   setPickerValue(newValue) {
     this.setState({
-      pickerSelection: newValue
+      pickerSelection: newValue,
+      selectedValue: newValue
     })
 
     this.togglePicker();
@@ -36,12 +60,11 @@ export default class DropDown extends React.Component {
         </TouchableOpacity>
         <Modal visible={this.state.pickerDisplayed} animationType={"slide"} transparent={true}>
             <Picker
-            style={{ backgroundColor: '#f9f9f9', position: 'absolute', bottom: 0, left: 0, right: 0 }}
-            selectedValue={ this.state.pickerSelection }
-            onValueChange={(itemValue, itemIndex) => this.setState({ pickerSelection: itemValue})}>
-            <Picker.Item label="1" value="1" />
-            <Picker.Item label="2" value="2" />
-            <Picker.Item label="3" value="3" />
+            style={{backgroundColor: '#f9f9f9', position: 'absolute', bottom: 0, left: 0, right: 0 }}
+            selectedValue={this.props.selectedValue}
+            // selectedValue={ this.state.pickerSelection }
+            onValueChange={(itemValue, itemIndex) => {this.props.setPicker}}>
+            {this.items()}
             </Picker>
             <TouchableOpacity onPress={() => this.togglePicker()}>
               <Text style={styles.doneText}>Done</Text>
@@ -51,6 +74,7 @@ export default class DropDown extends React.Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   downArrowIcon: {

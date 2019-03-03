@@ -21,7 +21,11 @@ export default class RequestProfile extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { comments: ' ',};
+      this.state = { comments: ' ', selectedValue: 'Default Value'};
+  }
+
+  setPicker = () => {
+    this.setState({ selectedValue: itemValue})
   }
   
   render() {
@@ -56,7 +60,7 @@ export default class RequestProfile extends React.Component {
                   <View style={{textAlign: 'left'}}>
                     <Text style={styles.generalText}>Quantity:</Text>
                     <View style={{marginTop: window.height*.02, marginLeft: window.width*.7}}>
-                      <DropDown/>
+                      <DropDown selectedValue={this.state.pickerSelection}/>
                     </View>
                     <View style={styles.answerLine} />
                     <Text style={styles.generalText}>Comments:</Text>
@@ -140,8 +144,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   appleIcon: {
-      width: 88,
-      height: 75,
+      width: 80,
+      height: 78,
       marginLeft: window.width*.004,
   },
   itemText: {

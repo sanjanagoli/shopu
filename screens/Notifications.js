@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     header: {
       color: '#ffffff',
-      fontFamily: 'Montserrat-Medium',
+      fontFamily: 'Montserrat-SemiBold',
       fontSize: 58,
       textAlign: 'center',
       marginBottom: 20,

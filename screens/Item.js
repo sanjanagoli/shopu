@@ -16,16 +16,16 @@ export default class RequestProfile extends React.Component {
   }
 
   browseOptions = () => {
-    this.props.navigation.goBack('YourResults')
+    this.props.navigation.navigate('YourResults')
   }
 
   constructor(props) {
     super(props);
-      this.state = { comments: ' ', selectedValue: 'Default Value'};
+      this.state = { comments: ' ', pickerSelection: 'Default Value'};
   }
 
   setPicker = () => {
-    this.setState({ selectedValue: itemValue})
+    this.setState({ pickerSelection: itemValue})
   }
   
   render() {
@@ -60,7 +60,7 @@ export default class RequestProfile extends React.Component {
                   <View style={{textAlign: 'left'}}>
                     <Text style={styles.generalText}>Quantity:</Text>
                     <View style={{marginTop: window.height*.02, marginLeft: window.width*.7}}>
-                      <DropDown selectedValue={this.state.pickerSelection}/>
+                      <DropDown setState={this.setPicker} pickerSelection={this.pickerSelection}/>
                     </View>
                     <View style={styles.answerLine} />
                     <Text style={styles.generalText}>Comments:</Text>

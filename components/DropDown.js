@@ -61,9 +61,8 @@ export default class DropDown extends React.Component {
         <Modal visible={this.state.pickerDisplayed} animationType={"slide"} transparent={true}>
             <Picker
             style={{backgroundColor: '#f9f9f9', position: 'absolute', bottom: 0, left: 0, right: 0 }}
-            selectedValue={this.props.selectedValue}
-            // selectedValue={ this.state.pickerSelection }
-            onValueChange={(itemValue, itemIndex) => {this.props.setPicker}}>
+            selectedValue={ this.props.pickerSelection}
+            onValueChange={(itemValue, itemIndex) => {this.props.setState}}>
             {this.items()}
             </Picker>
             <TouchableOpacity onPress={() => this.togglePicker()}>

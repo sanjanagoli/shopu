@@ -1,11 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, PixelRatio } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 
 export default class DriverSearch extends React.Component {
+
+  renderFontSize = () => {
+    if (PixelRatio.get() === 2) {
+      return 90
+    }
+    else if (PixelRatio.get() === 3){
+      return 60
+    }
+  }
+
   static navigationOptions = {
     header: null,
     };
@@ -15,8 +25,8 @@ export default class DriverSearch extends React.Component {
       <View style={styles.container}>
         <OrangeBackground/>
         <Toolbar pageType={'Driver'}/>
-        <Text style={styles.header}>Let{`'`}s</Text>
-        <Text style={styles.header}>shopU!</Text>
+        <Text style={{color: '#ffffff', textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Let{`'`}s</Text>
+        <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>
           <Image style={styles.downArrowIcon}
@@ -70,14 +80,6 @@ const styles = StyleSheet.create({
     shadowColor: 'rgba(0, 0, 0, 0.25)',
     transform: ([{ rotateZ: '7.5deg' }]),
     marginTop: -Dimensions.get('screen').height*.05,
-  },
-  header: {
-    fontSize: 70,
-    color: '#fff',
-    marginBottom: 5,
-    textAlign: 'center',
-    fontFamily: 'Montserrat-SemiBold',
-    width: Dimensions.get('screen').width,
   },
   question: {
     fontSize: 25,

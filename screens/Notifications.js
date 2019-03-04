@@ -11,20 +11,13 @@ let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Orde
 
 export default class Notifications extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-        isSmallScreen: false, 
-        isBigScreen: false, 
-    };
-}
 
 renderFontSize = () => {
   if (PixelRatio.get() === 2) {
-    return 400
+    return 70
   }
   else if (PixelRatio.get() === 3){
-    return 400
+    return 50
   }
 }
 
@@ -42,7 +35,7 @@ renderFontSize = () => {
       <View style={styles.container}>
         <OrangeBackground/>
         <Toolbar/>
-        <Text style={styles.header}>Notifications!</Text>
+        <Text style={{color: '#ffffff',marginTop: Dimensions.get("screen").height*.04,marginBottom: 20,textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Notifications!</Text>
         <View style={styles.whiteBox}/>
           <FlatList style={{marginTop: -Dimensions.get("screen").height*.44}} vertical={true}
             data={notifs}
@@ -76,14 +69,6 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#ffffff',
       alignItems: 'center',
-    },
-    header: {
-      color: '#ffffff',
-      fontFamily: 'Montserrat-SemiBold',
-      fontSize: this.renderFontSize,
-      textAlign: 'center',
-      marginBottom: 20,
-      marginTop: Dimensions.get("screen").height*.04,
     },
     recentOrdersText: {
       fontSize: 25,

@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
       marginTop: Dimensions.get("screen").height*.05,
     },
     notificationHeader: {
-      fontSize: 30,
+      fontSize: 25,
       color: '#484848',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',

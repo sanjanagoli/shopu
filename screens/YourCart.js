@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+import OrangeBackground from '../components/OrangeBackground';
+import Toolbar from '../components/Toolbar';
 
 export default class YourCart extends React.Component {
   static navigationOptions = {
@@ -14,11 +16,8 @@ export default class YourCart extends React.Component {
   render() {
     return (
     <View style={styles.whiteBackground}> 
-        <View style={styles.orangeCard}>
-            <View style={styles.iconsBox}>
-                <Image source ={require('./../assets/images/shopping_bag.png')} style={styles.shopCart}/>
-                <Image source ={require('./../assets/images/person.png')} style={styles.personIcon}/>
-            </View>
+        <OrangeBackground/>
+            <Toolbar/>
             <View style={styles.searchTextBox}>
                 <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
                 <Text style={styles.searchText}>Search Again</Text>
@@ -84,7 +83,6 @@ export default class YourCart extends React.Component {
                     </View>
                 </View>  
             </View>   
-        </View>
         <View style={{marginTop: -Dimensions.get("screen").height*.065}}>
           <PrimaryButton onPress={this.checkoutNow} backgroundColor={'#FF715B'}  height={50} title={'Check Out Now!'} fontSize={20}/> 
         </View>
@@ -99,32 +97,6 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#fff',
       alignItems: 'center',
-    },
-    orangeCard: {
-      backgroundColor: '#FF715B',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: Dimensions.get("screen").width,
-      height: Dimensions.get('screen').height * 7 / 16,
-      marginBottom: Dimensions.get('screen').height * .4,
-    },
-    iconsBox: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: Dimensions.get('screen').width,
-      marginTop: Dimensions.get('screen').height * .4,
-    },
-    shopCart: {
-      width: 35,
-      height: 40,
-      marginLeft: Dimensions.get("screen").width*.04,
-      marginTop: Dimensions.get("screen").height*.04,
-    },
-    personIcon: {
-      width: 42,
-      height: 40,  
-      marginRight: Dimensions.get("screen").width*.04,
-      marginTop: Dimensions.get("screen").height*.04,
     },
     checkoutContentBox: {
       flexDirection: 'column',

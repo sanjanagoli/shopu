@@ -46,7 +46,7 @@ export default class RequestProfile extends React.Component {
     return (
         <View style={styles.container}>
           <OrangeBackground/>
-          <Toolbar pageType={'Driver'}/>
+          <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <View style={styles.subView}>
               <TouchableOpacity onPress={this.browseOptions}>
                 <Image style={styles.arrowIcon}

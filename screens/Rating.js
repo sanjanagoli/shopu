@@ -27,7 +27,7 @@ export default class Rating extends React.Component {
     return (
           <View style={styles.container}>
             <OrangeBackground/>
-            <Toolbar/>
+            <Toolbar navigation={this.props.navigation}/>
             <Text style={styles.thankYouforText}>Thank U for using shopU!</Text>
             <View style={styles.ratingBox} />
             <Text style={styles.delivererText}>Deliverer:</Text>

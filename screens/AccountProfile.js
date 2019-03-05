@@ -9,6 +9,10 @@ export default class AccountProfile extends React.Component {
     this.state = { editor: false }
   }
 
+  static navigationOptions = {
+    header: null,
+    };
+
   onPress = () => {
     this.setState({
       editor: !this.state.editor
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1.0,
     backgroundColor: '#FFFFFF',
     justifyContent: 'space-around',
-    marginTop: Dimensions.get("screen").height*.05,
+    marginTop: Dimensions.get("screen").height*.03,
   },
   header:{
     color: '#fff',
@@ -125,7 +129,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: Dimensions.get('screen').width,
     marginLeft: Dimensions.get('screen').width*.01,
-    marginTop: Dimensions.get('screen').width*.05
+    marginTop: Dimensions.get('screen').width*.08
   },
   searchText: {
     color: '#ffffff',

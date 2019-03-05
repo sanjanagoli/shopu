@@ -38,7 +38,7 @@ export default class RequestOptions extends Component {
       }
 
     driverSearchAgain = () => {
-        this.props.navigation.goBack('DriverSearch')
+        this.props.navigation.navigate('DriverSearch')
     }
 
     render() {

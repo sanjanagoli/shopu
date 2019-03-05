@@ -45,7 +45,7 @@ export default class RequestOptions extends Component {
     return (
         <View>
             <OrangeBackground/>
-            <Toolbar pageType={'Driver'}/>
+            <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <TouchableOpacity style={styles.subView} onPress={this.searchAgain}>
               <Image style={styles.arrowIcon}
                   source={require('./../assets/images/back_arrow.png')} />

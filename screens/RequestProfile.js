@@ -42,7 +42,7 @@ export default class RequestProfile extends React.Component {
     return (
         <View style={styles.container}>
           <OrangeBackground/>
-          <Toolbar pageType={'Driver'}/>
+          <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <View style={styles.subView}>
               <Image style={styles.arrowIcon}
                   source={require('./../assets/images/back_arrow.png')} />

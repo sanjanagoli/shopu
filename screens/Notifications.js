@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, FlatList, TouchableOpacity, PixelRatio} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
-import Toolbar from '../components/Toolbar';
 
 let notifs = [{key: 'Bob is going to the store!', time: '10:23 pm', order: 'Order #1'}, {key: 'Bobby is en route!', time: '9:00 pm', order: 'Order #5'}, 
 {key: 'Robert has delivered!', time: '8:19 pm', order: 'Order #3'}, {key: 'Robert is en route!', time: '6:00 pm', order: 'Order #3'}, {key: 'Bobby is going to the store!', time: '1:23 pm', order: 'Order #5'}, {key: 'Robert has checked out!', time: '12:00 pm', order: 'Order #3'}, 
@@ -36,8 +35,8 @@ renderFontSize = () => {
         <OrangeBackground/>
         <Toolbar/>
         <Text style={{color: '#ffffff',marginTop: Dimensions.get("screen").height*.04,marginBottom: 20,textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Notifications!</Text>
-        <View style={styles.whiteBox}/>
-          <FlatList style={{marginTop: -Dimensions.get("screen").height*.44}} vertical={true}
+        <View style={[styles.whiteBox, {paddingTop: Dimensions.get("screen").height*.08, paddingBottom: Dimensions.get("screen").height*.01}]}>
+          <FlatList style={true}
             data={notifs}
             renderItem={(
               {item}) => {
@@ -55,6 +54,7 @@ renderFontSize = () => {
               }
             }
           />
+        </View>
         <View style={styles.blueBox} />
         <View style={styles.purpleBox}/>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
@@ -72,10 +72,10 @@ const styles = StyleSheet.create({
     },
     recentOrdersText: {
       fontSize: 25,
-      color: '#ffffff',
+      color: '#FFF',
       textAlign: 'center',
       fontFamily: 'Montserrat-Medium',
-      marginTop: Dimensions.get("screen").height*.29,
+      marginTop: Dimensions.get("screen").height*.22,
       position: 'absolute',
     },
     whiteBox: {
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
       color: '#484848',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',
-      marginBottom: Dimensions.get("screen").height*.01,
+      marginBottom: Dimensions.get("screen").height*.02,
     },
     notificationInfo: {
       fontSize: 20,
@@ -116,17 +116,17 @@ const styles = StyleSheet.create({
     blueBox: {
       backgroundColor: '#6DC4E0',
       width: Dimensions.get("screen").width - 100,
-      height: 80,
+      height: Dimensions.get('screen').height*0.085,
       transform:([{ rotateZ:'-5deg'}]),
       position: 'absolute',
-      marginTop: Dimensions.get("screen").height*.265,
+      marginTop: Dimensions.get("screen").height*.2,
     },
     purpleBox: {
       backgroundColor: '#605DF1',
       width: Dimensions.get("screen").width*0.77,
-      height: 70,
+      height: Dimensions.get('screen').height*.075,
       position: 'absolute',
-      marginTop: Dimensions.get("screen").height*.265,
+      marginTop: Dimensions.get("screen").height*.2,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,

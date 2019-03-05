@@ -24,7 +24,7 @@ export default class DriverSearch extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <Toolbar pageType={'Driver'}/>
+        <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
         <Text style={{color: '#ffffff', textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Let{`'`}s</Text>
         <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>shopU!</Text>
         <View style={styles.whiteBox}>

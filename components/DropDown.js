@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Picker, Button, Modal, TouchableOpacity, Image, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Picker, Modal, TouchableOpacity, Image, Dimensions} from 'react-native';
 
 const window = Dimensions.get("window")
 
@@ -31,18 +31,8 @@ export default class DropDown extends React.Component {
     super(props);
 
     this.state = {
-      pickerSelection: 'Default value!',
       pickerDisplayed: false
     }
-  }
-
-  setPickerValue(newValue) {
-    this.setState({
-      pickerSelection: newValue,
-      selectedValue: newValue
-    })
-
-    this.togglePicker();
   }
 
   togglePicker() {
@@ -61,8 +51,8 @@ export default class DropDown extends React.Component {
         <Modal visible={this.state.pickerDisplayed} animationType={"slide"} transparent={true}>
             <Picker
             style={{backgroundColor: '#f9f9f9', position: 'absolute', bottom: 0, left: 0, right: 0 }}
-            selectedValue={ this.props.pickerSelection}
-            onValueChange={(itemValue, itemIndex) => {this.props.setState}}>
+            selectedValue={this.props.selectedValue}
+            onValueChange={(itemValue, itemIndex) => {this.props.setState(itemValue)}}>
             {this.items()}
             </Picker>
             <TouchableOpacity onPress={() => this.togglePicker()}>

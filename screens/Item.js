@@ -21,10 +21,10 @@ export default class RequestProfile extends React.Component {
 
   constructor(props) {
     super(props);
-      this.state = { comments: ' ', pickerSelection: 'Default Value'};
+      this.state = { comments: ' ', pickerSelection: 0};
   }
 
-  setPicker = () => {
+  setPicker = (itemValue) => {
     this.setState({ pickerSelection: itemValue})
   }
   
@@ -59,8 +59,11 @@ export default class RequestProfile extends React.Component {
                   </View>
                   <View style={{textAlign: 'left'}}>
                     <Text style={styles.generalText}>Quantity:</Text>
-                    <View style={{marginTop: window.height*.02, marginLeft: window.width*.7}}>
-                      <DropDown setState={this.setPicker} pickerSelection={this.pickerSelection}/>
+                    <View style={{flexDirection: 'row'}}>
+                      <Text style={styles.quantityText}>{this.state.pickerSelection}  Item(s)</Text>
+                      <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
+                        <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                      </View>
                     </View>
                     <View style={styles.answerLine} />
                     <Text style={styles.generalText}>Comments:</Text>
@@ -186,6 +189,14 @@ const styles = StyleSheet.create({
     marginTop: window.height*.04
   },
   addToCartButton: {
-    marginTop: window.height*.07
+    marginTop: window.height*.03
+  },
+  quantityText: {
+    fontSize: 22, 
+    fontFamily: 'Montserrat-Regular', 
+    color: '#605DF1',
+    marginTop: window.height*.05,
+    textAlign: 'center'
+    // marginLeft: window.width*.1
   }
 });

@@ -70,7 +70,7 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Item,
+  Notifications: Notifications,
   DriverSearch: driverStackNavigator,
 },
 {

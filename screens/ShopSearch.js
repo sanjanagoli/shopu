@@ -33,7 +33,7 @@ export default class ShopSearch extends React.Component {
       this.state.fontLoaded ? (
         <View style={styles.container}>
           <OrangeBackground/>
-          <Toolbar/>
+          <Toolbar navigation={this.props.navigation}/>
           <View style={styles.mainView}>
             <Text style={styles.header}>Let{`'`}s</Text>
             <Text style={styles.header}>shopU!</Text>

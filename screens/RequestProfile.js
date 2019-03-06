@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
@@ -37,15 +37,21 @@ export default class RequestProfile extends React.Component {
   accept = () => {
     this.props.navigation.navigate('RequestOptions')
   }
+
+  browseOptions = () => {
+    this.props.navigation.navigate('RequestOptions')
+  }
   
   render() {
     return (
         <View style={styles.container}>
           <OrangeBackground/>
-          <Toolbar pageType={'Driver'}/>
+          <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <View style={styles.subView}>
-              <Image style={styles.arrowIcon}
-                  source={require('./../assets/images/back_arrow.png')} />
+              <TouchableOpacity onPress={this.browseOptions}>
+                <Image style={styles.arrowIcon}
+                    source={require('./../assets/images/back_arrow.png')} />
+              </TouchableOpacity>
               <Text style={styles.browseText}>Browse Other Options</Text>
             </View>
             <View style={styles.mainView}>

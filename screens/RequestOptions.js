@@ -37,16 +37,16 @@ export default class RequestOptions extends Component {
         this.props.navigation.navigate('RequestProfile')
       }
 
-    searchAgain = () => {
-        this.props.navigation.goBack('SearchingRequest')
+    driverSearchAgain = () => {
+        this.props.navigation.navigate('DriverSearch')
     }
 
     render() {
     return (
         <View>
             <OrangeBackground/>
-            <Toolbar pageType={'Driver'}/>
-            <TouchableOpacity style={styles.subView} onPress={this.searchAgain}>
+            <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
+            <TouchableOpacity style={styles.subView} onPress={this.driverSearchAgain}>
               <Image style={styles.arrowIcon}
                   source={require('./../assets/images/back_arrow.png')} />
               <Text style={styles.browseText}>Search Again</Text>

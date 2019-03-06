@@ -48,6 +48,9 @@ const shopStackNavigator = createStackNavigator({
   Rating: {
     screen: Rating
   },
+  AccountProfile: {
+    screen: AccountProfile
+  }
 });
 
 const driverStackNavigator = createStackNavigator({
@@ -66,6 +69,9 @@ const driverStackNavigator = createStackNavigator({
   Rating: {
     screen: Rating
   },
+  AccountProfile: {
+    screen: AccountProfile
+  }
 });
 
 const TabNavigator = createBottomTabNavigator({

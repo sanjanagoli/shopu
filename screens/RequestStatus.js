@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from './../components/Toolbar'
@@ -8,32 +8,47 @@ const window = Dimensions.get("window")
 
 let colors = ['#605DF1', '#6DC4E0']
 
-let items = [
-  {
-    name: 'Apple',
-    quantity: 3,
-    comment: 'Granny Smith',
-    check: require('./../assets/images/checkbox.png'),
-  },
-  {
-    name: 'Apple',
-    quantity: 3,
-    comment: 'Granny Smith',
-    check: require('./../assets/images/checkbox.png'),
-  },
-  {
-    name: 'Apple',
-    quantity: 3,
-    comment: 'Granny Smith',
-    check: require('./../assets/images/checkbox.png'),
+export default class RequestStatusTest extends React.Component { 
+  constructor(props){
+    super(props)
+    this.state = {
+      items : [
+        {
+          name: 'Apple',
+          quantity: 3,
+          comment: 'Granny Smith',
+          checked: false,
+          check: require('./../assets/images/checkbox.png'),
+        },
+        {
+          name: 'Apple',
+          quantity: 3,
+          comment: 'Granny Smith',
+          checked: false, 
+          check: require('./../assets/images/checkbox.png'),
+        },
+        {
+          name: 'Apple',
+          quantity: 3,
+          comment: 'Granny Smith',
+          checked: false,
+          check: require('./../assets/images/checkbox.png'),
+        }
+      ]
+    }
   }
-]
 
-export default class RequestStatus extends React.Component { 
   static navigationOptions = {
     header: null,
     };
-    
+
+  renderCheck = (checkBoxState) => {
+        console.log("reached: " + checkBoxState);
+        if (checkBoxState) {
+            return (<Image style={styles.checkIcon} source={require('./../assets/images/check.png')} />)
+        }
+        return (<Image source ={require('./../assets/images/checkbox.png')} style={styles.checkIcon} />)
+  }
   
   render() {
     return (
@@ -60,8 +75,9 @@ export default class RequestStatus extends React.Component {
                   </View>
                   <View style={styles.table}>
                       <FlatList
-                      data={items}
+                      data={this.state.items}
                       keyExtractor={(item, index) => index.toString()}
+                      extraData={this.state}
                       renderItem={
                         ({item, index}) => {
                         return (
@@ -69,8 +85,16 @@ export default class RequestStatus extends React.Component {
                                 <Text style={styles.itemsText}>{item.name}</Text>
                                 <Text style={styles.itemsText}>{item.quantity}</Text>
                                 <Text style={styles.itemsText}>{item.comment}</Text>
-                                <Image style={styles.checkIcon}
-                                    source={item.check} />
+                                <TouchableOpacity 
+                                    onPress={() => {
+                                      newItems = this.state.items;
+                                      newItems[index].checked = !newItems[index].checked;
+                                      console.log(this.state.items[index].checked);
+                                      this.setState({items: newItems})
+                                    }}>
+                                    {this.renderCheck(this.state.items[index].checked)}
+                                </TouchableOpacity>
+                                
                             </View>
                       )
                       }
@@ -78,9 +102,18 @@ export default class RequestStatus extends React.Component {
                     />
                   </View>
                   <View style={{marginTop: -Dimensions.get('screen').height*.04}}>
-                    <Text style={styles.dropText}>Phone: 123-456-789</Text>
-                    <Text style={styles.dropText}>Email: ab.22@dartmouth.edu</Text>
-                    <Text style={styles.dropText}>Drop-off Location: Baker</Text>
+                    <View style={{flexDirection: 'row' }}>
+                      <Text style={styles.dropText}>Phone: </Text>
+                      <Text style={styles.dropText}>123-456-789 </Text>
+                    </View>
+                    <View style={{flexDirection: 'row' }}>
+                      <Text style={styles.dropText}>Email: </Text>
+                      <Text style={styles.dropText}>ab.22@dartmouth.edu </Text>
+                    </View>
+                    <View style={{flexDirection: 'row' }}>
+                      <Text style={styles.dropText}>Location: </Text>
+                      <Text style={styles.dropText}>Baker </Text>
+                    </View>
                   </View>
                   <View style={styles.button}>
                       <PrimaryButton title={'Status Update'} backgroundColor={ '#6DC4E0'} height={Dimensions.get('screen').height*.06} fontSize={28}/>
@@ -162,7 +195,6 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('screen').height*.025,
     fontFamily: 'Montserrat-Regular',
     color: '#605DF1',
-    width: 300,
     textAlign: 'left',
     marginBottom: Dimensions.get('screen').height*.01,
   },

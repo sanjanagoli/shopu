@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, YellowBox} from 'react-native';
+import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import Notifications from './screens/Notifications';
-import Completed from './screens/OrderComplete';
+import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
+import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
@@ -23,7 +25,7 @@ YellowBox.ignoreWarnings([
 ]);
 
 FontLoad.then((res) => {
- })
+})
 
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {
@@ -42,11 +44,14 @@ const shopStackNavigator = createStackNavigator({
     screen: Checkout
   },
   OrderComplete: {
-    screen: Completed
+    screen: OrderComplete
   },
   Rating: {
     screen: Rating
   },
+  AccountProfile: {
+    screen: AccountProfile
+  }
 });
 
 const driverStackNavigator = createStackNavigator({
@@ -65,11 +70,14 @@ const driverStackNavigator = createStackNavigator({
   Rating: {
     screen: Rating
   },
+  AccountProfile: {
+    screen: AccountProfile
+  }
 });
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
+  Notifications: RequestStatus,
   DriverSearch: driverStackNavigator,
 },
 {
@@ -93,16 +101,17 @@ defaultNavigationOptions: ({ navigation }) => ({
         imageName = require('./assets/images/filled_person.png');
       }
     } 
-    return <Image source={imageName} style={{width: 46, height: 42.99, marginTop:25}} />;
+    return <Image source={imageName} style={{width: Dimensions.get("screen").width*.1, height: Dimensions.get("screen").height*.05, marginTop: Dimensions.get("screen").height*.005, resizeMode: 'contain'}} />;
   },
 }),
 tabBarOptions: {
   showLabel: false,
+  style: {
+  height: Dimensions.get("screen").height*.08
+  
+}
 },
 }
 );
 
 export default createAppContainer(TabNavigator);
-
-
-

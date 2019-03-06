@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, PixelRatio } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity,  PixelRatio } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
@@ -19,6 +19,10 @@ export default class DriverSearch extends React.Component {
   static navigationOptions = {
     header: null,
     };
+  
+  letsgo = () => {
+    this.props.navigation.navigate('RequestOptions')
+  }
     
   render() {
     return (
@@ -39,7 +43,10 @@ export default class DriverSearch extends React.Component {
         </View>
         <View style={styles.rectangleLBlue}/>
         <View style={{width: Dimensions.get("screen").width*.7, marginTop: -Dimensions.get("screen").height*.09}}>
-          <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={55} fontSize={30}/>
+          <TouchableOpacity onPress={this.letsgo}>
+            <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={50} fontSize={30}/>
+          </TouchableOpacity>
+          
         </View>
       </View>
     );

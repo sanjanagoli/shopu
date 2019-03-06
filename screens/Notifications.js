@@ -18,13 +18,9 @@ export default class Notifications extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <View style={styles.iconsBox}> 
-          <Image source={require('./../assets/images/top_shopping_cart.png')}style={styles.shopCart} /> 
-          <Image source={require('./../assets/images/profile_head.png')}style={styles.personIcon} />  
-        </View>
         <Text style={styles.header}>Notifications!</Text>
-        <View style={styles.whiteBox}/>
-          <FlatList style={{marginTop: -Dimensions.get("screen").height*.46}} vertical={true}
+        <View style={[styles.whiteBox, {paddingTop: Dimensions.get("screen").height*.08, paddingBottom: Dimensions.get("screen").height*.01}]}>
+          <FlatList vertical={true}
             data={notifs}
             renderItem={(
               {item}) => {
@@ -42,10 +38,11 @@ export default class Notifications extends React.Component {
               }
             }
           />
+        </View>
         <View style={styles.blueBox} />
         <View style={styles.purpleBox}/>
         <Text style={styles.recentOrdersText}>Your recent orders...</Text>
-        <View style={{marginTop: Dimensions.get("screen").height*.09}} />
+        <View style={{marginTop: Dimensions.get("screen").height*.1}} />
       </View>
         );
     }
@@ -59,18 +56,18 @@ const styles = StyleSheet.create({
     },
     header: {
       color: '#ffffff',
-      fontFamily: 'Montserrat-Medium',
+      fontFamily: 'Montserrat-SemiBold',
       fontSize: 58,
       textAlign: 'center',
-      marginBottom: 20,
-      marginTop: Dimensions.get("screen").height*.06,
+      marginBottom: Dimensions.get("screen").height*.02,
+      marginTop: Dimensions.get("screen").height*.08,
     },
     recentOrdersText: {
       fontSize: 25,
-      color: '#ffffff',
+      color: '#FFF',
       textAlign: 'center',
       fontFamily: 'Montserrat-Medium',
-      marginTop: Dimensions.get("screen").height*.28,
+      marginTop: Dimensions.get("screen").height*.22,
       position: 'absolute',
     },
     whiteBox: {
@@ -94,14 +91,14 @@ const styles = StyleSheet.create({
       color: '#484848',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',
-      marginBottom: 10,
+      marginBottom: Dimensions.get("screen").height*.02,
     },
     notificationInfo: {
       fontSize: 20,
       color: '#9B9A9A',
       textAlign: 'left',
       fontFamily: 'Montserrat-Regular',
-      marginBottom: 20,
+      marginBottom: Dimensions.get("screen").height*.02,
     },
     notificationRow: {
       flexDirection: 'row',
@@ -111,17 +108,17 @@ const styles = StyleSheet.create({
     blueBox: {
       backgroundColor: '#6DC4E0',
       width: Dimensions.get("screen").width - 100,
-      height: 80,
+      height: Dimensions.get('screen').height*0.085,
       transform:([{ rotateZ:'-5deg'}]),
       position: 'absolute',
-      marginTop: Dimensions.get("screen").height*.26,
+      marginTop: Dimensions.get("screen").height*.2,
     },
     purpleBox: {
       backgroundColor: '#605DF1',
       width: Dimensions.get("screen").width*0.77,
-      height: 70,
+      height: Dimensions.get('screen').height*.075,
       position: 'absolute',
-      marginTop: Dimensions.get("screen").height*.26,
+      marginTop: Dimensions.get("screen").height*.2,
       shadowColor: '#000000',
       shadowOffset: {
         width: 0,
@@ -130,22 +127,5 @@ const styles = StyleSheet.create({
       shadowRadius: 2,
       shadowOpacity: 0.9,
     },
-    iconsBox: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      marginTop: Dimensions.get('screen').height*.05,
-      width: Dimensions.get('screen').width,
-    },
-    shopCart: {  //implement toolbar
-      width: 40,
-      height: 40,
-      justifyContent: 'flex-start',
-      marginLeft: 15,
-    },
-    personIcon: { //implement toolbar
-      width: 40,
-      height: 40,
-      marginRight: 15,
-    },
-    
+ 
 });

@@ -1,13 +1,36 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions, Image, Text } from 'react-native';
+import { StyleSheet, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 export default class Toolbar extends React.Component {
+    static navigationOptions = {
+        header: null,
+        };
+        
+    bag = () => {
+        this.props.navigation.navigate('ShoppingList')
+        
+    } 
+    person = () => {
+        this.props.navigation.navigate('AccountProfile')
+    }
+    cart = () => {
+        this.props.navigation.navigate('YourCart')
+    }
+
     render() {
       return (
            <View style={[styles.formatInBox, {marginBottom: this.props.marginBottom}]}>
-            {this.props.pageType == 'Driver' ? <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
-            :<Image source ={require('./../assets/images/scart.png')} style={styles.cart}/>}
-            <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/>
+            {this.props.pageType == 'Driver' ? 
+            <TouchableOpacity onPress={this.bag}>
+                <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
+            </TouchableOpacity>
+            :
+            <TouchableOpacity onPress={this.cart}>
+                <Image source ={require('./../assets/images/scart.png')} style={styles.cart}/> 
+            </TouchableOpacity>}
+            <TouchableOpacity onPress={this.person}>
+                <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/> 
+            </TouchableOpacity>
            </View>
       );
     }

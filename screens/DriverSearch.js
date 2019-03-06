@@ -1,26 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
+import Toolbar from '../components/Toolbar';
 
 export default class DriverSearch extends React.Component {
   static navigationOptions = {
     header: null,
     };
+  
+  letsgo = () => {
+    this.props.navigation.navigate('RequestOptions')
+  }
     
   render() {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <Text style={styles.header}>Let{`'`}s shopU!</Text>
+        <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
+        <Text style={styles.header}>Let{`'`}s</Text>
+        <Text style={styles.header}>shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>
+          <Image style={styles.downArrowIcon}
+                        source={require('./../assets/images/Vector.png')} />
+          <View style={styles.line}/>
           <Text style={styles.question}>Drop-Off Locations?</Text>
+          <Image style={styles.downArrowIcon}
+                        source={require('./../assets/images/Vector.png')} />
+          <View style={styles.line}/>
         </View>
         <View style={styles.rectangleLBlue}/>
-        <View style={{width: 290, marginTop: -Dimensions.get('screen').height*.12}}>
-          <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={55} fontSize={20}/>
+        <View style={{width: Dimensions.get("screen").width*.7, marginTop: -Dimensions.get("screen").height*.09}}>
+          <TouchableOpacity onPress={this.letsgo}>
+            <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={50} fontSize={30}/>
+          </TouchableOpacity>
+          
         </View>
       </View>
     );
@@ -36,7 +52,7 @@ const styles = StyleSheet.create({
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
-    height: Dimensions.get("screen").height*.55,
+    height: Dimensions.get("screen").height*.45,
     shadowColor: '#000000',
     shadowOffset: {
         width: 0,
@@ -45,7 +61,8 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: .8,
     backgroundColor: '#FFFFFF',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: Dimensions.get("screen").height*.01,
   },
   rectangleLBlue: {
@@ -62,13 +79,12 @@ const styles = StyleSheet.create({
     marginTop: -Dimensions.get('screen').height*.05,
   },
   header: {
-    fontSize: 65,
+    fontSize: 70,
     color: '#fff',
     marginBottom: 5,
     textAlign: 'center',
     fontFamily: 'Montserrat-SemiBold',
     width: Dimensions.get('screen').width,
-    marginTop: -Dimensions.get('screen').height*.06
   },
   question: {
     fontSize: 25,
@@ -76,14 +92,18 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Montserrat-Regular',
     fontWeight: '100',
-    marginTop: -Dimensions.get('screen').height*.15,
+    marginBottom: Dimensions.get('screen').height*.05,
   },
-  lineStyleBottom: {
-    borderWidth: 1,
+  line: {
+    borderWidth: 1.5,
     borderColor: '#6DC4E0',
-    margin: 10,
-    width: 303,
-    height: 0,
-    top: 100,
+    width: Dimensions.get('screen').width*0.8,
+    marginTop: Dimensions.get('screen').height*0.01,
+    marginBottom: Dimensions.get('screen').height*0.03,
   },
+  downArrowIcon: {
+    height: 30,
+    width: 20,
+    marginLeft: Dimensions.get('screen').width*0.7,
+  }
 });

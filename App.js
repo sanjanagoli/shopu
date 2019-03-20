@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import * as firebaseConfig from './services/firebase-config'
 import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';

@@ -17,7 +17,8 @@
     "react-navigation": "^3.3.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0"
+    "babel-preset-expo": "^5.0.0",
+    "eslint-config-airbnb": "^17.1.0"
   },
   "rnpm": {
     "assets": [

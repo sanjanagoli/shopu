@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import * as firebaseConfig from './services/firebase-config'
 import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
@@ -13,6 +14,7 @@ import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
+import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
@@ -48,6 +50,9 @@ const shopStackNavigator = createStackNavigator({
   Rating: {
     screen: Rating
   },
+  AccountProfile: {
+    screen: AccountProfile
+  }
 });
 
 const driverStackNavigator = createStackNavigator({
@@ -66,11 +71,14 @@ const driverStackNavigator = createStackNavigator({
   Rating: {
     screen: Rating
   },
+  AccountProfile: {
+    screen: AccountProfile
+  }
 });
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
+  Notifications: RequestStatus,
   DriverSearch: driverStackNavigator,
 },
 {

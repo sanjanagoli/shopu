@@ -11,7 +11,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.orangeBox}/>
-            <Toolbar/>
+            <Toolbar navigation={this.props.navigation}/>
             <Text style = {styles.header}>Thank U for Shopping!</Text>
           <View style={styles.blueBox}>
             <View style={{flex: 1, flexDirection: 'row' }}>

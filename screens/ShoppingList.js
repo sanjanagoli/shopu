@@ -38,7 +38,7 @@ export default class ShoppingList extends Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-          <Toolbar pageType={'Driver'}/>
+          <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <Text style = {styles.header}>Shopping List</Text>
             <FlatList
               style={styles.shoppingList}

@@ -17,7 +17,7 @@ export default class Checkout extends React.Component {
     return (
     <View style={styles.whiteBackground}> 
         <OrangeBackground/>
-        <Toolbar/>
+        <Toolbar navigation={this.props.navigation}/>
             <View style={styles.searchTextBox}>
                 <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
                 <Text style={styles.searchText}>Search Again</Text>

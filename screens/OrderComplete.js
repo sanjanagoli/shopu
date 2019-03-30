@@ -13,7 +13,7 @@ export default class OrderComplete extends React.Component {
       return (
         <View style={styles.container}>
         <OrangeBackground/>
-        <Toolbar/>
+        <Toolbar navigation={this.props.navigation}/>
         <Text style={styles.header}>Your order has been placed!</Text>
         <View style={styles.rectangle}/>
           <Text style={styles.subHeader}>Next Steps:</Text>

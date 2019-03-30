@@ -1,9 +1,11 @@
 import firebase from 'firebase'
 
 let config = {
-    apiKey: "<API_KEY>",
-    authDomain: "<PROJECT_ID>.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-    storageBucket: "<BUCKET>.appspot.com",
-};
+    apiKey: "AIzaSyAzGYF_utpdoSiWw90hV9P-8p-rzbQ81qU",
+    authDomain: "shopu-e80e1.firebaseapp.com",
+    databaseURL: "https://shopu-e80e1.firebaseio.com",
+    projectId: "shopu-e80e1",
+    storageBucket: "shopu-e80e1.appspot.com",
+    messagingSenderId: "585092098254"
+  };
 firebase.initializeApp(config);

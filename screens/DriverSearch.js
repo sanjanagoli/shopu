@@ -7,15 +7,6 @@ import Toolbar from '../components/Toolbar';
 
 export default class DriverSearch extends React.Component {
 
-  renderFontSize = () => {
-    if (PixelRatio.get() === 2) {
-      return 90
-    }
-    else if (PixelRatio.get() === 3){
-      return 60
-    }
-  }
-
   static navigationOptions = {
     header: null,
     };
@@ -25,8 +16,8 @@ export default class DriverSearch extends React.Component {
       <View style={styles.container}>
         <OrangeBackground/>
         <Toolbar pageType={'Driver'}/>
-        <Text style={{color: '#ffffff', textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Let{`'`}s</Text>
-        <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>shopU!</Text>
+        <Text style={styles.header}>Let{`'`}s</Text>
+        <Text style={styles.header}>shopU!</Text>
         <View style={styles.whiteBox}>
           <Text style={styles.question}>Where are you going?</Text>
           <Image style={styles.downArrowIcon}
@@ -51,6 +42,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
+  },
+  header: {
+    color: '#ffffff', 
+    textAlign: 'center',
+    fontFamily: 'Montserrat-SemiBold', 
+    fontSize: PixelRatio.get() == 2 ? 90 : 60,
   },
   whiteBox: {
     flexDirection: 'column',

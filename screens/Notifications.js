@@ -34,6 +34,7 @@ renderFontSize = () => {
       <View style={styles.container}>
         <OrangeBackground/>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Toolbar/>
         <Text style={{color: '#ffffff',marginTop: Dimensions.get("screen").height*.04,marginBottom: 20,textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Notifications!</Text>
         <View style={styles.whiteBox}/>
@@ -43,6 +44,12 @@ renderFontSize = () => {
         <View style={[styles.whiteBox, {paddingTop: Dimensions.get("screen").height*.08, paddingBottom: Dimensions.get("screen").height*.01}]}>
           <FlatList vertical={true}
 >>>>>>> 07a10ac60d73a340476d1b70902423680e6ee605
+=======
+        <Toolbar/>
+        <Text style={{color: '#ffffff',marginTop: Dimensions.get("screen").height*.04,marginBottom: 20,textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Notifications!</Text>
+        <View style={[styles.whiteBox, {paddingTop: Dimensions.get("screen").height*.08, paddingBottom: Dimensions.get("screen").height*.01}]}>
+          <FlatList style={true}
+>>>>>>> 6fe2a8f20a87d0b9733b8265d0e90a321debce2b
             data={notifs}
             renderItem={(
               {item}) => {
@@ -77,6 +84,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     header: {
       color: '#ffffff',
@@ -87,6 +95,8 @@ const styles = StyleSheet.create({
       marginTop: Dimensions.get("screen").height*.08,
     },
 >>>>>>> 07a10ac60d73a340476d1b70902423680e6ee605
+=======
+>>>>>>> 6fe2a8f20a87d0b9733b8265d0e90a321debce2b
     recentOrdersText: {
       fontSize: 25,
       color: '#FFF',

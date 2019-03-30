@@ -13,6 +13,7 @@ import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
+import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
@@ -76,7 +77,7 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
+  Notifications: RequestStatus,
   DriverSearch: driverStackNavigator,
 },
 {

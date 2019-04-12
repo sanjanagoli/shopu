@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, PixelRatio, TouchableOpacity } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 
 export default class DriverSearch extends React.Component {
+
   static navigationOptions = {
     header: null,
     };
@@ -49,6 +50,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
+  header: {
+    color: '#ffffff', 
+    textAlign: 'center',
+    fontFamily: 'Montserrat-SemiBold', 
+    fontSize: PixelRatio.get() == 2 ? 90 : 60,
+  },
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
@@ -77,14 +84,6 @@ const styles = StyleSheet.create({
     shadowColor: 'rgba(0, 0, 0, 0.25)',
     transform: ([{ rotateZ: '7.5deg' }]),
     marginTop: -Dimensions.get('screen').height*.05,
-  },
-  header: {
-    fontSize: 70,
-    color: '#fff',
-    marginBottom: 5,
-    textAlign: 'center',
-    fontFamily: 'Montserrat-SemiBold',
-    width: Dimensions.get('screen').width,
   },
   question: {
     fontSize: 25,

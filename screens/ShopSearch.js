@@ -22,7 +22,7 @@ export default class ShopSearch extends React.Component {
     };
     
     search = () => {
-      this.props.navigation.navigate('YourResults')
+      this.props.navigation.navigate('LoadingScreen')
     }
 
     constructor(props) {

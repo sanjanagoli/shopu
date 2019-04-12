@@ -8,7 +8,6 @@ import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
-import Notifications from './screens/Notifications';
 import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
@@ -78,7 +77,6 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: RequestStatus,
   DriverSearch: driverStackNavigator,
 },
 {
@@ -90,11 +88,6 @@ defaultNavigationOptions: ({ navigation }) => ({
       imageName = require('./assets/images/nav-cart.png');
       if (focused) {
         imageName = require('./assets/images/filled_cart.png');
-      }
-    } else if (routeName === 'Notifications') {
-      imageName = require('./assets/images/home_icon.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_house.png');
       }
     } else if (routeName === 'DriverSearch') {
       imageName = require('./assets/images/person_w_bag.png');

@@ -1,30 +1,9 @@
 {
   "devToolsPort": 19002,
-<<<<<<< HEAD
-<<<<<<< HEAD
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 4243,
-  "expoServerNgrokUrl": "https://46-79q.anonymous.shopu.exp.direct",
-  "packagerNgrokUrl": "https://packager.46-79q.anonymous.shopu.exp.direct",
-  "ngrokPid": 4271
+  "packagerPid": 12071,
+  "expoServerNgrokUrl": "https://65-jug.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.65-jug.anonymous.shopu.exp.direct",
+  "ngrokPid": 12105
 }
-=======
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
-}
->>>>>>> 07a10ac60d73a340476d1b70902423680e6ee605
-=======
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 89542,
-  "expoServerNgrokUrl": "https://b4-ie4.anonymous.shopu.exp.direct",
-  "packagerNgrokUrl": "https://packager.b4-ie4.anonymous.shopu.exp.direct",
-  "ngrokPid": 89562
-}
-
->>>>>>> 6fe2a8f20a87d0b9733b8265d0e90a321debce2b

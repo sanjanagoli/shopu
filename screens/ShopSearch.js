@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity, PixelRatio} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
@@ -7,6 +7,16 @@ import Toolbar from './../components/Toolbar';
 const window = Dimensions.get("window")
 
 export default class ShopSearch extends React.Component {
+
+  renderFontSize = () => {
+    if (PixelRatio.get() === 2) {
+      return 90
+    }
+    else if (PixelRatio.get() === 3){
+      return 60
+    }
+  }
+
   static navigationOptions = {
     header: null,
     };
@@ -35,8 +45,8 @@ export default class ShopSearch extends React.Component {
           <OrangeBackground/>
           <Toolbar navigation={this.props.navigation}/>
           <View style={styles.mainView}>
-            <Text style={styles.header}>Let{`'`}s</Text>
-            <Text style={styles.header}>shopU!</Text>
+            <Text style={{color: '#ffffff', textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Let{`'`}s</Text>
+            <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>shopU!</Text>
             <View style={styles.slantedBlueRectangle} />
             <View style={styles.slantedPurpleRectangle} />
             <View style={styles.whiteCard}>
@@ -67,12 +77,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center', 
     marginTop: window.height*.02
-  },
-  header: {
-    fontSize: 70,
-    color: '#fff',
-    textAlign: 'center',
-    fontFamily: 'Montserrat-SemiBold',
   },
   slantedBlueRectangle: {
     backgroundColor: '#6DC4E0',

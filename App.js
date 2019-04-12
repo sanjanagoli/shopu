@@ -2,17 +2,18 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import * as firebaseConfig from './services/firebase-config'
 import AccountProfile from './screens/AccountProfile';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
-import Notifications from './screens/Notifications';
 import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
+import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
@@ -76,7 +77,6 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
   DriverSearch: driverStackNavigator,
 },
 {
@@ -88,11 +88,6 @@ defaultNavigationOptions: ({ navigation }) => ({
       imageName = require('./assets/images/nav-cart.png');
       if (focused) {
         imageName = require('./assets/images/filled_cart.png');
-      }
-    } else if (routeName === 'Notifications') {
-      imageName = require('./assets/images/home_icon.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_house.png');
       }
     } else if (routeName === 'DriverSearch') {
       imageName = require('./assets/images/person_w_bag.png');

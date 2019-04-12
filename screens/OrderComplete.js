@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
     marginTop: Dimensions.get("screen").height*.03,
   },
   circle: {
-    width: 20,
-    height: 17,
+    width: 14,
+    height: 12,
     marginRight: Dimensions.get("screen").width*.01,
     marginTop: Dimensions.get("screen").height*.038,
   }

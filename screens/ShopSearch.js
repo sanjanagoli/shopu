@@ -21,9 +21,9 @@ export default class ShopSearch extends React.Component {
     header: null,
     };
     
-    search = () => {
-      this.props.navigation.navigate('LoadingScreen')
-    }
+    // search = () => {
+    //   this.props.navigation.navigate('LoadingScreen')
+    // }
 
     constructor(props) {
       super(props);
@@ -50,16 +50,25 @@ export default class ShopSearch extends React.Component {
             <View style={styles.slantedBlueRectangle} />
             <View style={styles.slantedPurpleRectangle} />
             <View style={styles.whiteCard}>
-              <View style={{flexDirection: 'row', marginBottom: window.height*.01}}>
-                <TouchableOpacity onPress={this.search}>
-                  <Image style={styles.searchIcon} 
-                      source={require('./../assets/images/search_icon.png')}/>
-                </TouchableOpacity>
-                <View style={{width: window.width*.75}}>
-                  <TextInput style={styles.searchText} placeholder={'Search for a Product'} placeholderTextColor={'#605DF1'}/>
+              <View style={styles.box}>
+                <View style={{width: window.width*.75, flexDirection: 'row'}}>
+                  <Text style={styles.searchText}>How big is your mail load?</Text>
+                  <Image style={styles.downArrowIcon}
+                        source={require('./../assets/images/Vector.png')} />
                 </View>
               </View>
               <View style={styles.searchLine}/>
+              <View>
+                <View style={{width: window.width*.75, flexDirection: 'row'}}>
+                  <Text style={styles.searchText2}>How many packages do you have?</Text>
+                  <TouchableOpacity onPress={this.search}>
+                    <Image style={styles.downArrowIcon2}
+                        source={require('./../assets/images/Vector.png')} />
+                  </TouchableOpacity>
+                </View>
+                <View style={styles.searchLine}/>
+              </View>
+              
             </View>
           </View>
         </View>
@@ -102,7 +111,8 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: window.height*-.36
+    marginTop: window.height*-.36,
+    flexDirection: 'column',
   },
   searchLine: {
     backgroundColor: '#6DC4E0',
@@ -115,16 +125,38 @@ const styles = StyleSheet.create({
     marginTop: window.height*.005
   },
   searchText: {
-    fontSize: 24,
+    fontSize: 22,
     color: '#605DF1',
     fontFamily: 'Montserrat-Medium',
-    marginTop: window.height*.015,
-    marginLeft: window.width*.04
-
+    marginTop: window.height*.115,
+    marginLeft: window.width*.01,
+  },
+  searchText2: {
+    fontSize: 22,
+    color: '#605DF1',
+    fontFamily: 'Montserrat-Medium',
+    marginTop: window.height*.1,
+    marginBottom: window.height*.03,
+    marginLeft: window.width*.01,
   },
   searchIcon: {
     height: 23,
     width: 22,
     marginTop: window.height*.019
   },
+  downArrowIcon: {
+    height: 30,
+    width: 20,
+    marginLeft: Dimensions.get('screen').width*0.01,
+    marginTop: window.height*0.15,
+  },
+  downArrowIcon2: {
+    height: 30,
+    width: 20,
+    marginLeft: Dimensions.get('screen').width*0.08,
+    marginTop: window.height*0.15,
+  },
+  box: {
+    marginTop: -Dimensions.get('screen').height*0.2,
+  }
 });

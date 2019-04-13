@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity,
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
+import PrimaryButton from '../components/PrimaryButton';
 
 const window = Dimensions.get("window")
 
@@ -46,20 +47,21 @@ export default class ShopSearch extends React.Component {
           <Toolbar navigation={this.props.navigation}/>
           <View style={styles.mainView}>
             <Text style={{color: '#ffffff', textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Let{`'`}s</Text>
-            <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>shopU!</Text>
+            <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>mailU!</Text>
             <View style={styles.slantedBlueRectangle} />
             <View style={styles.slantedPurpleRectangle} />
             <View style={styles.whiteCard}>
               <View style={styles.box}>
-                <View style={{width: window.width*.75, flexDirection: 'row'}}>
+                <View style={styles.rowBox}>
                   <Text style={styles.searchText}>How big is your mail load?</Text>
-                  <Image style={styles.downArrowIcon}
+                  <TouchableOpacity onPress={this.search}>
+                    <Image style={styles.downArrowIcon}
                         source={require('./../assets/images/Vector.png')} />
+                  </TouchableOpacity>
                 </View>
-              </View>
-              <View style={styles.searchLine}/>
-              <View>
-                <View style={{width: window.width*.75, flexDirection: 'row'}}>
+                <View style={styles.searchLine}/>
+                <View>
+                <View style={styles.rowBox}>
                   <Text style={styles.searchText2}>How many packages do you have?</Text>
                   <TouchableOpacity onPress={this.search}>
                     <Image style={styles.downArrowIcon2}
@@ -68,9 +70,14 @@ export default class ShopSearch extends React.Component {
                 </View>
                 <View style={styles.searchLine}/>
               </View>
-              
-            </View>
-          </View>
+            <View style={styles.rectangleLBlue}/>
+            <View style={styles.button}/>
+              <TouchableOpacity onPress={this.letsgo}>
+                <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={60} fontSize={30}/>
+              </TouchableOpacity>
+        </View>
+        </View>
+        </View>
         </View>
       ) : null
     );
@@ -157,6 +164,27 @@ const styles = StyleSheet.create({
     marginTop: window.height*0.15,
   },
   box: {
-    marginTop: -Dimensions.get('screen').height*0.2,
-  }
+    marginTop: -Dimensions.get('screen').height*0.05,
+  },
+  button: { 
+    marginTop: -Dimensions.get("screen").height*.085,
+  },
+  rowBox: {
+    width: window.width*.75, 
+    flexDirection: 'row',
+  },
+  rectangleLBlue: {
+    backgroundColor: '#6DC4E0',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: Dimensions.get("screen").width*.76,
+    height: Dimensions.get('screen').height*0.07,
+    marginLeft: Dimensions.get("screen").width*.01,
+    shadowOpacity: 1,
+    shadowRadius: 5,
+    shadowOffset: { width: 5, height: 5 },
+    shadowColor: 'rgba(0, 0, 0, 0.25)',
+    transform: ([{ rotateZ: '7.5deg' }]),
+    marginTop: Dimensions.get('screen').height*.095,
+},
 });

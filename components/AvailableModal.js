@@ -2,18 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator, TouchableOpacity} from 'react-native';
 import PrimaryButton from './PrimaryButton';
 
-let items = [
-  {
-    name: 'Ijemma',
-    packageSize: 'Heavy - 1 package',
-    location: 'River',
-  },
-]
 
 export default class AvailableModal extends React.Component {
   constructor(props){
     super(props);
-      this.state = {items: ['Ijemma', 'Heavy - 1 package', 'River']};
+      this.state = {items: [this.props.name, this.props.packageSize, this.props.location]};
   }
 
   static navigationOptions = {

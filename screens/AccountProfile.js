@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Medium',
     fontSize: 20,
     marginLeft: Dimensions.get('screen').width*0.05,
-    marginTop: Dimensions.get("screen").height*.02,
+    marginTop: Dimensions.get("screen").height*.03,
     
   },
   whiteBox: {
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     shadowOpacity: 1.0,
     backgroundColor: '#FFFFFF',
-    justifyContent: 'space-around',
-    marginTop: Dimensions.get("screen").height*.03,
+    justifyContent: 'flex-start',
+    marginTop: Dimensions.get("screen").height*.01,
   },
   header:{
     color: '#fff',
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     width: 27,
     height: 27,
     marginRight: Dimensions.get('screen').width*0.05,
-    marginTop: Dimensions.get("screen").height*.02,
+    marginTop: Dimensions.get('screen').height*0.02,
   },
   lineStyle: {
     width: Dimensions.get('screen').width*.7,

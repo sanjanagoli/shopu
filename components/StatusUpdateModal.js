@@ -4,108 +4,44 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 
 export default class StatusUpdateModal extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            isGoingToStore: false, 
-            isCheckingOut: false, 
-            isEnRoute: false, 
-            isDelivered: false
-        };
-    }
-
-    insertCheckGoingToStore=() => {
-            this.setState(previousState => (
-                { isGoingToStore: !previousState.isGoingToStore}
-            ))
-        }
-    
-    insertCheckCheckingOut=() => {
-        this.setState(previousState => (
-            { isCheckingOut: !previousState.isCheckingOut}
-        ))
-    }
-    
-    insertCheckEnRoute=() => {
-        this.setState(previousState => (
-            { isEnRoute: !previousState.isEnRoute}
-        ))
-    }
-
-    insertCheckDelivered=() => {
-        this.setState(previousState => (
-            { isDelivered: !previousState.isDelivered}
-        ))
-    }
-
-    renderGoingToStore = () => {
-            if (this.state.isGoingToStore) {
-                return (<Image source ={require('./../assets/images/check.png')} style={styles.check} />)
-            }
-            return (<Image source ={require('./../assets/images/checkbox.png')} style={styles.checkBox} />)
-    }
-
-    renderCheckingOut = () => {
-        if (this.state.isCheckingOut) {
-            return (<Image source ={require('./../assets/images/check.png')} style={styles.check} />)
-        }
-        return (<Image source ={require('./../assets/images/checkbox.png')} style={styles.checkBox} />)
-    }
-
-    renderEnRoute = () => {
-        if (this.state.isEnRoute) {
-            return (<Image source ={require('./../assets/images/check.png')} style={styles.check} />)
-        }
-        return (<Image source ={require('./../assets/images/checkbox.png')} style={styles.checkBox} />)
-    }
-
-    renderDelivered = () => {
-        if (this.state.isDelivered) {
-            return (<Image source ={require('./../assets/images/check.png')} style={styles.check} />)
-        }
-        return (<Image source ={require('./../assets/images/checkbox.png')} style={styles.checkBox} />)
-    }
-
-
-
   render() {
     return ( 
         <View style={styles.container}>
             <View style = {styles.whiteBox}>
-                <Image source ={require('./../assets/images/x.png')} style={styles.x} />
+                <TouchableOpacity>
+                    <Image source ={require('./../assets/images/x.png')} style={styles.x} />
+                </TouchableOpacity>
                 <Text style={styles.header}>Select Your Status</Text>
-                <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginLeft:Dimensions.get("screen").width*.03}}>
-                        <TouchableOpacity onPress={this.insertCheckGoingToStore}>
-                            {this.renderGoingToStore()}
-                        </TouchableOpacity>
-                        <Text style={styles.rectangleText}>Going to Store</Text>
+                <TouchableOpacity>
+                    <View style = {styles.rectangles}>
+                        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.rectangleText}>Going to Hinman</Text>
+                        </View>
                     </View>
-                </View>
-                <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginLeft:Dimensions.get("screen").width*.03 }}>
-                        <TouchableOpacity onPress={this.insertCheckCheckingOut}>
-                            {this.renderCheckingOut()}
-                        </TouchableOpacity>
-                        <Text style={styles.rectangleText}>Checking Out</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style = {styles.rectangles}>
+                        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.rectangleText}>In Line</Text>
+                        </View>
                     </View>
-                </View>
-                <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginRight: Dimensions.get("screen").width*.18,marginLeft:Dimensions.get("screen").width*.03 }}>
-                        <TouchableOpacity onPress={this.insertCheckEnRoute}>
-                            {this.renderEnRoute()}
-                        </TouchableOpacity>
-                        <Text style={styles.rectangleText}>En Route</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style = {styles.rectangles}>
+                        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                            <Text style={styles.rectangleText}>Picked Up and En Route</Text>
+                        </View>
                     </View>
-                </View>
-                <View style = {styles.rectangles}>
-                    <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', marginRight: Dimensions.get("screen").width*.18, marginLeft:Dimensions.get("screen").width*.03 }}>
-                        <TouchableOpacity onPress={this.insertCheckDelivered}>
-                            {this.renderDelivered()}
-                        </TouchableOpacity>
-                        <Text style={styles.rectangleText}>Delivered</Text>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style = {styles.rectangles}>
+                        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+                            <Text style={styles.rectangleText}>Delivered</Text>
+                        </View>
                     </View>
-                </View>
+
+                </TouchableOpacity>
+                
             </View>
         </View>
     )
@@ -148,14 +84,6 @@ const styles = StyleSheet.create({
     color:  '#fff',
     fontFamily: 'Montserrat-Regular',
     marginLeft: Dimensions.get("screen").width*.05,
-  },
-  checkBox: {
-    width: Dimensions.get("screen").width*.09,
-    height: Dimensions.get("screen").height*.04,
-  },
-  check: {
-    width: Dimensions.get("screen").width*.09,
-    height: Dimensions.get("screen").height*.04,
   },
   header: {
     fontSize: 33,

@@ -1,25 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
-import firebase from "firebase";
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import * as firebaseConfig from './services/firebase-config'
 import AccountProfile from './screens/AccountProfile';
-import AuthorizeDriver from './screens/AuthorizeDriver';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
-import Notifications from './screens/Notifications';
 import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
+import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
+import LoadingScreen from './screens/LoadingScreen';
 
 YellowBox.ignoreWarnings([
   'Require cycle:',
@@ -31,6 +31,9 @@ FontLoad.then((res) => {
 const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
+  },
+  LoadingScreen: {
+    screen: LoadingScreen
   },
   YourResults: {
     screen: YourResults
@@ -78,7 +81,6 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: AuthorizeDriver,
   DriverSearch: driverStackNavigator,
 },
 {
@@ -90,11 +92,6 @@ defaultNavigationOptions: ({ navigation }) => ({
       imageName = require('./assets/images/nav-cart.png');
       if (focused) {
         imageName = require('./assets/images/filled_cart.png');
-      }
-    } else if (routeName === 'Notifications') {
-      imageName = require('./assets/images/home_icon.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_house.png');
       }
     } else if (routeName === 'DriverSearch') {
       imageName = require('./assets/images/person_w_bag.png');

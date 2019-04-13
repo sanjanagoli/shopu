@@ -7,7 +7,6 @@ import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
 
 const window = Dimensions.get("window")
-
 export default class ShopSearch extends React.Component {
 
   renderFontSize = () => {
@@ -19,8 +18,12 @@ export default class ShopSearch extends React.Component {
     }
   }
 
-  setPicker = (itemValue) => {
-    this.setState({ pickerSelection: itemValue})
+  setPicker1 = (itemValue) => {
+    this.setState({ pickerSelection1: itemValue})
+  }
+
+  setPicker2 = (itemValue) => {
+    this.setState({ pickerSelection2: itemValue})
   }
 
   static navigationOptions = {
@@ -36,7 +39,8 @@ export default class ShopSearch extends React.Component {
       this.state = {
         fontLoaded: false,
         comments: ' ', 
-        pickerSelection: 'Choose Option',
+        pickerSelection1: 'Choose Option',
+        pickerSelection2: 'Choose Option',
       }
     }
   
@@ -63,9 +67,9 @@ export default class ShopSearch extends React.Component {
                   <Text style={styles.searchText}>How big is your mail load?</Text>
                 </View>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={styles.quantityText}>{this.state.pickerSelection}</Text>
+                  <Text style={styles.quantityText}>{this.state.pickerSelection1}</Text>
                   <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
-                    <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                    <DropDown selectedValue={this.state.pickerSelection1} setState={this.setPicker1} label1={'Heavy'} label2={'Normal'} label3={'Light'} value1={'Heavy'} value2={'Normal'} value3={'Light'}/>
                   </View>
                   </View>
                 <View style={styles.searchLine}/>
@@ -74,9 +78,9 @@ export default class ShopSearch extends React.Component {
                   <Text style={styles.searchText2}>How many packages do you have?</Text>
                   </View>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={styles.quantityText}>{this.state.pickerSelection}</Text>
+                  <Text style={styles.quantityText}>{this.state.pickerSelection2}</Text>
                   <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
-                    <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                    <DropDown selectedValue={this.state.pickerSelection2} setState={this.setPicker2} label1={'1-2'} label2={'3-5'} label3={'6+'} value1={'1-2 Package(s)'} value2={'3-5 Packages'} value3={'6+ Packages'}/>
                   </View>
                   </View>
                 </View>

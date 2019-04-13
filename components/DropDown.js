@@ -7,16 +7,16 @@ export default class DropDown extends React.Component {
   items = () => {
     let items = [
       {
-        label: '1',
-        value: '1',
+        label: this.props.label1,
+        value: this.props.value1,
       },
       {
-        label: '2',
-        value: '2',
+        label: this.props.label2,
+        value: this.props.value2,
       },
       {
-        label: '3',
-        value: '3',
+        label: this.props.label3,
+        value: this.props.value3,
       }
     ]
     let itemMap = items.map((item)=> {

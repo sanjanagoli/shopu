@@ -19,7 +19,7 @@ import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
 import Payment from './screens/DriverPayment';
-import LoadingScreen from './screens/LoadingScreen';
+
 
 YellowBox.ignoreWarnings([
   'Require cycle:',

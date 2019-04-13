@@ -10,11 +10,11 @@ export default class Welcome extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style = {styles.header}>shopU</Text>
+        <Text style = {styles.header}>mailU</Text>
         <View style={styles.RectangleShapeViewOne} />
         <View style={styles.RectangleShapeViewTwo} />
         <View style={styles.RectangleShapeViewThree} />
-        <Text style = {styles.subheader}>sign up now!</Text>
+        <Text style = {styles.subheader}>signUp now!</Text>
         <Image source ={require('./../assets/images/shopcart.png')} style={styles.ShoppingCart} />
         <View style={styles.RectangleShapeViewBottom}>
           <Text style = {styles.minitext}>Have an account? Login</Text>
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Medium',
     fontSize: 110,
     textAlign: 'center',
-    marginTop: Dimensions.get("screen").height*0.05,
+    marginTop: Dimensions.get("screen").height*0.08,
   },
   RectangleShapeViewOne: {
     width: Dimensions.get("screen").width,
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     color:  '#fff',
     textAlign: 'left',
     fontFamily: 'Montserrat-Regular',
-    marginTop: Dimensions.get("screen").height*0.25,
+    marginTop: Dimensions.get("screen").height*0.22,
   },
   minitext: {
     fontSize: 24,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*0.05,
     borderRadius: 2,
     backgroundColor: 'rgba(196, 196, 196, 0.46)',
-    marginTop: Dimensions.get("screen").height*.25,
+    marginTop: Dimensions.get("screen").height*.21,
     flexDirection: 'row',
     alignItems: 'center',
   },

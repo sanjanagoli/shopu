@@ -37,16 +37,11 @@ export default class AvailablePackages extends Component {
     header: null,
     };
     
-    waitOrConfirm = (confirm) => {
-        if(confirm) {
-            //wait until requeststatus page is made to edit
-            //this.props.navigation.navigate('RequestStatus')
-        }
-        else {
-            //wait until requeststatus page is made to edit
-            //this.props.navigation.navigate('PendingRequestStatus')
-        }
+    onPress = () => {
+        //navigate to available packages modal -- insert when finished
+        //this.props.navigation.navigate('Available Packages Modal')
     }
+
 
 
     render() {
@@ -55,14 +50,14 @@ export default class AvailablePackages extends Component {
             <OrangeBackground/>
             <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.06}}>
-                <Text style = {styles.header}>Deliveries</Text>
+                <Text style = {styles.header}>Available Packages</Text>
                 <FlatList
                     data= {items}
                     keyExtractor = {(item, index) => index.toString()}
                     renderItem = {
                         ({item, index}) => {
                             return ( 
-                            <TouchableOpacity onPress={this.waitOrConfirm.bind(this, item.hasEmail)}>
+                            <TouchableOpacity onPress={this.onPress}>
                                     <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
                                         <Text style = {styles.name}>{item.name}</Text>
                                         <Text style = {styles.packageSize}>{item.packageSize}</Text>

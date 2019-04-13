@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity,
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
+import DropDown from '../components/DropDown';
+import AvailableModal from '../components/AvailableModal';
 
 const window = Dimensions.get("window")
 
@@ -20,10 +22,6 @@ export default class ShopSearch extends React.Component {
   static navigationOptions = {
     header: null,
     };
-    
-    search = () => {
-      this.props.navigation.navigate('LoadingScreen')
-    }
 
     constructor(props) {
       super(props);
@@ -31,7 +29,11 @@ export default class ShopSearch extends React.Component {
         fontLoaded: false,
       }
     }
-  
+    
+    search = () => {
+      this.props.navigation.navigate('LoadingScreen')
+    }
+
     componentWillMount = () => {
       FontLoad.then((res) => {
         this.setState({ fontLoaded: true });

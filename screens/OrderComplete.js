@@ -14,16 +14,12 @@ export default class OrderComplete extends React.Component {
         <View style={styles.container}>
         <OrangeBackground/>
         <Toolbar navigation={this.props.navigation}/>
-        <Text style={styles.header}>Your order has been placed!</Text>
+        <Text style={styles.header}>Your mail has been requested!</Text>
         <View style={styles.rectangle}/>
           <Text style={styles.subHeader}>Next Steps:</Text>
           <View style={styles.textBox}>
             <Image source ={require('./../assets/images/white_circle.png')} style={styles.circle}/>
-            <Text style={styles.line}>Look for Notifications about your delivery on the Home Page</Text>
-          </View>
-          <View style={styles.textBox}>
-            <Image source ={require('./../assets/images/white_circle.png')} style={styles.circle}/>
-            <Text style={styles.line}>Check your texts and calls for updates</Text>
+            <Text style={styles.line}>Wait to get an SMS for further details on order pickup</Text>
           </View>
           <View style={styles.textBox}>
             <Image source ={require('./../assets/images/white_circle.png')} style={styles.circle}/>
@@ -68,13 +64,13 @@ const styles = StyleSheet.create({
   },
   line: {
     fontFamily: 'Montserrat-Regular',
-    fontSize: 22,
+    fontSize: 24,
     color: '#fff',
     marginTop: Dimensions.get("screen").height*.03,
   },
   circle: {
-    width: 20,
-    height: 17,
+    width: 14,
+    height: 12,
     marginRight: Dimensions.get("screen").width*.01,
     marginTop: Dimensions.get("screen").height*.038,
   }

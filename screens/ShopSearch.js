@@ -4,6 +4,7 @@ import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
+import DropDown from './../components/DropDown';
 
 const window = Dimensions.get("window")
 
@@ -18,18 +19,24 @@ export default class ShopSearch extends React.Component {
     }
   }
 
+  setPicker = (itemValue) => {
+    this.setState({ pickerSelection: itemValue})
+  }
+
   static navigationOptions = {
     header: null,
     };
     
-    // search = () => {
-    //   this.props.navigation.navigate('LoadingScreen')
-    // }
+    letsgo = () => {
+      this.props.navigation.navigate('LoadingScreen')
+      }
 
     constructor(props) {
       super(props);
       this.state = {
         fontLoaded: false,
+        comments: ' ', 
+        pickerSelection: 'Choose Option',
       }
     }
   
@@ -54,19 +61,24 @@ export default class ShopSearch extends React.Component {
               <View style={styles.box}>
                 <View style={styles.rowBox}>
                   <Text style={styles.searchText}>How big is your mail load?</Text>
-                  <TouchableOpacity onPress={this.search}>
-                    <Image style={styles.downArrowIcon}
-                        source={require('./../assets/images/Vector.png')} />
-                  </TouchableOpacity>
                 </View>
+                <View style={{flexDirection: 'row'}}>
+                  <Text style={styles.quantityText}>{this.state.pickerSelection}</Text>
+                  <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
+                    <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                  </View>
+                  </View>
                 <View style={styles.searchLine}/>
                 <View>
                 <View style={styles.rowBox}>
                   <Text style={styles.searchText2}>How many packages do you have?</Text>
-                  <TouchableOpacity onPress={this.search}>
-                    <Image style={styles.downArrowIcon2}
-                        source={require('./../assets/images/Vector.png')} />
-                  </TouchableOpacity>
+                  </View>
+                <View style={{flexDirection: 'row'}}>
+                  <Text style={styles.quantityText}>{this.state.pickerSelection}</Text>
+                  <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
+                    <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                  </View>
+                  </View>
                 </View>
                 <View style={styles.searchLine}/>
               </View>
@@ -75,7 +87,6 @@ export default class ShopSearch extends React.Component {
               <TouchableOpacity onPress={this.letsgo}>
                 <PrimaryButton backgroundColor={'#605DF1'} title={"Let's Go!"} height={60} fontSize={30}/>
               </TouchableOpacity>
-        </View>
         </View>
         </View>
         </View>
@@ -135,39 +146,22 @@ const styles = StyleSheet.create({
     fontSize: 22,
     color: '#605DF1',
     fontFamily: 'Montserrat-Medium',
-    marginTop: window.height*.115,
+    marginTop: window.height*.1,
     marginLeft: window.width*.01,
   },
   searchText2: {
     fontSize: 22,
     color: '#605DF1',
     fontFamily: 'Montserrat-Medium',
-    marginTop: window.height*.1,
-    marginBottom: window.height*.03,
+    marginTop: window.height*.06,
     marginLeft: window.width*.01,
-  },
-  searchIcon: {
-    height: 23,
-    width: 22,
-    marginTop: window.height*.019
-  },
-  downArrowIcon: {
-    height: 30,
-    width: 20,
-    marginLeft: Dimensions.get('screen').width*0.01,
-    marginTop: window.height*0.15,
-  },
-  downArrowIcon2: {
-    height: 30,
-    width: 20,
-    marginLeft: Dimensions.get('screen').width*0.08,
-    marginTop: window.height*0.15,
   },
   box: {
     marginTop: -Dimensions.get('screen').height*0.05,
   },
   button: { 
     marginTop: -Dimensions.get("screen").height*.085,
+    width: Dimensions.get("screen").width*.6,
   },
   rowBox: {
     width: window.width*.75, 
@@ -177,7 +171,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#6DC4E0',
     alignItems: 'center',
     justifyContent: 'center',
-    width: Dimensions.get("screen").width*.76,
+    width: Dimensions.get("screen").width*.6,
     height: Dimensions.get('screen').height*0.07,
     marginLeft: Dimensions.get("screen").width*.01,
     shadowOpacity: 1,
@@ -185,6 +179,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 5, height: 5 },
     shadowColor: 'rgba(0, 0, 0, 0.25)',
     transform: ([{ rotateZ: '7.5deg' }]),
-    marginTop: Dimensions.get('screen').height*.095,
+    marginTop: Dimensions.get('screen').height*.05,
+  },
+  quantityText: {
+    fontSize: 22, 
+    fontFamily: 'Montserrat-Regular', 
+    color: '#605DF1',
+    marginTop: window.height*.05,
+    textAlign: 'center'
 },
 });

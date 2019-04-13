@@ -2,9 +2,6 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Toolbar from './../components/Toolbar';
 
-
-  
-
 export default class App extends React.Component {
 
   render() {

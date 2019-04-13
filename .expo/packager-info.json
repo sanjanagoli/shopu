@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-{}
-=======
+
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
@@ -10,4 +8,4 @@
   "packagerNgrokUrl": "https://packager.65-jug.anonymous.shopu.exp.direct",
   "ngrokPid": 12105
 }
->>>>>>> a94d90d168b1a26b6a212e9336d7a07e5cdbe393
+

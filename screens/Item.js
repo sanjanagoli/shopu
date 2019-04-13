@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
+import DropDown from './../components/DropDown';
 
 const window = Dimensions.get("window")
 
@@ -15,12 +16,16 @@ export default class RequestProfile extends React.Component {
   }
 
   browseOptions = () => {
-    this.props.navigation.goBack('YourResults')
+    this.props.navigation.navigate('YourResults')
   }
 
   constructor(props) {
     super(props);
-    this.state = { comments: ' ',};
+      this.state = { comments: ' ', pickerSelection: 0};
+  }
+
+  setPicker = (itemValue) => {
+    this.setState({ pickerSelection: itemValue})
   }
   
   render() {
@@ -54,8 +59,12 @@ export default class RequestProfile extends React.Component {
                   </View>
                   <View style={{textAlign: 'left'}}>
                     <Text style={styles.generalText}>Quantity:</Text>
-                    <Image style={styles.downArrowIcon}
-                        source={require('./../assets/images/Vector.png')} />
+                    <View style={{flexDirection: 'row'}}>
+                      <Text style={styles.quantityText}>{this.state.pickerSelection}  Item(s)</Text>
+                      <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
+                        <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                      </View>
+                    </View>
                     <View style={styles.answerLine} />
                     <Text style={styles.generalText}>Comments:</Text>
                     <View style={styles.answerLine}>
@@ -138,8 +147,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   appleIcon: {
-      width: 88,
-      height: 75,
+      width: 80,
+      height: 78,
       marginLeft: window.width*.004,
   },
   itemText: {
@@ -180,6 +189,14 @@ const styles = StyleSheet.create({
     marginTop: window.height*.04
   },
   addToCartButton: {
-    marginTop: window.height*.05
+    marginTop: window.height*.03
+  },
+  quantityText: {
+    fontSize: 22, 
+    fontFamily: 'Montserrat-Regular', 
+    color: '#605DF1',
+    marginTop: window.height*.05,
+    textAlign: 'center'
+    // marginLeft: window.width*.1
   }
 });

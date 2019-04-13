@@ -36,27 +36,27 @@ export default class AccountProfile extends React.Component {
             </View>           
             <View>
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Username'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Dartmouth ID'}placeholderTextColor={'#605DF1'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Password'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Password'}placeholderTextColor={'#605DF1'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Phone Number'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Phone Number'}placeholderTextColor={'#605DF1'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Email'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Email'}placeholderTextColor={'#605DF1'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Birthday'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Dorm/Room Number'}placeholderTextColor={'#605DF1'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>    
               <View style={{marginBottom: Dimensions.get('screen').height*.06}}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Payment'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Venmo Username'}placeholderTextColor={'#605DF1'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>    
             </View>

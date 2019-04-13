@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 5109,
+  "packagerPid": 6377,
   "expoServerNgrokUrl": "https://mg-mga.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.mg-mga.anonymous.shopu.exp.direct",
-  "ngrokPid": 5139
+  "ngrokPid": 6398
 }

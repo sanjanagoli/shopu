@@ -3,13 +3,8 @@ import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity,
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
-<<<<<<< HEAD
-import DropDown from '../components/DropDown';
-import AvailableModal from '../components/AvailableModal';
-=======
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
->>>>>>> 879f8e1be6a036141fd6f813c6a7b2e710b3b7b6
 
 const window = Dimensions.get("window")
 
@@ -31,13 +26,10 @@ export default class ShopSearch extends React.Component {
   static navigationOptions = {
     header: null,
     };
-<<<<<<< HEAD
-=======
     
     letsgo = () => {
       this.props.navigation.navigate('LoadingScreen')
       }
->>>>>>> 879f8e1be6a036141fd6f813c6a7b2e710b3b7b6
 
     constructor(props) {
       super(props);

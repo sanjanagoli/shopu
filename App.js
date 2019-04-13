@@ -4,6 +4,7 @@ import firebase from "firebase";
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import AccountProfile from './screens/AccountProfile';
+import AuthorizeDriver from './screens/AuthorizeDriver';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
@@ -77,7 +78,7 @@ const driverStackNavigator = createStackNavigator({
 
 const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
-  Notifications: Notifications,
+  Notifications: AuthorizeDriver,
   DriverSearch: driverStackNavigator,
 },
 {

@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
+    marginTop: Dimensions.get("screen").height*.1,
   },
   name: {
     fontSize: 30,

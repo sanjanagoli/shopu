@@ -33,6 +33,7 @@ export default class AvailableModal extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'rgba(92, 92, 92, 0.50)',
     alignItems: 'center',
     justifyContent: 'center',
     height: Dimensions.get("screen").height,

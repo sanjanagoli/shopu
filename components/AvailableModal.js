@@ -32,24 +32,24 @@ export default class AvailableModal extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'rgba(92, 92, 92, 0.50)',
     alignItems: 'center',
     justifyContent: 'center',
-    height: Dimensions.get("screen").height,
+    height: Dimensions.get("screen").height*1.5,
     width:Dimensions.get("screen").width,
+    top: -Dimensions.get("screen").height*.5,
+    position: 'absolute',
   },
   blueBox: {
     backgroundColor: '#6DC4E0',
     width:Dimensions.get("screen").width*.9,
-    height: Dimensions.get("screen").height*.3,
-    justifyContent: 'center',
+    height: Dimensions.get("screen").height*.26,
+    top: Dimensions.get("screen").height*.75,
     position: 'absolute',
     shadowOffset: { width: 0, height: Dimensions.get("screen").height*.005 },
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
-    marginTop: -Dimensions.get("screen").height*.1,
   },
   name: {
     fontSize: 30,
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.08,
+    marginTop: Dimensions.get("screen").height*.03,
   },
   packageSize: {
     fontSize: 25,

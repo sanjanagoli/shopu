@@ -17,8 +17,7 @@ export default class RequestProfile extends React.Component {
   
   
   statusUpdate = () => {
-    //update when page is made
-    //this.props.navigation.navigate('StatusModal')
+    this.props.navigation.navigate('StatusModal')
   }
 
   browseOptions = () => {
@@ -59,7 +58,7 @@ export default class RequestProfile extends React.Component {
                   <Text style={styles.itemText}>Waiting for Confirmation</Text>
                 </View>
                 <View style={{textAlign: 'center'}}>
-                  <Text style={styles.descriptionText}>Come back when {this.state.item.firstName}'s mail request is confirmed!</Text>
+                  <Text style={styles.descriptionText}>Come back when {this.state.item.firstName}{"'"}s mail request is confirmed!</Text>
                 </View>
                 <View style={styles.addToCartButton}>
                     <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>

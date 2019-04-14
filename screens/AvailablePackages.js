@@ -12,22 +12,16 @@ let items = [
     name: 'Ijemma',
     packageSize: 'Heavy - 1 package',
     location: 'River',
-    email: '',
-    hasEmail: false,
   },
   {
-    name: 'Archita Harathi',
+    name: 'Archita',
     packageSize: 'Heavy - 2 packages',
     location: 'Choates',
-    email: 'archita.22@dart.edu',
-    hasEmail: true,
   },
   {
-    name: 'Archita Harathi',
+    name: 'Archita',
     packageSize: 'Heavy - 2 packages',
     location: 'Choates',
-    email: 'archita.22@dart.edu',
-    hasEmail: true,
   }
 ]
 
@@ -62,7 +56,6 @@ export default class AvailablePackages extends Component {
                                         <Text style = {styles.name}>{item.name}</Text>
                                         <Text style = {styles.packageSize}>{item.packageSize}</Text>
                                         <Text style = {styles.location}>{item.location}</Text>
-                                        <Text style = {styles.email}>{item.email}</Text>
                                     </View> 
                                 </TouchableOpacity>   
                             )
@@ -93,20 +86,22 @@ const styles = StyleSheet.create({
     marginTop: -Dimensions.get("screen").height*.004,
   },
   header: {
-    fontSize: 50,
+    fontSize: 40,
     color:  '#fff',
     textAlign: 'center',
     width: Dimensions.get("screen").width,
     fontFamily: 'Montserrat-SemiBold',
     marginTop: Dimensions.get("screen").width*.01,
-    marginBottom: Dimensions.get("screen").width*.05
+    marginBottom: Dimensions.get("screen").width*.13
   },
   name: {
     fontSize: 30,
-    color:  '#fff',
+    color: '#fff',
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.02,
+    marginLeft: Dimensions.get("screen").width*.03,
+    paddingTop: Dimensions.get("screen").height*.02,
+    paddingHorizontal: Dimensions.get("screen").width*.05,
   },
   packageSize: {
     fontSize: 25,
@@ -114,6 +109,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.02,
+    paddingHorizontal: Dimensions.get("screen").width*.05,
   },
   location: {
     fontSize: 25,
@@ -121,18 +117,14 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.02,
-  },
-  email: {
-    fontSize: 22,
-    color:  '#fff',
-    textAlign: 'left',
-    fontFamily: 'Montserrat-SemiBold',
-    marginLeft: Dimensions.get("screen").width*.02,
+    paddingHorizontal: Dimensions.get("screen").width*.05,
+    paddingBottom: Dimensions.get("screen").height*.02,
   },
   rectangles: {
     width: Dimensions.get("screen").width*.90,
     height: Dimensions.get("screen").height*.16,
-    marginTop: 10,
+    justifyContent: 'space-between',
+    marginTop: Dimensions.get("screen").height*.015,
   },
 });
 

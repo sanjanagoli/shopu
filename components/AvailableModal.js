@@ -12,7 +12,10 @@ export default class AvailableModal extends React.Component {
   static navigationOptions = {
     header: null,
     };
-
+  
+  // accept = () => {
+  //   this.props.navigation.navigate('AvailableDeliveries')
+  //   }
 
   render() {
     return (

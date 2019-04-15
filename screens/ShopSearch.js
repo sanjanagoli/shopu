@@ -6,6 +6,35 @@ import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
 
+let sizeItems = 
+  [
+  {
+    label: 'Heavy',
+    value: 'Heavy',
+  },
+  {
+    label: 'Normal',
+    value: 'Normal',
+  },
+  ]
+
+let quantItems = 
+  [
+  {
+    label: '1-2',
+    value: '1-2 Package(s)',
+  },
+  {
+    label: '3-5',
+    value: '3-5 Packages',
+  },
+  {
+    label: '6+',
+    value: '6+ Packages',
+  },
+  ]
+
+
 const window = Dimensions.get("window")
 export default class ShopSearch extends React.Component {
 
@@ -69,7 +98,7 @@ export default class ShopSearch extends React.Component {
                 <View style={{flexDirection: 'row'}}>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionSize}</Text>
                   <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
-                    <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} label1={'Heavy'} label2={'Normal'} label3={'Light'} value1={'Heavy'} value2={'Normal'} value3={'Light'}/>
+                    <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} items={sizeItems}/>
                   </View>
                   </View>
                 <View style={styles.searchLine}/>
@@ -80,7 +109,7 @@ export default class ShopSearch extends React.Component {
                 <View style={{flexDirection: 'row'}}>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
                   <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
-                    <DropDown selectedValue={this.state.pickerSelectionQuant} setState={this.setPickerQuant} label1={'1-2'} label2={'3-5'} label3={'6+'} value1={'1-2 Package(s)'} value2={'3-5 Packages'} value3={'6+ Packages'}/>
+                    <DropDown selectedValue={this.state.pickerSelectionQuant} setState={this.setPickerQuant} items={quantItems}/>
                   </View>
                   </View>
                 </View>

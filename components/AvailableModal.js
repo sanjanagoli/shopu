@@ -14,7 +14,7 @@ export default class AvailableModal extends React.Component {
     };
   
   // accept = () => {
-  //   this.props.navigation.navigate('AvailableDeliveries')
+  //   this.props.navigation.navigate('AvailablePackages')
   //   }
 
   render() {

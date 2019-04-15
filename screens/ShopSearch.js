@@ -39,7 +39,11 @@ export default class ShopSearch extends React.Component {
         pickerSelection: 'Choose Option',
       }
     }
-  
+    
+    search = () => {
+      this.props.navigation.navigate('LoadingScreen')
+    }
+
     componentWillMount = () => {
       FontLoad.then((res) => {
         this.setState({ fontLoaded: true });
@@ -189,3 +193,4 @@ const styles = StyleSheet.create({
     textAlign: 'center'
 },
 });
+

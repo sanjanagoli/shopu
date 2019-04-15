@@ -6,8 +6,36 @@ import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
 
-const window = Dimensions.get("window")
+let sizeItems = 
+  [
+  {
+    label: 'Heavy',
+    value: 'Heavy',
+  },
+  {
+    label: 'Normal',
+    value: 'Normal',
+  },
+  ]
 
+let quantItems = 
+  [
+  {
+    label: '1-2',
+    value: '1-2 Package(s)',
+  },
+  {
+    label: '3-5',
+    value: '3-5 Packages',
+  },
+  {
+    label: '6+',
+    value: '6+ Packages',
+  },
+  ]
+
+
+const window = Dimensions.get("window")
 export default class ShopSearch extends React.Component {
 
   renderFontSize = () => {
@@ -19,8 +47,12 @@ export default class ShopSearch extends React.Component {
     }
   }
 
-  setPicker = (itemValue) => {
-    this.setState({ pickerSelection: itemValue})
+  setPickerSize = (itemValue) => {
+    this.setState({ pickerSelectionSize: itemValue})
+  }
+
+  setPickerQuant = (itemValue) => {
+    this.setState({ pickerSelectionQuant: itemValue})
   }
 
   static navigationOptions = {
@@ -36,7 +68,8 @@ export default class ShopSearch extends React.Component {
       this.state = {
         fontLoaded: false,
         comments: ' ', 
-        pickerSelection: 'Choose Option',
+        pickerSelectionSize: 'Choose Option',
+        pickerSelectionQuant: 'Choose Option',
       }
     }
     
@@ -67,9 +100,9 @@ export default class ShopSearch extends React.Component {
                   <Text style={styles.searchText}>How big is your mail load?</Text>
                 </View>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={styles.quantityText}>{this.state.pickerSelection}</Text>
+                  <Text style={styles.quantityText}>{this.state.pickerSelectionSize}</Text>
                   <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
-                    <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                    <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} items={sizeItems}/>
                   </View>
                   </View>
                 <View style={styles.searchLine}/>
@@ -78,9 +111,9 @@ export default class ShopSearch extends React.Component {
                   <Text style={styles.searchText2}>How many packages do you have?</Text>
                   </View>
                 <View style={{flexDirection: 'row'}}>
-                  <Text style={styles.quantityText}>{this.state.pickerSelection}</Text>
+                  <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
                   <View style={{position: 'absolute', marginTop: window.height*.05, marginLeft: window.width*.7}}>
-                    <DropDown selectedValue={this.state.pickerSelection} setState={this.setPicker}/>
+                    <DropDown selectedValue={this.state.pickerSelectionQuant} setState={this.setPickerQuant} items={quantItems}/>
                   </View>
                   </View>
                 </View>

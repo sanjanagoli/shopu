@@ -7,7 +7,6 @@ import Toolbar from '../components/Toolbar';
 
 const window = Dimensions.get("window")
 
-
 export default class RequestProfile extends React.Component { 
   static navigationOptions = {
     header: null,

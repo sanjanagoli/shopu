@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19002,
+  "devToolsPort": 19003,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 35788,
+  "packagerPid": 36401,
   "expoServerNgrokUrl": "https://sz-wfn.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.sz-wfn.anonymous.shopu.exp.direct",
-  "ngrokPid": 35818
+  "ngrokPid": 36421
 }

@@ -62,6 +62,17 @@ export default class ShopSearch extends React.Component {
     
     letsgo = () => {
       this.props.navigation.navigate('LoadingScreen')
+      database.ref('deliveries/').set({
+        buyer: 'ijemma',
+        driver: 'bob',
+        packageSize: 'Heavy',
+        packageNumber: 1,
+        date: 'Date',
+        status: 0,
+        cost: 3,
+        confirmedEmail: false,
+        accepted: false
+      })
       }
 
     constructor(props) {

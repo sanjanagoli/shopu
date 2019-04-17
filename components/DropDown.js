@@ -5,20 +5,7 @@ const window = Dimensions.get("window")
 
 export default class DropDown extends React.Component {
   items = () => {
-    let items = [
-      {
-        label: '1',
-        value: '1',
-      },
-      {
-        label: '2',
-        value: '2',
-      },
-      {
-        label: '3',
-        value: '3',
-      }
-    ]
+    let items = this.props.items
     let itemMap = items.map((item)=> {
       return (
         <Picker.Item label={item.label} value={item.value} key={(item, index) => index.toString()}/>

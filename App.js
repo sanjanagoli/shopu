@@ -5,6 +5,7 @@ import config from './services/firebase-config';
 import FontLoad from './components/FontLoad';
 import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
 import AccountProfile from './screens/AccountProfile';
+import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
 import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
@@ -58,8 +59,8 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  DriverSearch: {
-    screen: DriverSearch
+  AvailablePackages: {
+    screen: AvailablePackages
   },
   RequestOptions: {
     screen: RequestOptions

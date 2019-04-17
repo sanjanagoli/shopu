@@ -65,8 +65,8 @@ export default class ShopSearch extends React.Component {
       database.ref('deliveries/').set({
         buyer: 'ijemma',
         driver: 'bob',
-        packageSize: 'Heavy',
-        packageNumber: 1,
+        packageSize: this.state.pickerSelectionSize,
+        packageNumber: this.state.pickerSelectionQuant,
         date: 'Date',
         status: 0,
         cost: 3,

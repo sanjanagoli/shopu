@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity, PixelRatio} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
@@ -34,7 +35,7 @@ let quantItems =
   },
   ]
 
-
+const database = firebase.database();
 const window = Dimensions.get("window")
 export default class ShopSearch extends React.Component {
 
@@ -71,10 +72,6 @@ export default class ShopSearch extends React.Component {
         pickerSelectionSize: 'Choose Option',
         pickerSelectionQuant: 'Choose Option',
       }
-    }
-    
-    search = () => {
-      this.props.navigation.navigate('LoadingScreen')
     }
 
     componentWillMount = () => {

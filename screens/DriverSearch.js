@@ -1,9 +1,12 @@
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, Text, View, Dimensions, Image, PixelRatio, TouchableOpacity } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
+
+const database = firebase.database();
 
 export default class DriverSearch extends React.Component {
 
@@ -12,7 +15,12 @@ export default class DriverSearch extends React.Component {
     };
   
   letsgo = () => {
-    this.props.navigation.navigate('RequestOptions')
+    database.ref('users/' + 'ijemma').set({
+      username: 'ijemma',
+      email: 'ijemma@io.com',
+      message: 'howdy'
+    })
+    //this.props.navigation.navigate('RequestOptions')
   }
     
   render() {

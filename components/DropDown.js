@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Picker, Modal, TouchableOpacity, Image, Dimensi
 const window = Dimensions.get("window")
 
 export default class DropDown extends React.Component {
+
   items = () => {
     let items = this.props.items
     let itemMap = items.map((item)=> {
@@ -59,11 +60,10 @@ const styles = StyleSheet.create({
   },
   doneText: {
     position: 'absolute', 
-    top: window.height*.75, 
+    top: window.height*.77, 
     left: window.width*.8,
     fontFamily: 'Montserrat-Medium',
-    fontSize: 15,
+    fontSize: 17,
     color: '#605DF1'
-
   }
 });

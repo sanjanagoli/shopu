@@ -6,9 +6,8 @@ import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
+import moment from 'moment'
 
-var moment = require('moment');
-moment().format();
 var newPostKey = firebase.database().ref().child('posts').push().key
 
 let sizeItems = 
@@ -71,7 +70,7 @@ export default class ShopSearch extends React.Component {
         driver: 'bob',
         packageSize: this.state.pickerSelectionSize,
         packageNumber: this.state.pickerSelectionQuant,
-        date: 'Date',
+        date: moment().format(),
         status: 0,
         cost: 3,
         confirmedEmail: false,

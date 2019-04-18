@@ -55,4 +55,5 @@ const styles = StyleSheet.create({
         height: Dimensions.get('screen').height*.6,
         alignItems: 'center',
     },
+    
 });

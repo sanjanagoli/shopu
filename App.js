@@ -7,7 +7,7 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator} fro
 import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
-import DriverSearch from './screens/DriverSearch';
+import AuthorizeDriver from './screens/AuthorizeDriver';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import OrderComplete from './screens/OrderComplete';

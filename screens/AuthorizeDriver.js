@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Clipboard } from 'react-native';
 import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
@@ -15,6 +15,7 @@ export default class AuthorizeDriver extends React.Component {
     }
 
     copyEmail = () => {
+        Clipboard.setString('Dear Hinman Staff, \n \n(deliverer name) will be picking up my packages for me.\n \nThank you, \n(your name)');
     }
 
     render() {

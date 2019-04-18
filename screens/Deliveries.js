@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} 
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
 
+
 let colors = ['#6DC4E0', '#605DF1']
 
 let items = [
@@ -11,30 +12,41 @@ let items = [
     name: 'Ijemma',
     packageSize: 'Heavy - 1 package',
     location: 'River',
+    email: '',
+    hasEmail: false,
   },
   {
-    name: 'Archita',
+    name: 'Archita Harathi',
     packageSize: 'Heavy - 2 packages',
     location: 'Choates',
+    email: 'archita.22@dart.edu',
+    hasEmail: true,
   },
   {
-    name: 'Archita',
+    name: 'Archita Harathi',
     packageSize: 'Heavy - 2 packages',
     location: 'Choates',
+    email: 'archita.22@dart.edu',
+    hasEmail: true,
   }
 ]
 
 
-export default class AvailablePackages extends Component {
+export default class Deliveries extends Component {
   static navigationOptions = {
     header: null,
     };
     
-    onPress = () => {
-        //navigate to available packages modal -- insert when finished
-        //this.props.navigation.navigate('Available Packages Modal')
+    waitOrConfirm = (confirm) => {
+        if(confirm) {
+            //wait until requeststatus page is made to edit
+            //this.props.navigation.navigate('RequestStatus')
+        }
+        else {
+            //wait until requeststatus page is made to edit
+            //this.props.navigation.navigate('PendingRequestStatus')
+        }
     }
-
 
 
     render() {
@@ -43,18 +55,19 @@ export default class AvailablePackages extends Component {
             <OrangeBackground/>
             <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.06}}>
-                <Text style = {styles.header}>Available Packages</Text>
+                <Text style = {styles.header}>Deliveries</Text>
                 <FlatList
                     data= {items}
                     keyExtractor = {(item, index) => index.toString()}
                     renderItem = {
                         ({item, index}) => {
                             return ( 
-                            <TouchableOpacity onPress={this.onPress}>
+                            <TouchableOpacity onPress={this.waitOrConfirm.bind(this, item.hasEmail)}>
                                     <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
                                         <Text style = {styles.name}>{item.name}</Text>
                                         <Text style = {styles.packageSize}>{item.packageSize}</Text>
                                         <Text style = {styles.location}>{item.location}</Text>
+                                        <Text style = {styles.email}>{item.email}</Text>
                                     </View> 
                                 </TouchableOpacity>   
                             )
@@ -85,22 +98,20 @@ const styles = StyleSheet.create({
     marginTop: -Dimensions.get("screen").height*.004,
   },
   header: {
-    fontSize: 40,
+    fontSize: 50,
     color:  '#fff',
     textAlign: 'center',
     width: Dimensions.get("screen").width,
     fontFamily: 'Montserrat-SemiBold',
     marginTop: Dimensions.get("screen").width*.01,
-    marginBottom: Dimensions.get("screen").width*.13
+    marginBottom: Dimensions.get("screen").width*.05
   },
   name: {
     fontSize: 30,
-    color: '#fff',
+    color:  '#fff',
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.03,
-    paddingTop: Dimensions.get("screen").height*.02,
-    paddingHorizontal: Dimensions.get("screen").width*.05,
+    marginLeft: Dimensions.get("screen").width*.02,
   },
   packageSize: {
     fontSize: 25,
@@ -108,7 +119,6 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.02,
-    paddingHorizontal: Dimensions.get("screen").width*.05,
   },
   location: {
     fontSize: 25,
@@ -116,14 +126,19 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.02,
-    paddingHorizontal: Dimensions.get("screen").width*.05,
-    paddingBottom: Dimensions.get("screen").height*.02,
+  },
+  email: {
+    fontSize: 22,
+    color:  '#fff',
+    textAlign: 'left',
+    fontFamily: 'Montserrat-SemiBold',
+    marginLeft: Dimensions.get("screen").width*.02,
   },
   rectangles: {
     width: Dimensions.get("screen").width*.90,
     height: Dimensions.get("screen").height*.16,
-    justifyContent: 'space-between',
-    marginTop: Dimensions.get("screen").height*.015,
+    marginTop: 10,
   },
 });
+
 

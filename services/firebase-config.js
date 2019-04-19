@@ -1,6 +1,6 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
-let config = {
+const config = {
     apiKey: "AIzaSyAzGYF_utpdoSiWw90hV9P-8p-rzbQ81qU",
     authDomain: "shopu-e80e1.firebaseapp.com",
     databaseURL: "https://shopu-e80e1.firebaseio.com",
@@ -8,4 +8,5 @@ let config = {
     storageBucket: "shopu-e80e1.appspot.com",
     messagingSenderId: "585092098254"
   };
-firebase.initializeApp(config);
+
+export default firebase.initializeApp(config);

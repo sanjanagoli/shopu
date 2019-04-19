@@ -5,14 +5,7 @@ import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 
-
-componentWillMount = () => {
-  console.log("reached");
-  var deliveryObjects = firebase.database().ref('deliveries/');
-  this.state.deliveryArray = deliveryObjects.on('value', function(snapshot) {
-    snapshot.val();
-  });
-}
+var deliveryObjects;
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -40,14 +33,24 @@ export default class AvailablePackages extends Component {
     header: null,
     };
 
-    
+    componentWillMount () {
+      
+      deliveryObjects = firebase.database().ref('deliveries');
+    }
 
     constructor(props) {
       super(props);
       this.state = {
-        deliveryArray: {}
-      };
-    }
+        deliveryArray: []
+      }
+
+      deliveryObjects.on('value', function(snapshot) {
+        this.setState(
+            { deliveryArray: snapshot.val() }
+        );
+      });
+    };
+    
 
     onPress = () => {
         //navigate to available packages modal -- insert when finished

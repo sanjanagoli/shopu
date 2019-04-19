@@ -5,6 +5,10 @@ import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from './../components/Toolbar'
 
 const window = Dimensions.get("window")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 75fcfbec91e5403df64781cd39ca0101de9e35af
 let colors = ['#605DF1', '#6DC4E0']
 
 export default class RequestStatusTest extends React.Component { 

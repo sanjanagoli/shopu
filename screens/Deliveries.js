@@ -40,7 +40,7 @@ export default class Deliveries extends Component {
     waitOrConfirm = (confirm) => {
         if(confirm) {
             //wait until requeststatus page is made to edit
-            //this.props.navigation.navigate('RequestStatus')
+            this.props.navigation.navigate('RequestStatus', {isConfirmed: true});
         }
         else {
             //wait until requeststatus page is made to edit

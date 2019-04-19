@@ -3,7 +3,16 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
+import firebase from 'firebase';
 
+
+componentWillMount = () => {
+  console.log("reached");
+  var deliveryObjects = firebase.database().ref('deliveries/');
+  this.state.deliveryArray = deliveryObjects.on('value', function(snapshot) {
+    snapshot.val();
+  });
+}
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -30,7 +39,16 @@ export default class AvailablePackages extends Component {
   static navigationOptions = {
     header: null,
     };
+
     
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        deliveryArray: {}
+      };
+    }
+
     onPress = () => {
         //navigate to available packages modal -- insert when finished
         //this.props.navigation.navigate('Available Packages Modal')
@@ -46,16 +64,16 @@ export default class AvailablePackages extends Component {
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.06}}>
                 <Text style = {styles.header}>Available Packages</Text>
                 <FlatList
-                    data= {items}
+                    data= {this.state.deliveryArray}
                     keyExtractor = {(item, index) => index.toString()}
                     renderItem = {
                         ({item, index}) => {
                             return ( 
                             <TouchableOpacity onPress={this.onPress}>
                                     <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
-                                        <Text style = {styles.name}>{item.name}</Text>
+                                        <Text style = {styles.name}>{item.buyer}</Text>
                                         <Text style = {styles.packageSize}>{item.packageSize}</Text>
-                                        <Text style = {styles.location}>{item.location}</Text>
+                                        {/* <Text style = {styles.location}>{item.location}</Text> */}
                                     </View> 
                                 </TouchableOpacity>   
                             )

@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Dimensions, Image} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
 
-const window = Dimensions.get("window")
+const window = Dimensions.get("window");
+
 
 export default class Rating extends React.Component {
   static navigationOptions = {

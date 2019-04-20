@@ -89,6 +89,10 @@ export default class AvailablePackages extends Component {
             
         });
     }
+
+    getEmail = () => {
+      
+    }
     
     onPress = () => {
         //navigate to available packages modal -- insert when finished

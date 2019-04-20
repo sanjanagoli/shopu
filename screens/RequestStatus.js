@@ -1,127 +1,99 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
-import Toolbar from './../components/Toolbar'
+import DropDown from './../components/DropDown';
+import Toolbar from '../components/Toolbar';
 
 const window = Dimensions.get("window")
 
-let colors = ['#605DF1', '#6DC4E0']
-
-export default class RequestStatusTest extends React.Component { 
-  constructor(props){
-    super(props)
-    this.state = {
-      items : [
-        {
-          name: 'Apple',
-          quantity: 3,
-          comment: 'Granny Smith',
-          checked: false,
-          check: require('./../assets/images/checkbox.png'),
-        },
-        {
-          name: 'Apple',
-          quantity: 3,
-          comment: 'Granny Smith',
-          checked: false, 
-          check: require('./../assets/images/checkbox.png'),
-        },
-        {
-          name: 'Apple',
-          quantity: 3,
-          comment: 'Granny Smith',
-          checked: false,
-          check: require('./../assets/images/checkbox.png'),
-        }
-      ]
-    }
-  }
-
+export default class RequestProfile extends React.Component { 
   static navigationOptions = {
     header: null,
     };
+  
+  
+  statusUpdate = () => {
+    this.props.navigation.navigate('StatusModal')
+  }
 
-  renderCheck = (checkBoxState) => {
-        console.log("reached: " + checkBoxState);
-        if (checkBoxState) {
-            return (<Image style={styles.checkIcon} source={require('./../assets/images/check.png')} />)
+  browseOptions = () => {
+    this.props.navigation.navigate('ShoppingList')
+  }
+
+  constructor(props) {
+    super(props);
+      this.state = { pending: false, item:
+        {
+          firstName: 'Ijemma',
+          lastName: 'Harathi',
+          location: 'River',
+          phoneNumber: '555-555-5555',
+          email: 'iso@dartmouth.edu',
         }
-        return (<Image source ={require('./../assets/images/checkbox.png')} style={styles.checkIcon} />)
+      };
+  }
+
+  setPicker = (itemValue) => {
+    this.setState({ pickerSelection: itemValue})
   }
   
   render() {
-    return (
+    if(this.state.pending) {
+      return (
         <View style={styles.container}>
-            <OrangeBackground/>
-            <Toolbar pageType={'Driver'} marginBottom={-Dimensions.get('screen').height*.02}/>
-            
-            <View style={styles.subView}>
+          <OrangeBackground/>
+          <Toolbar/>
+            <TouchableOpacity style={styles.subView} onPress={this.browseOptions}>
               <Image style={styles.arrowIcon}
                   source={require('./../assets/images/back_arrow.png')} />
-              <Text style={styles.browseText}>Browse Other Options</Text>
-            </View>
+              <Text style={styles.browseText}>See Other Deliveries</Text>
+            </TouchableOpacity>
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
-                  <View style={styles.nameBox}>
-                    <Text style={styles.nameText}>Bob - CVS</Text>
-                  </View>
-                  <View style={[styles.tableRows, {marginTop: Dimensions.get('screen').height*0.06, backgroundColor: '#6DC4E0'}]}>
-                    <Text style={styles.itemInfo}>Item</Text>
-                    <Text style={styles.itemInfo}>Q</Text>
-                    <Text style={styles.itemInfo}>Comments</Text>
-                    <Image style={styles.checkIcon}
-                        source={require('./../assets/images/check.png')} />
-                  </View>
-                  <View style={styles.table}>
-                      <FlatList
-                      data={this.state.items}
-                      keyExtractor={(item, index) => index.toString()}
-                      extraData={this.state}
-                      renderItem={
-                        ({item, index}) => {
-                        return (
-                            <View style={[styles.tableRows, {backgroundColor: colors[index % colors.length]}]}>
-                                <Text style={styles.itemsText}>{item.name}</Text>
-                                <Text style={styles.itemsText}>{item.quantity}</Text>
-                                <Text style={styles.itemsText}>{item.comment}</Text>
-                                <TouchableOpacity 
-                                    onPress={() => {
-                                      newItems = this.state.items;
-                                      newItems[index].checked = !newItems[index].checked;
-                                      console.log(this.state.items[index].checked);
-                                      this.setState({items: newItems})
-                                    }}>
-                                    {this.renderCheck(this.state.items[index].checked)}
-                                </TouchableOpacity>
-                                
-                            </View>
-                      )
-                      }
-                    }
-                    />
-                  </View>
-                  <View style={{marginTop: -Dimensions.get('screen').height*.04}}>
-                    <View style={{flexDirection: 'row' }}>
-                      <Text style={styles.dropText}>Phone: </Text>
-                      <Text style={styles.dropText}>123-456-789 </Text>
-                    </View>
-                    <View style={{flexDirection: 'row' }}>
-                      <Text style={styles.dropText}>Email: </Text>
-                      <Text style={styles.dropText}>ab.22@dartmouth.edu </Text>
-                    </View>
-                    <View style={{flexDirection: 'row' }}>
-                      <Text style={styles.dropText}>Location: </Text>
-                      <Text style={styles.dropText}>Baker </Text>
-                    </View>
-                  </View>
-                  <View style={styles.button}>
-                      <PrimaryButton title={'Status Update'} backgroundColor={ '#6DC4E0'} height={Dimensions.get('screen').height*.06} fontSize={28}/>
-                  </View>
+                <View style={styles.itemBox}>
+                  <Text style={styles.itemText}>Waiting for Confirmation</Text>
                 </View>
+                <View style={{textAlign: 'center'}}>
+                  <Text style={styles.descriptionText}>Come back when {this.state.item.firstName}{"'"}s mail request is confirmed!</Text>
+                </View>
+                <View style={styles.addToCartButton}>
+                    <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
+                </View>
+              </View>
             </View>
         </View>
-    );
+      );
+    } else {
+      return (
+        <View style={styles.container}>
+          <OrangeBackground/>
+          <Toolbar/>
+            <TouchableOpacity style={styles.subView} onPress={this.browseOptions}>
+              <Image style={styles.arrowIcon}
+                  source={require('./../assets/images/back_arrow.png')} />
+              <Text style={styles.browseText}>See Other Deliveries</Text>
+            </TouchableOpacity>
+            <View style={styles.mainView}>
+              <View style={styles.whiteCard}>
+                <View style={styles.itemBox}>
+                  <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
+                </View>
+                <View style={styles.textContainer}>
+                  <Text style={styles.generalText}>{this.state.item.firstName} {this.state.item.lastName}</Text>
+                  <Text style={styles.generalText}>{this.state.item.email}</Text>
+                  <Text style={styles.generalText}>{this.state.item.phoneNumber}</Text>
+                  <Text style={styles.generalText}>{this.state.item.location}</Text>
+                </View>
+                <View style={styles.otherAddToCart}>
+                    <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
+                </View>            
+              </View>
+            </View>
+        </View>
+      );
+    }
+    
   }
 }
 
@@ -133,28 +105,36 @@ const styles = StyleSheet.create({
   mainView: {
     justifyContent: 'center',
     alignItems: 'center', 
-    marginTop: Dimensions.get('screen').height*.02
+    marginTop: window.height*.02
   },
   subView: {
     flexDirection: 'row', 
-    paddingHorizontal: Dimensions.get('screen').width*.07,
-    marginTop: Dimensions.get('screen').height*.03,
+    paddingHorizontal: window.width*.05,
+    marginTop: window.height*.02
+  },
+  textContainer: {
+    textAlign: 'left', 
+    marginTop: Dimensions.get('screen').height*.05
+  },
+  toolbar: {
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    marginTop: window.height*.05, 
+    paddingHorizontal: window.width*.05
   },
   arrowIcon: {
-    width: 25,
-    height: 20,
+    width: 30,
+    height: 25,
   },
   browseText: {
     fontSize: 18,
     fontFamily: 'Montserrat-Regular',
     color: '#fff',
-    width: 200,
-    height: Dimensions.get('screen').height*.03,
-    marginLeft: Dimensions.get('screen').width*.02,
+    marginLeft: window.width*.02
   },
   whiteCard: {
-    width: Dimensions.get('screen').width*.9,
-    height: Dimensions.get('screen').height*.7,
+    width: window.width*.9,
+    height: window.height*.65,
     backgroundColor: '#fff',
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
@@ -162,62 +142,43 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     alignItems: 'center',
   },
-  nameBox: {
-    width: Dimensions.get('screen').width*.8,
-    height: Dimensions.get('screen').height*.1,
+  itemBox: {
+    width: window.width*.8,
+    height: window.height*.22,
     backgroundColor: '#605DF1',
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
-    marginTop: Dimensions.get('screen').height*.02,
-    justifyContent: 'center', 
-    alignItems: 'center'
+    marginTop: window.height*.02,
+    justifyContent: 'center'
   },
-  nameText: {
+  
+  itemText: {
+    fontSize: 40,
+    fontFamily: 'Montserrat-Bold',
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: window.height*.02
+  },
+  descriptionText: {
     fontSize: 40,
     fontFamily: 'Montserrat-SemiBold',
-    color: '#fff',
-    width: 215,
-    height: Dimensions.get('screen').height*.06,
-  },
-  itemInfo: {
-    fontSize: 18,
-    fontFamily: 'Montserrat-SemiBold',
-    color: '#fff',
-  },
-  itemsText: {
-    fontSize: 18,
-    fontFamily: 'Montserrat-Medium',
-    color: '#fff',
-  },
-  dropText: {
-    fontSize: Dimensions.get('screen').height*.025,
-    fontFamily: 'Montserrat-Regular',
     color: '#605DF1',
-    textAlign: 'left',
-    marginBottom: Dimensions.get('screen').height*.01,
+    marginHorizontal: Dimensions.get('screen').width*0.03,
+    marginTop: window.height*.05
   },
-  checkIcon: {
-    width: 22, 
-    height: 22,
+  generalText: {
+    fontSize: 30,
+    fontFamily: 'Montserrat-SemiBold',
+    color: '#605DF1',
+    marginHorizontal: Dimensions.get('screen').width*0.03,
+    marginTop: window.height*.01
   },
-  table : {
-    height: Dimensions.get('screen').height*.3, 
-    width: Dimensions.get('screen').width*.8,
+  addToCartButton: {
+    marginTop: window.height*.08
   },
-  tableRows: {
-    padding: Dimensions.get('screen').height*.02, 
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    opacity: 0.9, 
-    height: Dimensions.get('screen').height*.3/4, 
-    width: Dimensions.get('screen').width*.8,
-  },
-  button : {
-    shadowOffset: {width: 0, height: 5},
-    shadowColor: '#000000', 
-    shadowOpacity: 0.25, 
-    shadowRadius: 5,
+  otherAddToCart: {
+    marginTop: window.height*.1
   },
 });

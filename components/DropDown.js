@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Picker, Modal, TouchableOpacity, Image, Dimensi
 const window = Dimensions.get("window")
 
 export default class DropDown extends React.Component {
+
   items = () => {
     let items = this.props.items
     let itemMap = items.map((item)=> {
@@ -23,6 +24,7 @@ export default class DropDown extends React.Component {
   }
 
   togglePicker() {
+    console.log('testing right here');
     this.setState({
       pickerDisplayed: !this.state.pickerDisplayed
     })
@@ -42,7 +44,7 @@ export default class DropDown extends React.Component {
             onValueChange={(itemValue, itemIndex) => {this.props.setState(itemValue)}}>
             {this.items()}
             </Picker>
-            <TouchableOpacity onPress={() => this.togglePicker()}>
+            <TouchableOpacity style={styles.doneTouchable} onPress={() => this.togglePicker()}>
               <Text style={styles.doneText}>Done</Text>
             </TouchableOpacity>
         </Modal>
@@ -57,13 +59,14 @@ const styles = StyleSheet.create({
     width: 21,
     height: 26,
   },
-  doneText: {
+  doneTouchable: {
     position: 'absolute', 
-    top: window.height*.75, 
+    top: window.height*.77, 
     left: window.width*.8,
+  },
+  doneText: {
     fontFamily: 'Montserrat-Medium',
-    fontSize: 15,
+    fontSize: 17,
     color: '#605DF1'
-
   }
 });

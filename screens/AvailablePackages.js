@@ -5,7 +5,6 @@ import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 
-var deliveryObjects;
 
 let colors = ['#6DC4E0', '#605DF1']
 
@@ -33,25 +32,64 @@ export default class AvailablePackages extends Component {
     header: null,
     };
 
-    componentWillMount () {
-      
-      deliveryObjects = firebase.database().ref('deliveries');
-    }
-
     constructor(props) {
       super(props);
       this.state = {
-        deliveryArray: []
-      }
-
-      deliveryObjects.on('value', function(snapshot) {
-        this.setState(
-            { deliveryArray: snapshot.val() }
-        );
-      });
+        deliveryArray: [],
+        userArray: []
+      } 
     };
+
+    // componentWillMount () {
+      
+    //   var deliveryObjects = firebase.database().ref('deliveries');
+      
+    //   deliveryObjects.on('value', function(snapshot) {
+    //     this.setState(
+    //       { deliveryArray: snapshot.val() }
+    //     );
+    //     console.info(snapshot.val());
+    //   }.bind(this));
+      
+    // } 
+
     
 
+    componentWillMount() {
+      this.fetchData();
+    }
+    fetchData = async () => {
+        var data1 = [];
+        var data2 = [];
+        var fireBaseResponse = firebase.database().ref('deliveries');
+        fireBaseResponse.once('value').then(snapshot => {
+            snapshot.forEach(item => {
+                var temp = item.val();
+                data1.push(temp);
+                console.log(item.key);
+                return false;
+            });
+        
+            this.setState (
+              {deliveryArray: data1} 
+            )
+            // console.log(this.state.deliveryArray);
+        });
+        fireBaseResponse = firebase.database().ref('users');
+        fireBaseResponse.once('value').then(snapshot => {
+            snapshot.forEach(item => {
+                var temp = item.val();
+                data2.push(temp);
+                return false;
+            });
+           
+            this.setState (
+              {userArray: data2} 
+            )
+            
+        });
+    }
+    
     onPress = () => {
         //navigate to available packages modal -- insert when finished
         //this.props.navigation.navigate('Available Packages Modal')
@@ -64,6 +102,7 @@ export default class AvailablePackages extends Component {
         <View>
             <OrangeBackground/>
             <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
+            {/* {console.log(items)} */}
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.06}}>
                 <Text style = {styles.header}>Available Packages</Text>
                 <FlatList
@@ -71,12 +110,12 @@ export default class AvailablePackages extends Component {
                     keyExtractor = {(item, index) => index.toString()}
                     renderItem = {
                         ({item, index}) => {
-                            return ( 
-                            <TouchableOpacity onPress={this.onPress}>
+                            return (  
+                            <TouchableOpacity onPress={this.onPress}>                              
                                     <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
                                         <Text style = {styles.name}>{item.buyer}</Text>
                                         <Text style = {styles.packageSize}>{item.packageSize}</Text>
-                                        {/* <Text style = {styles.location}>{item.location}</Text> */}
+                                        <Text style = {styles.location}>{item.location}</Text>
                                     </View> 
                                 </TouchableOpacity>   
                             )

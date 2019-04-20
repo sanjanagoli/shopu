@@ -65,8 +65,8 @@ const driverStackNavigator = createStackNavigator({
   RequestOptions: {
     screen: RequestOptions
   },
-  RequestProfile: {
-    screen: RequestProfile
+  RequestStatus: {
+    screen: RequestStatus
   },
   ShoppingList: {
     screen: ShoppingList

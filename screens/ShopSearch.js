@@ -126,13 +126,13 @@ export default class ShopSearch extends React.Component {
                   <View style={{marginLeft: window.width*.6, marginTop: -window.height*0.03}}>
                     <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} items={sizeItems}/>
                   </View>
-                  <View style={styles.searchLine}/>  
-
-                    
+                  <View style={styles.searchLine}/>     
                 </View>
                 <View style={styles.whiteBox2}> 
                   <View style={styles.rowBox}>
                     <Text style={styles.searchText2}>How many packages do you have?</Text>
+                    <Image style={styles.package}
+                      source={require('./../assets/images/package.png')} />
                   </View>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
                   <View style={{marginTop: -window.height*.03, marginLeft: window.width*.6}}>
@@ -239,6 +239,12 @@ export default class ShopSearch extends React.Component {
       textAlign: 'left',
       marginRight: window.width*.33,
     },
+    package:{
+      width: 25,
+      height: 25,
+      marginTop: window.height*0.015,
+      marginLeft: -window.width*0.41,
+    }
   });
   
   

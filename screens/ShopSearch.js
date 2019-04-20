@@ -8,7 +8,7 @@ import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
 import moment from 'moment'
 
-var newPostKey = firebase.database().ref().child('posts').push().key
+var newDeliveryKey = firebase.database().ref().child('posts').push().key
 
 let sizeItems = 
   [
@@ -65,7 +65,7 @@ export default class ShopSearch extends React.Component {
     
     letsgo = () => {
       this.props.navigation.navigate('LoadingScreen')
-      database.ref('deliveries/' + 'delivery'+newPostKey).set({
+      database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
         buyer: 'ijemma',
         driver: 'bob',
         packageSize: this.state.pickerSelectionSize,

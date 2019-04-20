@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Dimensions, Image, TouchableOpacity, Text} from 'react-native';
 
 export default class Toolbar extends React.Component {
     static navigationOptions = {
@@ -13,21 +13,18 @@ export default class Toolbar extends React.Component {
     person = () => {
         this.props.navigation.navigate('AccountProfile')
     }
-    cart = () => {
-        this.props.navigation.navigate('YourCart')
-    }
 
     render() {
       return (
            <View style={[styles.formatInBox, {marginBottom: this.props.marginBottom}]}>
-            {this.props.pageType == 'Driver' ? 
+            <View style={{textAlign: 'center'}}>
+                <Text style={styles.titleText}>Hiey girl</Text>
+            </View>
+            {this.props.pageType == 'Driver' ?
             <TouchableOpacity onPress={this.bag}>
                 <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
-            </TouchableOpacity>
-            :
-            <TouchableOpacity onPress={this.cart}>
-                <Image source ={require('./../assets/images/scart.png')} style={styles.cart}/> 
-            </TouchableOpacity>}
+            </TouchableOpacity> 
+            : null}
             <TouchableOpacity onPress={this.person}>
                 <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/> 
             </TouchableOpacity>
@@ -42,23 +39,29 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between', 
         width: Dimensions.get('screen').width,
         alignItems: 'center',
-        height: 43,
-        backgroundColor: '#FF715B',
+        height: Dimensions.get('screen').height*.06,
+        backgroundColor: '#B3F0F4',
         marginTop: Dimensions.get('screen').height*.04,
+        textAlign: 'center'
     },
     person:{
         width: 43,
         height: 40,
-        marginRight: 15,
+        marginLeft: Dimensions.get('screen').width*.85,
+        marginRight: Dimensions.get('screen').width*.5,
+
     },
     bag:{
-        width: 42,
-        height: 38,
-        marginLeft: 15,
-    },
-    cart:{
-        width: 44,
+        width: 36,
         height: 40,
-        marginLeft: 15,
+        marginLeft: Dimensions.get('screen').width*.04,
+        marginRight: Dimensions.get('screen').width*-.5,
     },
+    titleText:{
+        fontFamily: 'Montserrat-SemiBold',
+        fontSize: 30,
+        color: '#262626',
+        marginLeft: Dimensions.get('screen').width*.45,
+        marginRight: Dimensions.get('screen').width*-45,
+    }
   });

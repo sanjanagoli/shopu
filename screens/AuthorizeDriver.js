@@ -4,6 +4,7 @@ import variables from './../assets/data/variables';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
+import firebase from 'firebase';
 
 export default class AuthorizeDriver extends React.Component {
     static navigationOptions = {

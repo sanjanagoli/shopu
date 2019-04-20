@@ -77,25 +77,11 @@ export default class ShopSearch extends React.Component {
         accepted: false
       })
       }
-      else if (PixelRatio.get() === 3){
-        return 60
-      }
-    }
-<<<<<<< HEAD
-  
-    setPickerSize = (itemValue) => {
-      this.setState({ pickerSelectionSize: itemValue})
-    }
-  
-    setPickerQuant = (itemValue) => {
-      this.setState({ pickerSelectionQuant: itemValue})
-=======
-
+    
     componentWillMount = () => {
       FontLoad.then((res) => {
         this.setState({ fontLoaded: true });
       })
->>>>>>> 2f64677db6bec57040c29802f69e47403f69914c
     }
   
     static navigationOptions = {

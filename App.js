@@ -7,7 +7,6 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator} fro
 import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
-import DriverSearch from './screens/DriverSearch';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import OrderComplete from './screens/OrderComplete';
@@ -15,6 +14,7 @@ import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestProfile from './screens/RequestProfile';
+import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';

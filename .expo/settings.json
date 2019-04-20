@@ -3,5 +3,5 @@
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "wb-r8n"
+  "urlRandomness": null
 }

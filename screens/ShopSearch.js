@@ -87,13 +87,10 @@ export default class ShopSearch extends React.Component {
     return (
       this.state.fontLoaded ? (
         <View style={styles.container}>
-          <OrangeBackground/>
           <Toolbar navigation={this.props.navigation}/>
           <View style={styles.mainView}>
             <Text style={{color: '#ffffff', textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>Let{`'`}s</Text>
             <Text style={{color: '#ffffff',textAlign: 'center',fontFamily: 'Montserrat-SemiBold', fontSize: this.renderFontSize()}}>mailU!</Text>
-            <View style={styles.slantedBlueRectangle} />
-            <View style={styles.slantedPurpleRectangle} />
             <View style={styles.whiteCard}>
               <View style={styles.box}>
                 <View style={styles.rowBox}>
@@ -135,26 +132,12 @@ export default class ShopSearch extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F3F3F3',
   },
   mainView: {
     justifyContent: 'center',
     alignItems: 'center', 
-    marginTop: window.height*.02
-  },
-  slantedBlueRectangle: {
-    backgroundColor: '#6DC4E0',
-    transform:([{ rotateZ:'10deg'}]),
-    width: window.width*1.5,
-    height: window.height*.13,
-    marginTop: window.height*.1,
-  },
-  slantedPurpleRectangle: {
-    backgroundColor: '#605DF1',
-    transform:([{ rotateZ:'10deg'}]),
-    width: window.width*1.5,
-    height: window.height*.13,
-    marginTop: window.height*.03,
+    //marginTop: window.height*.02
   },
   whiteCard: {
     backgroundColor: '#ffffff',
@@ -166,7 +149,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: window.height*-.36,
+    //marginTop: window.height*-.36,
     flexDirection: 'column',
   },
   searchLine: {

@@ -1,10 +1,14 @@
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity, PixelRatio} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
+import moment from 'moment'
+
+var newDeliveryKey = firebase.database().ref().child('posts').push().key
 
 let sizeItems = 
   [
@@ -33,17 +37,51 @@ let quantItems =
     value: '6+ Packages',
   },
   ]
-  const window = Dimensions.get("window")
-  export default class NewShopSearch extends React.Component {
-  
-    renderFontSize = () => {
-      if (PixelRatio.get() === 2) {
-        return 90
+
+const database = firebase.database();
+const window = Dimensions.get("window")
+export default class ShopSearch extends React.Component {
+
+  renderFontSize = () => {
+    if (PixelRatio.get() === 2) {
+      return 90
+    }
+    else if (PixelRatio.get() === 3){
+      return 60
+    }
+  }
+
+  setPickerSize = (itemValue) => {
+    this.setState({ pickerSelectionSize: itemValue})
+  }
+
+  setPickerQuant = (itemValue) => {
+    this.setState({ pickerSelectionQuant: itemValue})
+  }
+
+  static navigationOptions = {
+    header: null,
+    };
+    
+    letsgo = () => {
+      this.props.navigation.navigate('LoadingScreen')
+      database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
+        buyer: 'ijemma',
+        driver: 'bob',
+        packageSize: this.state.pickerSelectionSize,
+        packageNumber: this.state.pickerSelectionQuant,
+        date: moment().format(),
+        status: 0,
+        cost: 3,
+        confirmedEmail: false,
+        accepted: false
+      })
       }
       else if (PixelRatio.get() === 3){
         return 60
       }
     }
+<<<<<<< HEAD
   
     setPickerSize = (itemValue) => {
       this.setState({ pickerSelectionSize: itemValue})
@@ -51,6 +89,13 @@ let quantItems =
   
     setPickerQuant = (itemValue) => {
       this.setState({ pickerSelectionQuant: itemValue})
+=======
+
+    componentWillMount = () => {
+      FontLoad.then((res) => {
+        this.setState({ fontLoaded: true });
+      })
+>>>>>>> 2f64677db6bec57040c29802f69e47403f69914c
     }
   
     static navigationOptions = {

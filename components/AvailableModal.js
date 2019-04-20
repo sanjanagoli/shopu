@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator, TouchableOpacity} from 'react-native';
 import PrimaryButton from './PrimaryButton';
+import firebase from 'firebase';
+
+
+const database = firebase.database();
 
 
 export default class AvailableModal extends React.Component {
@@ -13,9 +17,13 @@ export default class AvailableModal extends React.Component {
     header: null,
     };
   
-  // accept = () => {
-  //   this.props.navigation.navigate('AvailablePackages')
-  //   }
+  accept = () => {
+    this.props.navigation.navigate('AvailablePackages')
+    database.ref('deliveries/' + 'delivery').update({
+      accepted: true,
+      driver:  database.ref('users/' + 'ijemma').push().key
+    })
+  }
 
   render() {
     return (

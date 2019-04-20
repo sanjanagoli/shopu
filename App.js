@@ -35,8 +35,8 @@ const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
   },
-  YourResults: {
-    screen: YourResults
+  LoadingScreen: {
+    screen: LoadingScreen
   },
   Item: {
     screen: Item

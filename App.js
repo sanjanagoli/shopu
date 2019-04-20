@@ -35,8 +35,8 @@ const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
   },
-  YourResults: {
-    screen: YourResults
+  LoadingScreen: {
+    screen: LoadingScreen
   },
   Item: {
     screen: Item
@@ -65,8 +65,8 @@ const driverStackNavigator = createStackNavigator({
   RequestOptions: {
     screen: RequestOptions
   },
-  RequestProfile: {
-    screen: RequestProfile
+  RequestStatus: {
+    screen: RequestStatus
   },
   ShoppingList: {
     screen: ShoppingList

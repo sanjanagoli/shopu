@@ -1,10 +1,14 @@
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity, PixelRatio} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import FontLoad from './../components/FontLoad';
 import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
+import moment from 'moment'
+
+var newDeliveryKey = firebase.database().ref().child('posts').push().key
 
 let sizeItems = 
   [
@@ -34,7 +38,7 @@ let quantItems =
   },
   ]
 
-
+const database = firebase.database();
 const window = Dimensions.get("window")
 export default class ShopSearch extends React.Component {
 
@@ -61,6 +65,17 @@ export default class ShopSearch extends React.Component {
     
     letsgo = () => {
       this.props.navigation.navigate('LoadingScreen')
+      database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
+        buyer: 'ijemma',
+        driver: 'bob',
+        packageSize: this.state.pickerSelectionSize,
+        packageNumber: this.state.pickerSelectionQuant,
+        date: moment().format(),
+        status: 0,
+        cost: 3,
+        confirmedEmail: false,
+        accepted: false
+      })
       }
 
     constructor(props) {
@@ -71,10 +86,6 @@ export default class ShopSearch extends React.Component {
         pickerSelectionSize: 'Choose Option',
         pickerSelectionQuant: 'Choose Option',
       }
-    }
-    
-    search = () => {
-      this.props.navigation.navigate('LoadingScreen')
     }
 
     componentWillMount = () => {

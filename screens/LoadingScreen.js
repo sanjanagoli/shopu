@@ -12,13 +12,12 @@ export default class LoadingScreen extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-            <OrangeBackground/>
-            <View style={styles.mainView}>
-                <Text style={styles.matchText}>Waiting for a Match!</Text>
-                <View style={styles.blueBox}>
-                    <ActivityIndicator size='large' color='#FF715B'/>
-                </View>
-            </View>
+          <View style={styles.mainView}>
+              <View style={styles.whiteBox}>
+                  <ActivityIndicator size='large' color='#19C6D1'/>
+              </View>
+              <Text style={styles.matchText}>Waiting for a Match</Text>
+          </View>
         </View>
     );
   }
@@ -27,7 +26,7 @@ export default class LoadingScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F3F3F3',
     alignItems: 'center',
     justifyContent: 'center',
     height: Dimensions.get("screen").height,
@@ -38,22 +37,26 @@ const styles = StyleSheet.create({
     alignItems: 'center', 
   },
   matchText: {
-    color: '#ffffff',
+    color: '#212121',
     textAlign: 'center',
     fontFamily: 'Montserrat-SemiBold',
-    fontSize: 45
+    fontSize: 30,
+    marginTop: -window.height*.35,
   },
-  blueBox: {
-    backgroundColor: '#6DC4E0',
+  whiteBox: {
+    backgroundColor: '#ffffff',
     width:Dimensions.get("screen").width*.9,
-    height: Dimensions.get("screen").height*.4,
+    height: Dimensions.get("screen").height*.6,
     justifyContent: 'center',
     alignItems: 'center',
     shadowOffset: { width: 0, height: Dimensions.get("screen").height*.005 },
     shadowColor: '#000000',
     shadowOpacity: 0.25,
     shadowRadius: 5,
-    marginTop: window.height*.05
+    position: 'absolute',
+    borderColor: '#19C6D1',
+    borderWidth: 1.5,
+    borderRadius: 5,
   },
   header:{
     color: '#605DF1',

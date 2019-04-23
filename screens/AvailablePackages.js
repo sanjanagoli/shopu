@@ -6,6 +6,8 @@ import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 
 
+
+
 let colors = ['#6DC4E0', '#605DF1']
 
 let items = [
@@ -26,6 +28,27 @@ let items = [
   }
 ]
 
+function writeNewPost(uid, username, email, firstName, lastName, location) {
+  // A post entry.
+  var user = {
+    username: username,
+    email: email,
+    firstName: firstName,
+    lastName: lastName,
+    location: location
+
+  };
+
+  // Get a key for a new Post.
+  var newUserKey = firebase.database().ref().child('users').push().key;
+
+  // Write the new post's data simultaneously in the posts list and the user's post list.
+  var updates = {};
+  updates['/users/' + 'user' + newUserKey] = user;
+  //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+  return firebase.database().ref().update(updates);
+}
 
 export default class AvailablePackages extends Component {
   static navigationOptions = {
@@ -36,7 +59,7 @@ export default class AvailablePackages extends Component {
       super(props);
       this.state = {
         deliveryArray: [],
-        userArray: []
+        userArray: {}
       } 
     };
 
@@ -56,6 +79,7 @@ export default class AvailablePackages extends Component {
     
 
     componentWillMount() {
+      //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
       this.fetchData();
     }
     fetchData = async () => {
@@ -66,32 +90,49 @@ export default class AvailablePackages extends Component {
             snapshot.forEach(item => {
                 var temp = item.val();
                 data1.push(temp);
-                console.log(item.key);
+                
                 return false;
             });
         
             this.setState (
               {deliveryArray: data1} 
             )
-            // console.log(this.state.deliveryArray);
+            
         });
         fireBaseResponse = firebase.database().ref('users');
         fireBaseResponse.once('value').then(snapshot => {
             snapshot.forEach(item => {
                 var temp = item.val();
-                data2.push(temp);
+                data2.push({
+                  key: item.key,
+                  value: temp
+                });
                 return false;
             });
            
             this.setState (
               {userArray: data2} 
             )
-            
+            console.log(this.state.userArray);
         });
+
+        
     }
 
-    getEmail = () => {
-      
+    getFirstName = (userId) => {
+      for (i = 0; i < this.state.userArray.length; i++) {
+        if(this.state.userArray[i].key == userId) {
+          return this.state.userArray[i].value.firstName;
+        }
+      }
+    }
+
+    getLocation = (userId) => {
+      for (i = 0; i < this.state.userArray.length; i++) {
+        if(this.state.userArray[i].key == userId) {
+          return this.state.userArray[i].value.location;
+        }
+      }
     }
     
     onPress = () => {
@@ -117,9 +158,9 @@ export default class AvailablePackages extends Component {
                             return (  
                             <TouchableOpacity onPress={this.onPress}>                              
                                     <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
-                                        <Text style = {styles.name}>{item.buyer}</Text>
+                                        <Text style = {styles.name}>{this.getFirstName(item.buyer)}</Text>
                                         <Text style = {styles.packageSize}>{item.packageSize}</Text>
-                                        <Text style = {styles.location}>{item.location}</Text>
+                                        <Text style = {styles.location}>{this.getLocation(item.buyer)}</Text>
                                     </View> 
                                 </TouchableOpacity>   
                             )
@@ -186,7 +227,7 @@ const styles = StyleSheet.create({
   },
   rectangles: {
     width: Dimensions.get("screen").width*.90,
-    height: Dimensions.get("screen").height*.16,
+    height: Dimensions.get("screen").height*.20,
     justifyContent: 'space-between',
     marginTop: Dimensions.get("screen").height*.015,
   },

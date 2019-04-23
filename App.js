@@ -15,13 +15,11 @@ import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
 import RequestStatus from './screens/RequestStatus';
 import RequestProfile from './screens/RequestProfile';
-import RequestStatus from './screens/RequestStatus';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
-import RequestStatus from './screens/RequestStatus';
 import Payment from './screens/DriverPayment';
 import LoadingScreen from './screens/LoadingScreen';
 

@@ -128,7 +128,7 @@ export default class ShopSearch extends React.Component {
                   </View>
                   <View style={styles.searchLine}/>     
                 </View>
-                <View style={styles.whiteBox2}> 
+                <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>
                     <Text style={styles.searchText2}>How many packages do you have?</Text>
                     <Image style={styles.package}
@@ -172,22 +172,6 @@ export default class ShopSearch extends React.Component {
       alignItems: 'center',
       justifyContent: 'center',
       marginTop: window.height*.07,
-      flexDirection: 'column',
-      borderColor: '#19C6D1',
-      borderWidth: 1.5,
-      borderRadius: 5,
-    },
-    whiteBox2: {
-      backgroundColor: '#ffffff',
-      width: window.width*.9,
-      height: window.height*.27,
-      shadowOffset: {width: 0, height: 5},
-      shadowColor: '#000000',
-      shadowOpacity: 0.25,
-      shadowRadius: 5,
-      alignItems: 'center',
-      justifyContent: 'center',
-      marginTop: window.height*.06,
       flexDirection: 'column',
       borderColor: '#19C6D1',
       borderWidth: 1.5,

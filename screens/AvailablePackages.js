@@ -63,21 +63,6 @@ export default class AvailablePackages extends Component {
       } 
     };
 
-    // componentWillMount () {
-      
-    //   var deliveryObjects = firebase.database().ref('deliveries');
-      
-    //   deliveryObjects.on('value', function(snapshot) {
-    //     this.setState(
-    //       { deliveryArray: snapshot.val() }
-    //     );
-    //     console.info(snapshot.val());
-    //   }.bind(this));
-      
-    // } 
-
-    
-
     componentWillMount() {
       //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
       this.fetchData();

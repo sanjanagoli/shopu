@@ -1,35 +1,12 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
+import { StyleSheet, Text, View, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 
 
-
-
-let colors = ['#6DC4E0', '#605DF1']
-
-let items = [
-  {
-    name: 'Ijemma',
-    packageSize: 'Heavy - 1 package',
-    location: 'River',
-  },
-  {
-    name: 'Archita',
-    packageSize: 'Heavy - 2 packages',
-    location: 'Choates',
-  },
-  {
-    name: 'Archita',
-    packageSize: 'Heavy - 2 packages',
-    location: 'Choates',
-  }
-]
-
 function writeNewPost(uid, username, email, firstName, lastName, location) {
-  // A post entry.
+
   var user = {
     username: username,
     email: email,
@@ -100,8 +77,6 @@ export default class AvailablePackages extends Component {
             )
             console.log(this.state.userArray);
         });
-
-        
     }
 
     getFirstName = (userId) => {
@@ -125,16 +100,11 @@ export default class AvailablePackages extends Component {
         //this.props.navigation.navigate('Available Packages Modal')
     }
 
-
-
     render() {
     return (
-        <View>
-            <OrangeBackground/>
+      <View style={styles.container}>
             <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
-            {/* {console.log(items)} */}
-            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.06}}>
-                <Text style = {styles.header}>Available Packages</Text>
+            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01}}>
                 <FlatList
                     data= {this.state.deliveryArray}
                     keyExtractor = {(item, index) => index.toString()}
@@ -142,10 +112,12 @@ export default class AvailablePackages extends Component {
                         ({item, index}) => {
                             return (  
                             <TouchableOpacity onPress={this.onPress}>                              
-                                    <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
+                                    <View style={[styles.rectangles, {backgroundColor: '#fff'}]}>
+                                      <View style={styles.subView}>
                                         <Text style = {styles.name}>{this.getFirstName(item.buyer)}</Text>
-                                        <Text style = {styles.packageSize}>{item.packageSize}</Text>
                                         <Text style = {styles.location}>{this.getLocation(item.buyer)}</Text>
+                                      </View>
+                                      <Text style = {styles.packageSize}>{item.packageSize}</Text>
                                     </View> 
                                 </TouchableOpacity>   
                             )
@@ -159,21 +131,13 @@ export default class AvailablePackages extends Component {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#F3F3F3',
+  },
   subView: {
     flexDirection: 'row', 
-    paddingHorizontal: Dimensions.get("screen").width*.03,
-    marginTop: Dimensions.get("screen").height*.02
-  },
-  arrowIcon: {
-    width: 20,
-    height: 15,
-  },
-  browseText: {
-    fontSize: 18,
-    fontFamily: 'Montserrat-Regular',
-    color: '#fff',
-    marginLeft: Dimensions.get("screen").width*.03,
-    marginTop: -Dimensions.get("screen").height*.004,
+    alignItems: 'center',
+    width: Dimensions.get("screen").width,
   },
   header: {
     fontSize: 40,
@@ -186,35 +150,41 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 30,
-    color: '#fff',
+    color: '#212121',
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.03,
-    paddingTop: Dimensions.get("screen").height*.02,
-    paddingHorizontal: Dimensions.get("screen").width*.05,
+    marginLeft: Dimensions.get("screen").width*.06,
+    paddingTop: Dimensions.get("screen").height*.03,
+    paddingRight: Dimensions.get("screen").width*.40,
   },
   packageSize: {
-    fontSize: 25,
-    color:  '#fff',
+    fontSize: 18,
+    color:  '#212121',
     textAlign: 'left',
-    fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.02,
-    paddingHorizontal: Dimensions.get("screen").width*.05,
+    fontFamily: 'Montserrat-Medium',
+    marginLeft: Dimensions.get("screen").width*.06,
+    marginTop: Dimensions.get("screen").height*.015,
   },
   location: {
-    fontSize: 25,
-    color:  '#fff',
+    fontSize: 18,
+    color:  '#212121',
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.02,
     paddingHorizontal: Dimensions.get("screen").width*.05,
-    paddingBottom: Dimensions.get("screen").height*.02,
+    paddingTop: Dimensions.get("screen").height*.03,
   },
   rectangles: {
     width: Dimensions.get("screen").width*.90,
-    height: Dimensions.get("screen").height*.20,
-    justifyContent: 'space-between',
-    marginTop: Dimensions.get("screen").height*.015,
+    height: Dimensions.get("screen").height*.17,
+    marginTop: Dimensions.get("screen").height*.035,
+    borderColor: '#19C6D1',
+    borderWidth: 1.5,
+    borderRadius: 5,
+    shadowOffset: { width: 0, height: Dimensions.get("screen").height*.005 },
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
 });
 

@@ -1,73 +1,113 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
-
-
-let colors = ['#6DC4E0', '#605DF1']
-
-let items = [
-  {
-    name: 'Ijemma',
-    packageSize: 'Heavy - 1 package',
-    location: 'River',
-    email: '',
-    hasEmail: false,
-  },
-  {
-    name: 'Archita Harathi',
-    packageSize: 'Heavy - 2 packages',
-    location: 'Choates',
-    email: 'archita.22@dart.edu',
-    hasEmail: true,
-  },
-  {
-    name: 'Archita Harathi',
-    packageSize: 'Heavy - 2 packages',
-    location: 'Choates',
-    email: 'archita.22@dart.edu',
-    hasEmail: true,
-  }
-]
+import firebase from 'firebase';
 
 
 export default class Deliveries extends Component {
   static navigationOptions = {
     header: null,
     };
+
+    constructor(props) {
+      super(props);
+      this.state = {
+        deliveryArray: [],
+        userArray: {}
+      } 
+    };
+
+    componentWillMount() {
+      //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
+      this.fetchData();
+    }
+    fetchData = async () => {
+        var data1 = [];
+        var data2 = [];
+        var fireBaseResponse = firebase.database().ref('deliveries');
+        fireBaseResponse.once('value').then(snapshot => {
+            snapshot.forEach(item => {
+                var temp = item.val();
+                data1.push(temp);
+                
+                return false;
+            });
+        
+            this.setState (
+              {deliveryArray: data1} 
+            )
+            
+        });
+        fireBaseResponse = firebase.database().ref('users');
+        fireBaseResponse.once('value').then(snapshot => {
+            snapshot.forEach(item => {
+                var temp = item.val();
+                data2.push({
+                  key: item.key,
+                  value: temp
+                });
+                return false;
+            });
+           
+            this.setState (
+              {userArray: data2} 
+            )
+            
+        });
+    }
+
+    getFirstName = (userId) => {
+      for (i = 0; i < this.state.userArray.length; i++) {
+        if(this.state.userArray[i].key == userId) {
+          return this.state.userArray[i].value.firstName;
+        }
+      }
+    }
+
+    getLocation = (userId) => {
+      for (i = 0; i < this.state.userArray.length; i++) {
+        if(this.state.userArray[i].key == userId) {
+          return this.state.userArray[i].value.location;
+        }
+      }
+    }
+
+    getEmail = (userId) => {
+      for (i = 0; i < this.state.userArray.length; i++) {
+        if(this.state.userArray[i].key == userId) {
+          return this.state.userArray[i].value.email;
+        }
+      }
+    }
     
-    waitOrConfirm = (confirm) => {
-        if(confirm) {
-            //wait until requeststatus page is made to edit
-            this.props.navigation.navigate('RequestStatus', {isConfirmed: true});
-        }
-        else {
-            //wait until requeststatus page is made to edit
-            //this.props.navigation.navigate('PendingRequestStatus')
-        }
+    waitOrConfirm = (item) => {  
+      this.props.navigation.navigate('RequestStatus', {
+        //confirm: item.confirmedEmail,
+        item: item,
+      });
     }
 
 
     render() {
     return (
-        <View>
-            <OrangeBackground/>
+      <View style={styles.container}>
             <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
-            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.06}}>
-                <Text style = {styles.header}>Deliveries</Text>
+            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01}}>
                 <FlatList
-                    data= {items}
+                    data= {this.state.deliveryArray}
                     keyExtractor = {(item, index) => index.toString()}
                     renderItem = {
                         ({item, index}) => {
-                            return ( 
-                            <TouchableOpacity onPress={this.waitOrConfirm.bind(this, item.hasEmail)}>
-                                    <View style={[styles.rectangles, {backgroundColor: colors[index % colors.length]}]}>
-                                        <Text style = {styles.name}>{item.name}</Text>
-                                        <Text style = {styles.packageSize}>{item.packageSize}</Text>
-                                        <Text style = {styles.location}>{item.location}</Text>
-                                        <Text style = {styles.email}>{item.email}</Text>
+                            return (  
+                            <TouchableOpacity onPress={this.waitOrConfirm.bind(this, item)}>                              
+                                    <View style={[styles.rectangles, {backgroundColor: '#fff'}]}>
+                                      <View style={styles.subView}>
+                                        <Text style = {styles.name}>{this.getFirstName(item.buyer)}</Text>
+                                        <Text style = {styles.location}>{this.getLocation(item.buyer)}</Text>
+                                      </View>
+                                      <Text style = {styles.packageSize}>{item.packageSize}</Text>
+                                      <Text style = {styles.email}>{this.getEmail(item.buyer)}</Text>
                                     </View> 
                                 </TouchableOpacity>   
                             )
@@ -81,64 +121,67 @@ export default class Deliveries extends Component {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#F3F3F3',
+  },
   subView: {
     flexDirection: 'row', 
-    paddingHorizontal: Dimensions.get("screen").width*.03,
-    marginTop: Dimensions.get("screen").height*.02
-  },
-  arrowIcon: {
-    width: 20,
-    height: 15,
-  },
-  browseText: {
-    fontSize: 18,
-    fontFamily: 'Montserrat-Regular',
-    color: '#fff',
-    marginLeft: Dimensions.get("screen").width*.03,
-    marginTop: -Dimensions.get("screen").height*.004,
+    alignItems: 'center',
+    width: Dimensions.get("screen").width,
   },
   header: {
-    fontSize: 50,
+    fontSize: 40,
     color:  '#fff',
     textAlign: 'center',
     width: Dimensions.get("screen").width,
     fontFamily: 'Montserrat-SemiBold',
     marginTop: Dimensions.get("screen").width*.01,
-    marginBottom: Dimensions.get("screen").width*.05
+    marginBottom: Dimensions.get("screen").width*.13
   },
   name: {
     fontSize: 30,
-    color:  '#fff',
+    color: '#212121',
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.02,
+    marginLeft: Dimensions.get("screen").width*.06,
+    paddingTop: Dimensions.get("screen").height*.03,
+    paddingRight: Dimensions.get("screen").width*.40,
   },
   packageSize: {
-    fontSize: 25,
-    color:  '#fff',
+    fontSize: 18,
+    color:  '#212121',
     textAlign: 'left',
-    fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.02,
-  },
-  location: {
-    fontSize: 25,
-    color:  '#fff',
-    textAlign: 'left',
-    fontFamily: 'Montserrat-Bold',
-    marginLeft: Dimensions.get("screen").width*.02,
+    fontFamily: 'Montserrat-Medium',
+    marginLeft: Dimensions.get("screen").width*.06,
+    marginTop: Dimensions.get("screen").height*.005,
   },
   email: {
-    fontSize: 22,
-    color:  '#fff',
+    fontSize: 18,
+    color:  '#212121',
     textAlign: 'left',
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Montserrat-Light',
+    marginLeft: Dimensions.get("screen").width*.06,
+    marginTop: Dimensions.get("screen").height*.005,
+  },
+  location: {
+    fontSize: 18,
+    color:  '#212121',
+    textAlign: 'left',
+    fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width*.02,
+    paddingHorizontal: Dimensions.get("screen").width*.05,
+    paddingTop: Dimensions.get("screen").height*.03,
   },
   rectangles: {
     width: Dimensions.get("screen").width*.90,
-    height: Dimensions.get("screen").height*.16,
-    marginTop: 10,
+    height: Dimensions.get("screen").height*.17,
+    marginTop: Dimensions.get("screen").height*.035,
+    borderColor: '#19C6D1',
+    borderWidth: 1.5,
+    borderRadius: 5,
+    shadowOffset: { width: 0, height: Dimensions.get("screen").height*.005 },
+    shadowColor: '#000000',
+    shadowOpacity: 0.25,
+    shadowRadius: 5,
   },
 });
-
-

@@ -8,18 +8,21 @@ import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
 import AuthorizeDriver from './screens/AuthorizeDriver';
+
 import Item from './screens/Item';
 import Login from './screens/Login';
 import OrderComplete from './screens/OrderComplete';
 import Rating from './screens/Rating';
 import Register from './screens/Register';
 import RequestOptions from './screens/RequestOptions';
+import RequestStatus from './screens/RequestStatus';
 import RequestProfile from './screens/RequestProfile';
 import ShoppingList from './screens/ShoppingList';
 import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
+import RequestStatus from './screens/RequestStatus';
 import Payment from './screens/DriverPayment';
 import LoadingScreen from './screens/LoadingScreen';
 
@@ -35,8 +38,8 @@ const shopStackNavigator = createStackNavigator({
   ShopSearch: {
     screen: ShopSearch
   },
-  YourResults: {
-    screen: YourResults
+  LoadingScreen: {
+    screen: LoadingScreen
   },
   Item: {
     screen: Item
@@ -65,8 +68,8 @@ const driverStackNavigator = createStackNavigator({
   RequestOptions: {
     screen: RequestOptions
   },
-  RequestProfile: {
-    screen: RequestProfile
+  RequestStatus: {
+    screen: RequestStatus
   },
   ShoppingList: {
     screen: ShoppingList

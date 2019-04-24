@@ -59,9 +59,6 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  Payment: {
-    screen: Payment
-  },
   OrderComplete: {
     screen: OrderComplete
   },

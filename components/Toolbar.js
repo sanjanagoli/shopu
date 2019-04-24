@@ -39,21 +39,23 @@ const styles = StyleSheet.create({
         justifyContent: 'center', 
         width: Dimensions.get('screen').width,
         alignItems: 'center',
-        height: Dimensions.get('screen').height*.06,
+        height: Dimensions.get('screen').height*.12,
         backgroundColor: '#B3F0F4',
-        marginTop: Dimensions.get('screen').height*.04,
         textAlign: 'center'
     },
     person:{
+        marginTop: Dimensions.get('screen').height*.04,
         width: 43,
         height: 40,
     },
     bag:{
+        marginTop: Dimensions.get('screen').height*.04,
         width: 36,
         height: 40,
         marginRight: Dimensions.get('screen').width*-.1,
     },
     titleText:{
+        top: Dimensions.get('screen').height*.065,
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 30,
         color: '#262626',

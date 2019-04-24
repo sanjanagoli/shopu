@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Dimensions, Image, TouchableOpacity, Text} from 'react-native';
 
 export default class Toolbar extends React.Component {
     static navigationOptions = {
@@ -13,22 +13,19 @@ export default class Toolbar extends React.Component {
     person = () => {
         this.props.navigation.navigate('AccountProfile')
     }
-    cart = () => {
-        this.props.navigation.navigate('YourCart')
-    }
 
     render() {
       return (
            <View style={[styles.formatInBox, {marginBottom: this.props.marginBottom}]}>
-            {this.props.pageType == 'Driver' ? 
-            <TouchableOpacity onPress={this.bag}>
-                <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
-            </TouchableOpacity>
-            :
-            <TouchableOpacity onPress={this.cart}>
-                <Image source ={require('./../assets/images/scart.png')} style={styles.cart}/> 
-            </TouchableOpacity>}
-            <TouchableOpacity onPress={this.person}>
+            {this.props.pageType == 'Driver' ?
+            <View>
+                <TouchableOpacity onPress={this.bag}>
+                    <Image source ={require('./../assets/images/shopping-bag.png')} style={styles.bag}/> 
+                </TouchableOpacity>
+            </View> 
+            : null}
+            <Text style={styles.titleText}>{this.props.title}</Text>
+            <TouchableOpacity style={{marginLeft: Dimensions.get('screen').width*.8}} onPress={this.person}>
                 <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/> 
             </TouchableOpacity>
            </View>
@@ -39,26 +36,29 @@ export default class Toolbar extends React.Component {
 const styles = StyleSheet.create({
     formatInBox: {
         flexDirection: 'row', 
-        justifyContent: 'space-between', 
+        justifyContent: 'center', 
         width: Dimensions.get('screen').width,
         alignItems: 'center',
-        height: 43,
-        backgroundColor: '#FF715B',
-        marginTop: Dimensions.get('screen').height*.04,
+        height: Dimensions.get('screen').height*.12,
+        backgroundColor: '#B3F0F4',
+        textAlign: 'center'
     },
     person:{
+        marginTop: Dimensions.get('screen').height*.04,
         width: 43,
         height: 40,
-        marginRight: 15,
     },
     bag:{
-        width: 42,
-        height: 38,
-        marginLeft: 15,
-    },
-    cart:{
-        width: 44,
+        marginTop: Dimensions.get('screen').height*.04,
+        width: 36,
         height: 40,
-        marginLeft: 15,
+        marginRight: Dimensions.get('screen').width*-.1,
     },
+    titleText:{
+        top: Dimensions.get('screen').height*.065,
+        fontFamily: 'Montserrat-SemiBold',
+        fontSize: 30,
+        color: '#262626',
+        position: 'absolute',
+    }
   });

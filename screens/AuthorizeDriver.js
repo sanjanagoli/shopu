@@ -1,12 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Clipboard } from 'react-native';
 import variables from './../assets/data/variables';
-import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 
+const database = firebase.database();
+    var driverName;
+    var yourFirstName;
+    var yourLastName;
+
 export default class AuthorizeDriver extends React.Component {
+    
     static navigationOptions = {
         header: null,
     };
@@ -16,18 +21,27 @@ export default class AuthorizeDriver extends React.Component {
     }
 
     copyEmail = () => {
-        Clipboard.setString('Dear Hinman Staff, \n \n(deliverer name) will be picking up my packages for me.\n \nThank you, \n(your name)');
-    }
+        database.ref('/deliveries/' + 'delivery-Lcgl7czbO36RksTa5yg').once('value').then(function(snapshot) {
+                driverName = snapshot.val().driver;
+            database.ref('/users/' + 'user-Ld7TgZ-zJLE7mGD8F9B').once('value').then(function(snapshot) {
+                yourFirstName = snapshot.val().firstName;
+                yourLastName = snapshot.val().lastName;
 
+            Clipboard.setString(`Dear Hinman Staff, \n \n${driverName} will be picking up my packages for me. \n \nThank You, \n${yourFirstName} ${yourLastName}`);
+            })
+           
+          });
+    
+    }
+    
     render() {
         return (
             <View style={styles.container}>
-                <OrangeBackground/>
                 <Toolbar navigation={this.props.navigation}/>
-                <Text style={styles.header}>Complete Actions to Authorize Driver</Text>
+                <Text style={styles.header}>Authorizing</Text>
                 <View style={styles.buttonContainer}>
-                    <PrimaryButton onPress={this.copyEmail} title={'Copy Auth Email'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.06} fontSize={25}/>
-                    <PrimaryButton onPress={this.submit} title={'Confirm Email Sent'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.06} fontSize={25}/>
+                    <PrimaryButton onPress={this.copyEmail} title={'Copy Auth Email'} backgroundColor={'#fff'} height={Dimensions.get("screen").height*.06} fontSize={25} borderColor ={'#19C6D1'} borderWidth={1} borderBottomWidth= {15} height = {Dimensions.get('screen').height*.1} width = {Dimensions.get('screen').width*.8} />
+                    <PrimaryButton onPress={this.submit} title={'Confirm Email Sent'} backgroundColor={'#fff'} height={Dimensions.get("screen").height*.06} fontSize={25} borderColor ={'#19C6D1'} borderWidth={1} borderBottomWidth= {15} height = {Dimensions.get('screen').height*.1} width = {Dimensions.get('screen').width*.8} />
                 </View>
             </View>
         )
@@ -41,12 +55,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     header: {
-        color: '#ffffff',
+        color: '#262626',
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 40,
         textAlign: 'center',
-        marginTop: Dimensions.get('screen').height*0.08,
-        marginBottom: Dimensions.get('screen').height*0.05,
+        marginTop: -40,
+       
     },
     mainView: {
         justifyContent: 'center',

@@ -59,9 +59,6 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  AccountProfile: {
-    screen: AccountProfile
-  },
   AvailablePackages: {
     screen: AvailablePackages
   },

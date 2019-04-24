@@ -123,19 +123,19 @@ export default class ShopSearch extends React.Component {
                     <Text style={styles.searchText}>How big is your mail load?</Text>
                   </View>
                   <Text style={styles.bigText}>{this.state.pickerSelectionSize}</Text>
-                  <View style={{marginLeft: window.width*.6, marginTop: -window.height*0.03}}>
+                  <View style={{marginLeft: window.width*.75, marginTop: -window.height*0.03}}>
                     <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} items={sizeItems}/>
                   </View>
                   <View style={styles.searchLine}/>     
                 </View>
                 <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>
-                    <Text style={styles.searchText2}>How many packages do you have?</Text>
+                    <Text style={styles.searchText}>How many packages do you have?</Text>
                     <Image style={styles.package}
                       source={require('./../assets/images/package.png')} />
                   </View>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
-                  <View style={{marginTop: -window.height*.03, marginLeft: window.width*.6}}>
+                  <View style={{marginTop: -window.height*.03, marginLeft: window.width*.75}}>
                     <DropDown selectedValue={this.state.pickerSelectionQuant} setState={this.setPickerQuant} items={quantItems}/>
                   </View>  
                   <View style={styles.searchLine}/>
@@ -169,9 +169,8 @@ export default class ShopSearch extends React.Component {
       shadowColor: '#000000',
       shadowOpacity: 0.25,
       shadowRadius: 5,
-      alignItems: 'center',
       justifyContent: 'center',
-      marginTop: window.height*.07,
+      marginTop: window.height*.06,
       flexDirection: 'column',
       borderColor: '#19C6D1',
       borderWidth: 1.5,
@@ -185,20 +184,15 @@ export default class ShopSearch extends React.Component {
       shadowColor: '#000000',
       shadowOpacity: 0.25,
       shadowRadius: 4,
-      marginTop: window.height*.005
+      marginTop: window.height*.005,
+      marginLeft: window.width*.07,
     },
     searchText: {
       fontSize: 24,
       color: '#212121',
       fontFamily: 'Montserrat-Bold',
       marginLeft: window.width*.01,
-    },
-    searchText2: {
-      fontSize: 24,
-      color: '#212121',
-      fontFamily: 'Montserrat-Bold',
-      marginLeft: window.width*.01,
-      marginTop: -window.height*0.02,
+      marginBottom: window.height*0.01,
     },
     button: { 
       width: Dimensions.get("screen").width*.6,
@@ -206,6 +200,7 @@ export default class ShopSearch extends React.Component {
     rowBox: {
       width: window.width*.75, 
       flexDirection: 'row',
+      marginLeft: window.width*.07,
     },
     bigText: {
       fontSize: 22, 
@@ -213,7 +208,7 @@ export default class ShopSearch extends React.Component {
       color: '#212121',
       marginTop: window.height*.05,
       textAlign: 'left',
-      marginRight: window.width*.33,
+      marginLeft: window.width*.07,
     },
     quantityText: {
       fontSize: 22, 
@@ -221,12 +216,12 @@ export default class ShopSearch extends React.Component {
       color: '#212121',
       marginTop: window.height*.055,
       textAlign: 'left',
-      marginRight: window.width*.33,
+      marginLeft: window.width*.07,
     },
     package:{
       width: 25,
       height: 25,
-      marginTop: window.height*0.015,
+      marginTop: window.height*0.035,
       marginLeft: -window.width*0.41,
     }
   });

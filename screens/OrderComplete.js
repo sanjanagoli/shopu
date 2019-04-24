@@ -12,7 +12,7 @@ export default class OrderComplete extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-        <Toolbar navigation={this.props.navigation}/>
+        <Toolbar title={'Wait!'} pageType={'Driver'} navigation={this.props.navigation}/>
         <View style={styles.rectangle}>
           <Text style={styles.header}>Your mail has been requested!</Text>
           <View style={styles.textBox}>

@@ -23,10 +23,6 @@ export default class AccountProfile extends React.Component {
     return (
       <View style={styles.container}>
         <OrangeBackground/>
-        <View style={styles.searchTextBox}>
-            <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
-            <Text style={styles.searchText}>Back</Text>
-        </View>
         <Text style={styles.header}>Account Profile</Text>
         <View style={styles.whiteBox}>
             <View style={{marginLeft: Dimensions.get('screen').width*.8}}>
@@ -111,7 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 46,
     textAlign: 'center',
     width: Dimensions.get("screen").width,
-    marginTop: Dimensions.get("screen").height*0,
+    marginTop: Dimensions.get("screen").height*.07,
   },
   editPencil: {
     width: 27,

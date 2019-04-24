@@ -20,7 +20,6 @@ import ShopSearch from './screens/ShopSearch';
 import Welcome from './screens/Welcome';
 import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
-import RequestStatus from './screens/RequestStatus';
 import Payment from './screens/DriverPayment';
 import LoadingScreen from './screens/LoadingScreen';
 
@@ -60,6 +59,9 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
+  OrderComplete: {
+    screen: OrderComplete
+  },
   AvailablePackages: {
     screen: AvailablePackages
   },

@@ -28,10 +28,11 @@ const styles = StyleSheet.create({
     shadowColor: '#000000', 
     shadowOpacity: 0.25, 
     shadowRadius: 5,
+    borderRadius: 5,
   },
   title:{
     color: '#fff',
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Montserrat-Bold',
     marginLeft: 35,
     marginRight: 35,
     

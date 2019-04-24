@@ -60,7 +60,7 @@ const shopStackNavigator = createStackNavigator({
 
 const driverStackNavigator = createStackNavigator({
   AvailablePackages: {
-    screen: AuthorizeDriver
+    screen: AvailablePackages
   },
   RequestOptions: {
     screen: RequestOptions

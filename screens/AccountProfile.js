@@ -99,10 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 46,
     textAlign: 'center',
     width: Dimensions.get("screen").width,
-<<<<<<< HEAD
-=======
     marginTop: Dimensions.get("screen").height*.07,
->>>>>>> 52a9ab9796ae3bd8b84dadc02584a9b2b4b7a746
   },
   editPencil: {
     width: 27,

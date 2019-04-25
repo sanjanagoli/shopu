@@ -35,7 +35,7 @@ export default class DropDown extends React.Component {
       <View>
         <TouchableOpacity onPress={() => this.togglePicker()}>
             <Image style={styles.downArrowIcon}
-                source={require('./../assets/images/Vector.png')} />
+                source={require('./../assets/images/chevron.png')} />
         </TouchableOpacity>
         <Modal visible={this.state.pickerDisplayed} animationType={"slide"} transparent={true}>
             <Picker

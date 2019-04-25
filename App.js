@@ -96,7 +96,7 @@ defaultNavigationOptions: ({ navigation }) => ({
     const { routeName } = navigation.state;
     let imageName;
     if (routeName === 'ShopSearch') {
-      imageName = require('./assets/images/nav-cart.png');
+      imageName = require('./assets/images/blue-nav-cart.png');
       if (focused) {
         imageName = require('./assets/images/filled_cart.png');
       }

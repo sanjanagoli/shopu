@@ -1,9 +1,9 @@
 {
-  "devToolsPort": 19004,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 7334,
-  "expoServerNgrokUrl": "https://9m-36e.anonymous.shopu.exp.direct",
-  "packagerNgrokUrl": "https://packager.9m-36e.anonymous.shopu.exp.direct",
-  "ngrokPid": 7345
+  "devToolsPort": 19005,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }

@@ -3,6 +3,11 @@ import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-nati
 import OrangeBackground from './../components/OrangeBackground';
 
 const window = Dimensions.get("window")
+setTimeout(() => timeout, 1000);
+
+timeout = () => {
+  this.props.navigation.navigate('ShopSearch')
+  }
 
 export default class LoadingScreen extends React.Component {
   static navigationOptions = {

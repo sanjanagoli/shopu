@@ -7,7 +7,8 @@ import Toolbar from './../components/Toolbar';
 import PrimaryButton from '../components/PrimaryButton';
 import DropDown from './../components/DropDown';
 import moment from 'moment';
-import RequestStatus from './screens/RequestStatus';
+import RequestStatus from './../screens/RequestStatus';
+import StatusUpdateModal from './../components/StatusUpdateModal';
 
 var newDeliveryKey = firebase.database().ref().child('posts').push().key
 

@@ -9,7 +9,7 @@ export default class StatusUpdateModal extends React.Component {
         <View style={styles.container}>
             <View style = {styles.whiteBox}>
                 <TouchableOpacity>
-                    <Image source ={require('./../assets/images/x.png')} style={styles.x} />
+                    <Image source ={require('./../assets/images/black_x.png')} style={styles.x} />
                 </TouchableOpacity>
                 <Text style={styles.header}>Select Your Status</Text>
                 <TouchableOpacity>
@@ -39,9 +39,7 @@ export default class StatusUpdateModal extends React.Component {
                             <Text style={styles.rectangleText}>Delivered</Text>
                         </View>
                     </View>
-
                 </TouchableOpacity>
-                
             </View>
         </View>
     )
@@ -59,15 +57,18 @@ const styles = StyleSheet.create({
     width:Dimensions.get("screen").width,
   },
   whiteBox: {
-      backgroundColor: '#fff',
-      width:Dimensions.get("screen").width*.9,
-      height: Dimensions.get("screen").height*.6,
-      justifyContent: 'center',
-      alignItems: 'center',
-      position: 'absolute',
+    backgroundColor: '#fff',
+    width:Dimensions.get("screen").width*.9,
+    height: Dimensions.get("screen").height*.6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    borderColor: '#19C6D1',
+    borderWidth: 1.5,
+    borderRadius: 5,
   },
   rectangles: {
-    backgroundColor: '#605DF1',
+    backgroundColor: '#ffffff',
     marginTop: Dimensions.get("screen").height*.01,
     marginBottom: Dimensions.get("screen").height*.02,
     width: Dimensions.get("screen").width*.8,
@@ -78,19 +79,22 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    borderColor: '#19C6D1',
+    borderWidth: 1.5,
+    borderRadius: 5,
   },
   rectangleText:{
-    fontSize: 30,
-    color:  '#fff',
-    fontFamily: 'Montserrat-Regular',
+    fontSize: 24,
+    color:  '#212121',
+    fontFamily: 'Montserrat-Medium',
     marginLeft: Dimensions.get("screen").width*.05,
   },
   header: {
-    fontSize: 33,
-    color:  '#6DC4E0',
+    fontSize: 30,
+    color:  '#212121',
     textAlign: 'center',
     width: Dimensions.get("screen").width,
-    fontFamily: 'Montserrat-SemiBold',
+    fontFamily: 'Montserrat-Bold',
     marginBottom: '2%',
     marginTop: '2%',
   },

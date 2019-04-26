@@ -4,26 +4,15 @@ import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
 import DropDown from './../components/DropDown';
 import Toolbar from '../components/Toolbar';
+import StatusUpdateModal from '../components/StatusUpdateModal';
 
 const window = Dimensions.get("window")
 
 export default class RequestStatus extends React.Component { 
-  static navigationOptions = {
-    header: null,
-    };
-  
-  
-  statusUpdate = () => {
-    this.props.navigation.navigate('StatusModal')
-  }
-
-  browseOptions = () => {
-    this.props.navigation.navigate('ShoppingList')
-  }
 
   constructor(props) {
     super(props);
-      this.state = { pending: false, item:
+      this.state = { pending: false, modal: false, item:
         {
           firstName: 'Ijemma',
           lastName: 'Harathi',
@@ -33,6 +22,25 @@ export default class RequestStatus extends React.Component {
         }
       };
   }
+  
+  static navigationOptions = {
+    header: null,
+    };
+  
+  
+  statusUpdate = () => {
+    this.setState({
+      modal: !this.state.modal
+    })
+    if (this.state.modal){
+    return <StatusUpdateModal/>
+    }
+  }
+
+  browseOptions = () => {
+    this.props.navigation.navigate('ShoppingList')
+  }
+
 
   setPicker = (itemValue) => {
     this.setState({ pickerSelection: itemValue})

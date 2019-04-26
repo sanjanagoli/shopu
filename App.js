@@ -59,11 +59,8 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  OrderComplete: {
-    screen: OrderComplete
-  },
   AvailablePackages: {
-    screen: AvailablePackages
+    screen: RequestStatus
   },
   RequestOptions: {
     screen: RequestOptions

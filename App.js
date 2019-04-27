@@ -7,6 +7,7 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator} fro
 import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
+import Deliveries from './screens/Deliveries';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import OrderComplete from './screens/OrderComplete';
@@ -59,9 +60,6 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  OrderComplete: {
-    screen: OrderComplete
-  },
   AvailablePackages: {
     screen: AvailablePackages
   },
@@ -76,6 +74,9 @@ const driverStackNavigator = createStackNavigator({
   },
   Rating: {
     screen: Rating
+  },
+  RequestStatus: {
+    screen: RequestStatus
   },
   AccountProfile: {
     screen: AccountProfile
@@ -92,7 +93,7 @@ defaultNavigationOptions: ({ navigation }) => ({
     const { routeName } = navigation.state;
     let imageName;
     if (routeName === 'ShopSearch') {
-      imageName = require('./assets/images/nav-cart.png');
+      imageName = require('./assets/images/blue-nav-cart.png');
       if (focused) {
         imageName = require('./assets/images/filled_cart.png');
       }
@@ -102,9 +103,9 @@ defaultNavigationOptions: ({ navigation }) => ({
         imageName = require('./assets/images/filled_house.png');
       }
     } else if (routeName === 'DriverSearch') {
-      imageName = require('./assets/images/person_w_bag.png');
+      imageName = require('./assets/images/blue_person_w_bag.png');
       if (focused) {
-        imageName = require('./assets/images/filled_person.png');
+        imageName = require('./assets/images/blue_filled_person.png');
       }
     } 
     return <Image source={imageName} style={{width: Dimensions.get("screen").width*.1, height: Dimensions.get("screen").height*.05, marginTop: Dimensions.get("screen").height*.005, resizeMode: 'contain'}} />;

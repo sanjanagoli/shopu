@@ -14,7 +14,7 @@ export default class LoadingScreen extends React.Component {
     }
 
   componentWillMount() {
-    timerId = setTimeout(() => timeout, 5000);
+    timerId = setTimeout(() => this.timeout(), 15000);
   }
 
   render() {

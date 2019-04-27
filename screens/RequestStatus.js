@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
-import DropDown from './../components/DropDown';
 import Toolbar from '../components/Toolbar';
+import firebase from 'firebase';
 
 const window = Dimensions.get("window")
 
@@ -23,6 +23,7 @@ export default class RequestProfile extends React.Component {
 
   constructor(props) {
     super(props);
+
       this.state = { pending: false, item:
         {
           firstName: 'Ijemma',
@@ -33,14 +34,85 @@ export default class RequestProfile extends React.Component {
           packageSize: 'Heavy'
         }
       };
+    this.state = {
+      userArray: {}
+    } 
+  };
+
+  componentWillMount() {
+    //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
+    this.fetchData();
+  }
+  fetchData = async () => {
+      
+      var data2 = [];
+      
+      fireBaseResponse = firebase.database().ref('users');
+      fireBaseResponse.once('value').then(snapshot => {
+          snapshot.forEach(item => {
+              var temp = item.val();
+              
+              data2.push({
+                key: item.key,
+                value: temp
+              });
+              return false;
+          });
+         
+          this.setState (
+            {userArray: data2} 
+          )
+          
+      });
+
   }
 
-  setPicker = (itemValue) => {
-    this.setState({ pickerSelection: itemValue})
+  getFirstName = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.firstName;
+      }
+    }
   }
-  
+
+  getName = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.firstName + " " + this.state.userArray[i].value.lastName;
+      }
+    }
+  }
+
+  getEmail = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.email;
+      }
+    }
+  }
+
+  getPhone = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.phoneNumber;
+      }
+    }
+  }
+
+  getLocation = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.location;
+      }
+    }
+  }
+
   render() {
-    if(this.state.pending) {
+    const { params } = this.props.navigation.state;
+    const isConfirmed = params ? params.item.confirmedEmail : null;
+    const userId = params ? params.item.buyer : null;
+
+    if(!isConfirmed) {
       return (
         <View style={styles.container}>
           <Toolbar/>
@@ -60,6 +132,7 @@ export default class RequestProfile extends React.Component {
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
                   <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
+
                   <View style={styles.textContainer}>
                   <Text style={styles.NameText}>{this.state.item.firstName} {this.state.item.lastName}</Text>
                   <Text style={styles.PackageLocationText}>{this.state.item.packageSize} </Text>
@@ -72,7 +145,9 @@ export default class RequestProfile extends React.Component {
             </View>
         </View>
       );
-   }   
+
+    }
+
   }
  }
 
@@ -157,3 +232,4 @@ const styles = StyleSheet.create({
     marginLeft: window.width*0.07,
   },
 });
+

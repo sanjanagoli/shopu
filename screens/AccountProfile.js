@@ -2,11 +2,17 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from './../components/PrimaryButton';
+import Toolbar from '../components/Toolbar';
+import firebase from 'firebase';
+
+const database = firebase.database();
+var newUserKey = firebase.database().ref().child('posts').push().key
 
 export default class AccountProfile extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { editor: false }
+    this.state = { editor: false };
+    this.state = { email: '', password: '', phoneNumber: '', venmo: '', location: ''};
   }
 
   static navigationOptions = {
@@ -17,11 +23,29 @@ export default class AccountProfile extends React.Component {
     this.setState({
       editor: !this.state.editor
     })
+    database.ref('users/' + 'user'+newUserKey).set({
+      email: this.state.email,
+      password: this.state.password,
+      phoneNumber: this.state.phoneNumber,
+      venmo: this.state.venmo,
+      location: this.state.location
+    })
   }
-  
+
+  updatingUser = () => {
+    database.ref('users/' + 'user'+newUserKey).set({
+      email: this.state.email,
+      password: this.state.password,
+      phoneNumber: this.state.phoneNumber,
+      venmo: this.state.venmo,
+      location: this.state.location
+    })
+    }
+
   render() {
     return (
       <View style={styles.container}>
+        <Toolbar title={'Account Profile'} pageType={'Profile'}/>
         <View style={styles.whiteBox}>
             <View style={{marginLeft: Dimensions.get('screen').width*.8}}>
               <TouchableOpacity onPress={this.onPress}>
@@ -30,23 +54,53 @@ export default class AccountProfile extends React.Component {
             </View>           
             <View>
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Email'}placeholderTextColor={'#2E2E2F'}></TextInput>
+                <TextInput style={styles.subHeader} 
+                editable={this.state.editor} 
+                placeholder={'Email'}
+                placeholderTextColor={'#2E2E2F'}
+                onChangeText={(email) => this.setState({email})}
+                value={this.state.email}>
+                </TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Password'}placeholderTextColor={'#2E2E2F'}></TextInput>
+                <TextInput style={styles.subHeader} 
+                editable={this.state.editor} 
+                placeholder={'Password'}
+                placeholderTextColor={'#2E2E2F'}
+                onChangeText={(password) => this.setState({password})}
+                value={this.state.password}>
+                </TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Phone Number'}placeholderTextColor={'#2E2E2F'}></TextInput>
+                <TextInput style={styles.subHeader} 
+                editable={this.state.editor} 
+                placeholder={'Phone Number'}
+                placeholderTextColor={'#2E2E2F'}
+                onChangeText={(phoneNumber) => this.setState({phoneNumber})}
+                value={this.state.phoneNumber}>
+                </TextInput>
                 <View style={styles.lineStyle}/>
               </View>
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Venmo Username'}placeholderTextColor={'#2E2E2F'}></TextInput>
+                <TextInput style={styles.subHeader} 
+                editable={this.state.editor} 
+                placeholder={'Venmo Username'}
+                placeholderTextColor={'#2E2E2F'}
+                onChangeText={(venmo) => this.setState({venmo})}
+                value={this.state.venmo}>
+                </TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Dorm/Room Number'}placeholderTextColor={'#2E2E2F'}></TextInput>
+                <TextInput style={styles.subHeader} 
+                editable={this.state.editor} 
+                placeholder={'Dorm/Room Number'}
+                placeholderTextColor={'#2E2E2F'}
+                onChangeText={(location) => this.setState({location})}
+                value={this.state.location}>
+                </TextInput>
                 <View style={styles.lineStyle}/>
               </View>    
             <View style={{alignItems: 'center'}}>
@@ -88,7 +142,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.6,
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
-    marginTop: Dimensions.get("screen").height*.2,
+    marginTop: Dimensions.get("screen").height*.06,
     borderRadius: 5,
     borderWidth: 2,
     borderColor: '#19C6D1',

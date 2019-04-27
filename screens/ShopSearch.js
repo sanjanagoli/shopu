@@ -64,7 +64,6 @@ export default class ShopSearch extends React.Component {
     };
     
     letsgo = () => {
-      this.props.navigation.navigate('LoadingScreen')
       database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
         buyer: 'ijemma',
         driver: 'bob',
@@ -76,6 +75,7 @@ export default class ShopSearch extends React.Component {
         confirmedEmail: false,
         accepted: false
       })
+      this.props.navigation.navigate('LoadingScreen')
       }
     
     componentWillMount = () => {
@@ -83,15 +83,7 @@ export default class ShopSearch extends React.Component {
         this.setState({ fontLoaded: true });
       })
     }
-  
-    static navigationOptions = {
-      header: null,
-      };
       
-      letsgo = () => {
-        this.props.navigation.navigate('LoadingScreen')
-        }
-  
       constructor(props) {
         super(props);
         this.state = {
@@ -102,10 +94,6 @@ export default class ShopSearch extends React.Component {
         }
       }
       
-      search = () => {
-        this.props.navigation.navigate('LoadingScreen')
-      }
-  
       componentWillMount = () => {
         FontLoad.then((res) => {
           this.setState({ fontLoaded: true });

@@ -64,7 +64,7 @@ const driverStackNavigator = createStackNavigator({
     screen: OrderComplete
   },
   AvailablePackages: {
-    screen: Deliveries
+    screen: AvailablePackages
   },
   RequestOptions: {
     screen: RequestOptions

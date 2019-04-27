@@ -92,7 +92,7 @@ export default class Deliveries extends Component {
     render() {
     return (
       <View style={styles.container}>
-            <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
+            <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Deliveries'}/>
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01}}>
                 <FlatList
                     data= {this.state.deliveryArray}

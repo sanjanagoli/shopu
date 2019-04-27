@@ -3,7 +3,7 @@ mailing app for you
 
 We are four Dartmouth students from the class of 2022 working as Women in Science Program (WISP) interns in conjunction with the DALI Lab for the 2018-2019 school year.
 
-mailU is a mobile application designed to allow students to connect students who want to request and deliver mailed packages from their college/university mailing serivce. We hope that users of the Dartmouth community are able to easily request and deliver mailed items with this app from Hinman in a seamless and easy process.
+mailU is a mobile application designed to allow students to connect students who want to request and deliver mailed packages from their college/university mailing serivce. We hope that users of this app from the Dartmouth community are able to easily request and deliver mailed items from Hinman in a seamless and easy manner.
 
  ## Architecture
 

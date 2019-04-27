@@ -60,9 +60,9 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  OrderComplete: {
-    screen: OrderComplete
-  },
+  // OrderComplete: {
+  //   screen: OrderComplete
+  // },
   AvailablePackages: {
     screen: Deliveries
   },

@@ -37,7 +37,7 @@ export default class RequestStatus extends React.Component {
 
   renderModal = () => {
     if (this.state.modal){
-      return <StatusUpdateModal/>
+      return <StatusUpdateModal onPress={this.statusUpdate}/>
       }
     else {
       return null

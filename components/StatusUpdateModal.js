@@ -8,7 +8,7 @@ export default class StatusUpdateModal extends React.Component {
     return ( 
         <View style={styles.container}>
             <View style = {styles.whiteBox}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.props.onPress}>
                     <Image source ={require('./../assets/images/black_x.png')} style={styles.x} />
                 </TouchableOpacity>
                 <Text style={styles.header}>Select Your Status</Text>
@@ -18,12 +18,16 @@ export default class StatusUpdateModal extends React.Component {
                             <Text style={styles.rectangleText}>Going to Hinman</Text>
                         </View>
                     </View>
+                    <View style = {styles.blueRectangles}>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.rectangleText}>In Line</Text>
                         </View>
+                    </View>
+                    <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
@@ -32,12 +36,16 @@ export default class StatusUpdateModal extends React.Component {
                             <Text style={styles.rectangleText}>Picked Up and En Route</Text>
                         </View>
                     </View>
+                    <View style = {styles.blueRectangles}>
+                    </View>
                 </TouchableOpacity>
                 <TouchableOpacity>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.rectangleText}>Delivered</Text>
                         </View>
+                    </View>
+                    <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -49,12 +57,13 @@ export default class StatusUpdateModal extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: 'rgba(92, 92, 92, 0.50)',
     alignItems: 'center',
     justifyContent: 'center',
-    height: Dimensions.get("screen").height,
+    height: Dimensions.get("screen").height*1.5,
     width:Dimensions.get("screen").width,
+    top: -Dimensions.get("screen").height*.5,
+    position: 'absolute',
   },
   whiteBox: {
     backgroundColor: '#fff',
@@ -66,13 +75,14 @@ const styles = StyleSheet.create({
     borderColor: '#19C6D1',
     borderWidth: 1.5,
     borderRadius: 5,
+    top: Dimensions.get("screen").height*.5,
   },
   rectangles: {
     backgroundColor: '#ffffff',
     marginTop: Dimensions.get("screen").height*.01,
     marginBottom: Dimensions.get("screen").height*.02,
-    width: Dimensions.get("screen").width*.8,
-    height: Dimensions.get("screen").height*.09,
+    width: Dimensions.get("screen").width*.7,
+    height: Dimensions.get("screen").height*.08,
     shadowOffset: { width: 8, height: 4},
     shadowColor: '#000000',
     shadowOpacity: 0.25,
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color:  '#212121',
     fontFamily: 'Montserrat-Medium',
-    marginLeft: Dimensions.get("screen").width*.05,
+    textAlign: 'center',
   },
   header: {
     fontSize: 30,
@@ -102,6 +112,13 @@ const styles = StyleSheet.create({
     width: Dimensions.get("screen").width*.06,
     height: Dimensions.get("screen").width*.06,
     marginRight: Dimensions.get("screen").width*.73,
-    marginTop: Dimensions.get("screen").height*.01,
+    marginTop: -Dimensions.get("screen").height*.015,
+  },
+  blueRectangles: {
+    backgroundColor: '#19C6D1',
+    marginTop: -Dimensions.get("screen").height*.02,
+    marginBottom: Dimensions.get("screen").height*.01,
+    width: Dimensions.get("screen").width*.7,
+    height: Dimensions.get("screen").height*.01,
   },
 });

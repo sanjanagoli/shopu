@@ -13,15 +13,6 @@ export default class RequestStatus extends React.Component {
 
   constructor(props) {
     super(props);
-<<<<<<< HEAD
-      this.state = { pending: false, modal: false, item:
-        {
-          firstName: 'Ijemma',
-          lastName: 'Harathi',
-          location: 'River',
-          phoneNumber: '555-555-5555',
-          email: 'iso@dartmouth.edu',
-=======
 
       this.state = { pending: false, item:
         {
@@ -31,7 +22,6 @@ export default class RequestStatus extends React.Component {
           phoneNumber: '555-555-5555',
           email: 'iso@dartmouth.edu',
           packageSize: 'Heavy'
->>>>>>> 34b720eeff1cb0b9ba690e5a78900f0b5077017a
         }
       };
     this.state = {

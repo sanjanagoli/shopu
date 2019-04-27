@@ -2,8 +2,33 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 
+
 export default class StatusUpdateModal extends React.Component {
 
+  // isAvailable = await SMS.isAvailableAsync();
+
+  sendTextGoing = () => {
+      SMS.sendSMSAsync('5039157105', 'Your deliverer is going to Hinman!')
+  }
+
+  sendTextLine = () => {
+    if (isAvailable) {
+      SMS.sendSMSAsync('5039157105', 'Your deliverer is in line at Hinman!')
+    }
+  }
+
+  sendTextRoute = () => {
+    if (isAvailable) {
+      SMS.sendSMSAsync('5039157105', 'Your deliverer has picked up your mail and is on the way!')
+    }
+  }
+
+  sendTextDelivered = () => {
+    if (isAvailable) {
+      SMS.sendSMSAsync('5039157105', 'Your deliverer has delivered your mail!')
+    }
+  }
+    
   render() {
     return ( 
         <View style={styles.container}>
@@ -12,7 +37,7 @@ export default class StatusUpdateModal extends React.Component {
                     <Image source ={require('./../assets/images/black_x.png')} style={styles.x} />
                 </TouchableOpacity>
                 <Text style={styles.header}>Select Your Status</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.sendTextGoing}>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.rectangleText}>Going to Hinman</Text>
@@ -21,7 +46,7 @@ export default class StatusUpdateModal extends React.Component {
                     <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.sendTextLine}>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.rectangleText}>In Line</Text>
@@ -30,7 +55,7 @@ export default class StatusUpdateModal extends React.Component {
                     <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.sendTextRoute}>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                             <Text style={styles.rectangleText}>Picked Up and En Route</Text>
@@ -39,7 +64,7 @@ export default class StatusUpdateModal extends React.Component {
                     <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.sendTextDelivered}>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.rectangleText}>Delivered</Text>

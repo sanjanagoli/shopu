@@ -5,6 +5,8 @@ import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 
+
+
 const database = firebase.database();
     var driverName;
     var yourFirstName;
@@ -21,12 +23,12 @@ export default class AuthorizeDriver extends React.Component {
     }
 
     copyEmail = () => {
-        database.ref('/deliveries/' + 'delivery-Lcgl7czbO36RksTa5yg').once('value').then(function(snapshot) {
+        const props = this.props;
+        database.ref('/deliveries/' + 'delivery'+this.props.navigation.getParam('deliveryKey')).once('value').then(function(snapshot) {
                 driverName = snapshot.val().driver;
-            database.ref('/users/' + 'user-Ld7TgZ-zJLE7mGD8F9B').once('value').then(function(snapshot) {
+            database.ref('/users/' + props.navigation.state.params['userKey']).once('value').then(function(snapshot) {
                 yourFirstName = snapshot.val().firstName;
                 yourLastName = snapshot.val().lastName;
-
             Clipboard.setString(`Dear Hinman Staff, \n \n${driverName} will be picking up my packages for me. \n \nThank You, \n${yourFirstName} ${yourLastName}`);
             })
           });

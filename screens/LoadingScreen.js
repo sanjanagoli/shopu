@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
 import OrangeBackground from './../components/OrangeBackground';
 
@@ -22,6 +23,8 @@ export default class LoadingScreen extends React.Component {
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {

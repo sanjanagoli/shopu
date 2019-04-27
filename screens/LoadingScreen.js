@@ -1,13 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
+import firebase from 'firebase';
 
 const window = Dimensions.get("window")
+const database = firebase.database();
+var newDeliveryKey = firebase.database().ref().child('ChildAdded').push().key
+beenAccepted = database.ref('deliveries/' + 'delivery'+newDeliveryKey).getValue()
 
 export default class LoadingScreen extends React.Component {
   static navigationOptions = {
     header: null,
     };
+
+    moveOn = () => {
+
+      if(beenAccepted='true') {
+        this.props.navigation.navigate('AuthorizeDriver');
+      }}
 
   render() {
     return (
@@ -17,6 +26,7 @@ export default class LoadingScreen extends React.Component {
                   <ActivityIndicator size='large' color='#19C6D1'/>
               </View>
               <Text style={styles.matchText}>Waiting for a Match</Text>
+              {this.moveOn()}
           </View>
         </View>
     );

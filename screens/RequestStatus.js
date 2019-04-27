@@ -13,7 +13,6 @@ export default class RequestStatus extends React.Component {
 
   constructor(props) {
     super(props);
-<<<<<<< HEAD
       this.state = { pending: false, modal: false, item:
         {
           firstName: 'Ijemma',
@@ -23,7 +22,6 @@ export default class RequestStatus extends React.Component {
           email: 'iso@dartmouth.edu',
         }
       };
-=======
     this.state = {
       userArray: {}
     } 
@@ -54,7 +52,6 @@ export default class RequestStatus extends React.Component {
           )
           
       });
->>>>>>> 804b7078005571c732202c06605ea63da2324310
   }
   
   static navigationOptions = {

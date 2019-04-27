@@ -6,6 +6,7 @@ import DropDown from './../components/DropDown';
 import Toolbar from '../components/Toolbar';
 import StatusUpdateModal from '../components/StatusUpdateModal';
 
+
 const window = Dimensions.get("window")
 
 export default class RequestStatus extends React.Component { 
@@ -32,8 +33,14 @@ export default class RequestStatus extends React.Component {
     this.setState({
       modal: !this.state.modal
     })
+  }
+
+  renderModal = () => {
     if (this.state.modal){
-    return <StatusUpdateModal/>
+      return <StatusUpdateModal/>
+      }
+    else {
+      return null
     }
   }
 
@@ -95,7 +102,8 @@ export default class RequestStatus extends React.Component {
                 </View>
                 <View style={styles.otherAddToCart}>
                     <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
-                </View>            
+                </View>
+                {this.renderModal()}         
               </View>
             </View>
         </View>

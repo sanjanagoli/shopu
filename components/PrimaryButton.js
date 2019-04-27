@@ -11,7 +11,8 @@ export default class PrimaryButton extends React.Component {
   render() {
     return (
          <TouchableOpacity 
-            style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}, {onPress: this.props.onPress}]}>
+            style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}
+            onPress={this.props.onPress}>
             <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>
          </TouchableOpacity>
     );

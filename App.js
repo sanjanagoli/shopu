@@ -7,6 +7,7 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator} fro
 import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
+import Deliveries from './screens/Deliveries';
 import Item from './screens/Item';
 import Login from './screens/Login';
 import OrderComplete from './screens/OrderComplete';
@@ -76,6 +77,9 @@ const driverStackNavigator = createStackNavigator({
   },
   Rating: {
     screen: Rating
+  },
+  RequestStatus: {
+    screen: RequestStatus
   },
   AccountProfile: {
     screen: AccountProfile

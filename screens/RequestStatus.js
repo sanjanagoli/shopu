@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
-import DropDown from './../components/DropDown';
 import Toolbar from '../components/Toolbar';
+import firebase from 'firebase';
 
 const window = Dimensions.get("window")
 
@@ -23,23 +23,84 @@ export default class RequestProfile extends React.Component {
 
   constructor(props) {
     super(props);
-      this.state = { pending: false, item:
-        {
-          firstName: 'Ijemma',
-          lastName: 'Harathi',
-          location: 'River',
-          phoneNumber: '555-555-5555',
-          email: 'iso@dartmouth.edu',
-        }
-      };
+    this.state = {
+      userArray: {}
+    } 
+  };
+
+  componentWillMount() {
+    //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
+    this.fetchData();
+  }
+  fetchData = async () => {
+      
+      var data2 = [];
+      
+      fireBaseResponse = firebase.database().ref('users');
+      fireBaseResponse.once('value').then(snapshot => {
+          snapshot.forEach(item => {
+              var temp = item.val();
+              
+              data2.push({
+                key: item.key,
+                value: temp
+              });
+              return false;
+          });
+         
+          this.setState (
+            {userArray: data2} 
+          )
+          
+      });
   }
 
-  setPicker = (itemValue) => {
-    this.setState({ pickerSelection: itemValue})
+  getFirstName = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.firstName;
+      }
+    }
   }
-  
+
+  getName = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.firstName + " " + this.state.userArray[i].value.lastName;
+      }
+    }
+  }
+
+  getEmail = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.email;
+      }
+    }
+  }
+
+  getPhone = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.phoneNumber;
+      }
+    }
+  }
+
+  getLocation = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if(this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.location;
+      }
+    }
+  }
+
   render() {
-    if(this.state.pending) {
+    const { params } = this.props.navigation.state;
+    const isConfirmed = params ? params.item.confirmedEmail : null;
+    const userId = params ? params.item.buyer : null;
+
+    if(!isConfirmed) {
       return (
         <View style={styles.container}>
           <OrangeBackground/>
@@ -55,7 +116,7 @@ export default class RequestProfile extends React.Component {
                   <Text style={styles.itemText}>Waiting for Confirmation</Text>
                 </View>
                 <View style={{textAlign: 'center'}}>
-                  <Text style={styles.descriptionText}>Come back when {this.state.item.firstName}{"'"}s mail request is confirmed!</Text>
+                  <Text style={styles.descriptionText}>Come back when {this.getFirstName(userId)}{"'"}s mail request is confirmed!</Text>
                 </View>
                 <View style={styles.addToCartButton}>
                     <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
@@ -80,10 +141,10 @@ export default class RequestProfile extends React.Component {
                   <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
                 </View>
                 <View style={styles.textContainer}>
-                  <Text style={styles.generalText}>{this.state.item.firstName} {this.state.item.lastName}</Text>
-                  <Text style={styles.generalText}>{this.state.item.email}</Text>
-                  <Text style={styles.generalText}>{this.state.item.phoneNumber}</Text>
-                  <Text style={styles.generalText}>{this.state.item.location}</Text>
+                  <Text style={styles.generalText}>{this.getName(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getEmail(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getPhone(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getLocation(userId)}</Text>
                 </View>
                 <View style={styles.otherAddToCart}>
                     <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
@@ -93,7 +154,6 @@ export default class RequestProfile extends React.Component {
         </View>
       );
     }
-    
   }
 }
 
@@ -182,3 +242,4 @@ const styles = StyleSheet.create({
     marginTop: window.height*.1
   },
 });
+

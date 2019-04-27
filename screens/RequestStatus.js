@@ -124,10 +124,9 @@ export default class RequestStatus extends React.Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    //const isConfirmed = params ? params.item.confirmedEmail : null;
+    const isConfirmed = params ? params.item.confirmedEmail : null;
     const userId = params ? params.item.buyer : null;
 
-    const isConfirmed = true;
     if(!isConfirmed) {
       return (
         <View style={styles.container}>

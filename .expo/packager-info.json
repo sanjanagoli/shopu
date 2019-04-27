@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
@@ -7,3 +8,6 @@
   "packagerNgrokUrl": "https://packager.3j-fmj.anonymous.shopu.exp.direct",
   "ngrokPid": 95017
 }
+=======
+{}
+>>>>>>> 804b7078005571c732202c06605ea63da2324310

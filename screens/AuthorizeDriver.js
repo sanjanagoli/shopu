@@ -29,7 +29,6 @@ export default class AuthorizeDriver extends React.Component {
 
             Clipboard.setString(`Dear Hinman Staff, \n \n${driverName} will be picking up my packages for me. \n \nThank You, \n${yourFirstName} ${yourLastName}`);
             })
-           
           });
     
     }
@@ -37,8 +36,7 @@ export default class AuthorizeDriver extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Toolbar navigation={this.props.navigation}/>
-                <Text style={styles.header}>Authorizing</Text>
+                <Toolbar title = {'Authorizing'} navigation={this.props.navigation}/>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton onPress={this.copyEmail} title={'Copy Auth Email'} backgroundColor={'#fff'} height={Dimensions.get("screen").height*.06} fontSize={25} borderColor ={'#19C6D1'} borderWidth={1} borderBottomWidth= {15} height = {Dimensions.get('screen').height*.1} width = {Dimensions.get('screen').width*.8} />
                     <PrimaryButton onPress={this.submit} title={'Confirm Email Sent'} backgroundColor={'#fff'} height={Dimensions.get("screen").height*.06} fontSize={25} borderColor ={'#19C6D1'} borderWidth={1} borderBottomWidth= {15} height = {Dimensions.get('screen').height*.1} width = {Dimensions.get('screen').width*.8} />
@@ -54,14 +52,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
     },
-    header: {
-        color: '#262626',
-        fontFamily: 'Montserrat-SemiBold',
-        fontSize: 40,
-        textAlign: 'center',
-        marginTop: -40,
-       
-    },
     mainView: {
         justifyContent: 'center',
         alignItems: 'center',        
@@ -70,6 +60,5 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('screen').height*.18,
         height: Dimensions.get('screen').height*.6,
         alignItems: 'center',
-    },
-    
+    },  
 });

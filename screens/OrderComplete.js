@@ -12,19 +12,16 @@ export default class OrderComplete extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-        <OrangeBackground/>
-        <Toolbar navigation={this.props.navigation}/>
-        <Text style={styles.header}>Your mail has been requested!</Text>
-        <View style={styles.rectangle}/>
-          <Text style={styles.subHeader}>Next Steps:</Text>
+        <Toolbar title={'Wait!'} pageType={'Driver'} navigation={this.props.navigation}/>
+        <View style={styles.rectangle}>
+          <Text style={styles.header}>Your mail has been requested!</Text>
           <View style={styles.textBox}>
-            <Image source ={require('./../assets/images/white_circle.png')} style={styles.circle}/>
             <Text style={styles.line}>Wait to get an SMS for further details on order pickup</Text>
           </View>
           <View style={styles.textBox}>
-            <Image source ={require('./../assets/images/white_circle.png')} style={styles.circle}/>
             <Text style={styles.line}>Venmo your deliverer your total once your order is completed!</Text>
           </View>
+        </View>
         </View>
       );
     }
@@ -33,29 +30,26 @@ export default class OrderComplete extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F3F3F3',
     alignItems: 'center',
   },
   header: {
-    color: '#ffffff',
-    fontFamily: 'Montserrat-Medium',
-    fontSize: 50,
+    color: '#212121',
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 30,
     textAlign: 'center',
     marginTop: Dimensions.get('screen').height*0.05,
-    marginBottom: Dimensions.get('screen').height*0.05,
-  },
-  subHeader:{
-    fontFamily: 'Montserrat-SemiBold',
-    fontSize: 27,
-    marginTop: -Dimensions.get('screen').height*0.47,
-    color: '#fff',
-    marginLeft: -Dimensions.get("screen").width*.4,
+    marginBottom: Dimensions.get('screen').height*0.03,
   },
   rectangle: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
-    height: Dimensions.get("screen").height*.50,
-    backgroundColor: '#605DF1',
+    height: Dimensions.get("screen").height*.55,
+    backgroundColor: '#ffffff',
+    borderRadius: 5,
+    borderColor: '#19C6D1',
+    borderWidth: 1.5,
+    marginTop: Dimensions.get('screen').height*0.15,
   },
   textBox: {
     flexDirection: 'row',
@@ -63,15 +57,10 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   line: {
-    fontFamily: 'Montserrat-Regular',
-    fontSize: 24,
-    color: '#fff',
+    fontFamily: 'Montserrat-Light',
+    fontSize: 25,
+    color: '#212121',
     marginTop: Dimensions.get("screen").height*.03,
+    marginLeft: Dimensions.get("screen").width*.08,
   },
-  circle: {
-    width: 14,
-    height: 12,
-    marginRight: Dimensions.get("screen").width*.01,
-    marginTop: Dimensions.get("screen").height*.038,
-  }
 });

@@ -22,47 +22,39 @@ export default class AccountProfile extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <OrangeBackground/>
-        <View style={styles.searchTextBox}>
-            <Image source ={require('./../assets/images/left-arrow.png')} style={styles.leftArrow}/>  
-            <Text style={styles.searchText}>Back</Text>
-        </View>
-        <Text style={styles.header}>Account Profile</Text>
         <View style={styles.whiteBox}>
             <View style={{marginLeft: Dimensions.get('screen').width*.8}}>
               <TouchableOpacity onPress={this.onPress}>
-                <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_purple.png')} />
+                <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_black.png')} />
               </TouchableOpacity>
             </View>           
             <View>
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Dartmouth ID'}placeholderTextColor={'#605DF1'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Email'}placeholderTextColor={'#2E2E2F'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Password'}placeholderTextColor={'#605DF1'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Password'}placeholderTextColor={'#2E2E2F'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Phone Number'}placeholderTextColor={'#605DF1'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Phone Number'}placeholderTextColor={'#2E2E2F'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Email'}placeholderTextColor={'#605DF1'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Venmo Username'}placeholderTextColor={'#2E2E2F'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>  
               <View style={styles.textIcon}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Dorm/Room Number'}placeholderTextColor={'#605DF1'}></TextInput>
+                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Dorm/Room Number'}placeholderTextColor={'#2E2E2F'}></TextInput>
                 <View style={styles.lineStyle}/>
               </View>    
-              <View style={{marginBottom: Dimensions.get('screen').height*.06}}>
-                <TextInput style={styles.subHeader} editable={this.state.editor} placeholder={'Venmo Username'}placeholderTextColor={'#605DF1'}></TextInput>
-                <View style={styles.lineStyle}/>
-              </View>    
+            <View style={{alignItems: 'center'}}>
+              <View style={styles.buttonStyle}>
+                <PrimaryButton backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24}/>
+              </View>
             </View>
-        </View>
-        <View style={styles.buttonStyle}>
-            <PrimaryButton backgroundColor={'#6DC4E0'} height={40} title={'Save'} fontSize={20}/>
+            </View>
         </View>
       </View>
     )
@@ -72,38 +64,34 @@ export default class AccountProfile extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#F3F3F3',
     alignItems: 'center',
   },
   textIcon: {
-    marginBottom: Dimensions.get("screen").height*.04,
+    marginBottom: Dimensions.get("screen").height*.05,
   },
   buttonStyle: {
-    marginTop: -Dimensions.get('screen').height*.06,
+    marginTop: Dimensions.get('screen').height*.008,
     width: Dimensions.get('screen').width*.5,
   },
   subHeader: {
-    color: '#605DF1',
+    color: '#2E2E2F',
     fontFamily: 'Montserrat-Medium',
     fontSize: 20,
     marginLeft: Dimensions.get('screen').width*0.05,
-    marginTop: Dimensions.get("screen").height*.03,
+    marginTop: Dimensions.get("screen").height*.02,
     
   },
   whiteBox: {
     flexDirection: 'column',
     width: Dimensions.get("screen").width*.91,
-    height: Dimensions.get("screen").height*.70,
-    shadowColor: '#000000',
-    shadowOffset: {
-        width: 0,
-        height: 3
-    },
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
+    height: Dimensions.get("screen").height*.6,
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
-    marginTop: Dimensions.get("screen").height*.01,
+    marginTop: Dimensions.get("screen").height*.2,
+    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: '#19C6D1',
   },
   header:{
     color: '#fff',
@@ -111,7 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 46,
     textAlign: 'center',
     width: Dimensions.get("screen").width,
-    marginTop: Dimensions.get("screen").height*0,
+    marginTop: Dimensions.get("screen").height*.07,
   },
   editPencil: {
     width: 27,
@@ -121,8 +109,8 @@ const styles = StyleSheet.create({
   },
   lineStyle: {
     width: Dimensions.get('screen').width*.7,
-    height: 1.5, 
-    backgroundColor: '#605DF1', 
+    height: 1, 
+    backgroundColor: '#2E2E2F', 
     marginLeft: Dimensions.get('screen').width*0.05,
   },
   searchTextBox: {

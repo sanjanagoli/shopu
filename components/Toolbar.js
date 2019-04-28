@@ -25,9 +25,11 @@ export default class Toolbar extends React.Component {
             </View> 
             : null}
             <Text style={styles.titleText}>{this.props.title}</Text>
+            {this.props.pageType == 'Profile' ?
+            null:
             <TouchableOpacity style={{marginLeft: Dimensions.get('screen').width*.8}} onPress={this.person}>
                 <Image source ={require('./../assets/images/personicon.png')} style={styles.person}/> 
-            </TouchableOpacity>
+            </TouchableOpacity>}
            </View>
       );
     }

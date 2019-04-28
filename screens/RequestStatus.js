@@ -3,23 +3,13 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput}
 import PrimaryButton from './../components/PrimaryButton';
 import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
+import StatusUpdateModal from '../components/StatusUpdateModal';
 import firebase from 'firebase';
+
 
 const window = Dimensions.get("window")
 
-export default class RequestProfile extends React.Component { 
-  static navigationOptions = {
-    header: null,
-    };
-  
-  
-  statusUpdate = () => {
-    this.props.navigation.navigate('StatusModal')
-  }
-
-  browseOptions = () => {
-    this.props.navigation.navigate('ShoppingList')
-  }
+export default class RequestStatus extends React.Component { 
 
   constructor(props) {
     super(props);
@@ -64,6 +54,31 @@ export default class RequestProfile extends React.Component {
       });
 
   }
+  
+  static navigationOptions = {
+    header: null,
+    };
+  
+  
+  statusUpdate = () => {
+    this.setState({
+      modal: !this.state.modal
+    })
+  }
+
+  renderModal = () => {
+    if (this.state.modal){
+      return <StatusUpdateModal onPress={this.statusUpdate}/>
+      }
+    else {
+      return null
+    }
+  }
+
+  browseOptions = () => {
+    this.props.navigation.navigate('ShoppingList')
+  }
+
 
   getFirstName = (userId) => {
     for (i = 0; i < this.state.userArray.length; i++) {
@@ -130,18 +145,19 @@ export default class RequestProfile extends React.Component {
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
                   <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
-
-                  <View style={styles.textContainer}>
-                  <Text style={styles.NameText}>{this.state.item.firstName} {this.state.item.lastName}</Text>
-                  <Text style={styles.PackageLocationText}>{this.state.item.packageSize} </Text>
-                  <Text style={styles.PackageLocationText}>{this.state.item.location}</Text>
-                  <Text style={styles.EmailText}>{this.state.item.email}</Text>
-                  <Text style={styles.PhoneText}>{this.state.item.phoneNumber}</Text>
-                  <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#19C6D1'} height={65} fontSize={28}/>
-                </View>    
+                </View>
+                <View style={styles.textContainer}>
+                  <Text style={styles.generalText}>{this.getName(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getEmail(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getPhone(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getLocation(userId)}</Text>
+                </View>
+                <View style={styles.otherAddToCart}>
+                    <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
+                </View>
+                {this.renderModal()}         
               </View>
             </View>
-        </View>
       );
 
     }

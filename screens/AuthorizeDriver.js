@@ -8,9 +8,7 @@ import firebase from 'firebase';
 
 
 const database = firebase.database();
-    var driverName;
-    var yourFirstName;
-    var yourLastName;
+    this.state= {driverName: null, yourFirstName: null, yourLastName: null}
 
 export default class AuthorizeDriver extends React.Component {
     
@@ -24,9 +22,9 @@ export default class AuthorizeDriver extends React.Component {
 
     copyEmail = () => {
         const props = this.props;
-        database.ref('/deliveries/' + 'delivery'+this.props.navigation.getParam('deliveryKey')).once('value').then(function(snapshot) {
+        database.ref(`${/deliveries/}` + 'delivery' +this.props.navigation.getParam('deliveryKey')).once('value').then(function(snapshot) {
                 driverName = snapshot.val().driver;
-            database.ref('/users/' + props.navigation.state.params['userKey']).once('value').then(function(snapshot) {
+            database.ref(`${/users/}` + props.navigation.state.params['userKey']).once('value').then(function(snapshot) {
                 yourFirstName = snapshot.val().firstName;
                 yourLastName = snapshot.val().lastName;
             Clipboard.setString(`Dear Hinman Staff, \n \n${driverName} will be picking up my packages for me. \n \nThank You, \n${yourFirstName} ${yourLastName}`);

@@ -139,9 +139,7 @@ export default class ShopSearch extends React.Component {
                   <View style={styles.searchLine}/>
                 </View>
                 <View style={styles.button}>
-                  <TouchableOpacity onPress={this.letsgo}>
-                    <PrimaryButton backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>
-                  </TouchableOpacity>
+                    <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>  
                 </View>
           </View> 
           </View>

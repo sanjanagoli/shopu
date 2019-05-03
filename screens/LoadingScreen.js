@@ -10,6 +10,14 @@ export default class LoadingScreen extends React.Component {
     header: null,
     };
 
+  timeout = () => {
+    this.props.navigation.navigate('ShopSearch')
+    }
+
+  componentWillMount() {
+    timerId = setTimeout(() => this.timeout(), 15000);
+  }
+
   render() {
     return (
         <View style={styles.container}>

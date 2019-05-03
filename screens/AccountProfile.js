@@ -42,10 +42,19 @@ export default class AccountProfile extends React.Component {
     })
     }
 
+    goBack = () => {	   
+      this.props.navigation.navigate('ShopSearch')
+    }	      
+
   render() {
     return (
       <View style={styles.container}>
         <Toolbar title={'Account Profile'} pageType={'Profile'}/>
+        <TouchableOpacity style={styles.subView} onPress={this.goBack}>	            
+              <Image style={styles.arrowIcon}	             
+                  source={require('./../assets/images/left-arrow.png')} />	                 
+              <Text style={styles.backText}>Back</Text>	              
+        </TouchableOpacity>
         <View style={styles.whiteBox}>
             <View style={{marginLeft: Dimensions.get('screen').width*.8}}>
               <TouchableOpacity onPress={this.onPress}>
@@ -119,7 +128,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F3F3F3',
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   textIcon: {
     marginBottom: Dimensions.get("screen").height*.05,
@@ -142,7 +151,8 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.6,
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
-    marginTop: Dimensions.get("screen").height*.06,
+    marginTop: Dimensions.get("screen").height*.04,
+    marginLeft: Dimensions.get("screen").width*.045,
     borderRadius: 5,
     borderWidth: 2,
     borderColor: '#19C6D1',
@@ -184,6 +194,22 @@ const styles = StyleSheet.create({
     width: 20,
     height: 22,
     marginLeft: Dimensions.get('screen').width*.01,
-    marginTop: Dimensions.get('screen').height*0.005,
+    
+  },
+  backText: {	 
+    fontSize: 18,	   
+    fontFamily: 'Montserrat-Regular',	    
+    color: '#262626',	   
+    marginLeft: Dimensions.get("screen").width*.01,	   
+    marginTop: -Dimensions.get("screen").height*.006,
+  },
+  arrowIcon: {	  
+    width: 20,	    
+    height: 10,	   
+  },
+  subView: {	 
+    flexDirection: 'row', 	    
+    paddingHorizontal: Dimensions.get("screen").width*.05,	    
+    marginTop: Dimensions.get("screen").height*.01	   
   },
 });

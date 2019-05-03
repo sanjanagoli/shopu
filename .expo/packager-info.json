@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://3j-fmj.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.3j-fmj.anonymous.shopu.exp.direct",
+  "ngrokPid": 11231
 }

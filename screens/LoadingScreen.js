@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, ActivityIndicator, Console} from 'react-native';
 import firebase from 'firebase';
 
 const window = Dimensions.get("window");
@@ -13,24 +13,23 @@ export default class LoadingScreen extends React.Component {
     this.props.navigation.navigate('ShopSearch')
     }
 
-fetchData = () => {
-  var fireBaseResponse = firebase.database().ref('deliveries/');
-  var acceptedValue;
-  fireBaseResponse.on('child_added', function(snapshot, prevChildKey) {
-      var newPost = snapshot.val();
-      acceptedValue = newPost.accepted
-    });
-  return acceptedValue;  
-}
+    constructor(props) {
+      super(props);
+    }
 
 moveOn = () => {
-  if(this.fetchData() == true) {
-    this.props.navigation.navigate('AuthorizeDriver')
-  }
-  else {
-    timerId = setTimeout(() => this.timeout(), 15000)
-  }
-  }
+  const props = this.props;
+  var fireBaseResponse = firebase.database().ref('deliveries/');
+  fireBaseResponse.on("child_changed", function(snapshot) {
+    var changedPost = snapshot.val();
+    if (!snapshot.val()) setTimeout(() => this.timeout(), 15000)
+    if(changedPost.accepted) {
+      props.navigation.navigate('AuthorizeDriver')
+    }
+  }, function(error) {
+    setTimeout(() => this.timeout(), 15000)
+  });
+}
 
   componentWillMount() {
     this.moveOn();

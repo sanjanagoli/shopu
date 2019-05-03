@@ -7,6 +7,7 @@ import { createBottomTabNavigator, createAppContainer, createStackNavigator} fro
 import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
+import AuthorizeDriver from './screens/AuthorizeDriver';
 import Deliveries from './screens/Deliveries';
 import Item from './screens/Item';
 import Login from './screens/Login';
@@ -42,9 +43,6 @@ const shopStackNavigator = createStackNavigator({
   },
   AuthorizeDriver: {
     screen: AuthorizeDriver
-  },
-  Item: {
-    screen: Item
   },
   YourCart: {
     screen: YourCart

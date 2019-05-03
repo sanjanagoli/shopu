@@ -1,6 +1,9 @@
 {
-  "expoServerPort": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "devToolsPort": 19002,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 48861,
+  "expoServerNgrokUrl": "https://ru-2ca.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.ru-2ca.anonymous.shopu.exp.direct",
+  "ngrokPid": 35921
 }

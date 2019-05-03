@@ -1,7 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
-import variables from './../assets/data/variables';
-import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 
@@ -20,9 +18,8 @@ export default class AuthorizeDriver extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <OrangeBackground/>
-                <Toolbar navigation={this.props.navigation}/>
-                <Text style={styles.header}>Complete Actions to Authorize Driver</Text>
+                <Toolbar title={'Authorizing'} navigation={this.props.navigation}/>
+                <Text style={styles.header}>Complete the following actions to authorize the driver!</Text>
                 <View style={styles.buttonContainer}>
                     <PrimaryButton onPress={this.copyEmail} title={'Copy Auth Email'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.06} fontSize={25}/>
                     <PrimaryButton onPress={this.submit} title={'Confirm Email Sent'} backgroundColor={'#6DC4E0'} height={Dimensions.get("screen").height*.06} fontSize={25}/>
@@ -39,19 +36,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     header: {
-        color: '#ffffff',
+        color: '#000',
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 40,
         textAlign: 'center',
-        marginTop: Dimensions.get('screen').height*0.08,
+        marginTop: Dimensions.get('screen').height*0.05,
         marginBottom: Dimensions.get('screen').height*0.05,
+        paddingHorizontal: Dimensions.get('screen').width*0.05 
     },
     mainView: {
         justifyContent: 'center',
         alignItems: 'center',        
     },
     buttonContainer: {
-        marginTop: Dimensions.get('screen').height*.18,
         height: Dimensions.get('screen').height*.6,
         alignItems: 'center',
     },

@@ -75,7 +75,7 @@ export default class ShopSearch extends React.Component {
         status: 0,
         cost: 3,
         confirmedEmail: false,
-        accepted: true
+        accepted: false
       })
       this.props.navigation.navigate('LoadingScreen')
       }
@@ -126,7 +126,7 @@ export default class ShopSearch extends React.Component {
                 </View>
                 <View style={styles.button}>
                   <TouchableOpacity onPress={this.letsgo}>
-                    <PrimaryButton backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>
+                    <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>
                   </TouchableOpacity>
                 </View>
           </View> 

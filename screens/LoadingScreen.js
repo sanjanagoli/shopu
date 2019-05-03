@@ -3,63 +3,37 @@ import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-nati
 import firebase from 'firebase';
 
 const window = Dimensions.get("window");
-const database = firebase.database();
-var data1 = [];
 
 export default class LoadingScreen extends React.Component {
   static navigationOptions = {
     header: null,
     };
 
-    constructor(props) {
-      super(props);
-      this.state = {
-        deliveryArray: []
-      } 
-    };
-
   timeout = () => {
     this.props.navigation.navigate('ShopSearch')
     }
 
-  fetchData = async () => {
-    var fireBaseResponse = firebase.database().ref('deliveries');
-    fireBaseResponse.once('value').then(snapshot => {
-        snapshot.forEach(item => {
-            var temp = item.val();
-            data1.push({
-              key: item.key,
-              value: temp
-            });
-            
-            return false;
-        });
-        this.setState (
-          {deliveryArray: data1}
-        )
-        console.log(data1)
-    });  
+fetchData = () => {
+  var fireBaseResponse = firebase.database().ref('deliveries/');
+  var acceptedValue;
+  fireBaseResponse.on('child_added', function(snapshot, prevChildKey) {
+      var newPost = snapshot.val();
+      acceptedValue = newPost.accepted
+    });
+  return acceptedValue;  
 }
-
-getAccepted = () => {
-  for (i = 0; i < this.state.deliveryArray.length; i++) {
-    if(this.state.deliveryArray[i].key == accepted) {
-      return this.state.deliveryArray[i].value.accepted;
-    }
-  }
-}
-
 
 moveOn = () => {
-  if(this.getAccepted() == true) {
+  if(this.fetchData() == true) {
     this.props.navigation.navigate('AuthorizeDriver')
+  }
+  else {
+    timerId = setTimeout(() => this.timeout(), 15000)
   }
   }
 
   componentWillMount() {
-    this.fetchData();
     this.moveOn();
-    timerId = setTimeout(() => this.timeout(), 15000);
   }
 
   render() {

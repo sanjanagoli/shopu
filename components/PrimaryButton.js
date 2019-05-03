@@ -11,7 +11,7 @@ export default class PrimaryButton extends React.Component {
   render() {
     return (
          <TouchableOpacity 
-            style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}]}
+            style={[styles.buttonContainer, {backgroundColor: this.props.backgroundColor}, {height: this.props.height}, {borderColor: this.props.borderColor} ,{borderBottomWidth: this.props.borderBottomWidth}, {borderWidth: this.props.borderWidth}, {width: this.props.width}]}
             onPress={this.props.onPress}>
             <Text style = {[styles.title, {fontSize: this.props.fontSize}]}>{this.props.title}</Text>
          </TouchableOpacity>
@@ -21,7 +21,7 @@ export default class PrimaryButton extends React.Component {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    margin: 20,
+    margin: 50,
     justifyContent: 'center', 
     alignItems: 'center',
     shadowOffset: {width: 0, height: 2},
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   title:{
-    color: '#fff',
-    fontFamily: 'Montserrat-Bold',
+    color: '#262626',
+    fontFamily: 'Montserrat-SemiBold',
     marginLeft: 35,
     marginRight: 35,
     

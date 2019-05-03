@@ -12,11 +12,13 @@ export default class LoadingScreen extends React.Component {
     header: null,
     };
 
-    moveOn = () => {
+  timeout = () => {
+    this.props.navigation.navigate('ShopSearch')
+    }
 
-      if(beenAccepted='true') {
-        this.props.navigation.navigate('AuthorizeDriver');
-      }}
+  componentWillMount() {
+    timerId = setTimeout(() => this.timeout(), 15000);
+  }
 
   render() {
     return (

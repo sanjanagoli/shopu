@@ -2,8 +2,18 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
+<<<<<<< HEAD
   "packagerPid": 49509,
   "expoServerNgrokUrl": "https://ue-zc3.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.ue-zc3.anonymous.shopu.exp.direct",
   "ngrokPid": 49536
 }
+=======
+  "packagerPid": 48861,
+  "expoServerNgrokUrl": "https://ru-2ca.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.ru-2ca.anonymous.shopu.exp.direct",
+  "ngrokPid": 35921
+}
+
+
+>>>>>>> fb2304449257f767149c0c32c1bfdef3e093d74c

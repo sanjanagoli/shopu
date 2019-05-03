@@ -75,7 +75,7 @@ export default class ShopSearch extends React.Component {
         status: 0,
         cost: 3,
         confirmedEmail: false,
-        accepted: false
+        accepted: true
       })
       this.props.navigation.navigate('LoadingScreen')
       }
@@ -94,12 +94,6 @@ export default class ShopSearch extends React.Component {
           pickerSelectionSize: 'Choose Option',
           pickerSelectionQuant: 'Choose Option',
         }
-      }
-      
-      componentWillMount = () => {
-        FontLoad.then((res) => {
-          this.setState({ fontLoaded: true });
-        })
       }
       
     render() {

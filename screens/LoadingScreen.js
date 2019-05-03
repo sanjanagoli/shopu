@@ -2,21 +2,63 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
 import firebase from 'firebase';
 
-const window = Dimensions.get("window")
+const window = Dimensions.get("window");
 const database = firebase.database();
-var newDeliveryKey = firebase.database().ref().child('ChildAdded').push().key
-beenAccepted = database.ref('deliveries/' + 'delivery'+newDeliveryKey).getValue()
+var data1 = [];
 
 export default class LoadingScreen extends React.Component {
   static navigationOptions = {
     header: null,
     };
 
+    constructor(props) {
+      super(props);
+      this.state = {
+        deliveryArray: []
+      } 
+    };
+
   timeout = () => {
     this.props.navigation.navigate('ShopSearch')
     }
 
+  fetchData = async () => {
+    var fireBaseResponse = firebase.database().ref('deliveries');
+    fireBaseResponse.once('value').then(snapshot => {
+        snapshot.forEach(item => {
+            var temp = item.val();
+            data1.push({
+              key: item.key,
+              value: temp
+            });
+            
+            return false;
+        });
+        this.setState (
+          {deliveryArray: data1}
+        )
+        console.log(data1)
+    });  
+}
+
+getAccepted = () => {
+  for (i = 0; i < this.state.deliveryArray.length; i++) {
+    if(this.state.deliveryArray[i].key == accepted) {
+      return this.state.deliveryArray[i].value.accepted;
+    }
+  }
+}
+
+
+moveOn = () => {
+  if(this.getAccepted() == true) {
+    this.props.navigation.navigate('AuthorizeDriver')
+  }
+  }
+
   componentWillMount() {
+    this.fetchData();
+    this.moveOn();
     timerId = setTimeout(() => this.timeout(), 15000);
   }
 
@@ -28,7 +70,6 @@ export default class LoadingScreen extends React.Component {
                   <ActivityIndicator size='large' color='#19C6D1'/>
               </View>
               <Text style={styles.matchText}>Waiting for a Match</Text>
-              {this.moveOn()}
           </View>
         </View>
     );

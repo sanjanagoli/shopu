@@ -1,6 +1,18 @@
 import React from 'react';
-import { StyleSheet, View, Dimensions, Image, TouchableOpacity, Text} from 'react-native';
+import { StyleSheet, View, Dimensions, LayoutAnimation, TouchableOpacity, Text} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+
+var CustomLayoutAnimation = {
+    duration: 50,
+    create: {
+      type: LayoutAnimation.Types.linear,
+      property: LayoutAnimation.Properties.opacity,
+    },
+    update: {
+      type: LayoutAnimation.Types.linear,
+    },
+  };
+
 
 export default class PackagesBox extends React.Component {
     static navigationOptions = {
@@ -14,6 +26,8 @@ export default class PackagesBox extends React.Component {
         } 
     };
     expand = () => {
+        LayoutAnimation.configureNext(CustomLayoutAnimation);
+        console.log(CustomLayoutAnimation.create.type)
         this.setState (
             {expandBox: !this.state.expandBox} 
           )

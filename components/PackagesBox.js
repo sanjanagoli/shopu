@@ -27,7 +27,6 @@ export default class PackagesBox extends React.Component {
     };
     expand = () => {
         LayoutAnimation.configureNext(CustomLayoutAnimation);
-        console.log(CustomLayoutAnimation.create.type)
         this.setState (
             {expandBox: !this.state.expandBox} 
           )
@@ -40,21 +39,20 @@ export default class PackagesBox extends React.Component {
       });
     }
 
-
-  render() {
-    if(!this.state.expandBox) {
-        return (
-            <TouchableOpacity onPress={this.expand}>         
-                <View style={[styles.rectangles]}>
-                    <View style={styles.subView}>
-                        <Text style = {styles.name}>{this.props.firstName}</Text>
-                        <Text style = {styles.location}>{this.props.location}</Text>
-                    </View>
-                    <Text style = {styles.packageSize}>{this.props.packageSize}</Text>
-                </View>    
-            </TouchableOpacity>   
-        );
-    } else {
+    renderFunction = () => {
+        if(!this.state.expandBox) {
+            return (
+                <TouchableOpacity onPress={this.expand}>         
+                    <View style={[styles.rectangles]}>
+                        <View style={styles.subView}>
+                            <Text style = {styles.name}>{this.props.firstName}</Text>
+                            <Text style = {styles.location}>{this.props.location}</Text>
+                        </View>
+                        <Text style = {styles.packageSize}>{this.props.packageSize}</Text>
+                    </View>    
+                </TouchableOpacity>   
+            );
+        } 
         return (
             <TouchableOpacity onPress={this.expand}>      
                 <View style={[styles.bigRectangles]}>
@@ -70,8 +68,16 @@ export default class PackagesBox extends React.Component {
                 </View>    
             </TouchableOpacity>
         );
+         
     }
     
+
+  render() {
+    return (
+        <View>
+            {this.renderFunction()}
+        </View>
+    )
   }
 }
 

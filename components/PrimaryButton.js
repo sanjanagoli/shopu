@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   title:{
-    color: '#262626',
+    color: '#ffffff',
     fontFamily: 'Montserrat-SemiBold',
     marginLeft: 35,
     marginRight: 35,

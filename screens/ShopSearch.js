@@ -10,7 +10,11 @@ import moment from 'moment';
 import RequestStatus from './../screens/RequestStatus';
 import StatusUpdateModal from './../components/StatusUpdateModal';
 
+
+
+
 var newDeliveryKey = firebase.database().ref().child('posts').push().key
+
 
 let sizeItems = 
   [
@@ -67,7 +71,7 @@ export default class ShopSearch extends React.Component {
     
     letsgo = () => {
       database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
-        buyer: 'ijemma',
+        buyer: 'user-Ld7TP38Nf47JgfHC2FG',
         driver: 'bob',
         packageSize: this.state.pickerSelectionSize,
         packageNumber: this.state.pickerSelectionQuant,
@@ -76,8 +80,13 @@ export default class ShopSearch extends React.Component {
         cost: 3,
         confirmedEmail: false,
         accepted: false
+      
+      }) 
+   
+      this.props.navigation.navigate('AuthorizeDriver', {
+        deliveryKey: newDeliveryKey,
+        userKey: 'user-Ld7TP38Nf47JgfHC2FG',
       })
-      this.props.navigation.navigate('LoadingScreen')
       }
     
     componentWillMount = () => {
@@ -130,11 +139,7 @@ export default class ShopSearch extends React.Component {
                   </View>  
                   <View style={styles.searchLine}/>
                 </View>
-                <View style={styles.button}>
-                  <TouchableOpacity onPress={this.letsgo}>
-                    <PrimaryButton backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>
-                  </TouchableOpacity>
-                </View>
+                <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>   
           </View> 
           </View>
         ) : null
@@ -183,9 +188,6 @@ export default class ShopSearch extends React.Component {
       fontFamily: 'Montserrat-Bold',
       marginLeft: window.width*.01,
       marginBottom: window.height*0.01,
-    },
-    button: { 
-      width: Dimensions.get("screen").width*.6,
     },
     rowBox: {
       width: window.width*.75, 

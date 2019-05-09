@@ -163,7 +163,7 @@ export default class ShopSearch extends React.Component {
       shadowOpacity: 0.25,
       shadowRadius: 5,
       justifyContent: 'center',
-      marginTop: window.height*.06,
+      marginTop: window.height*.04,
       flexDirection: 'column',
       borderColor: '#19C6D1',
       borderWidth: 1.5,
@@ -213,6 +213,9 @@ export default class ShopSearch extends React.Component {
       height: 25,
       marginTop: window.height*0.035,
       marginLeft: -window.width*0.41,
+    },
+    button: {
+      marginTop: -window.height*0.02,
     }
   });
   

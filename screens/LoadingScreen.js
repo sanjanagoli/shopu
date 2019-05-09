@@ -1,9 +1,8 @@
 import React from 'react';
+import { StyleSheet, Text, View, Dimensions, ActivityIndicator, Console} from 'react-native';
 import firebase from 'firebase';
-import { StyleSheet, Text, View, Dimensions, ActivityIndicator} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
 
-const window = Dimensions.get("window")
+const window = Dimensions.get("window");
 
 export default class LoadingScreen extends React.Component {
   static navigationOptions = {
@@ -14,8 +13,26 @@ export default class LoadingScreen extends React.Component {
     this.props.navigation.navigate('ShopSearch')
     }
 
+    constructor(props) {
+      super(props);
+    }
+
+moveOn = () => {
+  const props = this.props;
+  var fireBaseResponse = firebase.database().ref('deliveries/');
+  fireBaseResponse.on("child_changed", function(snapshot) {
+    var changedPost = snapshot.val();
+    if (!snapshot.val()) setTimeout(() => this.timeout(), 15000)
+    if(changedPost.accepted) {
+      props.navigation.navigate('AuthorizeDriver')
+    }
+  }, function(error) {
+    setTimeout(() => this.timeout(), 15000)
+  });
+}
+
   componentWillMount() {
-    timerId = setTimeout(() => this.timeout(), 15000);
+    this.moveOn();
   }
 
   render() {

@@ -7,7 +7,7 @@ export default class Toolbar extends React.Component {
         };
         
     bag = () => {
-        this.props.navigation.navigate('ShoppingList')
+        this.props.navigation.navigate('Deliveries')
         
     } 
     person = () => {

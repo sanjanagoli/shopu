@@ -13,21 +13,10 @@ export default class RequestStatus extends React.Component {
 
   constructor(props) {
     super(props);
-
-      this.state = { 
-        pending: false, 
+      this.state = {
         userArray: {
 
         }, 
-        item:
-          {
-            firstName: 'Ijemma',
-            lastName: 'Harathi',
-            location: 'River: 107 Byrne II',
-            phoneNumber: '555-555-5555',
-            email: 'iso@dartmouth.edu',
-            packageSize: 'Heavy'
-          }
       };
     
   };
@@ -55,7 +44,6 @@ export default class RequestStatus extends React.Component {
           this.setState (
             {userArray: data2} 
           )
-          
       });
 
   }
@@ -71,9 +59,9 @@ export default class RequestStatus extends React.Component {
     })
   }
 
-  renderModal = () => {
+  renderModal = (phoneNumber) => {
     if (this.state.modal){
-      return <StatusUpdateModal onPress={this.statusUpdate}/>
+      return <StatusUpdateModal onPress={this.statusUpdate} phone={phoneNumber}/>
       }
     else {
       return null
@@ -137,7 +125,7 @@ export default class RequestStatus extends React.Component {
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
                   <Text style={styles.itemText}>Waiting for Confirmation!</Text>
-                  <Text style={styles.descriptionText}>Come back when {this.getFirstName(userId)}{"'"}s mail request is confirmed!</Text>
+                  <Text style={styles.descriptionText}>Come back when {this.getName(userId)}{"'"}s mail request is confirmed!</Text>
                 </View>
               </View>
             </View>
@@ -157,16 +145,14 @@ export default class RequestStatus extends React.Component {
                   <Text style={styles.generalText}>{this.getPhone(userId)}</Text>
                   <Text style={styles.generalText}>{this.getLocation(userId)}</Text>
                 </View>
-                <View style={styles.otherAddToCart}>
-                    <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#6DC4E0'} height={65} fontSize={28}/>
+                <View style={styles.button}>
+                    <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#19C6D1'} height={65} fontSize={28}/>
                 </View>
-                {this.renderModal()}         
+                {this.renderModal(this.getPhone(userId))}      
               </View>
             </View>
       );
-
     }
-
   }
  }
 
@@ -178,7 +164,7 @@ const styles = StyleSheet.create({
   mainView: {
     justifyContent: 'center',
     alignItems: 'center', 
-    marginTop: window.height*.02
+    marginTop: -window.height*.02
   },
   subView: {
     flexDirection: 'row', 
@@ -198,7 +184,7 @@ const styles = StyleSheet.create({
   whiteCard: {
     width: window.width*.9,
     height: window.height*.65,
-    marginTop: window.height*.03,
+    marginTop: window.height*.08,
     backgroundColor: '#fff',
     shadowOffset: {width: 0, height: 5},
     shadowColor: '#000000',
@@ -215,6 +201,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     color: '#262626',
     textAlign: 'center',
+    marginTop: -window.height*.4,
   },
   descriptionText: {
     fontSize: 25,
@@ -250,5 +237,8 @@ const styles = StyleSheet.create({
     color: '#262626',
     marginLeft: window.width*0.07,
   },
+  button: {
+    marginTop: -window.height*.25,
+  }
 });
 

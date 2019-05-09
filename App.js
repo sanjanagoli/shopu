@@ -81,6 +81,9 @@ const driverStackNavigator = createStackNavigator({
   },
   AccountProfile: {
     screen: AccountProfile
+  },
+  Deliveries: {
+    screen: Deliveries
   }
 });
 

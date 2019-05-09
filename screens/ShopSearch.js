@@ -12,6 +12,7 @@ import StatusUpdateModal from './../components/StatusUpdateModal';
 
 
 
+
 var newDeliveryKey = firebase.database().ref().child('posts').push().key
 
 
@@ -138,9 +139,7 @@ export default class ShopSearch extends React.Component {
                   </View>  
                   <View style={styles.searchLine}/>
                 </View>
-                <View style={styles.button}>
-                    <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>  
-                </View>
+                <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>   
           </View> 
           </View>
         ) : null
@@ -189,9 +188,6 @@ export default class ShopSearch extends React.Component {
       fontFamily: 'Montserrat-Bold',
       marginLeft: window.width*.01,
       marginBottom: window.height*0.01,
-    },
-    button: { 
-      width: Dimensions.get("screen").width*.6,
     },
     rowBox: {
       width: window.width*.75, 

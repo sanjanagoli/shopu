@@ -14,15 +14,20 @@ export default class RequestStatus extends React.Component {
   constructor(props) {
     super(props);
 
-      this.state = { pending: false, userArray: {}, item:
-        {
-          firstName: 'Ijemma',
-          lastName: 'Harathi',
-          location: 'River: 107 Byrne II',
-          phoneNumber: '555-555-5555',
-          email: 'iso@dartmouth.edu',
-          packageSize: 'Heavy'
-        }
+      this.state = { 
+        pending: false, 
+        userArray: {
+
+        }, 
+        item:
+          {
+            firstName: 'Ijemma',
+            lastName: 'Harathi',
+            location: 'River: 107 Byrne II',
+            phoneNumber: '555-555-5555',
+            email: 'iso@dartmouth.edu',
+            packageSize: 'Heavy'
+          }
       };
     
   };

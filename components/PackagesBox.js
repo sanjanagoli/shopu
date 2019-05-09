@@ -61,11 +61,10 @@ export default class PackagesBox extends React.Component {
                         <Text style = {styles.location}>{this.props.location}</Text>
                     </View>
                     <Text style = {styles.packageSize}>{this.props.packageSize}</Text>
-                    <View style={{width: Dimensions.get("screen").width*.55, marginLeft: Dimensions.get('screen').width*.17, marginTop: Dimensions.get('screen').height*.018}}>
+                    <View style={styles.buttonContainer}>
                         <PrimaryButton onPress={this.onPress.bind(this, this.props.item)} title={'Accept'} backgroundColor={ '#19C6D1'} height={Dimensions.get('screen').height*.05} fontSize={25}/>
                     </View>
-                    
-                </View>    
+                </View>  
             </TouchableOpacity>
         );
          
@@ -138,5 +137,10 @@ const styles = StyleSheet.create({
         marginLeft: Dimensions.get("screen").width*.02,
         paddingHorizontal: Dimensions.get("screen").width*.05,
         paddingTop: Dimensions.get("screen").height*.03,
+      },
+      buttonContainer: {
+        width: Dimensions.get("screen").width*.65, 
+        marginLeft: Dimensions.get('screen').width*.125, 
+        marginTop: Dimensions.get('screen').height*.018
       },
 });

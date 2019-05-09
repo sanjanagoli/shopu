@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
+import PackagesBox from '../components/PackagesBox';
 
 
 function writeNewPost(uid, username, email, firstName, lastName, location) {
@@ -37,6 +38,7 @@ export default class AvailablePackages extends Component {
       this.state = {
         deliveryArray: [],
         userArray: {}
+        
       } 
     };
 
@@ -97,30 +99,22 @@ export default class AvailablePackages extends Component {
     
     onPress = () => {
         //navigate to available packages modal -- insert when finished
-        //this.props.navigation.navigate('Available Packages Modal')
+        this.props.navigation.navigate('AccountProfile')
     }
 
     render() {
     return (
       <View style={styles.container}>
-            <Toolbar pageType={'Driver'} navigation={this.props.navigation}/>
+            <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'}/>
             <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01}}>
                 <FlatList
                     data= {this.state.deliveryArray}
                     keyExtractor = {(item, index) => index.toString()}
                     renderItem = {
                         ({item, index}) => {
-                            return (  
-                            <TouchableOpacity onPress={this.onPress}>                              
-                                    <View style={[styles.rectangles, {backgroundColor: '#fff'}]}>
-                                      <View style={styles.subView}>
-                                        <Text style = {styles.name}>{this.getFirstName(item.buyer)}</Text>
-                                        <Text style = {styles.location}>{this.getLocation(item.buyer)}</Text>
-                                      </View>
-                                      <Text style = {styles.packageSize}>{item.packageSize}</Text>
-                                    </View> 
-                                </TouchableOpacity>   
-                            )
+                            return (    
+                              <PackagesBox item={item} firstName={this.getFirstName(item.buyer)} location={this.getLocation(item.buyer)} packageSize={item.packageSize} navigation={this.props.navigation}/>
+                            );
                         }
                     }
                 />  
@@ -133,6 +127,7 @@ export default class AvailablePackages extends Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F3F3F3',
+    flex: 1,
   },
   subView: {
     flexDirection: 'row', 

@@ -105,12 +105,6 @@ export default class ShopSearch extends React.Component {
         }
       }
       
-      componentWillMount = () => {
-        FontLoad.then((res) => {
-          this.setState({ fontLoaded: true });
-        })
-      }
-      
     render() {
       return (
         this.state.fontLoaded ? (
@@ -139,7 +133,11 @@ export default class ShopSearch extends React.Component {
                   </View>  
                   <View style={styles.searchLine}/>
                 </View>
-                <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>   
+                <View style={styles.button}>
+                  <TouchableOpacity onPress={this.letsgo}>
+                    <PrimaryButton onPress={this.letsgo} backgroundColor={'#19C6D1'} title={"Let's Go!"} height={60} fontSize={30}/>
+                  </TouchableOpacity>
+                </View>
           </View> 
           </View>
         ) : null

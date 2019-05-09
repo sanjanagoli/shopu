@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, Clipboard } from 'react-native';
-import variables from './../assets/data/variables';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
@@ -38,7 +37,8 @@ export default class AuthorizeDriver extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Toolbar title = {'Authorizing'} navigation={this.props.navigation}/>
+                <Toolbar title={'Authorizing'} navigation={this.props.navigation}/>
+                <Text style={styles.header}>Complete the following actions to authorize the driver!</Text>
                 <View style={styles.buttonContainer}>
                 <TouchableOpacity onPress ={this.copyEmail}>
                     <View style = {styles.rectangles}>
@@ -70,12 +70,20 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
     },
+    header: {
+        color: '#000',
+        fontFamily: 'Montserrat-SemiBold',
+        fontSize: 40,
+        textAlign: 'center',
+        marginTop: Dimensions.get('screen').height*0.05,
+        marginBottom: Dimensions.get('screen').height*0.05,
+        paddingHorizontal: Dimensions.get('screen').width*0.05 
+    },
     mainView: {
         justifyContent: 'center',
         alignItems: 'center',        
     },
     buttonContainer: {
-        marginTop: Dimensions.get('screen').height*.18,
         height: Dimensions.get('screen').height*.6,
         alignItems: 'center',
     },  

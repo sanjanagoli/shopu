@@ -24,6 +24,7 @@ import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
 import Payment from './screens/Payment';
 import LoadingScreen from './screens/LoadingScreen';
+import AuthorizeDriver from './screens/AuthorizeDriver';
 
 
 YellowBox.ignoreWarnings([
@@ -81,6 +82,9 @@ const driverStackNavigator = createStackNavigator({
   },
   AccountProfile: {
     screen: AccountProfile
+  },
+  Deliveries: {
+    screen: Deliveries
   }
 });
 

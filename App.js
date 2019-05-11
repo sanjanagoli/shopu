@@ -26,6 +26,7 @@ import Payment from './screens/Payment';
 import LoadingScreen from './screens/LoadingScreen';
 
 
+
 YellowBox.ignoreWarnings([
   'Require cycle:',
 ]);

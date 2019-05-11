@@ -2,9 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator, Console} from 'react-native';
 import firebase from 'firebase';
 
+const database = firebase.database();
 const window = Dimensions.get("window");
 
 export default class LoadingScreen extends React.Component {
+  
+
   static navigationOptions = {
     header: null,
     };

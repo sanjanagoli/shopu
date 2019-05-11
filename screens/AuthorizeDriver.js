@@ -37,8 +37,8 @@ export default class AuthorizeDriver extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Toolbar title={'Authorizing'} navigation={this.props.navigation}/>
-                <Text style={styles.header}>Complete the following actions to authorize the driver!</Text>
+                <Toolbar title={'Authorize Driver'} navigation={this.props.navigation}/>
+                
                 <View style={styles.buttonContainer}>
                 <TouchableOpacity onPress ={this.copyEmail}>
                     <View style = {styles.rectangles}>
@@ -46,6 +46,7 @@ export default class AuthorizeDriver extends React.Component {
                             <Text style={styles.rectangleText}>Copy Authentification Email</Text>
                         </View>
                     </View>
+                    <Text style={styles.Subheader}>Copy authentification email and send it to Hinman.</Text>
                     <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
@@ -55,7 +56,9 @@ export default class AuthorizeDriver extends React.Component {
                             <Text style={styles.rectangleText}>Confirm Email Sent</Text>
                         </View>
                     </View>
+                    <Text style={styles.Subheader}>Press the confirm email button to notify your deliverer.</Text>
                     <View style = {styles.blueRectangles}>
+                    
                     </View>
                 </TouchableOpacity>
                 </View>
@@ -86,11 +89,12 @@ const styles = StyleSheet.create({
     buttonContainer: {
         height: Dimensions.get('screen').height*.6,
         alignItems: 'center',
+        justifyContent: 'flex-start',
     },  
     rectangles: {
         backgroundColor: '#ffffff',
-        marginTop: Dimensions.get("screen").height*.02,
-        marginBottom: Dimensions.get("screen").height*.1,
+        marginTop: Dimensions.get("screen").height*.1,
+        marginBottom: Dimensions.get("screen").height*.02,
         width: Dimensions.get("screen").width*.8,
         height: Dimensions.get("screen").height*.12,
         shadowOffset: { width: 8, height: 4},
@@ -109,5 +113,13 @@ const styles = StyleSheet.create({
         color:  '#212121',
         fontFamily: 'Montserrat-SemiBold',
         textAlign: 'center',
+      },
+      Subheader:{
+        fontSize: 18,
+        color:  '#212121',
+        fontFamily: 'Montserrat-Light',
+        textAlign: 'center',
+        width: Dimensions.get("screen").width*.8,
+        marginBottom: Dimensions.get("screen").height*.01,
       },
 });

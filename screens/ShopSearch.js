@@ -104,6 +104,19 @@ export default class ShopSearch extends React.Component {
           pickerSelectionQuant: 'Choose Option',
         }
       }
+
+    firstSizeValue = () => {
+      this.setState({
+        pickerSelectionSize: 'Heavy',
+      })
+    }
+
+    firstQuantValue = () => {
+      this.setState({
+        pickerSelectionQuant: '1-2 Package(s)'
+      })
+    }
+
       
     render() {
       return (
@@ -117,7 +130,7 @@ export default class ShopSearch extends React.Component {
                   </View>
                   <Text style={styles.bigText}>{this.state.pickerSelectionSize}</Text>
                   <View style={{marginLeft: window.width*.75, marginTop: -window.height*0.03}}>
-                    <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} items={sizeItems}/>
+                    <DropDown selectedValue={this.state.pickerSelectionSize} setState={this.setPickerSize} items={sizeItems} firstOption={this.firstSizeValue} />
                   </View>
                   <View style={styles.searchLine}/>     
                 </View>
@@ -129,7 +142,7 @@ export default class ShopSearch extends React.Component {
                   </View>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
                   <View style={{marginTop: -window.height*.03, marginLeft: window.width*.75}}>
-                    <DropDown selectedValue={this.state.pickerSelectionQuant} setState={this.setPickerQuant} items={quantItems}/>
+                    <DropDown selectedValue={this.state.pickerSelectionQuant} setState={this.setPickerQuant} items={quantItems} firstOption={this.firstQuantValue}/>
                   </View>  
                   <View style={styles.searchLine}/>
                 </View>
@@ -163,7 +176,7 @@ export default class ShopSearch extends React.Component {
       shadowOpacity: 0.25,
       shadowRadius: 5,
       justifyContent: 'center',
-      marginTop: window.height*.06,
+      marginTop: window.height*.04,
       flexDirection: 'column',
       borderColor: '#19C6D1',
       borderWidth: 1.5,
@@ -213,6 +226,9 @@ export default class ShopSearch extends React.Component {
       height: 25,
       marginTop: window.height*0.035,
       marginLeft: -window.width*0.41,
+    },
+    button: {
+      marginTop: -window.height*0.02,
     }
   });
   

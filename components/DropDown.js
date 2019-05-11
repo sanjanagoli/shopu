@@ -23,8 +23,15 @@ export default class DropDown extends React.Component {
     }
   }
 
+  
   togglePicker() {
-    console.log('testing right here');
+    this.setState({
+      pickerDisplayed: !this.state.pickerDisplayed
+    })
+    this.props.firstOption()
+  }
+
+  togglePickerClose() {
     this.setState({
       pickerDisplayed: !this.state.pickerDisplayed
     })
@@ -44,7 +51,7 @@ export default class DropDown extends React.Component {
             onValueChange={(itemValue, itemIndex) => {this.props.setState(itemValue)}}>
             {this.items()}
             </Picker>
-            <TouchableOpacity style={styles.doneTouchable} onPress={() => this.togglePicker()}>
+            <TouchableOpacity style={styles.doneTouchable} onPress={() => this.togglePickerClose()}>
               <Text style={styles.doneText}>Done</Text>
             </TouchableOpacity>
         </Modal>

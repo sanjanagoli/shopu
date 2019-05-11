@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     titleText:{
         top: Dimensions.get('screen').height*.065,
         fontFamily: 'Montserrat-SemiBold',
-        fontSize: 30,
+        fontSize: Dimensions.get('screen').width*.065,
         color: '#262626',
         position: 'absolute',
     }

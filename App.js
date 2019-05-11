@@ -62,6 +62,9 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
+  Welcome: {
+    screen: Welcome
+  },
   AvailablePackages: {
     screen: AvailablePackages
   },

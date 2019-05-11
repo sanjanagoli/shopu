@@ -109,7 +109,7 @@ export default class ShopSearch extends React.Component {
       return (
         this.state.fontLoaded ? (
           <View style={styles.container}>
-            <Toolbar navigation={this.props.navigation}/>
+            <Toolbar navigation={this.props.navigation} title={`Let's mailU!`}/>
             <View style={styles.mainView}>
                 <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>

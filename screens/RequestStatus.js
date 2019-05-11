@@ -121,7 +121,7 @@ export default class RequestStatus extends React.Component {
     if(!isConfirmed) {
       return (
         <View style={styles.container}>
-          <Toolbar/>
+          <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Waiting'}/>
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
                   <Text style={styles.itemText}>Waiting for Confirmation!</Text>
@@ -134,7 +134,7 @@ export default class RequestStatus extends React.Component {
     } else {
       return (
         <View style={styles.container}> 
-          <Toolbar/>
+          <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Pickup Confirmed'}/>
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
                   <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     color: '#262626',
     textAlign: 'center',
-    marginTop: -window.height*.4,
+    marginTop: -window.height*.2,
   },
   descriptionText: {
     fontSize: 25,

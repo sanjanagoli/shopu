@@ -1,9 +1,11 @@
-{  
+
+{
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 61256,
+  "expoServerNgrokUrl": "https://p9-mda.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.p9-mda.anonymous.shopu.exp.direct",
+  "ngrokPid": 61270
 }
+

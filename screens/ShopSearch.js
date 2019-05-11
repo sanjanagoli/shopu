@@ -83,7 +83,7 @@ export default class ShopSearch extends React.Component {
       
       }) 
    
-      this.props.navigation.navigate('AuthorizeDriver', {
+      this.props.navigation.navigate('LoadingScreen', {
         deliveryKey: newDeliveryKey,
         userKey: 'user-Ld7TP38Nf47JgfHC2FG',
       })

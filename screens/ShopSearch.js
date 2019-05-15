@@ -122,7 +122,7 @@ export default class ShopSearch extends React.Component {
       return (
         this.state.fontLoaded ? (
           <View style={styles.container}>
-            <Toolbar navigation={this.props.navigation}/>
+            <Toolbar navigation={this.props.navigation} title={`Let's mailU!`}/>
             <View style={styles.mainView}>
                 <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>
@@ -136,9 +136,9 @@ export default class ShopSearch extends React.Component {
                 </View>
                 <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>
-                    <Text style={styles.searchText}>How many packages do you have?</Text>
-                    <Image style={styles.package}
-                      source={require('./../assets/images/package.png')} />
+                      <Text style={styles.searchText}>How many packages do you have?</Text>
+                      <Image style={styles.package}
+                        source={require('./../assets/images/package.png')} />
                   </View>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
                   <View style={{marginTop: -window.height*.03, marginLeft: window.width*.75}}>
@@ -222,10 +222,10 @@ export default class ShopSearch extends React.Component {
       marginLeft: window.width*.07,
     },
     package:{
-      width: 25,
+      width: 25, 
       height: 25,
-      marginTop: window.height*0.035,
-      marginLeft: -window.width*0.41,
+      marginTop: window.height*0.037,
+      marginLeft: -window.width*0.27,
     },
     button: {
       marginTop: -window.height*0.02,

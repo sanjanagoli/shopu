@@ -6,7 +6,6 @@ const database = firebase.database();
 const window = Dimensions.get("window");
 
 export default class LoadingScreen extends React.Component {
-  
 
   static navigationOptions = {
     header: null,

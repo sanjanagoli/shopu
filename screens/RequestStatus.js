@@ -5,11 +5,12 @@ import OrangeBackground from './../components/OrangeBackground';
 import Toolbar from '../components/Toolbar';
 import StatusUpdateModal from '../components/StatusUpdateModal';
 import firebase from 'firebase';
-
+import {connect} from 'react-redux';
+import {currentDelivery} from '../reducers/completedReducer';
 
 const window = Dimensions.get("window")
 
-export default class RequestStatus extends React.Component { 
+class RequestStatus extends React.Component { 
 
   constructor(props) {
     super(props);
@@ -17,14 +18,21 @@ export default class RequestStatus extends React.Component {
         userArray: {
 
         }, 
+        userId: null,
+        isConfirmed: null,
       };
     
   };
 
   componentWillMount() {
     //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
+    const { params } = this.props.navigation.state;
     this.fetchData();
+    console.log('hi', params)
+    this.setState({ userId: params.item.buyer, isConfirmed: params.item.confirmedEmail });
+    this.props.currentDelivery(params.item.id)
   }
+
   fetchData = async () => {
       
       var data2 = [];
@@ -73,41 +81,41 @@ export default class RequestStatus extends React.Component {
   }
 
 
-  getFirstName = (userId) => {
+  getFirstName = () => {
     for (i = 0; i < this.state.userArray.length; i++) {
-      if(this.state.userArray[i].key == userId) {
+      if(this.state.userArray[i].key == this.state.userId) {
         return this.state.userArray[i].value.firstName;
       }
     }
   }
 
-  getName = (userId) => {
+  getName = () => {
     for (i = 0; i < this.state.userArray.length; i++) {
-      if(this.state.userArray[i].key == userId) {
+      if(this.state.userArray[i].key == this.state.userId) {
         return this.state.userArray[i].value.firstName + " " + this.state.userArray[i].value.lastName;
       }
     }
   }
 
-  getEmail = (userId) => {
+  getEmail = () => {
     for (i = 0; i < this.state.userArray.length; i++) {
-      if(this.state.userArray[i].key == userId) {
+      if(this.state.userArray[i].key == this.state.userId) {
         return this.state.userArray[i].value.email;
       }
     }
   }
 
-  getPhone = (userId) => {
+  getPhone = () => {
     for (i = 0; i < this.state.userArray.length; i++) {
-      if(this.state.userArray[i].key == userId) {
+      if(this.state.userArray[i].key == this.state.userId) {
         return this.state.userArray[i].value.phoneNumber;
       }
     }
   }
 
-  getLocation = (userId) => {
+  getLocation = () => {
     for (i = 0; i < this.state.userArray.length; i++) {
-      if(this.state.userArray[i].key == userId) {
+      if(this.state.userArray[i].key == this.state.userId) {
         return this.state.userArray[i].value.location;
       }
     }
@@ -115,17 +123,15 @@ export default class RequestStatus extends React.Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    const isConfirmed = params ? params.item.confirmedEmail : null;
-    const userId = params ? params.item.buyer : null;
 
-    if(!isConfirmed) {
+    if(!this.state.isConfirmed) {
       return (
         <View style={styles.container}>
           <Toolbar/>
             <View style={styles.mainView}>
               <View style={styles.whiteCard}>
                   <Text style={styles.itemText}>Waiting for Confirmation!</Text>
-                  <Text style={styles.descriptionText}>Come back when {this.getName(userId)}{"'"}s mail request is confirmed!</Text>
+                  <Text style={styles.descriptionText}>Come back when {this.getName()}{"'"}s mail request is confirmed!</Text>
                 </View>
               </View>
             </View>
@@ -140,15 +146,15 @@ export default class RequestStatus extends React.Component {
                   <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
                 </View>
                 <View style={styles.textContainer}>
-                  <Text style={styles.generalText}>{this.getName(userId)}</Text>
-                  <Text style={styles.generalText}>{this.getEmail(userId)}</Text>
-                  <Text style={styles.generalText}>{this.getPhone(userId)}</Text>
-                  <Text style={styles.generalText}>{this.getLocation(userId)}</Text>
+                  <Text style={styles.generalText}>{this.getName()}</Text>
+                  <Text style={styles.generalText}>{this.getEmail()}</Text>
+                  <Text style={styles.generalText}>{this.getPhone()}</Text>
+                  <Text style={styles.generalText}>{this.getLocation()}</Text>
                 </View>
                 <View style={styles.button}>
                     <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={ '#19C6D1'} height={65} fontSize={28}/>
                 </View>
-                {this.renderModal(this.getPhone(userId))}      
+                {this.renderModal(this.getPhone())}      
               </View>
             </View>
       );
@@ -242,3 +248,8 @@ const styles = StyleSheet.create({
   }
 });
 
+const mapDispatchtoProps = {
+  currentDelivery
+}
+
+export default connect(null, mapDispatchtoProps)(RequestStatus)

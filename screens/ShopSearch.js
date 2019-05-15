@@ -11,10 +11,7 @@ import RequestStatus from './../screens/RequestStatus';
 import StatusUpdateModal from './../components/StatusUpdateModal';
 
 
-
-
 var newDeliveryKey = firebase.database().ref().child('posts').push().key
-
 
 let sizeItems = 
   [
@@ -46,6 +43,7 @@ let quantItems =
 
 const database = firebase.database();
 const window = Dimensions.get("window")
+
 export default class ShopSearch extends React.Component {
 
   renderFontSize = () => {
@@ -55,7 +53,8 @@ export default class ShopSearch extends React.Component {
     else if (PixelRatio.get() === 3){
       return 60
     }
-  }
+  } 
+
 
   setPickerSize = (itemValue) => {
     this.setState({ pickerSelectionSize: itemValue})
@@ -70,7 +69,7 @@ export default class ShopSearch extends React.Component {
     };
     
     letsgo = () => {
-      database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
+      database.ref(`deliveries/delivery${newDeliveryKey}`).set({
         buyer: 'user-Ld7TP38Nf47JgfHC2FG',
         driver: 'bob',
         packageSize: this.state.pickerSelectionSize,
@@ -79,10 +78,10 @@ export default class ShopSearch extends React.Component {
         status: 0,
         cost: 3,
         confirmedEmail: false,
-        accepted: false
-      
+        accepted: false,
+        completed: false,
+        id: newDeliveryKey,
       }) 
-   
       this.props.navigation.navigate('LoadingScreen', {
         deliveryKey: newDeliveryKey,
         userKey: 'user-Ld7TP38Nf47JgfHC2FG',
@@ -231,5 +230,4 @@ export default class ShopSearch extends React.Component {
       marginTop: -window.height*0.02,
     }
   });
-  
   

@@ -29,15 +29,8 @@ class StatusUpdateModal extends React.Component {
   }
 
   sendAndComplete = async(text) => {
-    // const { result }= await SMS.sendSMSAsync(this.props.phone, text);
+    const { result }= await SMS.sendSMSAsync(this.props.phone, text);
     this.props.currentDelivery('')
-  }
-
-
-  lastText = () => {
-    // database.ref(`deliveries/delivery${this.props.navigation.getParam('deliveryKey')}`).update({
-    //   completed: true,
-    // })
   }
 
   render() {

@@ -34,9 +34,7 @@ updateTimeout = (props) => {
 
 moveOn = () => {
   const props = this.props;
-  console.log("props" + props);
   this.updateTimeout(props);
-  setTimeout(() => {this.timeout()}, 15000);
 }
 
   componentDidMount() {

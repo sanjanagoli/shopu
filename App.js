@@ -24,7 +24,7 @@ import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
 import Payment from './screens/Payment';
 import LoadingScreen from './screens/LoadingScreen';
-
+import SignUp from './screens/SignUp';
 
 
 YellowBox.ignoreWarnings([
@@ -65,6 +65,12 @@ const driverStackNavigator = createStackNavigator({
   Welcome: {
     screen: Welcome
   },
+  Login: {
+    screen: Login
+  },
+  ShopSearch: {
+    screen: ShopSearch
+  },
   AvailablePackages: {
     screen: AvailablePackages
   },
@@ -88,7 +94,10 @@ const driverStackNavigator = createStackNavigator({
   },
   Deliveries: {
     screen: Deliveries
-  }
+  },
+  SignUp: {
+    screen: SignUp
+  },
 });
 
 const TabNavigator = createBottomTabNavigator({

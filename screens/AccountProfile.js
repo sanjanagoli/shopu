@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from './../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
@@ -28,7 +27,7 @@ export default class AccountProfile extends React.Component {
       password: this.state.password,
       phoneNumber: this.state.phoneNumber,
       venmo: this.state.venmo,
-      location: this.state.location
+      location: this.state.location,
     })
   }
 
@@ -38,7 +37,7 @@ export default class AccountProfile extends React.Component {
       password: this.state.password,
       phoneNumber: this.state.phoneNumber,
       venmo: this.state.venmo,
-      location: this.state.location
+      location: this.state.location,
     })
     }
 
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
   },
   buttonStyle: {
     marginTop: Dimensions.get('screen').height*.008,
-    width: Dimensions.get('screen').width*.5,
+    width: Dimensions.get('screen').width*.6,
   },
   subHeader: {
     color: '#2E2E2F',
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.6,
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
-    marginTop: Dimensions.get("screen").height*.04,
+    marginTop: Dimensions.get("screen").height*.03,
     marginLeft: Dimensions.get("screen").width*.045,
     borderRadius: 5,
     borderWidth: 2,
@@ -210,6 +209,6 @@ const styles = StyleSheet.create({
   subView: {	 
     flexDirection: 'row', 	    
     paddingHorizontal: Dimensions.get("screen").width*.05,	    
-    marginTop: Dimensions.get("screen").height*.01	   
+    marginTop: Dimensions.get("screen").height*.02	   
   },
 });

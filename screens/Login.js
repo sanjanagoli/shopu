@@ -18,18 +18,22 @@ export default class Login extends React.Component {
     this.props.navigation.navigate('Welcome')
   }
 
-  loginUser = (props) => {
+  loginUser = () => {
+    const navigation = this.props.navigation;
+    const state = this.state;
     var fireBaseResponse = firebase.database().ref('users/');
     fireBaseResponse.on("value", function(querySnapshot) {
         querySnapshot.forEach(function(userSnapshot) {
-          if (1+1==2) {
-            props.navigation.navigate('Welcome') 
+          if (userSnapshot.val().email === state.email & userSnapshot.val().password === state.password) {
+            firebase.database().ref('users/' + userSnapshot.key).update({
+              loggedIn: true,
+            })
+            navigation.navigate('ShopSearch'); 
         }
         });
     });
   }
-
-  // if(userSnapshot.email === this.state.email) {
+   
   render() {
     return (
           <View style={styles.container}>

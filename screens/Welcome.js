@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity} from 'react-native';
+import FontLoad from './../components/FontLoad';
 
 
 export default class Welcome extends React.Component {
@@ -15,9 +16,21 @@ export default class Welcome extends React.Component {
   signUp = () => {
     this.props.navigation.navigate('SignUp')
   }
+
+  componentWillMount = () => {
+    FontLoad.then((res) => {
+      this.setState({ fontLoaded: true });
+    })
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {fontLoaded: false}
+  }
     
   render() {
     return (
+      this.state.fontLoaded ? (
       <View style={styles.container}>
         <View style={styles.RectangleShapeViewOne} />
         <View style={styles.RectangleShapeViewTwo} />
@@ -33,6 +46,7 @@ export default class Welcome extends React.Component {
           </TouchableOpacity>
         </View>
       </View>
+      ) : null
     );
   }
 }

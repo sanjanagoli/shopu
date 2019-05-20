@@ -35,6 +35,15 @@ FontLoad.then((res) => {
 })
 
 const shopStackNavigator = createStackNavigator({
+  Welcome: {
+    screen: Welcome
+  },
+  SignUp: {
+    screen: SignUp
+  },
+  Login: {
+    screen: Login
+  },
   ShopSearch: {
     screen: ShopSearch
   },
@@ -62,15 +71,6 @@ const shopStackNavigator = createStackNavigator({
 });
 
 const driverStackNavigator = createStackNavigator({
-  Welcome: {
-    screen: Welcome
-  },
-  Login: {
-    screen: Login
-  },
-  ShopSearch: {
-    screen: ShopSearch
-  },
   AvailablePackages: {
     screen: AvailablePackages
   },
@@ -94,9 +94,6 @@ const driverStackNavigator = createStackNavigator({
   },
   Deliveries: {
     screen: Deliveries
-  },
-  SignUp: {
-    screen: SignUp
   },
 });
 

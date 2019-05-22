@@ -9,6 +9,8 @@ import DropDown from './../components/DropDown';
 import moment from 'moment';
 import RequestStatus from './../screens/RequestStatus';
 import StatusUpdateModal from './../components/StatusUpdateModal';
+import { connect } from 'react-redux';
+import { currentDelivery } from '../reducers/completedReducer';
 
 
 var newDeliveryKey = firebase.database().ref().child('posts').push().key
@@ -44,7 +46,7 @@ let quantItems =
 const database = firebase.database();
 const window = Dimensions.get("window")
 
-export default class ShopSearch extends React.Component {
+class ShopSearch extends React.Component {
 
   renderFontSize = () => {
     if (PixelRatio.get() === 2) {
@@ -86,6 +88,7 @@ export default class ShopSearch extends React.Component {
         deliveryKey: newDeliveryKey,
         userKey: 'user-Ld7TP38Nf47JgfHC2FG',
       })
+      this.props.currentDelivery(newDeliveryKey)
       }
     
     componentWillMount = () => {
@@ -231,3 +234,14 @@ export default class ShopSearch extends React.Component {
     }
   });
   
+  const mapStateToProps = state => {
+    return {
+      currentId: state.id
+    }
+  }
+
+const mapDispatchToProps = {
+    currentDelivery
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopSearch);

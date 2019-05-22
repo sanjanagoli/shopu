@@ -38,9 +38,7 @@ class PackagesBox extends React.Component {
     } 
 
     onPress = () => {
-        database.ref(`deliveries/delivery${this.props.currentId}`).set({
-          accepted: true,
-        })
+        database.ref(`deliveries/delivery${this.props.currentId}/accepted`).set(true)
         this.props.navigation.navigate('RequestStatus', {
             confirm: this.props.item.confirmedEmail,
             item: this.props.item,

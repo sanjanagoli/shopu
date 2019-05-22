@@ -17,10 +17,7 @@ class AuthorizeDriver extends React.Component {
     };
     
     submit = () => {
-        console.log('currentid', this.props.currentId)
-        database.ref(`deliveries/delivery${this.props.currentId}`).set({
-            confirmedEmail: true,
-        })
+        database.ref(`deliveries/delivery${this.props.currentId}/confirmedEmail`).set(true)
         this.props.navigation.navigate('OrderComplete')
     }
 

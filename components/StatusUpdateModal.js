@@ -10,6 +10,15 @@ const database = firebase.database();
 
 class StatusUpdateModal extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      userArray: {
+
+      },
+      phone: null,
+    };
+  };
 
   componentWillMount = () => {
     if (this.checkingDevice()) {
@@ -17,6 +26,7 @@ class StatusUpdateModal extends React.Component {
     } else {
       console.log('Unavailable');
     }
+    console.log("Current Id", this.props.currentId) //Current Delivery Key
   }
 
   checkingDevice = async() => {
@@ -30,11 +40,11 @@ class StatusUpdateModal extends React.Component {
 
   sendAndComplete = async(text) => {
     const { result }= await SMS.sendSMSAsync(this.props.phone, text);
-    this.props.currentDelivery('')
+    this.props.currentDelivery('') //currentId becomes empty string, delivery object key gone
   }
 
   render() {
-    console.log(this.props.currentId)
+  
     return ( 
         <View style={styles.container}>
             <View style = {styles.whiteBox}>

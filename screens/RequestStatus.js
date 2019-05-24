@@ -138,10 +138,6 @@ class RequestStatus extends React.Component {
 
   render() {
 
-    const { params } = this.props.navigation.state;
-    console.log('isCornimed', this.state.isConfirmed)
-
-
     if (!this.state.isConfirmed) {
       return (
         <View style={styles.container}>

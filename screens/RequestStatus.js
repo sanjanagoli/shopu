@@ -29,21 +29,20 @@ class RequestStatus extends React.Component {
     const { params } = this.props.navigation.state;
     this.fetchData();
     this.setState({ userId: params.item.buyer, isConfirmed: params.item.confirmedEmail })
-    const interval = setInterval(() => {
-      this.updateConfirmed(interval);
+    let self = this; // sets the correct context for setState
+    const interval = setInterval(() => { // setInterval creates a new context that doesn't has the same this as every other function
+      this.updateConfirmed(interval, self);
     }, 500)
   }
 
-  updateConfirmed = (interval) => {
-    console.log("im frakin runnign now")
+  updateConfirmed = (interval, self) => {
     const { params } = this.props.navigation.state;
     var fireBaseResponse = firebase.database().ref(`deliveries/delivery${params.item.id}`);
     fireBaseResponse.on("value", function (snapshot) {
       var changedPost = snapshot.val();
-      console.log('this is changed post', changedPost)
       if (changedPost.confirmedEmail) {
-        clearInterval(interval) 
-        this.setState({ isConfirmed: changedPost.confirmedEmail });
+        clearInterval(interval)
+        self.setState({ isConfirmed: changedPost.confirmedEmail }); // uses context that was set outside of setInterval
       }
     });
   }

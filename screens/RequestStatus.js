@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import { connect } from 'react-redux';
 import { currentDelivery } from '../reducers/completedReducer';
 
+
 const window = Dimensions.get("window")
 
 
@@ -17,10 +18,10 @@ class RequestStatus extends React.Component {
     super(props);
     this.state = {
       userArray: {
-
       },
       userId: null,
       isConfirmed: null,
+      size: null,
     };
   };
 
@@ -38,9 +39,13 @@ class RequestStatus extends React.Component {
   updateConfirmed = (interval, self) => {
     const { params } = this.props.navigation.state;
     var fireBaseResponse = firebase.database().ref(`deliveries/delivery${params.item.id}`);
+    this.props.currentDelivery(params.item.id)
     fireBaseResponse.on("value", function (snapshot) {
       var changedPost = snapshot.val();
-      if (changedPost.confirmedEmail) {
+      self.setState({ size: changedPost.packageSize });
+      if (changedPost == null) {
+        self.props.navigation.navigate('Payment')
+      } else if (changedPost.confirmedEmail) {
         clearInterval(interval)
         self.setState({ isConfirmed: changedPost.confirmedEmail }); // uses context that was set outside of setInterval
       }
@@ -107,7 +112,7 @@ class RequestStatus extends React.Component {
   getName = () => {
     for (i = 0; i < this.state.userArray.length; i++) {
       if (this.state.userArray[i].key == this.state.userId) {
-        return this.state.userArray[i].value.firstName + " " + this.state.userArray[i].value.lastName;
+        return this.state.userArray[i].value.name;
       }
     }
   }
@@ -157,13 +162,14 @@ class RequestStatus extends React.Component {
           <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Pickup Confirmed'} />
           <View style={styles.mainView}>
             <View style={styles.whiteCard}>
-              <Text style={styles.itemText}>Your Pickup is Confirmed!</Text>
+              <Text style={styles.item2Text}>Your Pickup is Confirmed!</Text>
             </View>
             <View style={styles.textContainer}>
-              <Text style={styles.generalText}>{this.getName()}</Text>
-              <Text style={styles.generalText}>{this.getEmail()}</Text>
-              <Text style={styles.generalText}>{this.getPhone()}</Text>
-              <Text style={styles.generalText}>{this.getLocation()}</Text>
+              <Text style={styles.nameText}>{this.getName()}</Text>
+              <Text style={styles.packageSizeText}>{this.state.size}</Text>
+              <Text style={styles.packageLocationText}>{this.getLocation()}</Text>
+              <Text style={styles.emailText}>{this.getEmail()}</Text>
+              <Text style={styles.phoneText}>{this.getPhone()}</Text>
             </View>
             <View style={styles.button}>
               <PrimaryButton onPress={this.statusUpdate} title={'Status Update'} backgroundColor={'#19C6D1'} height={65} fontSize={28} />
@@ -193,7 +199,9 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     textAlign: 'left',
-    marginTop: Dimensions.get('screen').height * .05
+    marginTop: -Dimensions.get('screen').height * .4,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   toolbar: {
     flexDirection: 'row',
@@ -221,7 +229,14 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     color: '#262626',
     textAlign: 'center',
-    marginTop: -window.height * .2,
+    marginTop: -window.height * .1,
+  },
+  item2Text: {
+    fontSize: 36,
+    fontFamily: 'Montserrat-Bold',
+    color: '#262626',
+    textAlign: 'center',
+    marginTop: -window.height * .4,
   },
   descriptionText: {
     fontSize: 25,
@@ -231,39 +246,49 @@ const styles = StyleSheet.create({
     marginTop: window.height * .1,
     marginLeft: window.width * .07,
   },
-  NameText: {
-    fontSize: 24,
+  nameText: {
+    fontSize: 28,
     fontFamily: 'Montserrat-Medium',
     color: '#262626',
-    marginTop: window.height * .01,
-    marginLeft: window.width * 0.07,
+    marginLeft: -window.width * 0.04,
   },
-  EmailText: {
-    fontSize: 18,
+  emailText: {
+    fontSize: 22,
     fontFamily: 'Montserrat-Light',
     color: '#262626',
-    marginLeft: window.width * 0.07,
+    marginLeft: -window.width * 0.04,
   },
-  PhoneText: {
-    fontSize: 18,
+  phoneText: {
+    fontSize: 22,
     fontFamily: 'Montserrat-Light',
     color: '#262626',
-    marginLeft: window.width * 0.07,
-    marginBottom: window.height * 0.04,
+    marginLeft: -window.width * 0.04,
   },
-  PackageLocationText: {
-    fontSize: 18,
+  packageLocationText: {
+    fontSize: 22,
     fontFamily: 'Montserrat-Medium',
     color: '#262626',
-    marginLeft: window.width * 0.07,
+    marginLeft: -window.width * 0.04,
+  },
+  packageSizeText: {
+    fontSize: 22,
+    fontFamily: 'Montserrat-Medium',
+    color: '#262626',
+    marginLeft: -window.width * 0.04,
   },
   button: {
-    marginTop: -window.height * .25,
+    marginTop: window.height * .06,
   }
 });
+
+const mapStateToProps = state => {
+  return {
+    currentId: state.id
+  }
+}
 
 const mapDispatchtoProps = {
   currentDelivery
 }
 
-export default connect(null, mapDispatchtoProps)(RequestStatus)
+export default connect(mapStateToProps, mapDispatchtoProps)(RequestStatus)

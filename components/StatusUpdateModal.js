@@ -40,6 +40,7 @@ class StatusUpdateModal extends React.Component {
 
   sendAndComplete = async(text) => {
     const { result }= await SMS.sendSMSAsync(this.props.phone, text);
+    database.ref(`deliveries/delivery${this.props.currentId}`).remove() //deleting object
     this.props.currentDelivery('') //currentId becomes empty string, delivery object key gone
   }
 

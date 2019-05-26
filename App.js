@@ -91,6 +91,9 @@ const driverStackNavigator = createStackNavigator({
   RequestStatus: {
     screen: RequestStatus
   },
+  Payment: {
+    screen: Payment
+  },
   AccountProfile: {
     screen: AccountProfile
   },

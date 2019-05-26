@@ -72,7 +72,7 @@ class ShopSearch extends React.Component {
     
     letsgo = () => {
       database.ref(`deliveries/delivery${newDeliveryKey}`).set({
-        buyer: 'user-Ld7TP38Nf47JgfHC2FG',
+        buyer: 'user-Lf1EYmNwJJ1rNTJX54O',
         driver: 'bob',
         packageSize: this.state.pickerSelectionSize,
         packageNumber: this.state.pickerSelectionQuant,
@@ -86,7 +86,7 @@ class ShopSearch extends React.Component {
       }) 
       this.props.navigation.navigate('LoadingScreen', {
         deliveryKey: newDeliveryKey,
-        userKey: 'user-Ld7TP38Nf47JgfHC2FG',
+        userKey: 'user-Lf1EYmNwJJ1rNTJX54O',
       })
       this.props.currentDelivery(newDeliveryKey)
       }

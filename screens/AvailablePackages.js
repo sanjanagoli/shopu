@@ -113,6 +113,7 @@ export default class AvailablePackages extends Component {
   render() {
     return (
       <View style={styles.container}>
+<<<<<<< HEAD
         <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'} />
         <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height * .01, paddingBottom: Dimensions.get("screen").height * .12 }}>
           <FlatList
@@ -128,6 +129,23 @@ export default class AvailablePackages extends Component {
           />
         </View>
       </View>
+=======
+            <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'}/>
+            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01, height: Dimensions.get("screen").height*0.8, paddingBottom: Dimensions.get("screen").height*.05}}>
+                <FlatList
+                    data= {this.state.deliveryArray}
+                    keyExtractor = {(item, index) => index.toString()}
+                    renderItem = {
+                        ({item, index}) => {
+                            return (    
+                              <PackagesBox item={item} firstName={this.getFirstName(item.buyer)} location={this.getLocation(item.buyer)} packageSize={item.packageSize} navigation={this.props.navigation}/>
+                            );
+                        }
+                    }
+                />  
+              </View>  
+        </View>   
+>>>>>>> de1549cfba072e2f91168206bb823d6d1be11b10
     );
   }
 };

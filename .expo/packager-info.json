@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null
+  "expoServerNgrokUrl": "https://gm-6s2.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.gm-6s2.anonymous.shopu.exp.direct",
+  "ngrokPid": 22243
 }

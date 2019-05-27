@@ -3,7 +3,13 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
+<<<<<<< HEAD
   "expoServerNgrokUrl": "https://wa-8rr.anonymous.shopu.exp.direct",
   "packagerNgrokUrl": "https://packager.wa-8rr.anonymous.shopu.exp.direct",
   "ngrokPid": 28399
+=======
+  "expoServerNgrokUrl": "https://wb-hnc.anonymous.shopu.exp.direct",
+  "packagerNgrokUrl": "https://packager.wb-hnc.anonymous.shopu.exp.direct",
+  "ngrokPid": 7246
+>>>>>>> a909f39c6a78d280f5ef3f6181480b471a5b5076
 }

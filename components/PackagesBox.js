@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Dimensions, LayoutAnimation, TouchableOpacity, Text} from 'react-native';
 import PrimaryButton from './../components/PrimaryButton';
+import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { currentDelivery } from '../reducers/completedReducer';
 
 var CustomLayoutAnimation = {
     duration: 50,
@@ -13,8 +16,9 @@ var CustomLayoutAnimation = {
     },
   };
 
+const database = firebase.database();
 
-export default class PackagesBox extends React.Component {
+class PackagesBox extends React.Component {
     static navigationOptions = {
         header: null,
         };
@@ -30,12 +34,14 @@ export default class PackagesBox extends React.Component {
         this.setState (
             {expandBox: !this.state.expandBox} 
           )
-        
+        this.props.currentDelivery(this.props.item.id)   
     } 
-    onPress = (item) => {
+
+    onPress = () => {
+        database.ref(`deliveries/delivery${this.props.currentId}/accepted`).set(true)
         this.props.navigation.navigate('RequestStatus', {
-            confirm: item.confirmedEmail,
-            item: item,
+            confirm: this.props.item.confirmedEmail,
+            item: this.props.item,
       });
     }
 
@@ -62,7 +68,7 @@ export default class PackagesBox extends React.Component {
                     </View>
                     <Text style = {styles.packageSize}>{this.props.packageSize}</Text>
                     <View style={styles.buttonContainer}>
-                        <PrimaryButton onPress={this.onPress.bind(this, this.props.item)} title={'Accept'} backgroundColor={ '#19C6D1'} height={Dimensions.get('screen').height*.05} fontSize={25}/>
+                        <PrimaryButton onPress={this.onPress} title={'Accept'} backgroundColor={ '#19C6D1'} height={Dimensions.get('screen').height*.05} fontSize={25}/>
                     </View>
                 </View>  
             </TouchableOpacity>
@@ -144,3 +150,15 @@ const styles = StyleSheet.create({
         marginTop: Dimensions.get('screen').height*.018
       },
 });
+
+const mapStateToProps = state => {
+  return {
+    currentId: state.id
+  }
+}
+
+const mapDispatchToProps = {
+  currentDelivery
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PackagesBox);

@@ -77,7 +77,6 @@ export default class AvailablePackages extends Component {
             this.setState (
               {userArray: data2} 
             )
-            console.log(this.state.userArray);
         });
     }
 

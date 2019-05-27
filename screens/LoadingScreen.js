@@ -5,7 +5,6 @@ const database = firebase.database();
 const window = Dimensions.get("window");
 
 export default class LoadingScreen extends React.Component {
-  
 
   static navigationOptions = {
     header: null,
@@ -34,7 +33,6 @@ updateTimeout = (props) => {
 
 moveOn = () => {
   const props = this.props;
-  console.log("props" + props);
   this.updateTimeout(props);
   setTimeout(() => {this.timeout()}, 15000);
 }

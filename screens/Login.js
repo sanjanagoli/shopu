@@ -3,8 +3,11 @@ import { StyleSheet, Text, View, Dimensions, TextInput, TouchableOpacity, Image}
 import Toolbar from '../components/Toolbar';
 import PrimaryButton from './../components/PrimaryButton';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { setUser } from '../reducers/completedReducer';
+import { AsyncStorage } from "react-native";
 
-export default class Login extends React.Component {
+class Login extends React.Component {
   static navigationOptions = {
     header: null,
     };
@@ -20,14 +23,16 @@ export default class Login extends React.Component {
 
   loginUser = () => {
     const navigation = this.props.navigation;
-    const state = this.state;
+    const self = this;
     var fireBaseResponse = firebase.database().ref('users/');
     fireBaseResponse.on("value", function(querySnapshot) {
         querySnapshot.forEach(function(userSnapshot) {
-          if (userSnapshot.val().email === state.email & userSnapshot.val().password === state.password) {
+          if (userSnapshot.val().email === self.state.email & userSnapshot.val().password === self.state.password) {
             firebase.database().ref('users/' + userSnapshot.key).update({
               loggedIn: true,
             })
+            AsyncStorage.setItem('userId', userSnapshot.key)
+            self.props.setUser(userSnapshot.key)
             navigation.navigate('ShopSearch'); 
         }
         });
@@ -74,6 +79,15 @@ export default class Login extends React.Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  userId: state.user,
+});
+
+const mapDispatchToProps = {
+  setUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
 
 const styles = StyleSheet.create({
   container: {

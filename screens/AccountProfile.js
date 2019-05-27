@@ -3,26 +3,51 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput}
 import PrimaryButton from './../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { setUser } from '../reducers/completedReducer';
+import { AsyncStorage } from "react-native";
 
 const database = firebase.database();
-var newUserKey = firebase.database().ref().child('posts').push().key
 
-export default class AccountProfile extends React.Component {
+class AccountProfile extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { editor: false };
-    this.state = { email: '', password: '', phoneNumber: '', venmo: '', location: ''};
+    this.state = { editor: true, email: '', password: '', phoneNumber: '', venmo: '', location: ''};
   }
 
   static navigationOptions = {
     header: null,
     };
 
+  componentWillMount = async () => {
+    const self = this;
+    const userId = await AsyncStorage.getItem('userId');
+    self.mounted = true;
+    if (userId !== null) {
+      self.props.setUser(userId)
+    }
+    database.ref(`users/${this.props.userId}`).on("value", function (userSnapshot) {
+      if (self.mounted) {
+      self.setState({
+        email: userSnapshot.val().email,
+        password: userSnapshot.val().password,
+        phoneNumber: userSnapshot.val().phoneNumber,
+        venmo: userSnapshot.val().venmo,
+        location: userSnapshot.val().location,
+      })
+    }
+    });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   onPress = () => {
     this.setState({
       editor: !this.state.editor
     })
-    database.ref('users/' + 'user'+newUserKey).set({
+    database.ref(`users/${this.props.userId}`).set({
       email: this.state.email,
       password: this.state.password,
       phoneNumber: this.state.phoneNumber,
@@ -32,7 +57,7 @@ export default class AccountProfile extends React.Component {
   }
 
   updatingUser = () => {
-    database.ref('users/' + 'user'+newUserKey).update({
+    database.ref(`users/${this.props.userId}`).update({
       email: this.state.email,
       password: this.state.password,
       phoneNumber: this.state.phoneNumber,
@@ -46,9 +71,11 @@ export default class AccountProfile extends React.Component {
     }	  
     
     logOut = () => {
-      database.ref('users/' + 'user' + newUserKey).update({
+      database.ref(`users/${this.props.userId}`).update({
         loggedIn: false,
       })
+      AsyncStorage.removeItem('userId')
+      this.props.setUser(null)
       this.props.navigation.navigate('Welcome')
     }
 
@@ -120,7 +147,7 @@ export default class AccountProfile extends React.Component {
               </View>    
             <View style={{alignItems: 'center'}}>
               <View style={styles.buttonStyle}>
-                <PrimaryButton backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24}/>
+                <PrimaryButton onPress={this.updatingUser} backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24}/>
               </View>
             </View>
             </View>
@@ -129,6 +156,16 @@ export default class AccountProfile extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userId: state.user,
+});
+
+const mapDispatchToProps = {
+  setUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountProfile)
 
 const styles = StyleSheet.create({
   container: {

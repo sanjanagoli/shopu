@@ -287,8 +287,8 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchtoProps = {
+const mapDispatchToProps = {
   currentDelivery
 }
 
-export default connect(mapStateToProps, mapDispatchtoProps)(RequestStatus)
+export default connect(mapStateToProps, mapDispatchToProps)(RequestStatus)

@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity} from 'react-native';
 import FontLoad from './../components/FontLoad';
+import { AsyncStorage } from "react-native";
 
 
 export default class Welcome extends React.Component {
   static navigationOptions = {
     header: null,
+    tabBarVisible: false,
+
     };
 
 
@@ -17,7 +20,13 @@ export default class Welcome extends React.Component {
     this.props.navigation.navigate('SignUp')
   }
 
-  componentWillMount = () => {
+  componentWillMount = async () => {
+    const self = this;
+    const navigation = self.props.navigation;
+    const userId = await AsyncStorage.getItem('userId');
+    if (userId !== null) {
+      navigation.navigate('ShopSearch')
+    }
     FontLoad.then((res) => {
       this.setState({ fontLoaded: true });
     })

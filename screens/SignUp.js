@@ -4,25 +4,16 @@ import PrimaryButton from './../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 import { connect } from 'react-redux';
+import { setUser } from '../reducers/completedReducer';
+import { AsyncStorage } from "react-native";
 
 const database = firebase.database();
 var newUserKey = firebase.database().ref().child('posts').push().key
 
-mapStateToProps = state => ({
-    userId: newUserKey,
-});
-const mapDispatchToProps = dispatch => ({
-    onSignUp: (user) => {
-        dispatch(getUser(user));
-    },
-});
-
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { editor: false };
-        this.state = { name: '', email: '', password: '', phoneNumber: '', venmo: '', location: '' };
-        this.state = { loggedIn: false }
+        this.state = { editor: true, name: '', email: '', password: '', phoneNumber: '', venmo: '', location: '', loggedIn: false }
     }
 
     static navigationOptions = {
@@ -33,7 +24,7 @@ export default class SignUp extends React.Component {
         this.setState({
             editor: !this.state.editor
         })
-        database.ref('users/' + 'user' + newUserKey).set({
+        database.ref(`users/user${newUserKey}`).set({
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
@@ -43,8 +34,8 @@ export default class SignUp extends React.Component {
         })
     }
 
-    updatingUser = () => {
-        database.ref('users/' + 'user' + newUserKey).set({
+    creatingUser = () => {
+        database.ref(`users/user${newUserKey}`).set({
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
@@ -53,6 +44,8 @@ export default class SignUp extends React.Component {
             location: this.state.location,
             loggedIn: true
         })
+        AsyncStorage.setItem('userId', `user${newUserKey}`)
+        this.props.setUser(`user${newUserKey}`)
         this.props.navigation.navigate('ShopSearch')
     }
 
@@ -133,7 +126,7 @@ export default class SignUp extends React.Component {
                         </View>
                         <View style={{ alignItems: 'center' }}>
                             <View style={styles.buttonStyle}>
-                                <PrimaryButton onPress={this.updatingUser} backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24} />
+                                <PrimaryButton onPress={this.creatingUser} backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24} />
                             </View>
                         </View>
                     </View>
@@ -142,6 +135,16 @@ export default class SignUp extends React.Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    userId: state.user,
+});
+
+const mapDispatchToProps = {
+    setUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
 
 const styles = StyleSheet.create({
     container: {

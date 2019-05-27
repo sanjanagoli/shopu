@@ -49,7 +49,6 @@ export default class AvailablePackages extends Component {
       });
   }
 
-
   onPress = () => {
     if(this.state.moveOn) this.props.navigation.navigate('AccountProfile')
   }

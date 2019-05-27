@@ -1,9 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 import { SMS } from 'expo';
+import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { currentDelivery } from '../reducers/completedReducer';
 
-export default class StatusUpdateModal extends React.Component {
 
+const database = firebase.database();
+
+class StatusUpdateModal extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      userArray: {
+
+      },
+      phone: null,
+    };
+  };
 
   componentWillMount = () => {
     if (this.checkingDevice()) {
@@ -11,6 +26,7 @@ export default class StatusUpdateModal extends React.Component {
     } else {
       console.log('Unavailable');
     }
+    console.log("Current Id", this.props.currentId) //Current Delivery Key
   }
 
   checkingDevice = async() => {
@@ -22,7 +38,14 @@ export default class StatusUpdateModal extends React.Component {
     const { result }= await SMS.sendSMSAsync(this.props.phone, text);
   }
 
+  sendAndComplete = async(text) => {
+    const { result }= await SMS.sendSMSAsync(this.props.phone, text);
+    database.ref(`deliveries/delivery${this.props.currentId}`).remove() //deleting object
+    this.props.currentDelivery('') //currentId becomes empty string, delivery object key gone
+  }
+
   render() {
+  
     return ( 
         <View style={styles.container}>
             <View style = {styles.whiteBox}>
@@ -57,7 +80,7 @@ export default class StatusUpdateModal extends React.Component {
                     <View style = {styles.blueRectangles}>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.sendText.bind(this, 'Your deliverer has delivered your mail!')}>
+                <TouchableOpacity onPress={this.sendAndComplete.bind(this, 'Your deliverer has delivered your mail!')}>
                     <View style = {styles.rectangles}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
                             <Text style={styles.rectangleText}>Delivered</Text>
@@ -140,3 +163,15 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.01,
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    currentId: state.id
+  }
+}
+
+const mapDispatchToProps = {
+  currentDelivery
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StatusUpdateModal);

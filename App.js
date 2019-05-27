@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, YellowBox, Dimensions} from 'react-native';
+import { StyleSheet, Text, View, Image, YellowBox, Dimensions } from 'react-native';
 import firebase from 'firebase';
 import config from './services/firebase-config';
 import FontLoad from './components/FontLoad';
-import { createBottomTabNavigator, createAppContainer, createStackNavigator} from 'react-navigation';
+import { createBottomTabNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 import AccountProfile from './screens/AccountProfile';
 import AvailablePackages from './screens/AvailablePackages';
 import Checkout from './screens/Checkout';
@@ -24,8 +24,19 @@ import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
 import Payment from './screens/Payment';
 import LoadingScreen from './screens/LoadingScreen';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider, connect } from 'react-redux';
+import axios from 'axios';
+import axiosMiddleware from 'redux-axios-middleware';
+import completedReducer from  './reducers/completedReducer';
 
 
+const client = axios.create({
+  baseURL: 'https://api.github.com',
+  responseType: 'json'
+});
+
+const store = createStore(completedReducer, applyMiddleware(axiosMiddleware(client)));
 
 YellowBox.ignoreWarnings([
   'Require cycle:',
@@ -80,6 +91,9 @@ const driverStackNavigator = createStackNavigator({
   RequestStatus: {
     screen: RequestStatus
   },
+  Payment: {
+    screen: Payment
+  },
   AccountProfile: {
     screen: AccountProfile
   },
@@ -92,38 +106,48 @@ const TabNavigator = createBottomTabNavigator({
   ShopSearch: shopStackNavigator,
   DriverSearch: driverStackNavigator,
 },
-{
-defaultNavigationOptions: ({ navigation }) => ({
-  tabBarIcon: ({ focused }) => {
-    const { routeName } = navigation.state;
-    let imageName;
-    if (routeName === 'ShopSearch') {
-      imageName = require('./assets/images/blue-nav-cart.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_cart.png');
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused }) => {
+        const { routeName } = navigation.state;
+        let imageName;
+        if (routeName === 'ShopSearch') {
+          imageName = require('./assets/images/blue-nav-cart.png');
+          if (focused) {
+            imageName = require('./assets/images/filled_cart.png');
+          }
+        } else if (routeName === 'Notifications') {
+          imageName = require('./assets/images/home_icon.png');
+          if (focused) {
+            imageName = require('./assets/images/filled_house.png');
+          }
+        } else if (routeName === 'DriverSearch') {
+          imageName = require('./assets/images/blue_person_w_bag.png');
+          if (focused) {
+            imageName = require('./assets/images/blue_filled_person.png');
+          }
+        }
+        return <Image source={imageName} style={{ width: Dimensions.get("screen").width * .1, height: Dimensions.get("screen").height * .05, marginTop: Dimensions.get("screen").height * .005, resizeMode: 'contain' }} />;
+      },
+    }),
+    tabBarOptions: {
+      showLabel: false,
+      style: {
+        height: Dimensions.get("screen").height * .08
+
       }
-    } else if (routeName === 'Notifications') {
-      imageName = require('./assets/images/home_icon.png');
-      if (focused) {
-        imageName = require('./assets/images/filled_house.png');
-      }
-    } else if (routeName === 'DriverSearch') {
-      imageName = require('./assets/images/blue_person_w_bag.png');
-      if (focused) {
-        imageName = require('./assets/images/blue_filled_person.png');
-      }
-    } 
-    return <Image source={imageName} style={{width: Dimensions.get("screen").width*.1, height: Dimensions.get("screen").height*.05, marginTop: Dimensions.get("screen").height*.005, resizeMode: 'contain'}} />;
-  },
-}),
-tabBarOptions: {
-  showLabel: false,
-  style: {
-  height: Dimensions.get("screen").height*.08
-  
-}
-},
-}
+    },
+  }
 );
 
-export default createAppContainer(TabNavigator);
+const JuicedAppContainer = createAppContainer(TabNavigator);
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <JuicedAppContainer/>
+    </Provider>
+  )
+}
+
+export default App;

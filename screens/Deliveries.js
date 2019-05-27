@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, FlatList, TouchableOpacity} from 'react-native';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { currentDelivery } from '../reducers/completedReducer';
 
 
-export default class Deliveries extends Component {
+class Deliveries extends Component {
   static navigationOptions = {
     header: null,
     };
@@ -82,6 +84,7 @@ export default class Deliveries extends Component {
     }
     
     waitOrConfirm = (item) => {  
+      this.props.currentDelivery(item.id)
       this.props.navigation.navigate('RequestStatus', {
         //confirm: item.confirmedEmail,
         item: item,
@@ -185,3 +188,15 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
 });
+
+const mapStateToProps = state => {
+  return {
+    currentId: state.id
+  }
+}
+
+const mapDispatchToProps = {
+  currentDelivery
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Deliveries);

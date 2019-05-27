@@ -17,47 +17,78 @@ export default class AvailablePackages extends Component {
     }
   };
 
-  componentDidMount() {
+  static navigationOptions = {
+    header: null,
+  };
+
+  componentWillMount() {
+    //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
+    let self = this;
+    const interval = setInterval(() => { // setInterval creates a new context that doesn't has the same this as every other function
+      this.fetchData(self);
+    }, 500)
+    this.setState({ interval })
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.interval)
+  }
+
+  fetchData = (self) => {
     let deliveries = [];
     let users = [];
-
-    
-
-      // grabbing all users
-      let usersResponse = firebase.database().ref('users');
-      usersResponse.once('value').then(snapshot => {
-        snapshot.forEach(item => {
-          let temp = item.val();
-          users.push({
-            key: item.key,
-            value: temp
-          });
+    // grabbing all users
+    let usersResponse = firebase.database().ref('users');
+    usersResponse.once('value').then(snapshot => {
+      snapshot.forEach(item => {
+        let temp = item.val();
+        users.push({
+          key: item.key,
+          value: temp
         });
-        this.setState({ users }, () => {
-          // grabbing all deliveries
-          let deliveriesResponse = firebase.database().ref('deliveries');
-          deliveriesResponse.once('value').then(snapshot => {
-            snapshot.forEach(item => {
-              let temp = item.val();
-              deliveries.push(temp);
-            });
-            this.setState({ deliveries })
-          });
-        })
-
-        
       });
+      self.setState({ users }, () => {
+        // grabbing all deliveries
+        let deliveriesResponse = firebase.database().ref('deliveries');
+        deliveriesResponse.once('value').then(snapshot => {
+          snapshot.forEach(item => {
+            let temp = item.val();
+            deliveries.push(temp);
+          });
+          self.setState({ deliveries })
+        });
+      })
+
+
+    });
+  }
+
+  getFirstName = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if (this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.firstName;
+      }
+    }
+  }
+
+  getLocation = (userId) => {
+    for (i = 0; i < this.state.userArray.length; i++) {
+      if (this.state.userArray[i].key == userId) {
+        return this.state.userArray[i].value.location;
+      }
+    }
   }
 
   onPress = () => {
-    if(this.state.moveOn) this.props.navigation.navigate('AccountProfile')
+    //navigate to available packages modal -- insert when finished
+    this.props.navigation.navigate('AccountProfile')
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'} />
-        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height * .01 }}>
+        <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height * .01, paddingBottom: Dimensions.get("screen").height * .12 }}>
           <FlatList
             data={this.state.deliveries}
             keyExtractor={(item, index) => index.toString()}

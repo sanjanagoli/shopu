@@ -105,7 +105,7 @@ export default class AvailablePackages extends Component {
     return (
       <View style={styles.container}>
             <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'}/>
-            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01, paddingBottom: Dimensions.get("screen").height*.12}}>
+            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01, height: Dimensions.get("screen").height*0.8, paddingBottom: Dimensions.get("screen").height*.05}}>
                 <FlatList
                     data= {this.state.deliveryArray}
                     keyExtractor = {(item, index) => index.toString()}

@@ -42,12 +42,11 @@ class RequestStatus extends React.Component {
     this.props.currentDelivery(params.item.id)
     fireBaseResponse.on("value", function (snapshot) {
       var changedPost = snapshot.val();
-      self.setState({ size: changedPost.packageSize });
       if (changedPost == null) {
         self.props.navigation.navigate('Payment')
       } else if (changedPost.confirmedEmail) {
         clearInterval(interval)
-        self.setState({ isConfirmed: changedPost.confirmedEmail }); // uses context that was set outside of setInterval
+        self.setState({ isConfirmed: changedPost.confirmedEmail, size: changedPost.packageSize }); // uses context that was set outside of setInterval
       }
     });
   }

@@ -3,15 +3,25 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput 
 import PrimaryButton from './../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
 
 const database = firebase.database();
 var newUserKey = firebase.database().ref().child('posts').push().key
+
+mapStateToProps = state => ({
+    userId: newUserKey,
+});
+const mapDispatchToProps = dispatch => ({
+    onSignUp: (user) => {
+        dispatch(getUser(user));
+    },
+});
 
 export default class SignUp extends React.Component {
     constructor(props) {
         super(props)
         this.state = { editor: false };
-        this.state = { email: '', password: '', phoneNumber: '', venmo: '', location: '' };
+        this.state = { name: '', email: '', password: '', phoneNumber: '', venmo: '', location: '' };
         this.state = { loggedIn: false }
     }
 
@@ -24,6 +34,7 @@ export default class SignUp extends React.Component {
             editor: !this.state.editor
         })
         database.ref('users/' + 'user' + newUserKey).set({
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             phoneNumber: this.state.phoneNumber,
@@ -34,6 +45,7 @@ export default class SignUp extends React.Component {
 
     updatingUser = () => {
         database.ref('users/' + 'user' + newUserKey).set({
+            name: this.state.name,
             email: this.state.email,
             password: this.state.password,
             phoneNumber: this.state.phoneNumber,
@@ -59,6 +71,16 @@ export default class SignUp extends React.Component {
                 </TouchableOpacity>
                 <View style={styles.whiteBox}>
                     <View>
+                        <View style={styles.textIcon}>
+                            <TextInput style={styles.subHeader}
+                                editable={this.state.editor}
+                                placeholder={'Name'}
+                                placeholderTextColor={'#2E2E2F'}
+                                onChangeText={(name) => this.setState({ name })}
+                                value={this.state.name}>
+                            </TextInput>
+                            <View style={styles.lineStyle} />
+                        </View>
                         <View style={styles.textIcon}>
                             <TextInput style={styles.subHeader}
                                 editable={this.state.editor}
@@ -128,11 +150,11 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     textIcon: {
-        marginBottom: Dimensions.get("screen").height * .02,
-        marginTop: Dimensions.get('screen').height * .04,
+        marginBottom: Dimensions.get("screen").height * .01,
+        marginTop: Dimensions.get('screen').height * .03,
     },
     buttonStyle: {
-        marginTop: Dimensions.get('screen').height * .015,
+        marginTop: Dimensions.get('screen').height * .03,
         width: Dimensions.get('screen').width * .6,
     },
     subHeader: {

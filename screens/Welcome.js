@@ -35,7 +35,7 @@ export default class Welcome extends React.Component {
         <View style={styles.RectangleShapeViewOne} />
         <View style={styles.RectangleShapeViewTwo} />
         <View style={styles.RectangleShapeViewThree} />
-        <TouchableOpacity style={{alignItems: 'center', justifyContent: 'center'}} onPress={this.signUp}>
+          <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginTop: Dimensions.get("screen").height * 0.31,}} onPress={this.signUp}>
         <Text style={styles.header}>mailU</Text>
         <Image style={styles.package} source={require('./../assets/images/mailU_package.png')} />
         </TouchableOpacity>
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Medium',
     fontSize: 110,
     textAlign: 'center',
-    marginTop: Dimensions.get("screen").height*0.31,
   },
   RectangleShapeViewOne: {
     width: Dimensions.get("screen").width,

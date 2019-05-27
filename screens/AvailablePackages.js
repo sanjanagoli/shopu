@@ -5,41 +5,20 @@ import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
 import PackagesBox from '../components/PackagesBox';
 
-
-function writeNewPost(uid, username, email, firstName, lastName, location) {
-
-  var user = {
-    username: username,
-    email: email,
-    firstName: firstName,
-    lastName: lastName,
-    location: location
-
-  };
-
-  // Get a key for a new Post.
-  var newUserKey = firebase.database().ref().child('users').push().key;
-
-  // Write the new post's data simultaneously in the posts list and the user's post list.
-  var updates = {};
-  updates['/users/' + 'user' + newUserKey] = user;
-  //updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-
-  return firebase.database().ref().update(updates);
-}
-
 export default class AvailablePackages extends Component {
-  static navigationOptions = {
-    header: null,
-  };
+  static navigationOptions = { header: null };
 
   constructor(props) {
     super(props);
     this.state = {
-      deliveryArray: [],
-      userArray: {},
-      interval: null,
+      deliveries: [],
+      users: [],
+      moveOn: false
     }
+  };
+
+  static navigationOptions = {
+    header: null,
   };
 
   componentWillMount() {
@@ -55,37 +34,32 @@ export default class AvailablePackages extends Component {
     clearInterval(this.state.interval)
   }
 
-  fetchData = async (self) => {
-    var data1 = [];
-    var data2 = [];
-    var fireBaseResponse = firebase.database().ref('deliveries');
-    fireBaseResponse.once('value').then(snapshot => {
+  fetchData = (self) => {
+    let deliveries = [];
+    let users = [];
+    // grabbing all users
+    let usersResponse = firebase.database().ref('users');
+    usersResponse.once('value').then(snapshot => {
       snapshot.forEach(item => {
-        var temp = item.val();
-        data1.push(temp);
-
-        return false;
-      });
-
-      self.setState(
-        { deliveryArray: data1 }
-      )
-
-    });
-    fireBaseResponse = firebase.database().ref('users');
-    fireBaseResponse.once('value').then(snapshot => {
-      snapshot.forEach(item => {
-        var temp = item.val();
-        data2.push({
+        let temp = item.val();
+        users.push({
           key: item.key,
           value: temp
         });
-        return false;
       });
+      self.setState({ users }, () => {
+        // grabbing all deliveries
+        let deliveriesResponse = firebase.database().ref('deliveries');
+        deliveriesResponse.once('value').then(snapshot => {
+          snapshot.forEach(item => {
+            let temp = item.val();
+            deliveries.push(temp);
+          });
+          self.setState({ deliveries })
+        });
+      })
 
-      self.setState(
-        { userArray: data2 }
-      )
+
     });
   }
 
@@ -113,39 +87,26 @@ export default class AvailablePackages extends Component {
   render() {
     return (
       <View style={styles.container}>
-<<<<<<< HEAD
         <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'} />
         <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height * .01, paddingBottom: Dimensions.get("screen").height * .12 }}>
           <FlatList
-            data={this.state.deliveryArray}
+            data={this.state.deliveries}
             keyExtractor={(item, index) => index.toString()}
             renderItem={
               ({ item, index }) => {
                 return (
-                  <PackagesBox item={item} firstName={this.getFirstName(item.buyer)} location={this.getLocation(item.buyer)} packageSize={item.packageSize} navigation={this.props.navigation} />
+                  <PackagesBox
+                    item={item}
+                    packageSize={item.packageSize}
+                    navigation={this.props.navigation}
+                    users={this.state.users}
+                  />
                 );
               }
             }
           />
         </View>
       </View>
-=======
-            <Toolbar pageType={'Driver'} navigation={this.props.navigation} title={'Available Packages'}/>
-            <View style={{justifyContent: 'center', alignItems: 'center', marginTop: Dimensions.get('screen').height*.01, height: Dimensions.get("screen").height*0.8, paddingBottom: Dimensions.get("screen").height*.05}}>
-                <FlatList
-                    data= {this.state.deliveryArray}
-                    keyExtractor = {(item, index) => index.toString()}
-                    renderItem = {
-                        ({item, index}) => {
-                            return (    
-                              <PackagesBox item={item} firstName={this.getFirstName(item.buyer)} location={this.getLocation(item.buyer)} packageSize={item.packageSize} navigation={this.props.navigation}/>
-                            );
-                        }
-                    }
-                />  
-              </View>  
-        </View>   
->>>>>>> de1549cfba072e2f91168206bb823d6d1be11b10
     );
   }
 };

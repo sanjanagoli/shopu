@@ -1,12 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator, Console} from 'react-native';
 import firebase from 'firebase';
-
 const database = firebase.database();
 const window = Dimensions.get("window");
 
 export default class LoadingScreen extends React.Component {
-  
 
   static navigationOptions = {
     header: null,
@@ -18,23 +16,28 @@ export default class LoadingScreen extends React.Component {
 
     constructor(props) {
       super(props);
+      this.state = {
+        timePassed: false
+      }
     }
 
-moveOn = () => {
-  const props = this.props;
+updateTimeout = (props) => {
   var fireBaseResponse = firebase.database().ref('deliveries/');
   fireBaseResponse.on("child_changed", function(snapshot) {
     var changedPost = snapshot.val();
-    if (!snapshot.val()) setTimeout(() => this.timeout(), 15000)
     if(changedPost.accepted) {
       props.navigation.navigate('AuthorizeDriver')
     }
-  }, function(error) {
-    setTimeout(() => this.timeout(), 15000)
   });
+}  
+
+moveOn = () => {
+  const props = this.props;
+  this.updateTimeout(props);
+  setTimeout(() => {this.timeout()}, 15000);
 }
 
-  componentWillMount() {
+  componentDidMount() {
     this.moveOn();
   }
 

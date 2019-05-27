@@ -9,12 +9,11 @@ import DropDown from './../components/DropDown';
 import moment from 'moment';
 import RequestStatus from './../screens/RequestStatus';
 import StatusUpdateModal from './../components/StatusUpdateModal';
-
-
+import { connect } from 'react-redux';
+import { currentDelivery } from '../reducers/completedReducer';
 
 
 var newDeliveryKey = firebase.database().ref().child('posts').push().key
-
 
 let sizeItems = 
   [
@@ -46,7 +45,8 @@ let quantItems =
 
 const database = firebase.database();
 const window = Dimensions.get("window")
-export default class ShopSearch extends React.Component {
+
+class ShopSearch extends React.Component {
 
   renderFontSize = () => {
     if (PixelRatio.get() === 2) {
@@ -55,7 +55,8 @@ export default class ShopSearch extends React.Component {
     else if (PixelRatio.get() === 3){
       return 60
     }
-  }
+  } 
+
 
   setPickerSize = (itemValue) => {
     this.setState({ pickerSelectionSize: itemValue})
@@ -70,8 +71,8 @@ export default class ShopSearch extends React.Component {
     };
     
     letsgo = () => {
-      database.ref('deliveries/' + 'delivery'+newDeliveryKey).set({
-        buyer: 'user-Ld7TP38Nf47JgfHC2FG',
+      database.ref(`deliveries/delivery${newDeliveryKey}`).set({
+        buyer: 'user-Lf1EYmNwJJ1rNTJX54O',
         driver: 'bob',
         packageSize: this.state.pickerSelectionSize,
         packageNumber: this.state.pickerSelectionQuant,
@@ -79,14 +80,15 @@ export default class ShopSearch extends React.Component {
         status: 0,
         cost: 3,
         confirmedEmail: false,
-        accepted: false
-      
+        accepted: false,
+        completed: false,
+        id: newDeliveryKey,
       }) 
-   
       this.props.navigation.navigate('LoadingScreen', {
         deliveryKey: newDeliveryKey,
-        userKey: 'user-Ld7TP38Nf47JgfHC2FG',
+        userKey: 'user-Lf1EYmNwJJ1rNTJX54O',
       })
+      this.props.currentDelivery(newDeliveryKey)
       }
     
     componentWillMount = () => {
@@ -122,7 +124,7 @@ export default class ShopSearch extends React.Component {
       return (
         this.state.fontLoaded ? (
           <View style={styles.container}>
-            <Toolbar navigation={this.props.navigation}/>
+            <Toolbar navigation={this.props.navigation} title={`Let's mailU!`}/>
             <View style={styles.mainView}>
                 <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>
@@ -136,9 +138,9 @@ export default class ShopSearch extends React.Component {
                 </View>
                 <View style={styles.whiteBox}> 
                   <View style={styles.rowBox}>
-                    <Text style={styles.searchText}>How many packages do you have?</Text>
-                    <Image style={styles.package}
-                      source={require('./../assets/images/package.png')} />
+                      <Text style={styles.searchText}>How many packages do you have?</Text>
+                      <Image style={styles.package}
+                        source={require('./../assets/images/package.png')} />
                   </View>
                   <Text style={styles.quantityText}>{this.state.pickerSelectionQuant}</Text>
                   <View style={{marginTop: -window.height*.03, marginLeft: window.width*.75}}>
@@ -222,14 +224,24 @@ export default class ShopSearch extends React.Component {
       marginLeft: window.width*.07,
     },
     package:{
-      width: 25,
+      width: 25, 
       height: 25,
-      marginTop: window.height*0.035,
-      marginLeft: -window.width*0.41,
+      marginTop: window.height*0.037,
+      marginLeft: -window.width*0.27,
     },
     button: {
       marginTop: -window.height*0.02,
     }
   });
   
-  
+  const mapStateToProps = state => {
+    return {
+      currentId: state.id
+    }
+  }
+
+const mapDispatchToProps = {
+    currentDelivery
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopSearch);

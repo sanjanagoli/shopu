@@ -1,7 +1,1 @@
-{
-  "hostType": "lan",
-  "lanType": "ip",
-  "dev": true,
-  "minify": false,
-  "urlRandomness": "gx-h5p"
-}
+{}

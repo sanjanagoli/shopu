@@ -3,21 +3,21 @@ import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'rea
 import PrimaryButton from '../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
-
-
-
+import { connect } from 'react-redux';
+import { currentDelivery } from '../reducers/completedReducer';
 
 const database = firebase.database();
     this.state= {driverName: null, yourFirstName: null, yourLastName: null}
   
 
-export default class AuthorizeDriver extends React.Component {
+class AuthorizeDriver extends React.Component {
     
     static navigationOptions = {
         header: null,
     };
     
     submit = () => {
+        database.ref(`deliveries/delivery${this.props.currentId}/confirmedEmail`).set(true)
         this.props.navigation.navigate('OrderComplete')
     }
 
@@ -123,3 +123,15 @@ const styles = StyleSheet.create({
         marginBottom: Dimensions.get("screen").height*.01,
       },
 });
+
+const mapStateToProps = state => {
+    return {
+      currentId: state.id
+    }
+  }
+
+const mapDispatchToProps = {
+    currentDelivery
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthorizeDriver);

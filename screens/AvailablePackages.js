@@ -46,6 +46,11 @@ export default class AvailablePackages extends Component {
       //writeNewPost(5, 'username', 'user@email.com', 'user', 'name', 'location');
       this.fetchData();
     }
+
+    componentDidUpdate() {
+      this.fetchData();
+    }
+    
     fetchData = async () => {
         var data1 = [];
         var data2 = [];

@@ -3,9 +3,6 @@ const CURRENT_DELIVERY = 'CURRENT_DELIVERY'
 const CURRENT_USER = 'CURRENT_USER'
 
 export default function completedReducer(state = { user: '', id: '', completed: false }, action) {
-  // if (action.type !== DELIVERY_COMPLETE && action.type !== CURRENT_DELIVERY) {
-  //   action.type = CURRENT_USER
-  // }
   switch (action.type) {
       case DELIVERY_COMPLETE:
         return { ...state, completed: true };

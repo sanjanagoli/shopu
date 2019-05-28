@@ -7,8 +7,6 @@ import { AsyncStorage } from "react-native";
 export default class Welcome extends React.Component {
   static navigationOptions = {
     header: null,
-    tabBarVisible: false,
-
     };
 
 

@@ -88,8 +88,8 @@ class PackagesBox extends React.Component {
               <Text style={styles.name}>{this.state.name}</Text>
               <Text style={styles.location}>{this.state.location}</Text>
             </View>
-            <Text style={styles.packageSize}>{this.props.packageSize}</Text>
-            <Text style={styles.packageSize}>{this.props.packageNumber}</Text>
+            <Text style={styles.packageSize}>{this.props.packageSize} - {this.props.packageNumber}</Text>
+            {/* <Text style={styles.packageSize}>{this.props.packageNumber}</Text> */}
             <Text style={styles.email}>{this.state.email}</Text>
           </View>
         </TouchableOpacity>
@@ -102,7 +102,8 @@ class PackagesBox extends React.Component {
             <Text style={styles.name}>{this.state.name}</Text>
             <Text style={styles.location}>{this.state.location}</Text>
           </View>
-          <Text style={styles.packageSize}>{this.props.packageSize}</Text>
+          <Text style={styles.packageSize}>{this.props.packageSize} - {this.props.packageNumber}</Text>
+          {/* <Text style={styles.packageSize}>{this.props.packageNumber}</Text> */}
           <Text style={styles.email}>{this.state.email}</Text>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={this.onPress.bind(this, this.props.item)} title={'Accept'} backgroundColor={'#19C6D1'} height={Dimensions.get('screen').height * .05} fontSize={25} />
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width * .06,
     paddingTop: Dimensions.get("screen").height * .03,
-    paddingRight: Dimensions.get("screen").width * .10,
+    paddingRight: Dimensions.get("screen").width * .05,
   },
   packageSize: {
     fontSize: 18,

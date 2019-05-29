@@ -1,66 +1,99 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity, TextInput} from 'react-native';
-import OrangeBackground from './../components/OrangeBackground';
 import PrimaryButton from './../components/PrimaryButton';
 import Toolbar from '../components/Toolbar';
 import firebase from 'firebase';
+import { connect } from 'react-redux';
+import { setUser } from '../reducers/completedReducer';
+import { AsyncStorage } from "react-native";
 
 const database = firebase.database();
-var newUserKey = firebase.database().ref().child('posts').push().key
 
-export default class AccountProfile extends React.Component {
+class AccountProfile extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { editor: false };
-    this.state = { email: '', password: '', phoneNumber: '', venmo: '', location: ''};
+    this.state = { editor: true, email: '', password: '', phoneNumber: '', venmo: '', location: ''};
   }
 
   static navigationOptions = {
     header: null,
     };
 
+  componentWillMount = async () => {
+    const self = this;
+    const userId = await AsyncStorage.getItem('userId');
+    self.mounted = true;
+    if (userId !== null) {
+      self.props.setUser(userId)
+    }
+    database.ref(`users/${this.props.userId}`).on("value", function (userSnapshot) {
+      if (self.mounted) {
+      self.setState({
+        email: userSnapshot.val().email,
+        password: userSnapshot.val().password,
+        phoneNumber: userSnapshot.val().phoneNumber,
+        venmo: userSnapshot.val().venmo,
+        location: userSnapshot.val().location,
+      })
+    }
+    });
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   onPress = () => {
     this.setState({
       editor: !this.state.editor
     })
-    database.ref('users/' + 'user'+newUserKey).set({
+    database.ref(`users/${this.props.userId}`).set({
       email: this.state.email,
       password: this.state.password,
       phoneNumber: this.state.phoneNumber,
       venmo: this.state.venmo,
-      location: this.state.location
+      location: this.state.location,
     })
   }
 
   updatingUser = () => {
-    database.ref('users/' + 'user'+newUserKey).set({
+    database.ref(`users/${this.props.userId}`).update({
       email: this.state.email,
       password: this.state.password,
       phoneNumber: this.state.phoneNumber,
       venmo: this.state.venmo,
-      location: this.state.location
+      location: this.state.location,
     })
     }
 
     goBack = () => {	   
       this.props.navigation.navigate('ShopSearch')
-    }	      
+    }	  
+    
+    logOut = () => {
+      database.ref(`users/${this.props.userId}`).update({
+        loggedIn: false,
+      })
+      AsyncStorage.removeItem('userId')
+      this.props.setUser(null)
+      this.props.navigation.navigate('Welcome')
+    }
 
   render() {
     return (
       <View style={styles.container}>
         <Toolbar title={'Account Profile'} pageType={'Profile'}/>
-        <TouchableOpacity style={styles.subView} onPress={this.goBack}>	            
+        <View style={styles.subView}>
+          <TouchableOpacity style={{flexDirection: 'row'}} onPress={this.goBack}>	            
               <Image style={styles.arrowIcon}	             
                   source={require('./../assets/images/left-arrow.png')} />	                 
-              <Text style={styles.backText}>Back</Text>	              
-        </TouchableOpacity>
+              <Text style={styles.backText}>Back</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{marginLeft: Dimensions.get('screen').width * 0.5}} onPress={this.logOut}>
+              <Text style={styles.logoutText}>Log Out</Text>	 
+          </TouchableOpacity>             
+        </View>
         <View style={styles.whiteBox}>
-            <View style={{marginLeft: Dimensions.get('screen').width*.8}}>
-              <TouchableOpacity onPress={this.onPress}>
-                <Image style={styles.editPencil} source={require('./../assets/images/edit_pencil_black.png')} />
-              </TouchableOpacity>
-            </View>           
             <View>
               <View style={styles.textIcon}>
                 <TextInput style={styles.subHeader} 
@@ -114,7 +147,7 @@ export default class AccountProfile extends React.Component {
               </View>    
             <View style={{alignItems: 'center'}}>
               <View style={styles.buttonStyle}>
-                <PrimaryButton backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24}/>
+                <PrimaryButton onPress={this.updatingUser} backgroundColor={'#19C6D1'} height={50} title={'Save'} fontSize={24}/>
               </View>
             </View>
             </View>
@@ -124,6 +157,16 @@ export default class AccountProfile extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  userId: state.user,
+});
+
+const mapDispatchToProps = {
+  setUser
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AccountProfile)
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -131,11 +174,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   textIcon: {
-    marginBottom: Dimensions.get("screen").height*.05,
+    marginBottom: Dimensions.get("screen").height * .02,
+    marginTop: Dimensions.get('screen').height * .04,
   },
   buttonStyle: {
-    marginTop: Dimensions.get('screen').height*.008,
-    width: Dimensions.get('screen').width*.5,
+    marginTop: Dimensions.get('screen').height * .015,
+    width: Dimensions.get('screen').width * .6,
   },
   subHeader: {
     color: '#2E2E2F',
@@ -151,7 +195,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get("screen").height*.6,
     backgroundColor: '#FFFFFF',
     justifyContent: 'flex-start',
-    marginTop: Dimensions.get("screen").height*.04,
+    marginTop: Dimensions.get("screen").height*.03,
     marginLeft: Dimensions.get("screen").width*.045,
     borderRadius: 5,
     borderWidth: 2,
@@ -210,6 +254,13 @@ const styles = StyleSheet.create({
   subView: {	 
     flexDirection: 'row', 	    
     paddingHorizontal: Dimensions.get("screen").width*.05,	    
-    marginTop: Dimensions.get("screen").height*.01	   
+    marginTop: Dimensions.get("screen").height*.02	   
+  },
+  logoutText: {
+    fontSize: 18,
+    fontFamily: 'Montserrat-Regular',
+    color: '#262626',
+    marginLeft: Dimensions.get("screen").width * .008,
+    marginTop: -Dimensions.get("screen").height * .006,
   },
 });

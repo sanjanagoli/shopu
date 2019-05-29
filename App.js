@@ -24,11 +24,13 @@ import YourCart from './screens/YourCart';
 import YourResults from './screens/YourResults';
 import Payment from './screens/Payment';
 import LoadingScreen from './screens/LoadingScreen';
+import SignUp from './screens/SignUp';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider, connect } from 'react-redux';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import completedReducer from  './reducers/completedReducer';
+import { AsyncStorage } from "react-native";
 
 
 const client = axios.create({
@@ -45,7 +47,18 @@ YellowBox.ignoreWarnings([
 FontLoad.then((res) => {
 })
 
+console.disableYellowBox = true;
+
 const shopStackNavigator = createStackNavigator({
+  Welcome: {
+    screen: Welcome,
+  },
+  SignUp: {
+    screen: SignUp
+  },
+  Login: {
+    screen: Login
+  },
   ShopSearch: {
     screen: ShopSearch
   },
@@ -99,7 +112,7 @@ const driverStackNavigator = createStackNavigator({
   },
   Deliveries: {
     screen: Deliveries
-  }
+  },
 });
 
 const TabNavigator = createBottomTabNavigator({
@@ -142,12 +155,22 @@ const TabNavigator = createBottomTabNavigator({
 
 const JuicedAppContainer = createAppContainer(TabNavigator);
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <JuicedAppContainer/>
-    </Provider>
-  )
+class App extends React.Component {
+  componentWillMount = async () => {
+    const navigation = this.props.navigation;
+    const userId = await AsyncStorage.getItem('userId');
+    if(userId !== null) {
+      navigation.navigate('ShopSearch')
+    }
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <JuicedAppContainer />
+      </Provider>
+    )
+  }
 }
 
 export default App;

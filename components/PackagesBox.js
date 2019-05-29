@@ -88,7 +88,7 @@ class PackagesBox extends React.Component {
               <Text style={styles.name}>{this.state.name}</Text>
               <Text style={styles.location}>{this.state.location}</Text>
             </View>
-            <Text style={styles.packageSize}>{this.props.packageSize}</Text>
+            <Text style={styles.packageSize}>{this.props.packageSize} - {this.props.packageNumber}</Text>
             <Text style={styles.email}>{this.state.email}</Text>
           </View>
         </TouchableOpacity>
@@ -101,7 +101,7 @@ class PackagesBox extends React.Component {
             <Text style={styles.name}>{this.state.name}</Text>
             <Text style={styles.location}>{this.state.location}</Text>
           </View>
-          <Text style={styles.packageSize}>{this.props.packageSize}</Text>
+          <Text style={styles.packageSize}>{this.props.packageSize} - {this.props.packageNumber}</Text>
           <Text style={styles.email}>{this.state.email}</Text>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={this.onPress.bind(this, this.props.item)} title={'Accept'} backgroundColor={'#19C6D1'} height={Dimensions.get('screen').height * .05} fontSize={25} />
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   rectangles: {
     backgroundColor: '#fff',
     width: Dimensions.get("screen").width * .90,
-    height: Dimensions.get("screen").height * .17,
+    height: Dimensions.get("screen").height * .19,
     marginTop: Dimensions.get("screen").height * .035,
     borderColor: '#19C6D1',
     borderWidth: 1.5,
@@ -152,16 +152,16 @@ const styles = StyleSheet.create({
   subView: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: Dimensions.get("screen").width,
+    width: Dimensions.get("screen").width*.8,
   },
   name: {
-    fontSize: 22,
+    fontSize: 21,
     color: '#212121',
     textAlign: 'left',
     fontFamily: 'Montserrat-Bold',
     marginLeft: Dimensions.get("screen").width * .06,
     paddingTop: Dimensions.get("screen").height * .03,
-    paddingRight: Dimensions.get("screen").width * .40,
+    paddingRight: Dimensions.get("screen").width * .05,
   },
   packageSize: {
     fontSize: 18,
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: Dimensions.get("screen").width * .65,
     marginLeft: Dimensions.get('screen').width * .125,
-    marginTop: Dimensions.get('screen').height * .018
+    marginTop: Dimensions.get('screen').height * -.025
   },
 });
 

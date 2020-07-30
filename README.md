@@ -29,6 +29,10 @@ mailU is a mobile application designed to allow students to connect students who
 * Archita Harathi '22
 * Mia Seiner '22
 
+ ## Screenshots
+ ![Demo 1](./demo1.png)
+ ![Demo 2](./demo2.png)
+ 
  ## Acknowledgments
 
  We'd like to thank our faculty advisor Lorie Loeb and mentor Ijemma Onwuzulike (Dartmouth class of ‘19) for their guidance and the hard work they've contributed to helping us succeed in achieving our goals within, as well as outside, this project.

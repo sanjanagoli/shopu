@@ -31,7 +31,6 @@ mailU is a mobile application designed to allow students to connect students who
 
  ## Screenshots
  ![Demo 1](./demo1.png)
- ![Demo 2](./demo2.png)
  
  ## Acknowledgments
 
